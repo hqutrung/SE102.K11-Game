@@ -1,7 +1,8 @@
 #include "Sprites.h"
 
-Sprites::Sprites(BoxCollider box, LPDIRECT3DTEXTURE9 texture)
+Sprites::Sprites(int id,BoxCollider box, LPDIRECT3DTEXTURE9 texture)
 {
+	this->id = id;
 	this->texture = texture;
 	if (IsRect(box))
 	{
@@ -19,7 +20,7 @@ Sprites::Sprites(BoxCollider box, LPDIRECT3DTEXTURE9 texture)
 	}
 
 
-	position = D3DXVECTOR3(0, 0, 0);
+	position = D3DXVECTOR3(0 ,0, 0);
 	translation = D3DXVECTOR2(0, 0);
 
 	spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
@@ -75,7 +76,7 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, boo
 	if (IsRect(box))
 		inSourceRect = box;
 
-	D3DXVECTOR3 center = D3DXVECTOR3(width / 8.0f, height / 2.0f, 0);
+	D3DXVECTOR3 center = D3DXVECTOR3(width / 2.0f, height / 2.0f, 0);
 
 	D3DXMATRIX m_Maxtrix;
 
@@ -121,4 +122,21 @@ void Sprites::NormalDraw(D3DXVECTOR3 position)
 		D3DCOLOR_XRGB(255, 255, 255)
 	);
 }
-
+//
+//void ListSprites::Add(int id, BoxCollider rect, LPDIRECT3DTEXTURE9 tex)
+//{
+//	LPSPRITE s = new Sprites(id, rect, tex);
+//	lSprites[id] = s;
+//}
+//
+//LPSPRITE ListSprites::Get(int id)
+//{
+//	return lSprites[id];
+//}
+//
+//ListSprites* ListSprites::GetInstance()
+//{
+//
+//	if (instance == NULL) instance = new ListSprites();
+//	return instance;
+//}

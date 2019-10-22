@@ -128,10 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="Textures.cpp" />
@@ -139,10 +142,13 @@
   <ItemGroup>
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="DemoScene.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="Graphic.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Support.h" />
     <ClInclude Include="Textures.h" />

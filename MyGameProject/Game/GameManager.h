@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphic.h"
-
+#include"SceneManager.h"
+#include "DemoScene.h"
 class GameManager {
 
 	HWND hWnd;

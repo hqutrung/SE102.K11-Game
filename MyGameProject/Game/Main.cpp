@@ -103,7 +103,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			}
 			else
 				//slFrame++;
+
 			//gameManager.ProcessInput();
+			
 			gameManager.Update(dt);
 			gameManager.Render();
 			dt = 0;
