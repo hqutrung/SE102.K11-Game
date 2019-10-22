@@ -7,18 +7,22 @@ class Scene
 {
 public:
 
-	virtual void Update(float dt);
-	virtual void LoadContent();
-	virtual void Render() =0;
+	virtual void Update(float dt) = 0;
+	virtual void LoadContent() = 0;
+	virtual void Render() = 0;
+
+	virtual void ProcessInput();
+	virtual int GetSceneID() = 0;
 
 	D3DCOLOR GetBackcolor();
+	void SetBackColor(D3DCOLOR backColor);
 	
 	~Scene();
 
 protected:
 	Scene();
 
-	D3DCOLOR                mBackColor;
+	D3DCOLOR                backColor;
 
 private:
 };

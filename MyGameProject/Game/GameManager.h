@@ -10,7 +10,7 @@ class GameManager {
 	bool isPause;
 	Graphic* graphic;
 	//KeyBoard* keyBoard;
-	//SceneManager* sceneManager;
+	SceneManager* sceneManager;
 
 public:
 	GameManager(HWND hWnd, HINSTANCE hInstance);

@@ -1,11 +1,2 @@
 ﻿  DemoScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(36,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-  GameManager.cpp
-  Main.cpp
-E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(36,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Main.cpp(109,23): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-  Scene.cpp
-  SceneManager.cpp
-  Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\Main.cpp(114,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

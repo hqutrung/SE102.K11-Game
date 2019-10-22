@@ -3,9 +3,7 @@
 
 Scene::Scene()
 {
-	mBackColor = 0x4866ff;
-
-	LoadContent();
+	backColor = 0x4866ff;
 }
 
 Scene::~Scene()
@@ -13,16 +11,17 @@ Scene::~Scene()
 
 }
 
-void Scene::Update(float dt)
+
+void Scene::ProcessInput()
 {
 }
-
-void Scene::LoadContent()
-{
-}
-
 
 D3DCOLOR Scene::GetBackcolor()
 {
-	return mBackColor;
+	return backColor;
+}
+
+void Scene::SetBackColor(D3DCOLOR backColor)
+{
+	this->backColor = backColor;
 }

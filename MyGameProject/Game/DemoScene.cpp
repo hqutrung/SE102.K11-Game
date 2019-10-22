@@ -11,8 +11,10 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	Textures* t = Textures::GetInstance();
-	t->Add(1, L"Resources/player.png", D3DCOLOR_XRGB(255, 255, 255));
+	Textures* texture = Textures::GetInstance();
+	//texture->Add(1, L"Resources/running.png", D3DCOLOR_XRGB(255, 163, 177));
+	texture->Add(1, L"Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 255, 255));
+	texture->Add(2, L"Resources/abcd.png", D3DCOLOR_XRGB(255, 255, 255));
 }
 
 void DemoScene::Update(float dt)
@@ -31,7 +33,21 @@ void DemoScene::Update(float dt)
 
 void DemoScene::Render()
 {
-	Sprites* sp = new Sprites(1, BoxCollider(), Textures::GetInstance()->GetTexture(1));
-		sp->NormalDraw(D3DXVECTOR3(0, 0, 0));
-		sp->Draw(D3DXVECTOR3(sp->GetWidth()/2,sp->GetHeight()/2,0));
+	
+	//Sprites* sp1 = new Sprites(Textures::GetInstance()->GetTexture(1), BoxCollider());
+	//sp->NormalDraw(D3DXVECTOR3(0, 0, 0));
+	//sp1->Draw(D3DXVECTOR3(sp1->GetWidth() / 2, sp1->GetHeight() / 2, 0), BoxCollider(), D3DCOLOR_XRGB(255,255,255), true);
+
+	Sprites* sp2 = new Sprites(Textures::GetInstance()->GetTexture(2), BoxCollider(0, 33, 65, 42));
+	sp2->Draw();
+	sp2->Draw(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f));
+
+	Sprites* sp3 = new Sprites(Textures::GetInstance()->GetTexture(1), BoxCollider());
+	sp3->Draw(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f));
+
+}
+
+int DemoScene::GetSceneID()
+{
+	return 1;
 }

@@ -1,18 +1,54 @@
 ﻿  Debug.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,38): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [16]' to 'LPCSTR'
-E:\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-  GameManager.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,38): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [16]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+  DemoScene.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(36,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  GameManager.cpp
   GameTime.cpp
   Graphic.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(36,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Graphic.cpp(40,54): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [30]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Graphic.cpp(40,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Graphic.cpp(48,48): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [25]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Graphic.cpp(48,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
   Main.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(42,38): error C2440: '=': cannot convert from 'const wchar_t [12]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(42,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(48,1): error C2664: 'HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': cannot convert argument 2 from 'const wchar_t [12]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(48,1): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winuser.h(4420,1): message : see declaration of 'CreateWindowExA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(65,52): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [29]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(65,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(71,47): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [25]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(71,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(109,23): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+  Scene.cpp
+  SceneManager.cpp
   Sprites.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(114,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(10,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(19,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(19,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Support.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(98,91): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
   Textures.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Support.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(20,64): error C2664: 'HRESULT D3DXGetImageInfoFromFileA(LPCSTR,D3DXIMAGE_INFO *)': cannot convert argument 1 from 'LPCWSTR' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(20,44): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\d3dx9tex.h(283,5): message : see declaration of 'D3DXGetImageInfoFromFileA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(31,11): error C2664: 'HRESULT D3DXCreateTextureFromFileExA(LPDIRECT3DDEVICE9,LPCSTR,UINT,UINT,UINT,DWORD,D3DFORMAT,D3DPOOL,DWORD,DWORD,D3DCOLOR,D3DXIMAGE_INFO *,PALETTEENTRY *,LPDIRECT3DTEXTURE9 *)': cannot convert argument 2 from 'LPCWSTR' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(33,3): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\d3dx9tex.h(1194,5): message : see declaration of 'D3DXCreateTextureFromFileExA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(49,62): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [38]' to 'LPCSTR'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Textures.cpp(49,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
   Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'

@@ -8,9 +8,10 @@ class DemoScene:public Scene
 public:
 	DemoScene();
 	~DemoScene();
-	void Update(float dt);
-	void LoadContent();
+	void Update(float dt) override;
+	void LoadContent() override;
 	void Render() override;
+	int GetSceneID() override;
 private:
 	
 

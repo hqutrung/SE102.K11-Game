@@ -13,78 +13,96 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{2053a490-26e2-4f60-ba68-cb8206daef61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{f003ee0a-ebc9-40c9-9ccd-cd88a47c05b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork">
+      <UniqueIdentifier>{c0ee8eae-6570-46f1-b714-5d3ef17fb908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{31c9ef19-cf86-48bf-803b-d9157bb366a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Support.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="DemoScene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>FrameWork</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BoxCollider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Support.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameManager.h">
+      <Filter>Manager</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="DemoScene.h">
-      <Filter>Header Files</Filter>
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>FrameWork</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

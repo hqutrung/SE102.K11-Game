@@ -23,7 +23,7 @@ protected:
 
 public:
 
-	Sprites(int id,BoxCollider rect, LPDIRECT3DTEXTURE9 texture);
+	Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box);
 	~Sprites();
 
 	int GetWidth();

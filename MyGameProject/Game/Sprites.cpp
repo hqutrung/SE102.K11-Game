@@ -1,8 +1,7 @@
 #include "Sprites.h"
 
-Sprites::Sprites(int id,BoxCollider box, LPDIRECT3DTEXTURE9 texture)
+Sprites::Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box)
 {
-	this->id = id;
 	this->texture = texture;
 	if (IsRect(box))
 	{
@@ -18,7 +17,6 @@ Sprites::Sprites(int id,BoxCollider box, LPDIRECT3DTEXTURE9 texture)
 		width = desc.Width;
 		this->box = BoxCollider(0, 0, width, height);
 	}
-
 
 	position = D3DXVECTOR3(0 ,0, 0);
 	translation = D3DXVECTOR2(0, 0);
@@ -89,7 +87,7 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, boo
 		D3DXMatrixIdentity(&m_Maxtrix);
 
 		//auto scalingScenter = D3DXVECTOR2(p.x, p.y);
-		auto scalingScenter = D3DXVECTOR2(inPosition.x, inPosition.y);
+		auto scalingScenter = D3DXVECTOR2(inPosition.x + width / 2.0f, inPosition.y);
 		auto inScale = D3DXVECTOR2(-1.0f, 1.0f);
 		auto inRotationCenter = D3DXVECTOR2(0, 0);
 		auto inRotation = 0;
