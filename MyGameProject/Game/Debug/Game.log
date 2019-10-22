@@ -1,2 +1,3 @@
 ﻿  DemoScene.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Animation.h(9,120): warning C4244: '=': conversion from 'float' to 'DWORD', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

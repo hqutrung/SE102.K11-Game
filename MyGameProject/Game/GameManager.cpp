@@ -28,12 +28,12 @@ GameManager::~GameManager()
 	//sceneManager = NULL;
 }
 
-void GameManager::Update(DWORD dt)
+void GameManager::Update(float dt)
 {
 	if (isPause)
 		return;
 
-	
+	sceneManager->Update(dt);
 }
 
 void GameManager::Render()

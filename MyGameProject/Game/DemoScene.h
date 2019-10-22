@@ -1,9 +1,9 @@
 #pragma once
-#include"Scene.h"
-#include"Sprites.h"
-#include"Textures.h"
+#include "Scene.h"
+#include "Textures.h"
+#include "Animation.h"
 
-class DemoScene:public Scene
+class DemoScene: public Scene
 {
 public:
 	DemoScene();
@@ -12,9 +12,9 @@ public:
 	void LoadContent() override;
 	void Render() override;
 	int GetSceneID() override;
-private:
-	
 
+protected:
+	LPANIMATION marioAni;
 	float mTimeCounter;
 };
 

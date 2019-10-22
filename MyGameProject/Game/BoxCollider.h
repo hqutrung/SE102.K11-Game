@@ -28,6 +28,7 @@ public:
 	D3DXVECTOR2 getCenter() { return D3DXVECTOR2((left + right) / 2.0f, (top + bottom) / 2.0f); }
 
 	float GetWidth() { return right - left; }
+
 	float GetHeight() { return bottom - top; }
 	/*void Multiply(float x) {
 		top *= x;

@@ -16,7 +16,7 @@ public:
 	GameManager(HWND hWnd, HINSTANCE hInstance);
 	~GameManager();
 
-	void Update(DWORD dt);
+	void Update(float dt);
 	void Render();
 	void ProcessInput();
 

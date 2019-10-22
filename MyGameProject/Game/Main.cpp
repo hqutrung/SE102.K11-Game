@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include <windowsx.h>
+#include <time.h>
 
 #include "GameTime.h"
 #include "GameConfig.h"
@@ -87,30 +88,38 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (!done) {
 
 		GameTime::GetInstance()->StartCounter();
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
-			if (msg.message == WM_QUIT) done = 1;
+
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			if (msg.message == WM_QUIT)
+				done = 1;
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
 
-		dt += GameTime::GetInstance()->GetCouter();
+		dt += GameTime::GetInstance()->GetCounter();
+
+		//OutputDebugString();
+
 		if (dt >= SPF) {
 
-			if (GetTickCount() - startTime >= 1000) {
-				//DebugOut(L"so luong frame/s: %d\n", slFrame);
-				startTime = GetTickCount();
-				//slFrame = 0;
-			}
-			else
-				//slFrame++;
+			//if (GetTickCount() - startTime >= 1000) {
+			//	//DebugOut(L"so luong frame/s: %d\n", slFrame);
+			//	startTime = GetTickCount();
+			//	//slFrame = 0;
+			//}
+			//else
+			//	//slFrame++;
 
-			//gameManager.ProcessInput();
+			gameManager.ProcessInput();
 			
 			gameManager.Update(dt);
 			gameManager.Render();
+
 			dt = 0;
 		}
-		else {
+		else 
+		{
 			Sleep(SPF - dt);
 			dt = SPF;
 		}
