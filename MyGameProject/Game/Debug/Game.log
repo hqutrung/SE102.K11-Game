@@ -1,0 +1,5 @@
+﻿  GameManager.cpp
+D:\Documents\Game\MyGameProject\Game\GameManager.cpp(85,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\MyGameProject\Game\GameManager.cpp(92,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\MyGameProject\Game\GameManager.cpp(92,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Game.vcxproj -> D:\Documents\Game\MyGameProject\Debug\Game.exe
