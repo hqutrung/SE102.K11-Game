@@ -82,7 +82,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	bool done = false;
 	float dt = 0;
 
-	DWORD startTime = GetTickCount();
+	//DWORD startTime = GetTickCount();
 	//int slFrame = 0;
 
 	while (!done) {

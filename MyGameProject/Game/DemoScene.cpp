@@ -13,22 +13,28 @@ void DemoScene::LoadContent()
 {
 	Textures* texture = Textures::GetInstance();
 	texture->Add(1, L"Resources/running.png", D3DCOLOR_XRGB(255, 163, 177));
-	texture->Add(2, L"Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 255, 255));
+	texture->Add(2, L"Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 163, 177));
 	texture->Add(3, L"Resources/mario.png", D3DCOLOR_XRGB(255, 255, 255));
 
 	marioAni = new Animation(0.1f);
 	marioAni->AddFrames(texture->GetTexture(3), 1, 15, 0, D3DCOLOR_XRGB(255, 255, 255));
 	
+	spartaAni = new Animation(0.1f);
+	spartaAni->AddFrames(texture->GetTexture(2), 1, 4, 0, D3DCOLOR_XRGB(255, 255, 255));
+
 }
 
 void DemoScene::Update(float dt)
 {
 	marioAni->Update(dt);
+	spartaAni->Update(dt);
 }
 
 void DemoScene::Render()
 {
 	marioAni->Render(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0));
+	spartaAni->Render(D3DXVECTOR3(SCREEN_WIDTH / 2 - 20, SCREEN_HEIGHT / 2 + 10, 0));
+
 	//Sprites* sp1 = new Sprites(Textures::GetInstance()->GetTexture(1), BoxCollider());
 	////sp->NormalDraw(D3DXVECTOR3(0, 0, 0));
 	//sp1->Draw(D3DXVECTOR3(sp1->GetWidth() / 2, sp1->GetHeight() / 2, 0), BoxCollider(), D3DCOLOR_XRGB(255,255,255), true);

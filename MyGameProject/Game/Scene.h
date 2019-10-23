@@ -5,7 +5,15 @@
 
 class Scene
 {
+
+protected:
+	D3DCOLOR                backColor;
+
+	Scene();
+
 public:
+
+	virtual ~Scene();
 
 	virtual void Update(float dt) = 0;
 	virtual void LoadContent() = 0;
@@ -17,14 +25,6 @@ public:
 	D3DCOLOR GetBackcolor();
 	void SetBackColor(D3DCOLOR backColor);
 	
-	~Scene();
-
-protected:
-	Scene();
-
-	D3DCOLOR                backColor;
-
-private:
 };
 
 #endif

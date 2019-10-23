@@ -63,6 +63,9 @@
     <ClCompile Include="Animation.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameConfig.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,16 +6,16 @@
 
 class GameTime
 {
+
+	GameTime();
+	LARGE_INTEGER mStartTime, mEndTime, mDelta, mClockRate;
+	static GameTime* mInstance;
 public:
 	void StartCounter();
 	float GetCounter();
 	static GameTime* GetInstance();
 	~GameTime();
 
-private:
-	GameTime();
-	LARGE_INTEGER mStartTime, mEndTime, mDelta, mClockRate;
-	static GameTime* mInstance;
 };
 
 #endif

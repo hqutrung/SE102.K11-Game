@@ -5,6 +5,14 @@
 
 class SceneManager
 {
+
+	//void CreateScene(int sceneID);
+
+	SceneManager();
+	static SceneManager* mInstace;
+	Scene* mCurrentScene;
+
+	//float destSceneID;
 public:
 	static SceneManager* GetInstance();
 	~SceneManager();
@@ -15,14 +23,7 @@ public:
 
 	//int GetSceneID();
 
-private:
-	//void CreateScene(int sceneID);
 
-	SceneManager();
-	static SceneManager* mInstace;
-	Scene* mCurrentScene;
-
-	//float destSceneID;
 };
 
 #endif

@@ -4,18 +4,16 @@
 
 class AnimationFrame : public Sprites
 {
-	DWORD time;
+	float time;
 public:
 	AnimationFrame(LPDIRECT3DTEXTURE9 texture, BoxCollider box, float time = 0.1f) : Sprites(texture, box) { this->time = time; }
 
-	DWORD GetTime() {
-		return time;
-	}
+	float GetTime() { return time; }
 };
 typedef AnimationFrame* LPANIMATION_FRAME;
 
 class Animation {
-	DWORD lastFrameTime;
+	//DWORD lastFrameTime;
 	float defaultTime;
 	int currentFrame;
 	int totalFrame;

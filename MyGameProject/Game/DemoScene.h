@@ -5,6 +5,11 @@
 
 class DemoScene: public Scene
 {
+protected:
+	LPANIMATION marioAni;
+	LPANIMATION spartaAni;
+	float mTimeCounter;
+
 public:
 	DemoScene();
 	~DemoScene();
@@ -13,8 +18,5 @@ public:
 	void Render() override;
 	int GetSceneID() override;
 
-protected:
-	LPANIMATION marioAni;
-	float mTimeCounter;
 };
 

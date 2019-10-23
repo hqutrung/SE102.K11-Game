@@ -5,7 +5,6 @@ Animation::Animation(float defaultTime)
 	totalFrame = 0;
 	currentFrame = 0;
 	this->defaultTime = defaultTime;
-	//startUpdate = true;
 }
 
 Animation::~Animation()
