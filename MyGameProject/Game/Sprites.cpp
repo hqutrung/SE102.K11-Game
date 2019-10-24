@@ -18,7 +18,7 @@ Sprites::Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box)
 		this->box = BoxCollider(0, 0, width, height);
 	}
 
-	position = D3DXVECTOR3(0 ,0, 0);
+	position = D3DXVECTOR3(box.left ,box.top, 0);
 	translation = D3DXVECTOR2(0, 0);
 
 	spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();

@@ -12,6 +12,9 @@ DemoScene::~DemoScene()
 void DemoScene::LoadContent()
 {
 	Textures* texture = Textures::GetInstance();
+
+	map = new GameMap(L"Resources/map31TileSet.png", L"Resources/map31.txt", 32, 32);
+
 	texture->Add(1, L"Resources/running.png", D3DCOLOR_XRGB(255, 163, 177));
 	texture->Add(2, L"Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 163, 177));
 	texture->Add(3, L"Resources/mario.png", D3DCOLOR_XRGB(255, 255, 255));
@@ -21,6 +24,7 @@ void DemoScene::LoadContent()
 	
 	spartaAni = new Animation(0.1f);
 	spartaAni->AddFrames(texture->GetTexture(2), 1, 4, 0, D3DCOLOR_XRGB(255, 255, 255));
+
 
 }
 
@@ -34,6 +38,7 @@ void DemoScene::Render()
 {
 	marioAni->Render(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0));
 	spartaAni->Render(D3DXVECTOR3(SCREEN_WIDTH / 2 - 20, SCREEN_HEIGHT / 2 + 10, 0));
+	map->Draw();
 
 	//Sprites* sp1 = new Sprites(Textures::GetInstance()->GetTexture(1), BoxCollider());
 	////sp->NormalDraw(D3DXVECTOR3(0, 0, 0));

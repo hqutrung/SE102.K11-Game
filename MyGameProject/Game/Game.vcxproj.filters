@@ -66,6 +66,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="GameMap.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameConfig.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMap.h">
+      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
