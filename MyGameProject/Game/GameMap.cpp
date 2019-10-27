@@ -40,7 +40,7 @@ LPSPRITE Tileset::GetSprite(int id) {
 //GameMap::GameMap(char * tilesetPath, int tileWidth, int tileHeight) {
 //}
 
-GameMap::GameMap(LPCWSTR tilesetPath, LPCWSTR mapPath, int tileHeight, int tileWidth, bool gridBuildIn) {
+GameMap::GameMap(LPCSTR tilesetPath, LPCSTR mapPath, int tileHeight, int tileWidth, bool gridBuildIn) {
 	LoadTileset(tilesetPath, tileWidth, tileHeight);
 	if (gridBuildIn)
 		SetMapPathGridBuildIn(mapPath);
@@ -48,7 +48,7 @@ GameMap::GameMap(LPCWSTR tilesetPath, LPCWSTR mapPath, int tileHeight, int tileW
 		SetMapPath(mapPath);
 }
 
-void GameMap::SetMapPath(LPCWSTR mapPath) {
+void GameMap::SetMapPath(LPCSTR mapPath) {
 	this->mapPath = mapPath;
 	std::fstream reader(mapPath);
 	if (reader.fail()) {
@@ -66,7 +66,7 @@ void GameMap::SetMapPath(LPCWSTR mapPath) {
 	}
 }
 
-void GameMap::SetMapPathGridBuildIn(LPCWSTR mapPath) {
+void GameMap::SetMapPathGridBuildIn(LPCSTR mapPath) {
 	this->mapPath = mapPath;
 	std::fstream reader(mapPath);
 	if (reader.fail()) {
@@ -136,7 +136,7 @@ GameMap::~GameMap() {
 	mapIDs = NULL;
 }
 
-void GameMap::LoadTileset(LPCWSTR filePath, int tileWidth, int tileHeight) {
+void GameMap::LoadTileset(LPCSTR filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
 	Textures::GetInstance()->Add(11, filePath, D3DCOLOR_XRGB(255, 0, 255));
 	auto texture = Textures::GetInstance()->GetTexture(11);

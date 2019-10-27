@@ -11,7 +11,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap(L"Resources/map31TileSet.png", L"Resources/map31.txt", 32, 32);
+	map = new GameMap("Resources/map31TileSet.png", "Resources/map31.txt", 32, 32);
 
 	demoObject = new DemoObject();
 	demoObject->SetPosition(0, SCREEN_HEIGHT / 2);

@@ -21,9 +21,9 @@ public:
 
 class GameMap {
 public:
-	GameMap(LPCWSTR tilesetPath, LPCWSTR mapPath, int tileHeight = 32, int tileWidth = 32, bool gridBuildIn = false);
-	void SetMapPath(LPCWSTR mapPath);
-	void SetMapPathGridBuildIn(LPCWSTR mapPath);
+	GameMap(LPCSTR tilesetPath, LPCSTR mapPath, int tileHeight = 32, int tileWidth = 32, bool gridBuildIn = false);
+	void SetMapPath(LPCSTR mapPath);
+	void SetMapPathGridBuildIn(LPCSTR mapPath);
 	int GetWidth();
 	int GetHeight();
 	int GetTileWidth();
@@ -35,9 +35,9 @@ public:
 	~GameMap();
 private:
 
-	void LoadTileset(LPCWSTR filePath, int tileWidth, int tileHeight);
+	void LoadTileset(LPCSTR filePath, int tileWidth, int tileHeight);
 	Tileset* tileset;
-	LPCWSTR mapPath;
+	LPCSTR mapPath;
 	int rows;
 	int columns;
 	int mapObject;
