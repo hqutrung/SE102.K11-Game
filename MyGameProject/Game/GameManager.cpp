@@ -1,15 +1,15 @@
 #include "GameManager.h"
-#include "Textures.h"
-#include  "Sprites.h"
-#include "SceneManager.h"
+#include "DemoScene.h"
 
 GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 {
 	graphic = Graphic::GetInstance();
 	graphic->Init(hWnd);
+
+	keyBoard = KeyBoard::GetInstance();
+	keyBoard->InitKeyboard(hWnd, hInstance);
 	
 	sceneManager = SceneManager::GetInstance();
-
 	sceneManager->ReplaceScene(new DemoScene());
 
 
@@ -59,5 +59,8 @@ void GameManager::Render()
 
 void GameManager::ProcessInput()
 {
-	
+	auto input = KeyBoard::GetInstance();
+	KeyBoard::GetInstance()->ProcessKeyboard();
+	if ((input->GetKey(DIK_LSHIFT) || input->GetKey(DIK_RSHIFT)) && input->GetKeyDown(DIK_P))
+		isPause = !isPause;
 }

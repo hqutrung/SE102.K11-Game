@@ -11,8 +11,8 @@ public:
 	Textures();
 	~Textures();
 
-	void Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor);
-	bool hasContained(int id);
+	void Add(int id, LPCSTR filePath, D3DCOLOR transparentColor);
+	bool HasContained(int id);
 	LPDIRECT3DTEXTURE9 GetTexture(unsigned int i);
 	static Textures* GetInstance();
 };

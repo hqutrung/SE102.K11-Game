@@ -129,11 +129,15 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="DemoObject.cpp" />
+    <ClCompile Include="DemoObjectState.cpp" />
+    <ClCompile Include="DemoRunningState.cpp" />
     <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="Graphic.cpp" />
+    <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -145,12 +149,17 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="DemoObject.h" />
+    <ClInclude Include="DemoObjectData.h" />
+    <ClInclude Include="DemoObjectState.h" />
+    <ClInclude Include="DemoRunningState.h" />
     <ClInclude Include="DemoScene.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="Graphic.h" />
+    <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprites.h" />

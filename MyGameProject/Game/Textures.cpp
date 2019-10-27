@@ -11,13 +11,13 @@ Textures::~Textures()
 {
 }
 
-void Textures::Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor)
+void Textures::Add(int id, LPCSTR filePath, D3DCOLOR transparentColor)
 {
 	if (textures[id])
 		return;
 
 	D3DXIMAGE_INFO imageInfo;
-	HRESULT result = D3DXGetImageInfoFromFile(filePath, &imageInfo);
+	HRESULT result = D3DXGetImageInfoFromFileA(filePath, &imageInfo);
 
 	if (result != D3D_OK)
 	{
@@ -28,7 +28,7 @@ void Textures::Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor)
 	LPDIRECT3DDEVICE9 d3ddv = Graphic::GetInstance()->GetCurrentDirect3DDevice();
 	LPDIRECT3DTEXTURE9 texture;
 
-	result = D3DXCreateTextureFromFileEx(
+	result = D3DXCreateTextureFromFileExA(
 		d3ddv,								// Pointer to Direct3D device object
 		filePath,							// Path to the image to load
 		imageInfo.Width,							// Texture width
@@ -55,7 +55,7 @@ void Textures::Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor)
 	DebugOut(L"[INFO] Texture loaded Ok: id=%d, %s \n", id, filePath);
 }
 
-bool Textures::hasContained(int id)
+bool Textures::HasContained(int id)
 {
 	return textures.count(id);
 }
