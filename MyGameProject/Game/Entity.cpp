@@ -20,17 +20,23 @@ Entity::~Entity()
 
 BoxCollider Entity::GetRect()
 {
-	BoxCollider box(position, width, height);
-	return box;
+	/*BoxCollider box(position, width, height);
+	return box; */
+	BoxCollider r;
+	r.left = position.x - width / 2;
+	r.top = position.y + height / 2;
+	r.right = r.left + width;
+	r.bottom = r.top - height;
+	return r;
 }
 
-void Entity::update(float dt)
+void Entity::Update(float dt)
 {
 	position.x += velocity.x * dt;
 	position.y += velocity.y * dt;
 }
 
-void Entity::render()
+void Entity::Render()
 {
 }
 

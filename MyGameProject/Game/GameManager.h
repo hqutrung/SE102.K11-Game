@@ -1,7 +1,8 @@
 #pragma once
 #include "Graphic.h"
 #include"SceneManager.h"
-#include "DemoScene.h"
+#include "KeyBoard.h"
+
 class GameManager {
 
 	HWND hWnd;
@@ -9,7 +10,7 @@ class GameManager {
 
 	bool isPause;
 	Graphic* graphic;
-	//KeyBoard* keyBoard;
+	KeyBoard* keyBoard;
 	SceneManager* sceneManager;
 
 public:

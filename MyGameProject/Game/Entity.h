@@ -6,6 +6,7 @@
 class Entity
 {
 public:
+	// Huong va cham
 	enum SideCollision {
 		Left, //0
 		Right, //1
@@ -20,10 +21,11 @@ public:
 
 	struct ColissionReturn
 	{
-		bool isCollission;
-		BoxCollider regionCollision;
+		bool isCollission;				// Co va cham hay khong
+		BoxCollider regionCollision;	// Vung va cham
 	};
 
+	// Huong di chuyen
 	enum MoveDirection {
 		LeftToRight,
 		RightToLeft,
@@ -52,8 +54,8 @@ public:
 	
 	virtual BoxCollider GetRect();
 
-	virtual void update(float dt);
-	virtual void render();
+	virtual void Update(float dt);
+	virtual void Render();
 	
 	//virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = (1.0 / 60));		// Va cham
 	//virtual EarnedData OnDestroy();

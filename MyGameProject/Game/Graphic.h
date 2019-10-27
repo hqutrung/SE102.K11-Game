@@ -51,7 +51,8 @@ public:
 	void SetEnemyHealthInfo(int health);
 	void SetItemInfo(Tag item);*/
 
-	void DrawString() {};
+	//void InitFont();
+	//void DrawString();
 
 	//void DrawCustomZone(RECT r, std::string content);
 	//void DrawCustomZoneSmall(RECT r, std::string content);

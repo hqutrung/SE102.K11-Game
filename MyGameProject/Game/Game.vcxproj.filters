@@ -25,15 +25,12 @@
     <Filter Include="Objects">
       <UniqueIdentifier>{31c9ef19-cf86-48bf-803b-d9157bb366a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\DemoObject">
+      <UniqueIdentifier>{34a8216e-a931-4e12-b91c-c22aa979fc80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Support.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
@@ -66,14 +63,31 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="GameMap.cpp">
       <Filter>Manager</Filter>
+=======
+    <ClCompile Include="DemoObject.cpp">
+      <Filter>Objects\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObjectState.cpp">
+      <Filter>Objects\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoRunningState.cpp">
+      <Filter>Objects\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Support.cpp">
+      <Filter>Header Files</Filter>
+>>>>>>> vietHoang
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -113,7 +127,26 @@
     <ClInclude Include="Entity.h">
       <Filter>Objects</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="GameMap.h">
+=======
+    <ClInclude Include="DemoObject.h">
+      <Filter>Objects\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectState.h">
+      <Filter>Objects\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectData.h">
+      <Filter>Objects\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoRunningState.h">
+      <Filter>Objects\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfig.h">
+>>>>>>> vietHoang
       <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
