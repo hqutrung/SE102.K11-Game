@@ -10,6 +10,8 @@ E:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(160,17): warning C4244:  '=
 E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(118,72): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
 E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(118,40): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
 E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(152,14): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+  Main.cpp
 E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(153,15): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+E:\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(123,14): warning C4244:  'argument': conversion from 'float' to 'DWORD', possible loss of data
   Game.vcxproj -> E:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
