@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "Sprites.h"
+#include "Camera.h"
 
 class Tileset {
 	int tileWidth;
@@ -29,6 +30,8 @@ public:
 	int GetTileWidth();
 	int GetTileHeight();
 
+	void SetCamera(Camera* cam);
+
 	void Draw();
 	//Active objects
 	//void GetStaticObjects(std::vector<Entity*> &entities);
@@ -42,6 +45,7 @@ private:
 	int columns;
 	int mapObject;
 	int** mapIDs;
+	Camera* camera;
 	std::unordered_map<int, LPSPRITE> listTileset;
 
 };

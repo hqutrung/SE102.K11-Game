@@ -6,12 +6,14 @@
 #include "Graphic.h"
 #include "BoxCollider.h"
 #include "Support.h"
+#include "Camera.h"
 
 #include <unordered_map>
 
-class Sprites {
+class Sprites 
+{
+
 protected:
-	int id; //id cua sprite 
 	D3DXVECTOR3 position;			// toa do cua Sprite, co goc la chinh giua hinh anh Texture
 	D3DXVECTOR2 translation;		// tinh tien sprite them 1 doan bang vector(x,y)
 	int width, height;				// kich thuoc cua texture
@@ -28,7 +30,6 @@ public:
 
 	int GetWidth();
 	void SetWidth(int width);
-
 	int GetHeight();
 	void SetHeight(int height);
 

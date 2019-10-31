@@ -100,6 +100,11 @@ int GameMap::GetTileHeight() {
 	return tileset->GetTileHeight();
 }
 
+void GameMap::SetCamera(Camera* cam)
+{
+	camera = cam;
+}
+
 
 void GameMap::Draw() {
 
@@ -115,10 +120,18 @@ void GameMap::Draw() {
 
 				LPSPRITE sprite = tileset->GetSprite(id);
 
-				D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, m * tileHeight + tileHeight / 2, 0);
-				sprite->SetHeight(tileHeight);
-				sprite->SetWidth(tileWidth);
-				sprite->Draw(position, BoxCollider());
+				BoxCollider spriteBound;
+				spriteBound.top = (rows - m - 1) * tileHeight;
+				spriteBound.bottom = spriteBound.top - tileHeight;
+				spriteBound.left = n * tileWidth;
+				spriteBound.right = spriteBound.left + tileWidth;
+
+				if (camera->IsCollide(spriteBound)) {
+					D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (rows - m - 1) * tileHeight + tileHeight / 2, 0);
+					sprite->SetHeight(tileHeight);
+					sprite->SetWidth(tileWidth);
+					sprite->Draw(position, BoxCollider());
+				}
 			}
 		}
 	}
@@ -138,8 +151,8 @@ GameMap::~GameMap() {
 
 void GameMap::LoadTileset(LPCSTR filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
-	Textures::GetInstance()->Add(11, filePath, D3DCOLOR_XRGB(255, 0, 255));
-	auto texture = Textures::GetInstance()->GetTexture(11);
+	Textures::GetInstance()->Add(DEMO_SCENE, filePath, D3DCOLOR_XRGB(255, 0, 255));
+	auto texture = Textures::GetInstance()->GetTexture(DEMO_SCENE);
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
 	auto width = desc.Width;

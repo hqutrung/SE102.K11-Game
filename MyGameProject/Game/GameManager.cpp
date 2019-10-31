@@ -3,15 +3,11 @@
 
 GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 {
-	graphic = Graphic::GetInstance();
-	graphic->Init(hWnd);
+	Graphic::GetInstance()->Init(hWnd);
 
-	keyBoard = KeyBoard::GetInstance();
-	keyBoard->InitKeyboard(hWnd, hInstance);
-	
-	sceneManager = SceneManager::GetInstance();
-	sceneManager->ReplaceScene(new DemoScene());
+	KeyBoard::GetInstance()->InitKeyboard(hWnd, hInstance);
 
+	SceneManager::GetInstance()->LoadScene(DEMO_SCENE);
 
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
@@ -33,16 +29,17 @@ void GameManager::Update(float dt)
 	if (isPause)
 		return;
 
-	sceneManager->Update(dt);
+	SceneManager::GetInstance()->GetCurrentScene()->Update(dt);
 }
 
 void GameManager::Render()
 {
 	auto device = Graphic::GetInstance()->GetCurrentDirect3DDevice();
 	auto spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
-	auto scene = sceneManager->GetInstance()->GetCurrentScene();
+	auto scene = SceneManager::GetInstance()->GetCurrentScene();
+
 	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(200, 200, 255), 0.0f, 0);
-	
+
 	{
 		device->BeginScene();
 
@@ -54,6 +51,7 @@ void GameManager::Render()
 
 		device->EndScene();
 	}
+
 	device->Present(NULL, NULL, NULL, NULL);
 }
 

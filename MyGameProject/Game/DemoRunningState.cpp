@@ -17,9 +17,16 @@ void DemoRunningState::Update(float dt)
 	KeyBoard* keyboard = KeyBoard::GetInstance();
 	if (keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(-PLAYER_RUN_VELOCCITY, 0));
-	else
-		if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
+	else if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
 			demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(PLAYER_RUN_VELOCCITY, 0));
+
+	if(keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(DOWN_ARROW))
+		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(0, PLAYER_RUN_VELOCCITY));
+	else if (keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW))
+		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(0, -PLAYER_RUN_VELOCCITY));
+	else
+		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(0, 0));
+
 	DemoObjectState::Update(dt);
 }
 
@@ -62,7 +69,7 @@ void DemoRunningState::HandleInput()
 	else if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
 		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(PLAYER_RUN_VELOCCITY, 0));
 	else {
-		demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(0, 0));
+		//demoObjectData->DemoObject->SetVelocity(D3DXVECTOR2(0, 0));
 		//playerData->player->SetState(Idle);
 	}
 }

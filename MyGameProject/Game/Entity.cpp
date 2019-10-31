@@ -20,8 +20,6 @@ Entity::~Entity()
 
 BoxCollider Entity::GetRect()
 {
-	/*BoxCollider box(position, width, height);
-	return box; */
 	BoxCollider r;
 	r.left = position.x - width / 2;
 	r.top = position.y + height / 2;

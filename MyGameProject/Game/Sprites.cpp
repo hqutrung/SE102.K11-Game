@@ -5,8 +5,8 @@ Sprites::Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box)
 	this->texture = texture;
 	if (IsRect(box))
 	{
-		width = box.GetWidth();
-		height = box.GetHeight();
+		width = box.right - box.left;
+		height = box.bottom - box.top;
 		this->box = box;
 	}
 	else
@@ -65,6 +65,10 @@ bool Sprites::IsRect(BoxCollider r)
 
 void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, bool reverse)
 {
+	auto cam = Camera::GetInstance()->GetRect();
+	if (!IsRect(cam))
+		return;
+
 	D3DXVECTOR3 inPosition = this->position;
 	BoxCollider inSourceRect = this->box;
 
@@ -74,9 +78,19 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, boo
 	if (IsRect(box))
 		inSourceRect = box;
 
+	D3DXMATRIX m_Maxtrix;
+	D3DXMatrixIdentity(&m_Maxtrix);
+	m_Maxtrix._22 = -1;
+	m_Maxtrix._41 = -cam.left;
+	m_Maxtrix._42 = cam.top;
+
 	D3DXVECTOR3 center = D3DXVECTOR3(width / 2.0f, height / 2.0f, 0);
 
-	D3DXMATRIX m_Maxtrix;
+	D3DXVECTOR4 vp_pos;
+	D3DXVec3Transform(&vp_pos, &inPosition, &m_Maxtrix);
+	D3DXVECTOR3 p(vp_pos.x, vp_pos.y, 0);
+	p.x = (int)p.x;
+	p.y = (int)p.y;
 
 	D3DXMATRIX oldMatrix;
 
@@ -86,8 +100,8 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, boo
 	{
 		D3DXMatrixIdentity(&m_Maxtrix);
 
-		//auto scalingScenter = D3DXVECTOR2(p.x, p.y);
-		auto scalingScenter = D3DXVECTOR2(inPosition.x + width / 2.0f, inPosition.y);
+		auto scalingScenter = D3DXVECTOR2(p.x, p.y);
+		//auto scalingScenter = D3DXVECTOR2(inPosition.x + width / 2.0f, inPosition.y);
 		auto inScale = D3DXVECTOR2(-1.0f, 1.0f);
 		auto inRotationCenter = D3DXVECTOR2(0, 0);
 		auto inRotation = 0;
@@ -98,14 +112,17 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DCOLOR colorKey, boo
 		spriteHandler->SetTransform(&m_Maxtrix);
 	}
 
+
 	RECT r = Support::BoxColliderToRect(inSourceRect);
+
 	spriteHandler->Draw(
 		texture,			// Texture luu sprite
 		&r,					// dien tich can the hien
 		&center,			// tam dung de ve, xoay
-		&inPosition,		// vi tri sprite
+		&p,					// vi tri sprite
 		colorKey			// mau thay the
 	);
+
 	spriteHandler->SetTransform(&oldMatrix);
 }
 

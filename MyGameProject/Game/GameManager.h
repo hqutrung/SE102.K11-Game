@@ -9,9 +9,6 @@ class GameManager {
 	HINSTANCE hInstance;
 
 	bool isPause;
-	Graphic* graphic;
-	KeyBoard* keyBoard;
-	SceneManager* sceneManager;
 
 public:
 	GameManager(HWND hWnd, HINSTANCE hInstance);
