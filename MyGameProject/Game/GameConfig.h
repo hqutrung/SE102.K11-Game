@@ -1,7 +1,7 @@
 #pragma once
 
-#define SCREEN_WIDTH 256
-#define SCREEN_HEIGHT 192
+#define SCREEN_WIDTH 352
+#define SCREEN_HEIGHT 200
 
 #define TEX_DEMOOBJECT 100
 #define PLAYER_RUN_VELOCCITY 100

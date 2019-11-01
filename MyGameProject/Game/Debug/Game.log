@@ -1,3 +1,52 @@
-﻿  DemoScene.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+﻿  Animation.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\Animation.cpp(90,24): warning C4244:  '+=': conversion from 'double' to 'float', possible loss of data
+  DemoObject.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\Animation.cpp(101,12): warning C4244:  '+=': conversion from 'double' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Animation.cpp(101,12): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(31,21): warning C4244:  '=': conversion from 'UINT' to 'float', possible loss of data
+  DemoObjectState.cpp
+  DemoRunningState.cpp
+  DemoScene.cpp
+  Entity.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244:  '=': conversion from 'UINT' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(157,16): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+  GameManager.cpp
+  GameMap.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(166,17): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(166,17): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(25,23): warning C4018:  '<': signed/unsigned mismatch
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(73,23): warning C4018:  '<': signed/unsigned mismatch
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(87,24): warning C4018:  '<': signed/unsigned mismatch
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(89,25): warning C4018:  '<': signed/unsigned mismatch
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(108,25): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(110,26): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(114,53): warning C4244:  '=': conversion from 'size_t' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(116,27): warning C4244:  '=': conversion from 'size_t' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(123,101): warning C4244:  'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
+  Graphic.cpp
+  Main.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(123,42): warning C4244:  'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(123,42): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Sprites.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(123,14): warning C4244:  'argument': conversion from 'float' to 'DWORD', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,23): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,25): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,41): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,34): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(52,22): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(62,24): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(70,16): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,17): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(35,10): warning C4101:  'result': unreferenced local variable
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(156,53): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(156,41): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(161,14): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(162,14): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(175,4): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  Textures.cpp
+  Generating Code...
+E:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(187,4): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
   Game.vcxproj -> E:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
