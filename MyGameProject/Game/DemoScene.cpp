@@ -11,7 +11,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	mMap = new GameMap((char*)"Resources/untitled.tmx");
+	mMap = new GameMap((char*)"Resources/testmap.tmx");
 	mCamera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	mMap->SetCamera(mCamera);
