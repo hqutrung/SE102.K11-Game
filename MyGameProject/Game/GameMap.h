@@ -1,47 +1,44 @@
 #pragma once
-#include <iostream>
-#include <fstream>
+#ifndef __GAME_MAP__
+#define __GAME_MAP__
+
+#include <d3dx9.h>
+#include <d3d9.h>
+#include <vector>
+
 #include "Sprites.h"
+#include "MapReader/Tmx.h.in"
+#include "Graphic.h"
+#include "Camera.h"
+#include "Textures.h"
 
-class Tileset {
-	int tileWidth;
-	int tileHeight;
-	int rows;
-	int columns;
-	std::unordered_map<int, LPSPRITE> tiles;
+class GameMap
+{
 public:
-	Tileset(int rows, int columns, int tileWidth, int tileHeight);
-	void Add(int id, LPSPRITE tile);
-	int GetRows();
-	int GetColumns();
-	int GetTileWidth();
-	int GetTileHeight();
-	LPSPRITE GetSprite(int id);
-};
+	GameMap(char* filePath);
 
-class GameMap {
-public:
-	GameMap(LPCSTR tilesetPath, LPCSTR mapPath, int tileHeight = 32, int tileWidth = 32, bool gridBuildIn = false);
-	void SetMapPath(LPCSTR mapPath);
-	void SetMapPathGridBuildIn(LPCSTR mapPath);
+	Tmx::Map* GetMap();
+
 	int GetWidth();
 	int GetHeight();
 	int GetTileWidth();
 	int GetTileHeight();
 
+	void SetCamera(Camera* camera);
+
 	void Draw();
-	//Active objects
-	//void GetStaticObjects(std::vector<Entity*> &entities);
+
 	~GameMap();
+
 private:
+	void LoadMap(char* filePath);
 
-	void LoadTileset(LPCSTR filePath, int tileWidth, int tileHeight);
-	Tileset* tileset;
-	LPCSTR mapPath;
-	int rows;
-	int columns;
-	int mapObject;
-	int** mapIDs;
-	std::unordered_map<int, LPSPRITE> listTileset;
+	bool isContain(BoxCollider rect1, BoxCollider rect2);
 
+	Tmx::Map* mMap;
+	std::map<int, Sprites*>          mListTileset;
+	Camera* mCamera;
 };
+
+#endif
+

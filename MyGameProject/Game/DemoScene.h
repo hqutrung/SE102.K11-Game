@@ -4,6 +4,7 @@
 #include "Animation.h"
 #include "GameMap.h"
 #include "DemoObject.h"
+#include "Debug.h"
 
 class DemoScene: public Scene
 {
@@ -11,7 +12,8 @@ protected:
 	LPANIMATION marioAni;
 	LPANIMATION spartaAni;
 	float mTimeCounter;
-	GameMap* map;
+	GameMap* mMap;
+	Camera* mCamera;
 	DemoObject* demoObject;
 
 public:
@@ -22,6 +24,7 @@ public:
 	void Render() override;
 	int GetSceneID() override;
 	void ProcessInput() override;
+	void CheckCamera();
 
 };
 

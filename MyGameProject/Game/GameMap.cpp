@@ -1,161 +1,137 @@
 #include "GameMap.h"
-#include "Textures.h"
 
-Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
-	this->rows = rows;
-	this->columns = columns;
-	this->tileWidth = tileWidth;
-	this->tileHeight = tileHeight;
+GameMap::GameMap(char* filePath)
+{
+	LoadMap(filePath);
 }
 
-void Tileset::Add(int id, LPSPRITE tile) {
-	tiles[id] = tile;
+GameMap::~GameMap()
+{
+	delete mMap;
 }
 
-int Tileset::GetRows() {
-	return rows;
-}
+void GameMap::LoadMap(char* filePath)
+{
+	mMap = new Tmx::Map();
+	mMap->ParseFile(filePath);
 
-int Tileset::GetColumns() {
-	return columns;
-}
+	RECT r;
+	r.left = 0;
+	r.top = 0;
+	r.right = this->GetWidth();
+	r.bottom = this->GetHeight();
 
-int Tileset::GetTileWidth() {
-	return tileWidth;
-}
 
-int Tileset::GetTileHeight() {
-	return tileHeight;
-}
+	for (size_t i = 0; i < mMap->GetNumTilesets(); i++)
+	{
+		const Tmx::Tileset* tileset = mMap->GetTileset(i);
 
-LPSPRITE Tileset::GetSprite(int id) {
-	return tiles[id];
-}
-//GameMap::GameMap() {
-//	auto bufferWidth = Graphic::GetInstance()->GetBackBufferWidth();
-//	auto bufferHeight = Graphic::GetInstance()->GetBackBufferHeight();
-//	grid = new Grid(MyHelper::ToRect(0, bufferWidth, 0, bufferHeight), 1, 1);
-//}
-//
-//GameMap::GameMap(char * tilesetPath, int tileWidth, int tileHeight) {
-//}
+		Sprites* sprite = new Sprites(tileset->GetImage()->GetSource().c_str());
 
-GameMap::GameMap(LPCSTR tilesetPath, LPCSTR mapPath, int tileHeight, int tileWidth, bool gridBuildIn) {
-	LoadTileset(tilesetPath, tileWidth, tileHeight);
-	if (gridBuildIn)
-		SetMapPathGridBuildIn(mapPath);
-	else
-		SetMapPath(mapPath);
-}
-
-void GameMap::SetMapPath(LPCSTR mapPath) {
-	this->mapPath = mapPath;
-	std::fstream reader(mapPath);
-	if (reader.fail()) {
-		return;
+		mListTileset.insert(std::pair<int, Sprites*>(i, sprite));
 	}
-	reader >> rows;
-	reader >> columns;
-	mapIDs = new int*[rows];
+}
 
-	for (int i = 0; i < rows; i++) {
-		mapIDs[i] = new int[columns];
-		for (int j = 0; j < columns; j++) {
-			reader >> mapIDs[i][j];
+bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
+{
+	if (rect1.left > rect2.right || rect1.right < rect2.left || rect1.top > rect2.bottom || rect1.bottom < rect2.top)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+Tmx::Map* GameMap::GetMap()
+{
+	return mMap;
+}
+
+int GameMap::GetWidth()
+{
+	return mMap->GetWidth() * mMap->GetTileWidth();
+}
+
+int GameMap::GetHeight()
+{
+	return mMap->GetHeight() * mMap->GetTileHeight();
+}
+
+int GameMap::GetTileWidth()
+{
+	return mMap->GetTileWidth();
+}
+
+int GameMap::GetTileHeight()
+{
+	return mMap->GetTileHeight();
+}
+
+void GameMap::Draw()
+{
+
+	for (size_t i = 0; i < mMap->GetNumTileLayers(); i++)
+	{
+		const Tmx::TileLayer* layer = mMap->GetTileLayer(i);
+
+		if (!layer->IsVisible())
+		{
+			continue;
 		}
-	}
-}
 
-void GameMap::SetMapPathGridBuildIn(LPCSTR mapPath) {
-	this->mapPath = mapPath;
-	std::fstream reader(mapPath);
-	if (reader.fail()) {
-		return;
-	}
-	reader >> rows;
-	reader >> columns;
-	mapIDs = new int*[rows];
+		BoxCollider sourceRECT;
 
-	for (int i = 0; i < rows; i++) {
-		mapIDs[i] = new int[columns];
-		for (int j = 0; j < columns; j++) {
-			reader >> mapIDs[i][j];
-		}
-	}
-}
+		int tileWidth = mMap->GetTileWidth();
+		int tileHeight = mMap->GetTileHeight();
 
-int GameMap::GetWidth() {
-	return tileset->GetTileWidth() * columns;
-}
+		for (size_t m = 0; m < layer->GetHeight(); m++)
+		{
+			for (size_t n = 0; n < layer->GetWidth(); n++)
+			{
+				int tilesetIndex = layer->GetTileTilesetIndex(n, m);
 
-int GameMap::GetHeight() {
-	return tileset->GetTileHeight() * rows;
-}
+				if (tilesetIndex != -1)
+				{
+					const Tmx::Tileset* tileSet = mMap->GetTileset(tilesetIndex);
 
-int GameMap::GetTileWidth() {
-	return tileset->GetTileWidth();
-}
+					int tileSetWidth = tileSet->GetImage()->GetWidth() / tileWidth;
+					int tileSetHeight = tileSet->GetImage()->GetHeight() / tileHeight;
 
-int GameMap::GetTileHeight() {
-	return tileset->GetTileHeight();
-}
+					Sprites* sprite = mListTileset[layer->GetTileTilesetIndex(n, m)];
 
+					//tile index
+					int tileID = layer->GetTileId(n, m);
 
-void GameMap::Draw() {
+					int y = tileID / tileSetWidth;
+					int x = tileID - y * tileSetWidth;
 
-	for (size_t i = 0; i < 1; i++) {
+					sourceRECT.top = y * tileHeight;
+					sourceRECT.bottom = sourceRECT.top + tileHeight;
+					sourceRECT.left = x * tileWidth;
+					sourceRECT.right = sourceRECT.left + tileWidth;
 
-		//chieu dai va chieu rong cua tile
-		int tileWidth = tileset->GetTileWidth();
-		int tileHeight = tileset->GetTileHeight();
+					BoxCollider spriteBound;
+					spriteBound.top = (layer->GetHeight() - m - 1) * tileHeight;
+					spriteBound.bottom = spriteBound.top - tileHeight;
+					spriteBound.left = n * tileWidth;
+					spriteBound.right = spriteBound.left + tileWidth;
 
-		for (int m = 0; m < this->rows; m++) {
-			for (int n = 0; n < this->columns; n++) {
-				int id = mapIDs[m][n];
+					//tru tilewidth/2 va tileheight/2 vi Sprite ve o vi tri giua hinh anh cho nen doi hinh de cho
+					//dung toa do (0,0) cua the gioi thuc la (0,0) neu khong thi se la (-tilewidth/2, -tileheigth/2);
 
-				LPSPRITE sprite = tileset->GetSprite(id);
-
-				D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, m * tileHeight + tileHeight / 2, 0);
-				sprite->SetHeight(tileHeight);
-				sprite->SetWidth(tileWidth);
-				sprite->Draw(position, BoxCollider());
+					if (mCamera->IsCollide(spriteBound)) {
+						D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (layer->GetHeight() - m - 1) * tileHeight + tileHeight / 2, 0);
+						sprite->SetHeight(tileHeight);
+						sprite->SetWidth(tileWidth);
+						sprite->Draw(position, sourceRECT);
+					}
+				}
 			}
 		}
 	}
-
 }
 
-GameMap::~GameMap() {
-	delete tileset;
-	tileset = NULL;
-	for (int m = 0; m < this->rows; m++) {
-		delete mapIDs[m];
-		mapIDs[m] = NULL;
-	}
-	delete mapIDs;
-	mapIDs = NULL;
+void GameMap::SetCamera(Camera* camera)
+{
+	this->mCamera = camera;
 }
-
-void GameMap::LoadTileset(LPCSTR filePath, int tileWidth, int tileHeight) {
-	//Parse map tu file 
-	Textures::GetInstance()->Add(11, filePath, D3DCOLOR_XRGB(255, 0, 255));
-	auto texture = Textures::GetInstance()->GetTexture(11);
-	D3DSURFACE_DESC desc;
-	texture->GetLevelDesc(0, &desc);
-	auto width = desc.Width;
-	auto height = desc.Height;
-	tileset = new Tileset(height / tileHeight, width / tileWidth, tileWidth, tileHeight);
-
-	for (int i = 0; i < tileset->GetRows(); i++) {
-		for (int j = 0; j < tileset->GetColumns(); j++) {
-			BoxCollider r;
-			r.top = i * tileHeight;
-			r.left = j * tileWidth;
-			r.bottom = r.top + tileHeight;
-			r.right = r.left + tileWidth;
-			LPSPRITE sprite = new Sprites(texture, r);
-			tileset->Add(i * tileset->GetColumns() + j, sprite);
-		}
-	}
-}
-

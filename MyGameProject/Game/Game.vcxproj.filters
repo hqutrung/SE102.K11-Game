@@ -1,153 +1,186 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{2053a490-26e2-4f60-ba68-cb8206daef61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{f003ee0a-ebc9-40c9-9ccd-cd88a47c05b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWork">
-      <UniqueIdentifier>{c0ee8eae-6570-46f1-b714-5d3ef17fb908}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects">
-      <UniqueIdentifier>{31c9ef19-cf86-48bf-803b-d9157bb366a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\DemoObject">
-      <UniqueIdentifier>{34a8216e-a931-4e12-b91c-c22aa979fc80}</UniqueIdentifier>
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="DemoObject.cpp" />
+    <ClCompile Include="DemoObjectState.cpp" />
+    <ClCompile Include="DemoRunningState.cpp" />
+    <ClCompile Include="DemoScene.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameMap.cpp" />
+    <ClCompile Include="GameTime.cpp" />
+    <ClCompile Include="Graphic.cpp" />
+    <ClCompile Include="KeyBoard.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="Support.cpp" />
+    <ClCompile Include="Textures.cpp" />
+    <ClCompile Include="MapReader\base64.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\miniz.c">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\tinyxml2.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxEllipse.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxImage.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxImageLayer.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxLayer.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxMap.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxObject.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxObjectGroup.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPolygon.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPolyline.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPropertySet.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTerrain.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTerrainArray.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTile.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileLayer.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileOffset.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileset.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxUtil.cpp">
+      <Filter>MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="DemoObject.h" />
+    <ClInclude Include="DemoObjectData.h" />
+    <ClInclude Include="DemoObjectState.h" />
+    <ClInclude Include="DemoRunningState.h" />
+    <ClInclude Include="DemoScene.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="GameConfig.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameMap.h" />
+    <ClInclude Include="GameTime.h" />
+    <ClInclude Include="Graphic.h" />
+    <ClInclude Include="KeyBoard.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Sprites.h" />
+    <ClInclude Include="Support.h" />
+    <ClInclude Include="Textures.h" />
+    <ClInclude Include="MapReader\base64.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\tinyxml2.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxEllipse.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxImage.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxImageLayer.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxLayer.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxMap.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxMapTile.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxObject.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxObjectGroup.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPoint.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPolygon.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPolyline.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPropertySet.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTerrain.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTerrainArray.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTile.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileLayer.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileOffset.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileset.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxUtil.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\zconf.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\zlib.h">
+      <Filter>MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MapReader">
+      <UniqueIdentifier>{5b2eb0e0-6a02-4b3e-a785-39e048efe9f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphic.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="GameMap.cpp">
-      <Filter>Manager</Filter>
-=======
-    <ClCompile Include="DemoObject.cpp">
-      <Filter>Objects\DemoObject</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObjectState.cpp">
-      <Filter>Objects\DemoObject</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyBoard.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoRunningState.cpp">
-      <Filter>Objects\DemoObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Support.cpp">
-      <Filter>Header Files</Filter>
->>>>>>> vietHoang
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Support.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="BoxCollider.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="GameMap.h">
-=======
-    <ClInclude Include="DemoObject.h">
-      <Filter>Objects\DemoObject</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectState.h">
-      <Filter>Objects\DemoObject</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectData.h">
-      <Filter>Objects\DemoObject</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoRunningState.h">
-      <Filter>Objects\DemoObject</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyBoard.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConfig.h">
->>>>>>> vietHoang
-      <Filter>Manager</Filter>
-    </ClInclude>
+    <None Include="MapReader\Tmx.h.in">
+      <Filter>MapReader</Filter>
+    </None>
   </ItemGroup>
 </Project>

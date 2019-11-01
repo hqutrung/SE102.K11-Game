@@ -11,10 +11,15 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap("Resources/map31TileSet.png", "Resources/map31.txt", 32, 32);
+	mMap = new GameMap((char*)"Resources/untitled.tmx");
+	mCamera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	mMap->SetCamera(mCamera);
 
 	demoObject = new DemoObject();
-	demoObject->SetPosition(0, SCREEN_HEIGHT / 2);
+	demoObject->SetPosition(16, SCREEN_HEIGHT/2);
+
+	mCamera->FollowPlayer(demoObject->GetPosition().x , demoObject->GetPosition().y);
 
 	/*Textures* texture = Textures::GetInstance();
 	texture->Add(1, "Resources/running.png", D3DCOLOR_XRGB(255, 163, 177));
@@ -36,11 +41,16 @@ void DemoScene::Update(float dt)
 	//spartaAni->Update(dt);
 	demoObject->Update(dt);
 	ProcessInput();
+	D3DXVECTOR3 playerPos = demoObject->GetPosition();
+	mCamera->FollowPlayer(playerPos.x , playerPos.y);
+	CheckCamera();
+	DebugOut(L"Player: %f + %f\n", playerPos.x, playerPos.y);
+	DebugOut(L"Camera: %f + %f\n", mCamera->GetPosition().x, mCamera->GetPosition().y);
 }
 
 void DemoScene::Render()
 {
-	map->Draw();
+	mMap->Draw();
 
 	demoObject->Render();
 
@@ -66,4 +76,18 @@ void DemoScene::ProcessInput()
 {
 	KeyBoard* input = KeyBoard::GetInstance();
 	demoObject->HandleInput();
+}
+
+void DemoScene::CheckCamera()
+{
+	D3DXVECTOR3 camPos = mCamera->GetPosition();
+	float halfWidth = (float)mCamera->GetWidth() / 2;
+	float halfHeight = (float)mCamera->GetHeight() / 2;
+	auto worldWidth = mMap->GetWidth();
+	auto worldHeight = mMap->GetHeight();
+	if (camPos.x - halfWidth < 0)
+		camPos.x = halfWidth;
+	if (camPos.x + halfWidth > worldWidth)
+		camPos.x = worldWidth - halfWidth;
+	mCamera->SetPosition(camPos);
 }

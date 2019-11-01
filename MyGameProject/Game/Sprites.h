@@ -6,24 +6,39 @@
 #include "Graphic.h"
 #include "BoxCollider.h"
 #include "Support.h"
+#include "Camera.h"
+#include "Debug.h"
 
 #include <unordered_map>
 
 class Sprites {
 protected:
 	int id; //id cua sprite 
-	D3DXVECTOR3 position;			// toa do cua Sprite, co goc la chinh giua hinh anh Texture
-	D3DXVECTOR2 translation;		// tinh tien sprite them 1 doan bang vector(x,y)
+
+	D3DXVECTOR3 m_Position;
+	D3DXVECTOR2 m_Translation;
 	int width, height;				// kich thuoc cua texture
-	BoxCollider box;
+	BoxCollider mbox;
 
 
 	LPDIRECT3DTEXTURE9 texture;		// load hinh anh vao day
 	LPD3DXSPRITE spriteHandler;			// dùng để lấy device và vẽ sprite lên màn hình
 
+	void InitWithSprite(const char* filePath, BoxCollider box = BoxCollider(), int width = NULL, int height = NULL, D3DCOLOR colorKey = NULL);
+	D3DXIMAGE_INFO          mImageInfo; // thong tin thuc cua hinh anh duoc lay
+	float                   mRotation; // goc quay cua Sprite tinh theo radian
+
+	D3DXVECTOR2             mScale = D3DXVECTOR2(1, 1); // Vector tuy chinh do phong to / thu nho cua texture
+	D3DXMATRIX              mMatrix; // ma tran cua Spite ho tro trong cac phep hinh hoc
+	D3DXVECTOR2             mRotationCenter; // diem trung tam trong phep xoay hinh (origin vector)
+
 public:
 
 	Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box);
+
+	Sprites(const char* filePath, BoxCollider box = BoxCollider(), int width = NULL, int height = NULL, D3DCOLOR colorKey = NULL);
+
+
 	~Sprites();
 
 	int GetWidth();
@@ -36,7 +51,7 @@ public:
 
 	bool IsRect(BoxCollider r);
 
-	void Draw(D3DXVECTOR3 position = D3DXVECTOR3(), BoxCollider box = BoxCollider(), D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255), bool reverse = false);
+	void Draw(D3DXVECTOR3 position = D3DXVECTOR3(), BoxCollider r = BoxCollider(), D3DXCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255), bool reverse = false);
 	void NormalDraw(D3DXVECTOR3 position);
 };
 typedef Sprites* LPSPRITE;
