@@ -201,7 +201,7 @@ void Grid::Move(Unit* unit, float x, float y)
 
 void Grid::MoveActiveUnit(Unit* unit)
 {
-	Unit* other;
+	Unit* other = unit;
 	while (other != NULL)
 	{
 		unit = other;

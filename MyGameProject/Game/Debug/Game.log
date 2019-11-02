@@ -1,22 +1,8 @@
-﻿  DemoRunningState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  DemoScene.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(21,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(21,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(46,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Entity.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(51,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(155,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  GameMap.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(164,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(124,38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(126,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(130,86): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(130,41): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(165,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Grid.cpp
+﻿  Grid.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(53,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(54,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(55,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Unit.cpp
   Generating Code...
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(166,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(56,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
