@@ -24,7 +24,7 @@ public:
 	int GetTileWidth();
 	int GetTileHeight();
 
-	void SetCamera(Camera* camera);
+	void SetCamera(Camera* cam);
 
 	void Draw();
 
@@ -37,7 +37,7 @@ private:
 
 	Tmx::Map* mMap;
 	std::map<int, Sprites*>          mListTileset;
-	Camera* mCamera;
+	Camera* Cam;
 };
 
 #endif

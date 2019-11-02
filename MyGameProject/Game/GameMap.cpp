@@ -67,6 +67,10 @@ int GameMap::GetTileHeight()
 	return mMap->GetTileHeight();
 }
 
+void GameMap::SetCamera(Camera* cam)
+{
+	this->Cam = cam;
+}
 void GameMap::Draw()
 {
 
@@ -119,7 +123,7 @@ void GameMap::Draw()
 					//tru tilewidth/2 va tileheight/2 vi Sprite ve o vi tri giua hinh anh cho nen doi hinh de cho
 					//dung toa do (0,0) cua the gioi thuc la (0,0) neu khong thi se la (-tilewidth/2, -tileheigth/2);
 
-					if (mCamera->IsCollide(spriteBound)) {
+					if (Cam->IsCollide(spriteBound)) {
 						D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (layer->GetHeight() - m - 1) * tileHeight + tileHeight / 2, 0);
 						sprite->SetHeight(tileHeight);
 						sprite->SetWidth(tileWidth);
@@ -129,9 +133,4 @@ void GameMap::Draw()
 			}
 		}
 	}
-}
-
-void GameMap::SetCamera(Camera* camera)
-{
-	this->mCamera = camera;
 }

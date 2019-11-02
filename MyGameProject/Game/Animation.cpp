@@ -38,7 +38,7 @@ void Animation::AddFrames(LPDIRECT3DTEXTURE9 texture, int rows, int columns, flo
 
 void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int stRows, int fnRows, int columns, int rowNumber, int columnNumber, float timePerFrame, D3DCOLOR colorKey)
 {
-	/*defaultTime = (timePerFrame == 0) ? defaultTime : timePerFrame;
+	defaultTime = (timePerFrame == 0) ? defaultTime : timePerFrame;
 	totalFrame = (fnRows - stRows + 1) * columns;
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
@@ -51,7 +51,8 @@ void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int stRows, int fnRows, i
 			r.top = i * frameHeight;
 			r.bottom = r.top + frameHeight;
 			r.right = r.left + frameWidth;
-			AddFrame(new AnimationFrame(texture, r, defaultTime));*/
+			AddFrame(new AnimationFrame(texture, r, defaultTime));
+		}
 }
 
 int Animation::GetWidthCurrentFrame()

@@ -16,7 +16,7 @@ DemoObject::DemoObject(): Entity()
 	instance = this;
 
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_DEMOOBJECT, "Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 163, 177));
+	textures->Add(TEX_DEMOOBJECT, "Resources/aladin.png", D3DCOLOR_XRGB(255, 163, 177));
 
 	demoObjectData = new DemoObjectData();
 	demoObjectData->DemoObject = this;

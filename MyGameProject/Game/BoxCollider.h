@@ -14,9 +14,9 @@ public:
 
 	// Use center position
 	BoxCollider(D3DXVECTOR3 position, float width, float height) {
-		top = position.y - height / 2;
+		top = position.y + height / 2;
 		left = position.x - width / 2;
-		bottom = top + height;
+		bottom = top - height;
 		right = left + width;
 	}
 	BoxCollider(D3DXVECTOR3 position, float left, float right, float height) {
@@ -30,7 +30,7 @@ public:
 
 	float GetWidth() { return right - left; }
 
-	float GetHeight() { return bottom - top; }
+	float GetHeight() { return top - bottom; }
 	/*void Multiply(float x) {
 		top *= x;
 		left *= x;

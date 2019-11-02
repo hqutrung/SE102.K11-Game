@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+<<<<<<< HEAD
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Animation.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObject.cpp">
+      <Filter>Demo\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObjectState.cpp">
+      <Filter>Demo\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoRunningState.cpp">
+      <Filter>Demo\DemoObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoScene.cpp">
+      <Filter>Demo\DemoScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Manager</Filter>
+=======
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DemoObject.cpp" />
@@ -36,10 +56,51 @@
     </ClCompile>
     <ClCompile Include="MapReader\TmxImageLayer.cpp">
       <Filter>MapReader</Filter>
+>>>>>>> master
     </ClCompile>
     <ClCompile Include="MapReader\TmxLayer.cpp">
       <Filter>MapReader</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="GameMap.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Support.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Manager\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Manager\Collision</Filter>
+=======
     <ClCompile Include="MapReader\TmxMap.cpp">
       <Filter>MapReader</Filter>
     </ClCompile>
@@ -72,6 +133,7 @@
     </ClCompile>
     <ClCompile Include="MapReader\TmxTileOffset.cpp">
       <Filter>MapReader</Filter>
+>>>>>>> master
     </ClCompile>
     <ClCompile Include="MapReader\TmxTileset.cpp">
       <Filter>MapReader</Filter>
@@ -82,6 +144,31 @@
     <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <ClInclude Include="Animation.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObject.h">
+      <Filter>Demo\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectData.h">
+      <Filter>Demo\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectState.h">
+      <Filter>Demo\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoRunningState.h">
+      <Filter>Demo\DemoObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoScene.h">
+      <Filter>Demo\DemoScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfig.h">
+      <Filter>Manager</Filter>
+=======
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Debug.h" />
@@ -131,10 +218,54 @@
     </ClInclude>
     <ClInclude Include="MapReader\TmxObjectGroup.h">
       <Filter>MapReader</Filter>
+>>>>>>> master
     </ClInclude>
     <ClInclude Include="MapReader\TmxPoint.h">
       <Filter>MapReader</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="GameMap.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Support.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Manager\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Manager\Collision</Filter>
+=======
     <ClInclude Include="MapReader\TmxPolygon.h">
       <Filter>MapReader</Filter>
     </ClInclude>
@@ -170,6 +301,7 @@
     </ClInclude>
     <ClInclude Include="MapReader\zlib.h">
       <Filter>MapReader</Filter>
+>>>>>>> master
     </ClInclude>
     <ClInclude Include="Camera.h" />
   </ItemGroup>
@@ -182,5 +314,31 @@
     <None Include="MapReader\Tmx.h.in">
       <Filter>MapReader</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{805ea60f-f3cc-4bbc-b603-350f8c0deaaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork">
+      <UniqueIdentifier>{5f221ff8-d6fe-4cd5-8238-5c65468b916c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{bd78594e-1809-48ef-abf5-4203eb297c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{f41fc726-b0e2-493b-bf2a-7f994fef7646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo">
+      <UniqueIdentifier>{93961c71-0d53-4c68-b793-308e6db5530b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\DemoScene">
+      <UniqueIdentifier>{92f88609-daca-4f61-b2aa-f15e3e13b914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\DemoObject">
+      <UniqueIdentifier>{bd454af9-c9f5-4c27-9b18-c9014c676d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Collision">
+      <UniqueIdentifier>{d2b6e33e-17a0-497e-a84d-671196f44135}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

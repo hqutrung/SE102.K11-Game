@@ -1,6 +1,5 @@
 #pragma once
 #include <Windows.h>
-#include <d3dx9.h>
 #include "BoxCollider.h"
 #include <math.h>
 

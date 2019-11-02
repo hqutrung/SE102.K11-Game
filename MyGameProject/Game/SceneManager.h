@@ -2,27 +2,33 @@
 #define __SCENE_MANAGER__
 
 #include "Scene.h"
+#include  "DemoScene.h"
 
 class SceneManager
 {
 
-	//void CreateScene(int sceneID);
+	void CreateScene(int sceneID);
 
-	SceneManager();
-	static SceneManager* mInstace;
-	Scene* mCurrentScene;
+	static SceneManager* instance;
+	Scene* currentScene;
+	float destSceneID;
 
-	//float destSceneID;
+	bool isTransitioning;
+	bool firstTime;
+	float timeTransition;
+
 public:
+	SceneManager();
 	static SceneManager* GetInstance();
 	~SceneManager();
 
 	Scene* GetCurrentScene();
-	void Update(float dt);
-	void ReplaceScene(Scene* scene);
 
-	//int GetSceneID();
+	void LoadScene(int sceneID);
 
+	//void UpdateTransition(double dt);
+	bool IsTransitioning();
+	int GetSceneID();
 
 };
 

@@ -11,65 +11,57 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	mMap = new GameMap((char*)"Resources/testmap.tmx");
-	mCamera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
+	map = new GameMap((char*)"Resources/testmap.tmx");
+	camera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	mMap->SetCamera(mCamera);
+
+	int width = Graphic::GetInstance()->GetBackBufferWidth();
+	int height = Graphic::GetInstance()->GetBackBufferHeight();
+
+	camera = new Camera(width, height);
+	camera->SetPosition(D3DXVECTOR3(width / 2, height / 2, 0));
+
+	map->SetCamera(camera);
 
 	demoObject = new DemoObject();
-	demoObject->SetPosition(16, SCREEN_HEIGHT/2);
+	demoObject->SetPosition(32, 30 + demoObject->GetBigHeight() / 2.0f);
 
-	mCamera->FollowPlayer(demoObject->GetPosition().x , demoObject->GetPosition().y);
+	camera->FollowPlayer(demoObject->GetPosition().x, demoObject->GetPosition().y);
 
-	/*Textures* texture = Textures::GetInstance();
-	texture->Add(1, "Resources/running.png", D3DCOLOR_XRGB(255, 163, 177));
-	texture->Add(2, "Resources/spartaspritesheet.png", D3DCOLOR_XRGB(255, 163, 177));
-	texture->Add(3, "Resources/mario.png", D3DCOLOR_XRGB(255, 255, 255));
-
-	marioAni = new Animation(0.1f);
-	marioAni->AddFrames(texture->GetTexture(3), 1, 15, 0, D3DCOLOR_XRGB(255, 255, 255));
-	
-	spartaAni = new Animation(0.1f);
-	spartaAni->AddFrames(texture->GetTexture(2), 1, 4, 0, D3DCOLOR_XRGB(255, 255, 255));*/
-
-
+	CheckCamera();
 }
 
 void DemoScene::Update(float dt)
 {
-	//marioAni->Update(dt);
-	//spartaAni->Update(dt);
-	demoObject->Update(dt);
 	ProcessInput();
+	demoObject->Update(dt);
+
 	D3DXVECTOR3 playerPos = demoObject->GetPosition();
-	mCamera->FollowPlayer(playerPos.x , playerPos.y);
+	camera->FollowPlayer(playerPos.x, playerPos.y);
 	CheckCamera();
-	DebugOut(L"Player: %f + %f\n", playerPos.x, playerPos.y);
-	DebugOut(L"Camera: %f + %f\n", mCamera->GetPosition().x, mCamera->GetPosition().y);
+
+
+	if (playerPos.x < 16)
+		demoObject->SetPosition(16, playerPos.y);
+	if (playerPos.x > map->GetWidth() - 16)
+		demoObject->SetPosition(map->GetWidth() - 16, playerPos.y);
+	
+	if (playerPos.y < 16)
+		demoObject->SetPosition(playerPos.x, 16);
+	if (playerPos.y > map->GetHeight() - 16)
+		demoObject->SetPosition(playerPos.x, map->GetHeight() - 16);
 }
 
 void DemoScene::Render()
 {
-	mMap->Draw();
+	map->Draw();
 
 	demoObject->Render();
-
-	//Sprites* sp1 = new Sprites(Textures::GetInstance()->GetTexture(1), BoxCollider());
-	////sp->NormalDraw(D3DXVECTOR3(0, 0, 0));
-	//sp1->Draw(D3DXVECTOR3(sp1->GetWidth() / 2, sp1->GetHeight() / 2, 0), BoxCollider(), D3DCOLOR_XRGB(255,255,255), true);
-
-	//Sprites* sp2 = new Sprites(Textures::GetInstance()->GetTexture(2), BoxCollider(0, 33, 65, 42));
-	//sp2->Draw();
-	//sp2->Draw(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f));
-
-	//Sprites* sp3 = new Sprites(Textures::GetInstance()->GetTexture(3), BoxCollider());
-	//sp3->Draw(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f));
-
 }
 
 int DemoScene::GetSceneID()
 {
-	return 1;
+	return DEMO_SCENE;
 }
 
 void DemoScene::ProcessInput()
@@ -80,14 +72,20 @@ void DemoScene::ProcessInput()
 
 void DemoScene::CheckCamera()
 {
-	D3DXVECTOR3 camPos = mCamera->GetPosition();
-	float halfWidth = (float)mCamera->GetWidth() / 2;
-	float halfHeight = (float)mCamera->GetHeight() / 2;
-	auto worldWidth = mMap->GetWidth();
-	auto worldHeight = mMap->GetHeight();
+	D3DXVECTOR3 camPos = camera->GetPosition();
+	float halfWidth = (float)camera->GetWidth() / 2;
+	float halfHeight = (float)camera->GetHeight() / 2;
+	auto worldWidth = map->GetWidth();
+	auto worldHeight = map->GetHeight();
 	if (camPos.x - halfWidth < 0)
 		camPos.x = halfWidth;
 	if (camPos.x + halfWidth > worldWidth)
 		camPos.x = worldWidth - halfWidth;
-	mCamera->SetPosition(camPos);
+
+	if (camPos.y - halfHeight < 0)
+		camPos.y = halfHeight;
+	if (camPos.y + halfHeight > worldHeight)
+		camPos.y = worldHeight - halfHeight;
+
+	camera->SetPosition(camPos);
 }

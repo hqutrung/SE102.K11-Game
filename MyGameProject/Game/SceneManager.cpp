@@ -1,10 +1,13 @@
 #include "SceneManager.h"
 
-SceneManager* SceneManager::mInstace = NULL;
+SceneManager* SceneManager::instance = NULL;
+
 
 SceneManager::SceneManager()
 {
-	mCurrentScene = nullptr;
+	currentScene = NULL;
+	timeTransition = 0;
+	firstTime = true;
 }
 
 SceneManager::~SceneManager()
@@ -13,25 +16,57 @@ SceneManager::~SceneManager()
 
 SceneManager* SceneManager::GetInstance()
 {
-	if (!mInstace)
-		mInstace = new SceneManager();
+	if (!instance)
+		instance = new SceneManager();
+	return instance;
+}
 
-	return mInstace;
+void SceneManager::CreateScene(int sceneID)
+{
+	if (currentScene != NULL)
+		delete currentScene;
+	currentScene = NULL;
+	/*switch (type) {
+	case ToGameOverTo:
+		DataManager::HandleGameOver();
+		break;
+	case Reload:
+		DataManager::HandleReload();
+		break;
+	case Next:
+		break;
+	}*/
+	switch (sceneID) {
+	case 0:
+		//CurrentScene = new IntroScene();
+		break;
+	case DEMO_SCENE:
+		currentScene = new DemoScene();
+		break;
+	}
+}
+void SceneManager::LoadScene(int sceneID)
+{
+	destSceneID = sceneID;
+	if (firstTime) {
+		CreateScene(sceneID);
+		firstTime = false;
+	}
+	else
+		isTransitioning = true;
 }
 
 Scene* SceneManager::GetCurrentScene()
 {
-	return mCurrentScene;
+	return currentScene;
 }
 
-void SceneManager::Update(float dt)
+bool SceneManager::IsTransitioning()
 {
-	mCurrentScene->Update(dt);
+	return isTransitioning;
 }
 
-void SceneManager::ReplaceScene(Scene* scene)
+int SceneManager::GetSceneID()
 {
-	delete mCurrentScene;
-
-	mCurrentScene = scene;
+	return currentScene->GetSceneID();
 }

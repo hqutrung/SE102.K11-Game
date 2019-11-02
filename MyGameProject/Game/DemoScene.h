@@ -3,17 +3,16 @@
 #include "Textures.h"
 #include "Animation.h"
 #include "GameMap.h"
+#include "Camera.h"
 #include "DemoObject.h"
 #include "Debug.h"
 
 class DemoScene: public Scene
 {
 protected:
-	LPANIMATION marioAni;
-	LPANIMATION spartaAni;
 	float mTimeCounter;
-	GameMap* mMap;
-	Camera* mCamera;
+	GameMap* map;
+	Camera* camera;
 	DemoObject* demoObject;
 
 public:
@@ -25,6 +24,5 @@ public:
 	int GetSceneID() override;
 	void ProcessInput() override;
 	void CheckCamera();
-
 };
 
