@@ -37,7 +37,7 @@ private:
 
 	Tmx::Map* mMap;
 	std::map<int, Sprites*>          mListTileset;
-	Camera* mCamera;
+	Camera* Cam;
 };
 
 #endif

@@ -10,8 +10,6 @@
 class DemoScene: public Scene
 {
 protected:
-	LPANIMATION marioAni;
-	LPANIMATION spartaAni;
 	float mTimeCounter;
 	GameMap* map;
 	Camera* camera;
@@ -26,8 +24,5 @@ public:
 	int GetSceneID() override;
 	void ProcessInput() override;
 	void CheckCamera();
-
-	void CheckCamera();
-
 };
 

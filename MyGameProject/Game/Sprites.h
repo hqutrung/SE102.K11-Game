@@ -18,7 +18,7 @@ protected:
 	D3DXVECTOR3 position;			// toa do cua Sprite, co goc la chinh giua hinh anh Texture
 	D3DXVECTOR2 translation;		// tinh tien sprite them 1 doan bang vector(x,y)
 	int width, height;				// kich thuoc cua texture
-	BoxCollider mbox;
+	BoxCollider box;
 
 
 	LPDIRECT3DTEXTURE9 texture;		// load hinh anh vao day
@@ -50,7 +50,7 @@ public:
 
 	bool IsRect(BoxCollider r);
 
-	void Draw(D3DXVECTOR3 position = D3DXVECTOR3(), BoxCollider r = BoxCollider(), D3DXCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255), bool reverse = false);
+	void Draw(D3DXVECTOR3 position = D3DXVECTOR3(), BoxCollider box = BoxCollider(), D3DXCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255), bool reverse = false);
 	void NormalDraw(D3DXVECTOR3 position);
 };
 typedef Sprites* LPSPRITE;

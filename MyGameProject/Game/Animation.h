@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Sprites.h"
-#include "Camera.h"
+
 class AnimationFrame : public Sprites
 {
 	float time;

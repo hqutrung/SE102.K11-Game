@@ -11,8 +11,8 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	mMap = new GameMap((char*)"Resources/testmap.tmx");
-	mCamera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
+	map = new GameMap((char*)"Resources/testmap.tmx");
+	camera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
@@ -54,7 +54,7 @@ void DemoScene::Update(float dt)
 
 void DemoScene::Render()
 {
-	mMap->Draw();
+	map->Draw();
 
 	demoObject->Render();
 }

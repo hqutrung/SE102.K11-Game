@@ -15,11 +15,11 @@ Sprites::Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box)
 		texture->GetLevelDesc(0, &desc);
 		height = desc.Height;
 		width = desc.Width;
-		this->mbox = BoxCollider(0, 0, width, height);
+		this->box = BoxCollider(0, 0, width, height);
 	}
 
-	m_Position = D3DXVECTOR3(box.left ,box.top, 0);
-	m_Translation = D3DXVECTOR2(0, 0);
+	position = D3DXVECTOR3(box.left ,box.top, 0);
+	translation = D3DXVECTOR2(0, 0);
 
 	spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
 
@@ -34,12 +34,12 @@ void Sprites::InitWithSprite(const char* filePath, BoxCollider box, int width, i
 {
 	HRESULT result;
 	spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
-	m_Position = D3DXVECTOR3(0, 0, 0);
+	position = D3DXVECTOR3(0, 0, 0);
 	mRotation = 0;
-	mRotationCenter = D3DXVECTOR2(m_Position.x, m_Position.y);
-	m_Translation = D3DXVECTOR2(0, 0);
+	mRotationCenter = D3DXVECTOR2(position.x, position.y);
+	translation = D3DXVECTOR2(0, 0);
 	mScale = D3DXVECTOR2(0, 1);
-	mbox = box;
+	this->box = box;
 	mScale.x = mScale.y = 1;
 
 	D3DXGetImageInfoFromFileA(filePath, &mImageInfo);
@@ -66,10 +66,10 @@ void Sprites::InitWithSprite(const char* filePath, BoxCollider box, int width, i
 
 	if (!IsRect(box))
 	{
-		mbox.left = 0;
-		mbox.right = width;
-		mbox.top = 0;
-		mbox.bottom = height;
+		this->box.left = 0;
+		this->box.right = width;
+		this->box.top = 0;
+		this->box.bottom = height;
 	}
 
 	LPDIRECT3DDEVICE9 device;
@@ -130,7 +130,7 @@ bool Sprites::IsRect(BoxCollider r)
 	return true;
 }
 
-void Sprites::Draw(D3DXVECTOR3 position, BoxCollider r, D3DXCOLOR colorKey, bool reverse) 
+void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DXCOLOR colorKey, bool reverse) 
 {
 	auto cam = Camera::GetInstance()->GetRect();
 	if (!IsRect(cam))
@@ -139,18 +139,11 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider r, D3DXCOLOR colorKey, bool
 	D3DXVECTOR3 inPosition = this->position;
 	BoxCollider inSourceRect = this->box;
 
-	//phng: Doc them cai slide thay Kha de hieu ro hon ve matrix nay nghe
-	if (!IsRect(cam))
-		return;
-
-	D3DXVECTOR3 inPosition = m_Position;
-	BoxCollider inSourceRect = mbox;
-
 	if (position != D3DXVECTOR3())
 		inPosition = position;
 
-	if (IsRect(r))
-		inSourceRect = r;
+	if (IsRect(box))
+		inSourceRect = box;
 
 	D3DXMATRIX m_Maxtrix;
 	D3DXMatrixIdentity(&m_Maxtrix);
@@ -159,14 +152,6 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider r, D3DXCOLOR colorKey, bool
 	m_Maxtrix._42 = cam.top;
 
 	D3DXVECTOR3 center = D3DXVECTOR3(width / 2.0f, height / 2.0f, 0);
-
-	D3DXVECTOR4 vp_pos;
-	D3DXVec3Transform(&vp_pos, &inPosition, &m_Maxtrix);
-	D3DXVECTOR3 p(vp_pos.x, vp_pos.y, 0);
-	p.x = (int)p.x;
-	p.y = (int)p.y;
-
-	D3DXVECTOR3 center = D3DXVECTOR3(width / 2, height / 2, 0);
 
 	D3DXVECTOR4 vp_pos;
 	D3DXVec3Transform(&vp_pos, &inPosition, &m_Maxtrix);
@@ -188,21 +173,6 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider r, D3DXCOLOR colorKey, bool
 			inRotation, &inTranslation);
 		spriteHandler->SetTransform(&m_Maxtrix);
 	}
-	else
-	{
-		D3DXMatrixIdentity(&m_Maxtrix);
-
-		auto scalingScenter = D3DXVECTOR2(p.x, p.y);
-		//auto scalingScenter = D3DXVECTOR2(inPosition.x + width / 2.0f, inPosition.y);
-		auto inScale = D3DXVECTOR2(-1.0f, 1.0f);
-		auto inRotationCenter = D3DXVECTOR2(0, 0);
-		auto inRotation = 0;
-		auto inTranslation = D3DXVECTOR2(0, 0);
-		D3DXMatrixTransformation2D(&m_Maxtrix, &scalingScenter, 0, &inScale, &inRotationCenter,
-			inRotation, &inTranslation);
-		spriteHandler->SetTransform(&m_Maxtrix);
-	}
-
 
 	RECT r = Support::BoxColliderToRect(inSourceRect);
 
@@ -220,7 +190,7 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider r, D3DXCOLOR colorKey, bool
 
 void Sprites::NormalDraw(D3DXVECTOR3 position)
 {
-	RECT r = Support::BoxColliderToRect(mbox);
+	RECT r = Support::BoxColliderToRect(box);
 	spriteHandler->Draw(
 		texture,
 		&r,
