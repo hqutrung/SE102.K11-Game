@@ -57,7 +57,6 @@ void Entity::SetActive(bool active)
 bool Entity::IsActived()
 {
 	return isActived;
-	;
 }
 
 D3DXVECTOR3 Entity::GetPosition()

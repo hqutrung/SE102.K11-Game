@@ -1,17 +1,18 @@
 #include "Camera.h"
-Camera* Camera::Instance = NULL;
+Camera* Camera::instance = NULL;
 
 
 Camera* Camera::GetInstance()
 {
-	return Instance;
+	return instance;
 }
 
 Camera::Camera(int width, int height)
 {
 	this->width = width;
 	this->height = height;
-	Instance = this;
+	instance = this;
+	instance = this;
 }
 
 Camera::~Camera()

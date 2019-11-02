@@ -1,11 +1,11 @@
 #include "SceneManager.h"
 
-SceneManager* SceneManager::mInstance = NULL;
+SceneManager* SceneManager::instance = NULL;
 
 
 SceneManager::SceneManager()
 {
-	mCurrentScene = nullptr;
+	currentScene = NULL;
 	timeTransition = 0;
 	firstTime = true;
 }
@@ -16,16 +16,16 @@ SceneManager::~SceneManager()
 
 SceneManager* SceneManager::GetInstance()
 {
-	if (!mInstance)
-		mInstance = new SceneManager();
-	return mInstance;
+	if (!instance)
+		instance = new SceneManager();
+	return instance;
 }
 
 void SceneManager::CreateScene(int sceneID)
 {
-	if (mCurrentScene != NULL)
-		delete mCurrentScene;
-	mCurrentScene = NULL;
+	if (currentScene != NULL)
+		delete currentScene;
+	currentScene = NULL;
 	/*switch (type) {
 	case ToGameOverTo:
 		DataManager::HandleGameOver();
@@ -41,7 +41,7 @@ void SceneManager::CreateScene(int sceneID)
 		//CurrentScene = new IntroScene();
 		break;
 	case DEMO_SCENE:
-		mCurrentScene = new DemoScene();
+		currentScene = new DemoScene();
 		break;
 	}
 }
@@ -58,7 +58,7 @@ void SceneManager::LoadScene(int sceneID)
 
 Scene* SceneManager::GetCurrentScene()
 {
-	return mCurrentScene;
+	return currentScene;
 }
 
 bool SceneManager::IsTransitioning()
@@ -68,5 +68,5 @@ bool SceneManager::IsTransitioning()
 
 int SceneManager::GetSceneID()
 {
-	return mCurrentScene->GetSceneID();
+	return currentScene->GetSceneID();
 }

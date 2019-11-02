@@ -56,6 +56,12 @@
     <ClCompile Include="Support.cpp">
       <Filter>Misc</Filter>
     </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Manager\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Manager\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -121,6 +127,12 @@
     <ClInclude Include="BoxCollider.h">
       <Filter>Misc</Filter>
     </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Manager\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Manager\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Manager">
@@ -143,6 +155,9 @@
     </Filter>
     <Filter Include="Demo\DemoObject">
       <UniqueIdentifier>{bd454af9-c9f5-4c27-9b18-c9014c676d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Collision">
+      <UniqueIdentifier>{d2b6e33e-17a0-497e-a84d-671196f44135}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

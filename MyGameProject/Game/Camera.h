@@ -10,7 +10,7 @@ class Camera
 	D3DXVECTOR3 position;
 	float width;
 	float height;
-	static Camera* Instance;
+	static Camera* instance;
 public:
 	static Camera* GetInstance();
 	Camera(int width, int height);

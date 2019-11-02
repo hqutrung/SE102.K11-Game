@@ -9,8 +9,8 @@ class SceneManager
 
 	void CreateScene(int sceneID);
 
-	static SceneManager* mInstance;
-	Scene* mCurrentScene;
+	static SceneManager* instance;
+	Scene* currentScene;
 	float destSceneID;
 
 	bool isTransitioning;
