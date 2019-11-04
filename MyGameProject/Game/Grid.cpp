@@ -23,7 +23,6 @@ Grid::Grid(BoxCollider r, int rowNumbers, int colNumbers)
 			Cells[i][j] = NULL;
 			activeCells[i][j] = false;
 		}
-
 	instance = this;
 }
 
