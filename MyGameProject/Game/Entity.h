@@ -6,24 +6,6 @@
 class Entity
 {
 public:
-	// Huong va cham
-	enum SideCollision {
-		Left, //0
-		Right, //1
-		Top, //2
-		Bottom, //3
-		TopLeft,
-		TopRight,
-		BottomLeft,
-		BottomRight,
-		NotKnow
-	};
-
-	struct ColissionReturn
-	{
-		bool isCollission;				// Co va cham hay khong
-		BoxCollider regionCollision;	// Vung va cham
-	};
 
 	// Huong di chuyen
 	enum MoveDirection {
@@ -34,8 +16,6 @@ public:
 protected:
 	bool isActived;
 	int id;
-	//Tag Tag;
-	//Layer type;
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
@@ -46,7 +26,7 @@ protected:
 
 public:
 
-	bool isStatic;						// Entity tinh or dong
+	bool isStatic;
 	static int currentID;
 
 	Entity();
@@ -56,9 +36,6 @@ public:
 
 	virtual void Update(float dt);
 	virtual void Render();
-	
-	//virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = (1.0 / 60));		// Va cham
-	//virtual EarnedData OnDestroy();
 
 	// static
 	virtual void SetStatic(bool flag);
@@ -69,13 +46,6 @@ public:
 	// Active
 	virtual void SetActive(bool active);
 	virtual bool IsActived();
-
-	//virtual Tag GetTag();
-	//virtual void SetTag(enum Tag Tag);
-
-	//virtual Layer GetType();
-	//virtual void SetType(Layer type);
-
 
 	// Vi tri
 	virtual D3DXVECTOR3 GetPosition();

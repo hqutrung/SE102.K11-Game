@@ -30,6 +30,23 @@ void GameMap::LoadMap(char* filePath)
 
 		mListTileset.insert(std::pair<int, Sprites*>(i, sprite));
 	}
+
+	SetMapGrid();
+}
+
+void GameMap::SetMapGrid()
+{
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	grid = new Grid(gridRect, mMap->GetHeight(), mMap->GetWidth());
+
+	// Demo add new enemy to Grid
+	DemoEnemy* demoEnemy1 = new DemoEnemy();
+	demoEnemy1->SetPosition(500, 150);
+	new Unit(grid, demoEnemy1);
+
+	DemoEnemy* demoEnemy2 = new DemoEnemy();
+	demoEnemy2->SetPosition(700, 300);
+	new Unit(grid, demoEnemy2);
 }
 
 bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
@@ -70,6 +87,10 @@ int GameMap::GetTileHeight()
 void GameMap::SetCamera(Camera* cam)
 {
 	this->Cam = cam;
+}
+Grid* GameMap::GetGrid()
+{
+	return grid;
 }
 void GameMap::Draw()
 {
@@ -120,7 +141,7 @@ void GameMap::Draw()
 					spriteBound.left = n * tileWidth;
 					spriteBound.right = spriteBound.left + tileWidth;
 
-					//tru tilewidth/2 va tileheight/2 vi Sprite ve o vi tri giua hinh anh cho nen doi hinh de cho
+					//cong tilewidth/2 va tileheight/2 vi Sprite ve o vi tri giua hinh anh cho nen doi hinh de cho
 					//dung toa do (0,0) cua the gioi thuc la (0,0) neu khong thi se la (-tilewidth/2, -tileheigth/2);
 
 					if (Cam->IsCollide(spriteBound)) {

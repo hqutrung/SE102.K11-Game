@@ -6,7 +6,6 @@
 
 class SceneManager
 {
-
 	void CreateScene(int sceneID);
 
 	static SceneManager* instance;

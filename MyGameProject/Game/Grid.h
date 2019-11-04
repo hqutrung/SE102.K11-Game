@@ -16,7 +16,6 @@ class Grid
 	bool activeCells[GRID_ROW_NUMBERS][GRID_COLUMN_NUMBERS];
 	RECT activeRect;
 
-	//EffectChain* effects;
 	//std::vector<Entity*> staticObjects;
 
 public:
@@ -36,7 +35,7 @@ public:
 	void HandMelee();								// partitioned the battlefield into little skirmishes
 	void HandleCell(int cellX, int cellY);			// handle this cell
 	void HandleUnit(Unit* unit, Unit* other);		// handle this Unit
-	void HandleCollision(Unit* unit, Unit other);	// handle collision
+	void HandleCollision(Unit* unit, Unit *other);	// handle collision
 
 	void Move(Unit* unit, float x, float y);		// Move Unit
 	void MoveActiveUnit(Unit* unit);				// Move active Unit after update

@@ -20,8 +20,6 @@ protected:
 
 	DemoObjectState::State currentState;
 	BoxCollider collider;
-	float collisionTime;				// Thoi gian va cham
-	SideCollision side;
 
 public:
 	/*enum Status {

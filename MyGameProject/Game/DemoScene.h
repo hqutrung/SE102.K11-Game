@@ -6,11 +6,10 @@
 #include "Camera.h"
 #include "DemoObject.h"
 #include "Debug.h"
+#include "GameMap.h"
 
 class DemoScene: public Scene
 {
-protected:
-	float mTimeCounter;
 	GameMap* map;
 	Camera* camera;
 	DemoObject* demoObject;
@@ -18,11 +17,12 @@ protected:
 public:
 	DemoScene();
 	~DemoScene();
-	void Update(float dt) override;
 	void LoadContent() override;
+	void Update(float dt) override;
 	void Render() override;
 	int GetSceneID() override;
 	void ProcessInput() override;
 	void CheckCamera();
+	void CheckActive();
 };
 

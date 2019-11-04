@@ -7,7 +7,7 @@
 #include "GameManager.h"
 
 #define WINDOW_CLASS_NAME L"GameProject"
-#define MAIN_WINDOW_TITLE L"MyGame"
+#define MAIN_WINDOW_TITLE L"Aladdin"
 
 #define FPS 60
 #define SPF 1.0f/FPS
@@ -54,8 +54,8 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 			CW_USEDEFAULT,
 			//y position
 			CW_USEDEFAULT,
-			ScreenWidth * 2,
-			ScreenHeight * 2,
+			ScreenWidth,
+			ScreenHeight,
 			//parents window
 			NULL,
 			NULL,
@@ -82,9 +82,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	bool done = false;
 	float dt = 0;
 
-	//DWORD startTime = GetTickCount();
-	//int slFrame = 0;
-
 	while (!done) {
 
 		GameTime::GetInstance()->StartCounter();
@@ -102,15 +99,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//OutputDebugString();
 
 		if (dt >= SPF) {
-
-			//if (GetTickCount() - startTime >= 1000) {
-			//	//DebugOut(L"so luong frame/s: %d\n", slFrame);
-			//	startTime = GetTickCount();
-			//	//slFrame = 0;
-			//}
-			//else
-			//	//slFrame++;
-
 			gameManager.ProcessInput();
 			
 			gameManager.Update(dt);

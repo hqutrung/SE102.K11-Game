@@ -12,8 +12,6 @@ DemoScene::~DemoScene()
 void DemoScene::LoadContent()
 {
 	map = new GameMap((char*)"Resources/testmap.tmx");
-	camera = new Camera(SCREEN_WIDTH, SCREEN_HEIGHT);
-
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -23,8 +21,10 @@ void DemoScene::LoadContent()
 
 	map->SetCamera(camera);
 
+	// Player
 	demoObject = new DemoObject();
 	demoObject->SetPosition(32, 30 + demoObject->GetBigHeight() / 2.0f);
+	(new Unit(map->GetGrid(), demoObject))->SetActive(true);
 
 	camera->FollowPlayer(demoObject->GetPosition().x, demoObject->GetPosition().y);
 
@@ -33,14 +33,16 @@ void DemoScene::LoadContent()
 
 void DemoScene::Update(float dt)
 {
-	ProcessInput();
-	demoObject->Update(dt);
+	CheckActive();
+	ProcessInput(); 
+	map->GetGrid()->Update(dt);
 
+	// Camera follow player
 	D3DXVECTOR3 playerPos = demoObject->GetPosition();
 	camera->FollowPlayer(playerPos.x, playerPos.y);
 	CheckCamera();
 
-
+	// 
 	if (playerPos.x < 16)
 		demoObject->SetPosition(16, playerPos.y);
 	if (playerPos.x > map->GetWidth() - 16)
@@ -56,7 +58,9 @@ void DemoScene::Render()
 {
 	map->Draw();
 
-	demoObject->Render();
+	map->GetGrid()->Render();
+
+	//demoObject->Render();
 }
 
 int DemoScene::GetSceneID()
@@ -88,4 +92,10 @@ void DemoScene::CheckCamera()
 		camPos.y = worldHeight - halfHeight;
 
 	camera->SetPosition(camPos);
+}
+
+void DemoScene::CheckActive()
+{
+	Entity::MoveDirection camDirection = demoObject->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
+	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
 }

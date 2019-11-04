@@ -1,104 +1,14 @@
-﻿  Animation.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Animation.cpp(91,24): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-  Camera.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Animation.cpp(102,12): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(12,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(13,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(34,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(39,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(54,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Debug.cpp
-  DemoObject.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(55,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(55,20): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(31,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-  DemoObjectState.cpp
-  DemoRunningState.cpp
-  DemoScene.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(22,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(22,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(47,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Entity.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(52,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(154,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  GameManager.cpp
-  GameMap.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(163,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(163,17): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+﻿  GameMap.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(25,23): warning C4018: '<': signed/unsigned mismatch
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(77,23): warning C4018: '<': signed/unsigned mismatch
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(91,24): warning C4018: '<': signed/unsigned mismatch
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(93,25): warning C4018: '<': signed/unsigned mismatch
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(112,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(114,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(118,53): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(120,27): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(127,101): warning C4244: 'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
-  GameTime.cpp
-  Graphic.cpp
-  Grid.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(127,42): warning C4244: 'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(53,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(54,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(55,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  KeyBoard.cpp
-  Main.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(56,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(56,65): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(56,65): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  base64.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(123,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\MapReader\base64.cpp(96,69): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
-  tinyxml2.cpp
-  TmxEllipse.cpp
-  TmxImage.cpp
-  TmxImageLayer.cpp
-  Generating Code...
-  Compiling...
-  TmxLayer.cpp
-  TmxMap.cpp
-  TmxObject.cpp
-  TmxObjectGroup.cpp
-  TmxPolygon.cpp
-  TmxPolyline.cpp
-  TmxPropertySet.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\MapReader\base64.cpp(113,65): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
-  TmxTerrain.cpp
-  TmxTerrainArray.cpp
-  TmxTile.cpp
-  TmxTileLayer.cpp
-  TmxTileOffset.cpp
-  TmxTileset.cpp
-  TmxUtil.cpp
-  Scene.cpp
-  SceneManager.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.cpp(87,28): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.cpp(87,28): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Sprites.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(50,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(52,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(62,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(70,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(35,10): warning C4101: 'result': unreferenced local variable
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(159,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(160,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Support.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(173,4): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-  Textures.cpp
-  Unit.cpp
-  Generating Code...
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-  miniz.c
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(39,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(39,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(98,23): warning C4018: '<': signed/unsigned mismatch
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(112,24): warning C4018: '<': signed/unsigned mismatch
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(114,25): warning C4018: '<': signed/unsigned mismatch
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(133,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(135,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(139,53): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(141,27): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(148,101): warning C4244: 'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(148,42): warning C4244: 'argument': conversion from 'size_t' to 'FLOAT', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

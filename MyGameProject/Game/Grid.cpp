@@ -17,8 +17,8 @@ Grid::Grid(BoxCollider r, int rowNumbers, int colNumbers)
 	cellHeight = (float)(r.top - r.bottom) / rowNumbers;
 
 	// Clear the grid
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 		{
 			Cells[i][j] = NULL;
 			activeCells[i][j] = false;
@@ -44,7 +44,7 @@ void Grid::Add(Unit* unit)
 
 	if (unit->next != NULL)
 		unit->next->prev = unit;
-}
+}	
 
 void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 {
@@ -57,10 +57,10 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 
 	// Check Active: it's in r => active
 
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 		{
-			if (i<r.left || i>r.right || j<r.top || j>r.bottom)
+			if (i<r.left || i>r.right || j > r.top || j < r.bottom)
 			{
 				activeCells[i][j] = false;
 				if (Cells[i][j] != NULL)
@@ -68,6 +68,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 					if (Cells[i][j]->entity->IsActived())
 					{
 						HandleInActiveUnit(Cells[i][j]);
+						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -90,10 +91,10 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 	{
 		other->active = true;
 
-		// Set active unit1->entity
-		//other->entity->SetActive(true);
+		// Set active entity
+		other->entity->SetActive(true);
 
-		other = other->next;
+		other = other->next;	
 	}
 
 }
@@ -106,6 +107,8 @@ void Grid::HandleInActiveUnit(Unit* unit)
 		unit = other;
 		unit->active = false;
 		unit->entity->SetActive(false);
+		//other->active = false;
+		//other->entity->SetActive(false);
 		other = other->next;
 	}
 }
@@ -115,8 +118,8 @@ void Grid::HandleInActiveUnit(Unit* unit)
 void Grid::HandMelee()
 {
 	//  walks each cell
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 			if (Cells[i][j] != NULL && activeCells[i][j] == true)
 				HandleCell(i, j);
 }
@@ -153,15 +156,15 @@ void Grid::HandleUnit(Unit* unit, Unit* other)
 {
 	while (other != NULL)
 	{
-		/*if (other->entity->IsActived())
+		if (other->entity->IsActived())
 			{
 				HandleCollision(unit, other);
-			}*/
+			}
 		other = other->next;
 	}
 }
 
-void Grid::HandleCollision(Unit* unit, Unit other)
+void Grid::HandleCollision(Unit* unit, Unit *other)
 {
 	//OnCollision();
 }
@@ -177,14 +180,20 @@ void Grid::Move(Unit* unit, float x, float y)
 	int cellX = (int)(x / cellWidth);
 	int cellY = (int)(y / cellHeight);
 
+	//Out of screen
+	if (cellX >= colNumbers || cellX < 0 || cellY >= rowNumbers || cellY < 0) {
+		unit->entity->SetActive(false);
+		return;
+	}
+
 	// update unit's position
 	unit->pos.x = x;
 	unit->pos.y = y;
 
-	// didn't change cell
+	// if didn't change cell
 	if (cellX == oldCellX && cellY == oldCellY)
-
 		return;
+
 	// Unlink it from the list of its old cell.
 	if(unit->prev != NULL)
 		unit->prev->next = unit->next;
@@ -195,7 +204,7 @@ void Grid::Move(Unit* unit, float x, float y)
 	if (Cells[oldCellX][oldCellY] == unit)
 		Cells[oldCellX][oldCellY] = unit->next;
 
-	// Add it to the grid at its new cell.
+	// Add it to the grid at new cell.
 	Add(unit);
 }
 
@@ -213,29 +222,30 @@ void Grid::MoveActiveUnit(Unit* unit)
 void Grid::Update(float dt)
 {
 	// Update entity
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				UpdateUnit(Cells[i][j], dt);
 
 	// Update Unit
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				MoveActiveUnit(Cells[i][j]);
 }
 
 void Grid::Render()
 {
-	for (int i = 0; i < rowNumbers; i++)
-		for (int j = 0; j < colNumbers; j++)
+	for (int i = 0; i < colNumbers; i++)
+		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
 }
 
 void Grid::UpdateUnit(Unit* unit, float dt)
 {
-	while (unit != NULL) {
+	while (unit != NULL) 
+	{
 		if (unit->entity->IsActived())
 		{
 			unit->entity->Update(dt);
@@ -246,7 +256,8 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 
 void Grid::RenderUnit(Unit* unit)
 {
-	while (unit != NULL) {
+	while (unit != NULL) 
+	{
 		if (unit->entity->IsActived())
 			unit->entity->Render();
 		unit = unit->next;

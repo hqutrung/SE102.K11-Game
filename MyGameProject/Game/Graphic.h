@@ -18,44 +18,7 @@ protected:
 	int bufferWidth;
 	int bufferHeight;
 
-	////DRAW STRING ON SCREEN BRO
-	//ID3DXFont* normalFont;
-	//ID3DXFont* narrowFont;
-	//ID3DXFont* customFont1;
-	//ID3DXFont* customFont2;
-	//RECT leftZone;
-	//RECT rightZone;
-	//RECT iconSpiritZone;
-	//RECT playerHealthZone;
-	//RECT enemyHealthZone;
-
-	//std::string scoreInfor;
-	//std::string timeInfor;
-	//std::string lifeInfor;
-	//std::string spiritInfor;
-	//std::string stageInfor;
-	//std::string playerHealthInfor;
-	//std::string enemyHealthInfor;
-	//std::string iconSpirit;
-	//std::string healthIcon;
-	//Tag itemTag;
-
 public:
-
-	/*void SetScoreInfo(int score);
-	void SetTimeInfo(int time);
-	void SetLifeInfo(int life);
-	void SetSpiritInfo(int spirit);
-	void SetstageInfo(int stage);
-	void SetPlayerHealthInfo(int health);
-	void SetEnemyHealthInfo(int health);
-	void SetItemInfo(Tag item);*/
-
-	//void InitFont();
-	//void DrawString();
-
-	//void DrawCustomZone(RECT r, std::string content);
-	//void DrawCustomZoneSmall(RECT r, std::string content);
 
 	static Graphic* GetInstance();
 	void Init(HWND hWnd);

@@ -26,16 +26,7 @@ void SceneManager::CreateScene(int sceneID)
 	if (currentScene != NULL)
 		delete currentScene;
 	currentScene = NULL;
-	/*switch (type) {
-	case ToGameOverTo:
-		DataManager::HandleGameOver();
-		break;
-	case Reload:
-		DataManager::HandleReload();
-		break;
-	case Next:
-		break;
-	}*/
+
 	switch (sceneID) {
 	case 0:
 		//CurrentScene = new IntroScene();

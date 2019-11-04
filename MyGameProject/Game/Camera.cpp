@@ -12,7 +12,6 @@ Camera::Camera(int width, int height)
 	this->width = width;
 	this->height = height;
 	instance = this;
-	instance = this;
 }
 
 Camera::~Camera()
@@ -55,15 +54,6 @@ void Camera::FollowPlayer(float x, float y)
 	position.y = (int)y;
 }
 
-bool Camera::IsHalfContaint(BoxCollider r)
-{
-	BoxCollider bound = GetRect();
-	return ((bound.left < r.right && bound.left > r.left) 
-		|| (bound.right < r.right && bound.right > r.left) 
-		|| (bound.bottom > r.bottom&& bound.bottom < r.top) 
-		|| (bound.top > r.bottom&& bound.top < r.top));
-}
-
 bool Camera::IsCollide(BoxCollider r)
 {
 	BoxCollider bound = GetRect();
@@ -72,6 +62,15 @@ bool Camera::IsCollide(BoxCollider r)
 	if (r.top < bound.bottom || r.bottom > bound.top)
 		return false;
 	return true;
+}
+
+bool Camera::IsHalfContaint(BoxCollider r)
+{
+	BoxCollider bound = GetRect();
+	return ((bound.left < r.right && bound.left > r.left)
+		|| (bound.right < r.right && bound.right > r.left)
+		|| (bound.bottom > r.bottom&& bound.bottom < r.top)
+		|| (bound.top > r.bottom&& bound.top < r.top));
 }
 
 bool Camera::IsContaint(BoxCollider r)

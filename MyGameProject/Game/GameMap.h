@@ -2,22 +2,26 @@
 #ifndef __GAME_MAP__
 #define __GAME_MAP__
 
-#include <d3dx9.h>
-#include <d3d9.h>
 #include <vector>
 
-#include "Sprites.h"
 #include "MapReader/Tmx.h.in"
-#include "Graphic.h"
-#include "Camera.h"
-#include "Textures.h"
+#include "demoEnemy.h"
+#include "Grid.h"
+#include "Unit.h"
 
 class GameMap
 {
+	Grid* grid;
+	Tmx::Map* mMap;
+	std::map<int, Sprites*>          mListTileset;
+	Camera* Cam;
 public:
 	GameMap(char* filePath);
-
+	void LoadMap(char* filePath);
 	Tmx::Map* GetMap();
+	void SetMapGrid();
+
+	bool isContain(BoxCollider rect1, BoxCollider rect2);
 
 	int GetWidth();
 	int GetHeight();
@@ -26,18 +30,11 @@ public:
 
 	void SetCamera(Camera* cam);
 
+	Grid* GetGrid();
+
 	void Draw();
 
 	~GameMap();
-
-private:
-	void LoadMap(char* filePath);
-
-	bool isContain(BoxCollider rect1, BoxCollider rect2);
-
-	Tmx::Map* mMap;
-	std::map<int, Sprites*>          mListTileset;
-	Camera* Cam;
 };
 
 #endif
