@@ -23,6 +23,8 @@ Sprites::Sprites(LPDIRECT3DTEXTURE9 texture, BoxCollider box)
 
 	spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
 
+	
+
 }
 
 Sprites::Sprites(const char* filePath, BoxCollider box, int width, int height, D3DCOLOR colorKey)
@@ -151,7 +153,6 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DXCOLOR colorKey, bo
 	m_Maxtrix._41 = -cam.left;
 	m_Maxtrix._42 = cam.top;
 
-	D3DXVECTOR3 center = D3DXVECTOR3(width / 2.0f, height / 2.0f, 0);
 
 	D3DXVECTOR4 vp_pos;
 	D3DXVec3Transform(&vp_pos, &inPosition, &m_Maxtrix);
@@ -176,6 +177,8 @@ void Sprites::Draw(D3DXVECTOR3 position, BoxCollider box, D3DXCOLOR colorKey, bo
 
 	RECT r = Support::BoxColliderToRect(inSourceRect);
 
+	D3DXVECTOR3 center = D3DXVECTOR3(width / 2.0f, height / 2.0f, 0);
+	
 	spriteHandler->Draw(
 		texture,			// Texture luu sprite
 		&r,					// dien tich can the hien

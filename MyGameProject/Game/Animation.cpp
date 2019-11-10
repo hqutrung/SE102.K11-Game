@@ -115,7 +115,7 @@ int Animation::GetCurrentFrameID()
 	return currentFrame;
 }
 
-bool Animation::IsLastFrame(double dt)
+bool Animation::IsLastFrame(float dt)
 {
 	return (currentFrame == totalFrame - 1 && currentTotalTime + dt >= defaultTime);
 }

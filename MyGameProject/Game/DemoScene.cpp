@@ -1,5 +1,5 @@
 #include "DemoScene.h"
-
+#include"Player.h"
 DemoScene::DemoScene()
 {
 	LoadContent();
@@ -22,11 +22,11 @@ void DemoScene::LoadContent()
 	map->SetCamera(camera);
 
 	// Player
-	demoObject = new DemoObject();
-	demoObject->SetPosition(32, 30 + demoObject->GetBigHeight() / 2.0f);
-	(new Unit(map->GetGrid(), demoObject))->SetActive(true);
+	player = new Player();
+	player->SetPosition(32, 30 + player->GetBigHeight() / 2.0f);
+	(new Unit(map->GetGrid(), player))->SetActive(true);
 
-	camera->FollowPlayer(demoObject->GetPosition().x, demoObject->GetPosition().y);
+	camera->FollowPlayer(player->GetPosition().x, player->GetPosition().y);
 
 	CheckCamera();
 }
@@ -38,20 +38,20 @@ void DemoScene::Update(float dt)
 	map->GetGrid()->Update(dt);
 
 	// Camera follow player
-	D3DXVECTOR3 playerPos = demoObject->GetPosition();
+	D3DXVECTOR3 playerPos = player->GetPosition();
 	camera->FollowPlayer(playerPos.x, playerPos.y);
 	CheckCamera();
 
 	// 
 	if (playerPos.x < 16)
-		demoObject->SetPosition(16, playerPos.y);
+		player->SetPosition(16, playerPos.y);
 	if (playerPos.x > map->GetWidth() - 16)
-		demoObject->SetPosition(map->GetWidth() - 16, playerPos.y);
+		player->SetPosition(map->GetWidth() - 16, playerPos.y);
 	
 	if (playerPos.y < 16)
-		demoObject->SetPosition(playerPos.x, 16);
+		player->SetPosition(playerPos.x, 16);
 	if (playerPos.y > map->GetHeight() - 16)
-		demoObject->SetPosition(playerPos.x, map->GetHeight() - 16);
+		player->SetPosition(playerPos.x, map->GetHeight() - 16);
 }
 
 void DemoScene::Render()
@@ -71,7 +71,7 @@ int DemoScene::GetSceneID()
 void DemoScene::ProcessInput()
 {
 	KeyBoard* input = KeyBoard::GetInstance();
-	demoObject->HandleInput();
+	player->HandleInput();
 }
 
 void DemoScene::CheckCamera()
@@ -96,6 +96,6 @@ void DemoScene::CheckCamera()
 
 void DemoScene::CheckActive()
 {
-	Entity::MoveDirection camDirection = demoObject->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
+	Entity::MoveDirection camDirection = player->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
 }

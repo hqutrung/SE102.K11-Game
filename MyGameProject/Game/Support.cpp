@@ -28,3 +28,5 @@ float Support::Lerp(float a, float b, float t) {
 	Clamp(t, 0, 1);
 	return a + (b - a) * t;
 }
+
+

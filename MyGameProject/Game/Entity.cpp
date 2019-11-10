@@ -125,6 +125,7 @@ void Entity::SetVx(float vx) {
 	else
 		if (vx < 0)
 			SetMoveDirection(RightToLeft);
+
 	this->velocity.x = vx;
 }
 

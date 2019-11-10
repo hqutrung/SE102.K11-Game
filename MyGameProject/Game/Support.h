@@ -2,7 +2,8 @@
 #include <Windows.h>
 #include "BoxCollider.h"
 #include <math.h>
-
+#include "GameConfig.h"
+#include "Entity.h"
 
 class Support {
 public:

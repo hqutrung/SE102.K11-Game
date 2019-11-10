@@ -14,6 +14,7 @@ typedef AnimationFrame* LPANIMATION_FRAME;
 
 class Animation {
 	//DWORD lastFrameTime;
+	
 	float defaultTime;
 	int currentFrame;
 	int totalFrame;
@@ -25,7 +26,7 @@ class Animation {
 public:
 	Animation(float defaultTime = 0.1);
 	~Animation();
-	
+	int abc = 0;
 	void AddFrame(LPANIMATION_FRAME frame);
 	void AddFrames(LPDIRECT3DTEXTURE9 texture, int rows, int columns, float timePerFrame = 0.1f, D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
 	void AddFramesA(LPDIRECT3DTEXTURE9 texture, int stRows, int fnRows, int columns, int rowNumber, int columnNumber, float timePerFrame = 0.1f, D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
@@ -41,8 +42,11 @@ public:
 	void Update(double dt);
 	
 	void ResetAnimation();
-	bool IsLastFrame(double dt);
+	bool IsLastFrame(float dt);
 	double GetPercentTime();
+	void SetDefaultTime(float x) {
+		defaultTime = x;
+	};
 };
 typedef Animation* LPANIMATION;
 

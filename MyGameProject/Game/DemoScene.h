@@ -7,12 +7,12 @@
 #include "DemoObject.h"
 #include "Debug.h"
 #include "GameMap.h"
-
+#include"Player.h"
 class DemoScene: public Scene
 {
 	GameMap* map;
 	Camera* camera;
-	DemoObject* demoObject;
+	Player* player;
 
 public:
 	DemoScene();

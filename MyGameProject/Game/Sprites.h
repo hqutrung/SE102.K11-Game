@@ -19,7 +19,7 @@ protected:
 	D3DXVECTOR2 translation;		// tinh tien sprite them 1 doan bang vector(x,y)
 	int width, height;				// kich thuoc cua texture
 	BoxCollider box;
-
+	
 
 	LPDIRECT3DTEXTURE9 texture;		// load hinh anh vao day
 	LPD3DXSPRITE spriteHandler;			// dùng để lấy device và vẽ sprite lên màn hình

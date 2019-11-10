@@ -58,9 +58,6 @@
     <ClCompile Include="DemoScene.cpp">
       <Filter>Demo\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="Grid.cpp">
       <Filter>FrameWork</Filter>
     </ClCompile>
@@ -120,6 +117,51 @@
     </ClCompile>
     <ClCompile Include="MapReader\TmxUtil.cpp">
       <Filter>TmxLib</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Object\Player\PlayerData</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object\Player\PlayerObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerIdleState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerIdleAttackState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunAttackState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDuckState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDuckAttackState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSlideState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PLayerLookUpState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLookUpAttackState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFallState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,9 +232,6 @@
     <ClInclude Include="DemoScene.h">
       <Filter>Demo\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="Grid.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
@@ -256,6 +295,51 @@
     <ClInclude Include="MapReader\TmxUtil.h">
       <Filter>TmxLib</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Object\Player\PlayerData</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object\Player\PlayerObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerIdleState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerIdleAttackState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunAttackState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDuckState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDuckAttackState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSlideState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PLayerLookUpState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLookUpAttackState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFallState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="FrameWork">
@@ -287,6 +371,18 @@
     </Filter>
     <Filter Include="TmxLib">
       <UniqueIdentifier>{3f6f535a-8ef3-4938-9085-8a2062a37065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{136835a8-8f76-43c8-a5fd-6e7a7621b92e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player\Player_State">
+      <UniqueIdentifier>{2b9516ca-80e6-4725-98d0-05474ab1ff96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player\PlayerData">
+      <UniqueIdentifier>{5a287625-cd4b-4123-a23d-1920ffb4d0ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player\PlayerObject">
+      <UniqueIdentifier>{33c4df82-9d13-4eed-b87e-3ab99584c7c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
