@@ -11,7 +11,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap((char*)"Resources/testmap.tmx");
+	map = new GameMap((char*)"Resources/tileset.png",(char*)"Resources/tilemap.txt");
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -24,7 +24,7 @@ void DemoScene::LoadContent()
 	// Player
 	demoObject = new DemoObject();
 	demoObject->SetPosition(32, 30 + demoObject->GetBigHeight() / 2.0f);
-	(new Unit(map->GetGrid(), demoObject))->SetActive(true);
+	//(new Unit(map->GetGrid(), demoObject))->SetActive(true);
 
 	camera->FollowPlayer(demoObject->GetPosition().x, demoObject->GetPosition().y);
 
@@ -33,9 +33,9 @@ void DemoScene::LoadContent()
 
 void DemoScene::Update(float dt)
 {
-	CheckActive();
+	//CheckActive();
 	ProcessInput(); 
-	map->GetGrid()->Update(dt);
+	//map->GetGrid()->Update(dt);
 
 	// Camera follow player
 	D3DXVECTOR3 playerPos = demoObject->GetPosition();
@@ -58,7 +58,7 @@ void DemoScene::Render()
 {
 	map->Draw();
 
-	map->GetGrid()->Render();
+	//map->GetGrid()->Render();
 
 	//demoObject->Render();
 }

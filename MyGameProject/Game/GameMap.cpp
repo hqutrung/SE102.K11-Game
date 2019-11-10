@@ -1,52 +1,73 @@
 #include "GameMap.h"
 
-GameMap::GameMap(char* filePath)
+Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
+	this->rows = rows;
+	this->columns = columns;
+	this->tileWidth = tileWidth;
+	this->tileHeight = tileHeight;
+}
+
+void Tileset::Add(int id, LPSPRITE tile) {
+	tiles[id] = tile;
+}
+
+int Tileset::GetRows() {
+	return rows;
+}
+
+int Tileset::GetColumns() {
+	return columns;
+}
+
+int Tileset::GetTileWidth() {
+	return tileWidth;
+}
+
+int Tileset::GetTileHeight() {
+	return tileHeight;
+}
+
+LPSPRITE Tileset::GetSprite(int id) {
+	return tiles[id];
+}
+
+GameMap::GameMap(char* tilesetPath, char* mapPath, int tileHeight , int tileWidth, bool gridBuildIn)
 {
-	LoadMap(filePath);
+	LoadTileset(tilesetPath, tileWidth, tileHeight);
+	if (gridBuildIn)
+		SetMapPathGridBuildIn(mapPath);
+	else
+		SetMapPath(mapPath);
 }
 
 GameMap::~GameMap()
 {
-	delete mMap;
-}
-
-void GameMap::LoadMap(char* filePath)
-{
-	mMap = new Tmx::Map();
-	mMap->ParseFile(filePath);
-
-	RECT r;
-	r.left = 0;
-	r.top = 0;
-	r.right = this->GetWidth();
-	r.bottom = this->GetHeight();
-
-
-	for (size_t i = 0; i < mMap->GetNumTilesets(); i++)
-	{
-		const Tmx::Tileset* tileset = mMap->GetTileset(i);
-
-		Sprites* sprite = new Sprites(tileset->GetImage()->GetSource().c_str());
-
-		mListTileset.insert(std::pair<int, Sprites*>(i, sprite));
+	delete grid;
+	grid = NULL;
+	delete tileset;
+	tileset = NULL;
+	for (int m = 0; m < this->rows; m++) {
+		delete mapIDs[m];
+		mapIDs[m] = NULL;
 	}
-
-	SetMapGrid();
+	delete mapIDs;
+	mapIDs = NULL;
 }
+
 
 void GameMap::SetMapGrid()
 {
-	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	grid = new Grid(gridRect, mMap->GetHeight(), mMap->GetWidth());
+	//BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	//grid = new Grid(gridRect, GetHeight(), GetWidth());
 
-	// Demo add new enemy to Grid
-	DemoEnemy* demoEnemy1 = new DemoEnemy();
-	demoEnemy1->SetPosition(500, 150);
-	new Unit(grid, demoEnemy1);
+	//// Demo add new enemy to Grid
+	//DemoEnemy* demoEnemy1 = new DemoEnemy();
+	//demoEnemy1->SetPosition(500, 150);
+	//new Unit(grid, demoEnemy1);
 
-	DemoEnemy* demoEnemy2 = new DemoEnemy();
-	demoEnemy2->SetPosition(700, 300);
-	new Unit(grid, demoEnemy2);
+	//DemoEnemy* demoEnemy2 = new DemoEnemy();
+	//demoEnemy2->SetPosition(700, 300);
+	//new Unit(grid, demoEnemy2);
 }
 
 bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
@@ -59,29 +80,25 @@ bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
 	return true;
 }
 
-Tmx::Map* GameMap::GetMap()
-{
-	return mMap;
-}
 
 int GameMap::GetWidth()
 {
-	return mMap->GetWidth() * mMap->GetTileWidth();
+	return tileset->GetTileWidth() * columns;
 }
 
 int GameMap::GetHeight()
 {
-	return mMap->GetHeight() * mMap->GetTileHeight();
+	return tileset->GetTileHeight() * rows;
 }
 
 int GameMap::GetTileWidth()
 {
-	return mMap->GetTileWidth();
+	return tileset->GetTileWidth();
 }
 
 int GameMap::GetTileHeight()
 {
-	return mMap->GetTileHeight();
+	return tileset->GetTileHeight();
 }
 
 void GameMap::SetCamera(Camera* cam)
@@ -92,66 +109,98 @@ Grid* GameMap::GetGrid()
 {
 	return grid;
 }
-void GameMap::Draw()
-{
 
-	for (size_t i = 0; i < mMap->GetNumTileLayers(); i++)
-	{
-		const Tmx::TileLayer* layer = mMap->GetTileLayer(i);
+void GameMap::Draw() {
 
-		if (!layer->IsVisible())
-		{
-			continue;
-		}
+	for (size_t i = 0; i < 1; i++) {
 
-		BoxCollider sourceRECT;
+		//chieu dai va chieu rong cua tile
+		int tileWidth = tileset->GetTileWidth();
+		int tileHeight = tileset->GetTileHeight();
 
-		int tileWidth = mMap->GetTileWidth();
-		int tileHeight = mMap->GetTileHeight();
+		for (int m = 0; m < this->rows; m++) {
+			for (int n = 0; n < this->columns ; n++) {
+				int id = mapIDs[m][n];
 
-		for (size_t m = 0; m < layer->GetHeight(); m++)
-		{
-			for (size_t n = 0; n < layer->GetWidth(); n++)
-			{
-				int tilesetIndex = layer->GetTileTilesetIndex(n, m);
+				LPSPRITE sprite = tileset->GetSprite(id);
+				BoxCollider spriteBound;
+				spriteBound.top = (rows - m - 1) * tileHeight;
+				spriteBound.bottom = spriteBound.top - tileHeight;
+				spriteBound.left = n * tileWidth;
+				spriteBound.right = spriteBound.left + tileWidth;
 
-				if (tilesetIndex != -1)
-				{
-					const Tmx::Tileset* tileSet = mMap->GetTileset(tilesetIndex);
-
-					int tileSetWidth = tileSet->GetImage()->GetWidth() / tileWidth;
-					int tileSetHeight = tileSet->GetImage()->GetHeight() / tileHeight;
-
-					Sprites* sprite = mListTileset[layer->GetTileTilesetIndex(n, m)];
-
-					//tile index
-					int tileID = layer->GetTileId(n, m);
-
-					int y = tileID / tileSetWidth;
-					int x = tileID - y * tileSetWidth;
-
-					sourceRECT.top = y * tileHeight;
-					sourceRECT.bottom = sourceRECT.top + tileHeight;
-					sourceRECT.left = x * tileWidth;
-					sourceRECT.right = sourceRECT.left + tileWidth;
-
-					BoxCollider spriteBound;
-					spriteBound.top = (layer->GetHeight() - m - 1) * tileHeight;
-					spriteBound.bottom = spriteBound.top - tileHeight;
-					spriteBound.left = n * tileWidth;
-					spriteBound.right = spriteBound.left + tileWidth;
-
-					//cong tilewidth/2 va tileheight/2 vi Sprite ve o vi tri giua hinh anh cho nen doi hinh de cho
-					//dung toa do (0,0) cua the gioi thuc la (0,0) neu khong thi se la (-tilewidth/2, -tileheigth/2);
-
-					if (Cam->IsCollide(spriteBound)) {
-						D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (layer->GetHeight() - m - 1) * tileHeight + tileHeight / 2, 0);
-						sprite->SetHeight(tileHeight);
-						sprite->SetWidth(tileWidth);
-						sprite->Draw(position, sourceRECT);
-					}
+				if (Cam->IsCollide(spriteBound)) {
+					D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (rows - m - 1) * tileHeight + tileHeight / 2, 0);
+					sprite->SetHeight(tileHeight);
+					sprite->SetWidth(tileWidth);
+					sprite->Draw(position, BoxCollider());
 				}
 			}
+
+		}
+	}
+
+}
+void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
+	//Parse map tu file 
+	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
+	auto texture = Textures::GetInstance()->GetTexture(234);
+	D3DSURFACE_DESC desc;
+	texture->GetLevelDesc(0, &desc);
+	auto width = desc.Width;
+	auto height = desc.Height;
+	tileset = new Tileset(height / tileHeight, width / tileWidth, tileWidth, tileHeight);
+
+	for (int j = 0; j < tileset->GetColumns(); j++) {
+		for (int i = 0; i < tileset->GetRows(); i++) {
+			BoxCollider r;
+			r.top = i * tileHeight;
+			r.left = j * tileWidth;
+			r.bottom = r.top + tileHeight;
+			r.right = r.left + tileWidth;
+			LPSPRITE sprite = new Sprites(texture, r);
+			tileset->Add(j * tileset->GetRows() + i, sprite);
+		}
+	}
+}
+
+void GameMap::SetMapPath(char* mapPath)
+{
+	this->mapPath = mapPath;
+	std::fstream reader(mapPath);
+	if (reader.fail()) {
+		return;
+	}
+
+	reader >> columns;
+	reader >> rows;
+	mapIDs = new int* [rows];
+
+	for (int i = 0; i < rows; i++) {
+		mapIDs[i] = new int[columns];
+		for (int j = 0; j < columns; j++) {
+			reader >> mapIDs[i][j];
+		}
+	}
+
+}
+
+void GameMap::SetMapPathGridBuildIn(char* mapPath)
+{
+	this->mapPath = mapPath;
+	std::fstream reader(mapPath);
+	if (reader.fail()) {
+		return;
+	}
+
+	reader >> columns;
+	reader >> rows;
+	mapIDs = new int* [rows];
+
+	for (int i = 0; i < rows; i++) {
+		mapIDs[i] = new int[columns];
+		for (int j = 0; j < columns; j++) {
+			reader >> mapIDs[i][j];
 		}
 	}
 }

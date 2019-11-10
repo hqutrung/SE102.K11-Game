@@ -1,7 +1,7 @@
 #pragma once
 
-#define SCREEN_WIDTH 2270
-#define SCREEN_HEIGHT 1119
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 400
 
 // TEX ID
 #define TEX_DEMOOBJECT 100
