@@ -55,7 +55,12 @@ void PlayerRunState::HandleInput()
 		player->SetState(RunAttack);
 		return;
 	}
-
+	//run->jumpcross
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		player->SetState(JumpCross);
+		return;
+	}
 
 	// run->idle
 	if (keyboard->GetKey(LEFT_ARROW) && keyboard->GetKey(RIGHT_ARROW))

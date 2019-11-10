@@ -163,6 +163,12 @@
     <ClCompile Include="PlayerFallState.cpp">
       <Filter>Object\Player\Player_State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerJumpCrossState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpAttack.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MapReader\base64.h" />
@@ -338,6 +344,12 @@
       <Filter>Object\Player\Player_State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerFallState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpCrossState.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpAttack.h">
       <Filter>Object\Player\Player_State</Filter>
     </ClInclude>
   </ItemGroup>

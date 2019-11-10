@@ -11,6 +11,8 @@
 #include"PlayerLookUpAttackState.h"
 #include"PlayerJumpState.h"
 #include"PlayerFallState.h"
+#include"PlayerJumpCrossState.h"
+#include"PlayerJumpAttack.h"
 
 Player* Player::instance = NULL;
 
@@ -41,12 +43,14 @@ Player::Player()
 	lookUpAttackState = new PlayerLookUpAttackState(playerData);
 	jumpState = new PlayerJumpState(playerData);
 	fallState = new PlayerFallState(playerData);
+	jumpCrossState = new PlayerJumpCrossState(playerData);
+	jumpAttackState = new PlayerJumpAttackState(playerData);
+
 	SetState(PlayerState::Idle);
 	width = 44;
 	height = 55;
 
 	Pre_Y_Position = position.y;
-	IsJump = false;
 }
 
 Player::~Player()
@@ -57,6 +61,27 @@ Player::~Player()
 	runState = NULL;
 	delete idleAttackState;
 	idleAttackState = NULL;
+	
+		
+		
+	delete runAttackState;
+	runAttackState = NULL;
+	delete duckState;
+	duckState = NULL;
+	delete duckAttackState;
+	duckAttackState = NULL;
+	delete lookUpState;
+		lookUpState = NULL;
+		delete lookUpAttackState;
+		lookUpAttackState = NULL;
+		delete jumpState;
+		jumpState = NULL;
+		delete fallState;
+		fallState = NULL;
+		delete jumpCrossState;
+		jumpCrossState = NULL;
+		delete jumpAttackState;
+
 	delete playerData;
 	instance = NULL;
 }
@@ -133,6 +158,18 @@ void Player::SetState(PlayerState::State name)
 	case PlayerState::Fall:
 		playerData->state = fallState;
 		nameCurrentState = PlayerState::Fall;
+		playerData->state->GetAnimation()->ResetAnimation();
+		break;
+	case PlayerState::JumpCross:
+		playerData->state = jumpCrossState;
+		nameCurrentState = PlayerState::JumpCross;
+		Pre_Y_Position = position.y;
+		IsJump = true;
+		playerData->state->GetAnimation()->ResetAnimation();
+		break;
+	case PlayerState::JumpAttack:
+		playerData->state = jumpAttackState;
+		nameCurrentState = PlayerState::JumpAttack;
 		playerData->state->GetAnimation()->ResetAnimation();
 		break;
 	}

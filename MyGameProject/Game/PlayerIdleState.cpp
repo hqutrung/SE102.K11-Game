@@ -79,6 +79,7 @@ void PlayerIdleState::HandleInput()
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		player->SetState(Run);
+		player->SetVy(0);
 		return;
 	}
 
@@ -87,6 +88,7 @@ void PlayerIdleState::HandleInput()
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		player->SetState(Run);
+		player->SetVy(0);
 		return;
 	}
 }

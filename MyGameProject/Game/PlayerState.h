@@ -20,7 +20,9 @@ public:
 		LookUp,
 		LookUpAttack,
 		Jump,
-		Fall
+		Fall,
+		JumpCross,
+		JumpAttack
 
 	};
 	~PlayerState();

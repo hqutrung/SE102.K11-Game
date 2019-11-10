@@ -27,7 +27,7 @@
 
 // state speed
 #define RUN_SPEED 100
-#define JUMP_SPEED 200
+#define JUMP_SPEED 150
 #define SLIDE_SPEED 50
-#define MAX_JUMP 150
+#define MAX_JUMP 100
 

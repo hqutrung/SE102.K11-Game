@@ -73,8 +73,9 @@ protected:
 		* lookUpState,
 		* lookUpAttackState,
 		* jumpState,
-		* fallState
-		
+		* fallState,
+		* jumpCrossState,
+		* jumpAttackState
 		;
 	PlayerState::State nameCurrentState;
 	PlayerState::State currentState;

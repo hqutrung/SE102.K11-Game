@@ -29,8 +29,8 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetCurrentFrame(m_Animation->GetCurrentFrameID() - 1);
 	}	
 
-	// colision tam
-	if (player->GetPosition().y <= player->GetPre_Y_Position())
+	// Diem dung tam thoi
+	if (player->GetPosition().y <= player->GetPre_Y_Position()+3)
 		player->SetState(Idle);
 	//    ====
 
