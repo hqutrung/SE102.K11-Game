@@ -12,8 +12,8 @@ class Grid
 	int rowNumbers, colNumbers;			// numbers of cells
 	float cellWidth, cellHeight;		// Size of cell
 
-	Unit* Cells[283][142];
-	bool activeCells[283][142];
+	Unit* Cells[GRID_COLUMN_NUMBERS][GRID_ROW_NUMBERS];
+	bool activeCells[GRID_COLUMN_NUMBERS][GRID_ROW_NUMBERS];
 	RECT activeRect;
 
 	//std::vector<Entity*> staticObjects;

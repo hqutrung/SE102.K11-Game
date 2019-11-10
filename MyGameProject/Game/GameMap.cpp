@@ -51,22 +51,6 @@ GameMap::~GameMap()
 	mapIDs = NULL;
 }
 
-
-void GameMap::SetMapGrid()
-{
-	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	grid = new Grid(gridRect, GetHeight(), GetWidth());
-
-	// Demo add new enemy to Grid
-	DemoEnemy* demoEnemy1 = new DemoEnemy();
-	demoEnemy1->SetPosition(500, 150);
-	new Unit(grid, demoEnemy1);
-
-	DemoEnemy* demoEnemy2 = new DemoEnemy();
-	demoEnemy2->SetPosition(700, 300);
-	new Unit(grid, demoEnemy2);
-}
-
 bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
 {
 	if (rect1.left > rect2.right || rect1.right < rect2.left || rect1.top > rect2.bottom || rect1.bottom < rect2.top)
@@ -182,17 +166,17 @@ void GameMap::SetMapPath(char* mapPath)
 	reader >> columns;
 	reader >> rows;
 
-	//BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	//grid = new Grid(gridRect, 142, 283);
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	grid = new Grid(gridRect, 142, 283);
 
-	//// Demo add new enemy to Grid
-	//DemoEnemy* demoEnemy1 = new DemoEnemy();
-	//demoEnemy1->SetPosition(500, 150);
-	//new Unit(grid, demoEnemy1);
+	// Demo add new enemy to Grid
+	DemoEnemy* demoEnemy1 = new DemoEnemy();
+	demoEnemy1->SetPosition(500, 150);
+	new Unit(grid, demoEnemy1);
 
-	//DemoEnemy* demoEnemy2 = new DemoEnemy();
-	//demoEnemy2->SetPosition(700, 300);
-	//new Unit(grid, demoEnemy2);
+	DemoEnemy* demoEnemy2 = new DemoEnemy();
+	demoEnemy2->SetPosition(700, 300);
+	new Unit(grid, demoEnemy2);
 
 	mapIDs = new int* [rows];
 
@@ -203,24 +187,4 @@ void GameMap::SetMapPath(char* mapPath)
 		}
 	}
 
-}
-
-void GameMap::SetMapPathGridBuildIn(char* mapPath)
-{
-	this->mapPath = mapPath;
-	std::fstream reader(mapPath);
-	if (reader.fail()) {
-		return;
-	}
-
-	reader >> columns;
-	reader >> rows;
-	mapIDs = new int* [rows];
-
-	for (int i = 0; i < rows; i++) {
-		mapIDs[i] = new int[columns];
-		for (int j = 0; j < columns; j++) {
-			reader >> mapIDs[i][j];
-		}
-	}
 }

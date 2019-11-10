@@ -41,9 +41,6 @@ public:
 	GameMap(char* tilesetPath, char* mapPath, int tileHeight = 8, int tileWidth = 8, bool gridBuildIn = false);
 	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
 	void SetMapPath(char* mapPath);
-	void SetMapPathGridBuildIn(char* mapPath);
-
-	void SetMapGrid();
 
 	bool isContain(BoxCollider rect1, BoxCollider rect2);
 
