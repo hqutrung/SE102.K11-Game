@@ -15,6 +15,7 @@ void DemoScene::LoadContent()
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
+	 
 
 	camera = new Camera(width, height);
 	camera->SetPosition(D3DXVECTOR3(width / 2, height / 2, 0));

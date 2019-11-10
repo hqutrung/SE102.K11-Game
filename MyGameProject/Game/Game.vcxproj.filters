@@ -115,6 +115,9 @@
     <ClCompile Include="PlayerJumpAttack.cpp">
       <Filter>Object\Player\Player_State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerThrowState.cpp">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -235,6 +238,9 @@
       <Filter>Object\Player\Player_State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerJumpAttack.h">
+      <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerThrowState.h">
       <Filter>Object\Player\Player_State</Filter>
     </ClInclude>
   </ItemGroup>

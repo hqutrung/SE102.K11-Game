@@ -41,17 +41,31 @@ void PlayerDuckState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	//duck->jump
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		player->SetState(Jump);
+		return;
+	}
+
 	//duck->duckAttack
 	if (keyboard->GetKey(ATTACK_ARROW))
 	{
 		player->SetState(DuckAttack);
 	}
+	if (keyboard->GetKey(RIGHT_ARROW))
+	{
+		player->SetVx(0.000000000000000000000001);
+	}
+	if (keyboard->GetKey(LEFT_ARROW))
+	{
+		player->SetVx(-0.000000000000000000000001);
+	}
 
-	//duck->idle
 	if (keyboard->GetKey(DOWN_ARROW) || keyboard->GetKeyDown(DOWN_ARROW))
 	{
 		return;
 	}
-
+	//duck->idle
 	player->SetState(Idle);
 }

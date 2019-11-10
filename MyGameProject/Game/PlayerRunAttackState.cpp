@@ -6,7 +6,7 @@ PlayerRunAttackState::PlayerRunAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1003, "Resources/PlayerState/aladinidleattack.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1003), 1, 5, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1003), 1, 5, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
