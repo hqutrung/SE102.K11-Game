@@ -5,7 +5,7 @@ PlayerRunState::PlayerRunState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1001, "Resources/PlayerState/aladinrun.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1001, "Resources/PlayerState/run.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
 	m_Animation->AddFrames(texs->GetTexture(1001), 1, 11, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
 }

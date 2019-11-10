@@ -89,7 +89,8 @@ void Animation::Update(double dt)
 	}
 
 	currentTotalTime += dt;
-
+	DebugOut(L"currentTotalTime: %f\n ", currentTotalTime);
+	DebugOut(L"defaulTime: %f\n ", defaultTime);
 	int nextFrame = currentFrame + 1;
 	if (nextFrame >= totalFrame)
 		nextFrame = 0;

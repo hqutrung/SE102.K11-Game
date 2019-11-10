@@ -33,6 +33,12 @@ void PlayerLookUpState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+	
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		player->SetState(Jump);
+		return;
+	}
 
 	if (keyboard->GetKey(ATTACK_ARROW))
 	{
@@ -40,18 +46,18 @@ void PlayerLookUpState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKey(UP_ARROW))
+	if (keyboard->GetKey(RIGHT_ARROW))
 	{
-		return;
+		player->SetVx(0.000000000000000000000001);
 	}
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		return;
+		player->SetVx(-0.000000000000000000000001);
 	}
-	if (keyboard->GetKey(RIGHT_ARROW))
+
+
+	if (keyboard->GetKey(UP_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		return;
 	}
 	player->SetState(Idle);

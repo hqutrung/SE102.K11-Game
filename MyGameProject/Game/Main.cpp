@@ -100,7 +100,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		if (dt >= SPF) {
 			gameManager.ProcessInput();
-			
 			gameManager.Update(dt);
 			gameManager.Render();
 

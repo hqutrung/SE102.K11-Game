@@ -78,4 +78,5 @@ void PlayerJumpState::HandleInput()
 		player->SetVx(-RUN_SPEED);
 		return;
 	}
+	player->SetVx(0);
 }
