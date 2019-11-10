@@ -28,7 +28,6 @@ void GameManager::Update(float dt)
 {
 	if (isPause)
 		return;
-
 	SceneManager::GetInstance()->GetCurrentScene()->Update(dt);
 }
 

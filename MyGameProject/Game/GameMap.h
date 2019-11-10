@@ -51,6 +51,8 @@ public:
 	int GetHeight();
 	int GetTileWidth();
 	int GetTileHeight();
+	int GetRows();
+	int GetColumns();
 
 	void SetCamera(Camera* cam);
 

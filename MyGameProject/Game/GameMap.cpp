@@ -34,10 +34,7 @@ LPSPRITE Tileset::GetSprite(int id) {
 GameMap::GameMap(char* tilesetPath, char* mapPath, int tileHeight , int tileWidth, bool gridBuildIn)
 {
 	LoadTileset(tilesetPath, tileWidth, tileHeight);
-	if (gridBuildIn)
-		SetMapPathGridBuildIn(mapPath);
-	else
-		SetMapPath(mapPath);
+	SetMapPath(mapPath);
 }
 
 GameMap::~GameMap()
@@ -57,17 +54,17 @@ GameMap::~GameMap()
 
 void GameMap::SetMapGrid()
 {
-	//BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	//grid = new Grid(gridRect, GetHeight(), GetWidth());
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	grid = new Grid(gridRect, GetHeight(), GetWidth());
 
-	//// Demo add new enemy to Grid
-	//DemoEnemy* demoEnemy1 = new DemoEnemy();
-	//demoEnemy1->SetPosition(500, 150);
-	//new Unit(grid, demoEnemy1);
+	// Demo add new enemy to Grid
+	DemoEnemy* demoEnemy1 = new DemoEnemy();
+	demoEnemy1->SetPosition(500, 150);
+	new Unit(grid, demoEnemy1);
 
-	//DemoEnemy* demoEnemy2 = new DemoEnemy();
-	//demoEnemy2->SetPosition(700, 300);
-	//new Unit(grid, demoEnemy2);
+	DemoEnemy* demoEnemy2 = new DemoEnemy();
+	demoEnemy2->SetPosition(700, 300);
+	new Unit(grid, demoEnemy2);
 }
 
 bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
@@ -99,6 +96,16 @@ int GameMap::GetTileWidth()
 int GameMap::GetTileHeight()
 {
 	return tileset->GetTileHeight();
+}
+
+int GameMap::GetRows()
+{
+	return rows;
+}
+
+int GameMap::GetColumns()
+{
+	return columns;
 }
 
 void GameMap::SetCamera(Camera* cam)
@@ -174,6 +181,19 @@ void GameMap::SetMapPath(char* mapPath)
 
 	reader >> columns;
 	reader >> rows;
+
+	//BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	//grid = new Grid(gridRect, 142, 283);
+
+	//// Demo add new enemy to Grid
+	//DemoEnemy* demoEnemy1 = new DemoEnemy();
+	//demoEnemy1->SetPosition(500, 150);
+	//new Unit(grid, demoEnemy1);
+
+	//DemoEnemy* demoEnemy2 = new DemoEnemy();
+	//demoEnemy2->SetPosition(700, 300);
+	//new Unit(grid, demoEnemy2);
+
 	mapIDs = new int* [rows];
 
 	for (int i = 0; i < rows; i++) {
