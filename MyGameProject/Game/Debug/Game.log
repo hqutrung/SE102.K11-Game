@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  DemoScene.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(20,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
@@ -45,3 +46,13 @@ E:\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: C:\Program
 E:\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(41,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: 'Player::GetState': not all control paths return a value
   Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  GameMap.cpp
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(127,38): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(129,26): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(133,86): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(133,41): warning C4244:  'argument': conversion from 'int' to 'FLOAT', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(157,14): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(158,15): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+  Game.vcxproj -> E:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Trung
