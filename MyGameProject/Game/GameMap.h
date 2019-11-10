@@ -38,7 +38,7 @@ private:
 	int mapObject;
 	int** mapIDs;
 public:
-	GameMap(char* tilesetPath, char* mapPath, int tileHeight = 8, int tileWidth = 8, bool gridBuildIn = false);
+	GameMap(char* tilesetPath, char* mapPath, int tileHeight = 16, int tileWidth = 16, bool gridBuildIn = false);
 	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
 	void SetMapPath(char* mapPath);
 

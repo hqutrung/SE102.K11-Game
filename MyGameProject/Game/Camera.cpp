@@ -50,8 +50,8 @@ BoxCollider Camera::GetRect()
 
 void Camera::FollowPlayer(float x, float y)
 {
-	position.x = (int)x;
-	position.y = (int)y;
+	position.x = x;
+	position.y = y;
 }
 
 bool Camera::IsCollide(BoxCollider r)

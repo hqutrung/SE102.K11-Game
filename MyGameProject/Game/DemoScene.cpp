@@ -11,7 +11,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap((char*)"Resources/tileset.png",(char*)"Resources/tilemap.txt");
+	map = new GameMap((char*)"Resources/tileset16.png",(char*)"Resources/tilemap16.txt");
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -27,7 +27,6 @@ void DemoScene::LoadContent()
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->FollowPlayer(player->GetPosition().x, player->GetPosition().y);
-
 	CheckCamera();
 }
 

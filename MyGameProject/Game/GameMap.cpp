@@ -114,6 +114,7 @@ void GameMap::Draw() {
 				int id = mapIDs[m][n];
 
 				LPSPRITE sprite = tileset->GetSprite(id);
+
 				BoxCollider spriteBound;
 				spriteBound.top = (rows - m - 1) * tileHeight;
 				spriteBound.bottom = spriteBound.top - tileHeight;
@@ -130,7 +131,6 @@ void GameMap::Draw() {
 
 		}
 	}
-
 }
 void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
@@ -167,16 +167,16 @@ void GameMap::SetMapPath(char* mapPath)
 	reader >> rows;
 
 	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	grid = new Grid(gridRect, 142, 283);
+	grid = new Grid(gridRect, 71, 141);
 
 	// Demo add new enemy to Grid
-	DemoEnemy* demoEnemy1 = new DemoEnemy();
+	/*DemoEnemy* demoEnemy1 = new DemoEnemy();
 	demoEnemy1->SetPosition(500, 150);
 	new Unit(grid, demoEnemy1);
 
 	DemoEnemy* demoEnemy2 = new DemoEnemy();
 	demoEnemy2->SetPosition(700, 300);
-	new Unit(grid, demoEnemy2);
+	new Unit(grid, demoEnemy2);*/
 
 	mapIDs = new int* [rows];
 
