@@ -13,6 +13,7 @@
 #include"PlayerFallState.h"
 #include"PlayerJumpCrossState.h"
 #include"PlayerJumpAttack.h"
+#include"PlayerIdleThrowState.h"
 
 Player* Player::instance = NULL;
 
@@ -45,6 +46,7 @@ Player::Player()
 	fallState = new PlayerFallState(playerData);
 	jumpCrossState = new PlayerJumpCrossState(playerData);
 	jumpAttackState = new PlayerJumpAttackState(playerData);
+	idleThrowState = new PlayerIdleThrowState(playerData);
 
 	SetState(PlayerState::Idle);
 	width = 44;
@@ -61,9 +63,6 @@ Player::~Player()
 	runState = NULL;
 	delete idleAttackState;
 	idleAttackState = NULL;
-	
-		
-		
 	delete runAttackState;
 	runAttackState = NULL;
 	delete duckState;
@@ -71,16 +70,18 @@ Player::~Player()
 	delete duckAttackState;
 	duckAttackState = NULL;
 	delete lookUpState;
-		lookUpState = NULL;
-		delete lookUpAttackState;
-		lookUpAttackState = NULL;
-		delete jumpState;
-		jumpState = NULL;
-		delete fallState;
-		fallState = NULL;
-		delete jumpCrossState;
-		jumpCrossState = NULL;
-		delete jumpAttackState;
+	lookUpState = NULL;
+	delete lookUpAttackState;
+	lookUpAttackState = NULL;
+	delete jumpState;
+	jumpState = NULL;
+	delete fallState;
+	fallState = NULL;
+	delete jumpCrossState;
+	jumpCrossState = NULL;
+	delete jumpAttackState;
+	delete idleThrowState;
+	idleThrowState = NULL;
 
 	delete playerData;
 	instance = NULL;
@@ -170,6 +171,11 @@ void Player::SetState(PlayerState::State name)
 	case PlayerState::JumpAttack:
 		playerData->state = jumpAttackState;
 		nameCurrentState = PlayerState::JumpAttack;
+		playerData->state->GetAnimation()->ResetAnimation();
+		break;
+	case PlayerState::IdleThrow:
+		playerData->state = idleThrowState;
+		nameCurrentState = PlayerState::IdleThrow;
 		playerData->state->GetAnimation()->ResetAnimation();
 		break;
 	}

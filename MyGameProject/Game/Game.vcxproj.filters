@@ -169,8 +169,11 @@
     <ClCompile Include="PlayerJumpAttack.cpp">
       <Filter>Object\Player\Player_State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerThrowState.cpp">
+    <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Object\Player\Player_State</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Object\Apple</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -355,8 +358,11 @@
     <ClInclude Include="PlayerJumpAttack.h">
       <Filter>Object\Player\Player_State</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerThrowState.h">
+    <ClInclude Include="PlayerIdleThrowState.h">
       <Filter>Object\Player\Player_State</Filter>
+    </ClInclude>
+    <ClInclude Include="Apple.h">
+      <Filter>Object\Apple</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -401,6 +407,9 @@
     </Filter>
     <Filter Include="Object\Player\PlayerObject">
       <UniqueIdentifier>{33c4df82-9d13-4eed-b87e-3ab99584c7c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Apple">
+      <UniqueIdentifier>{b8f0a025-8cde-4782-bd5c-5c5c94121067}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

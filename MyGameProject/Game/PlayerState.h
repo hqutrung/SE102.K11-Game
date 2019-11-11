@@ -22,7 +22,8 @@ public:
 		Jump,
 		Fall,
 		JumpCross,
-		JumpAttack
+		JumpAttack,
+		IdleThrow
 
 	};
 	~PlayerState();

@@ -1,5 +1,6 @@
 #include "DemoScene.h"
 #include"Player.h"
+#include"Apple.h"
 DemoScene::DemoScene()
 {
 	LoadContent();

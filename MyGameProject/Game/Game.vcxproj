@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="demoEnemy.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="PlayerFallState.cpp" />
     <ClCompile Include="PlayerIdleAttackState.cpp" />
     <ClCompile Include="PlayerIdleState.cpp" />
+    <ClCompile Include="PlayerIdleThrowState.cpp" />
     <ClCompile Include="PlayerJumpAttack.cpp" />
     <ClCompile Include="PlayerJumpCrossState.cpp" />
     <ClCompile Include="PlayerJumpState.cpp" />
@@ -184,7 +186,6 @@
     <ClCompile Include="PlayerRunAttackState.cpp" />
     <ClCompile Include="PlayerRunState.cpp" />
     <ClCompile Include="PlayerSlideState.cpp" />
-    <ClCompile Include="PlayerThrowState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprites.cpp" />
@@ -195,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Apple.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Debug.h" />
@@ -242,6 +244,7 @@
     <ClInclude Include="PlayerFallState.h" />
     <ClInclude Include="PlayerIdleAttackState.h" />
     <ClInclude Include="PlayerIdleState.h" />
+    <ClInclude Include="PlayerIdleThrowState.h" />
     <ClInclude Include="PlayerJumpAttack.h" />
     <ClInclude Include="PlayerJumpCrossState.h" />
     <ClInclude Include="PlayerJumpState.h" />
@@ -250,7 +253,6 @@
     <ClInclude Include="PlayerRunAttackState.h" />
     <ClInclude Include="PlayerRunState.h" />
     <ClInclude Include="PlayerSlideState.h" />
-    <ClInclude Include="PlayerThrowState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sprites.h" />
