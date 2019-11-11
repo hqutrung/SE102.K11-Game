@@ -80,17 +80,17 @@ void Animation::NormalRender(D3DXVECTOR3 position)
 	frames[currentFrame]->NormalDraw(position);
 }
 
-void Animation::Update(double dt)
+void Animation::Update(float dt)
 {
 	//delay 1 frame
 	if (!startUpdate) {
 		startUpdate = true;
 		return;
 	}
-
 	currentTotalTime += dt;
-	DebugOut(L"currentTotalTime: %f\n ", currentTotalTime);
-	DebugOut(L"defaulTime: %f\n ", defaultTime);
+	DebugOut(L"CurrentTotalTime: %f \n", currentTotalTime);
+	DebugOut(L"defaultTime: %f \n", defaultTime);
+	DebugOut(L"currentFrame: %d \n", currentFrame);
 	int nextFrame = currentFrame + 1;
 	if (nextFrame >= totalFrame)
 		nextFrame = 0;

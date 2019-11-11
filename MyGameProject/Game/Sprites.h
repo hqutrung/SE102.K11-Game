@@ -17,7 +17,7 @@ class Sprites
 protected:
 	D3DXVECTOR3 position;			// toa do cua Sprite, co goc la chinh giua hinh anh Texture
 	D3DXVECTOR2 translation;		// tinh tien sprite them 1 doan bang vector(x,y)
-	int width, height;				// kich thuoc cua texture
+	int width, height;				// size of texture
 	BoxCollider box;
 	
 

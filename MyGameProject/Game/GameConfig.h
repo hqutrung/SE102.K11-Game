@@ -1,7 +1,7 @@
 #pragma once
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 400
+#define SCREEN_WIDTH 256
+#define SCREEN_HEIGHT 224
 
 // TEX ID
 #define TEX_DEMOOBJECT 100
@@ -22,8 +22,8 @@
 #define DEMO_SCENE 1
 
 // GRID
-#define GRID_COLUMN_NUMBERS 100
-#define GRID_ROW_NUMBERS 100
+#define GRID_COLUMN_NUMBERS 141
+#define GRID_ROW_NUMBERS 71
 
 
 // state speed

@@ -1,7 +1,18 @@
 ﻿  DemoScene.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+<<<<<<< HEAD
 E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(22,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
 E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(22,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
 E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(51,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 E:\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(56,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+=======
+<<<<<<< HEAD
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(20,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(20,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(49,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(54,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+>>>>>>> vietHoang
   Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung

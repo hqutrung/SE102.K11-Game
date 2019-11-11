@@ -5,7 +5,7 @@ DemoRunningState::DemoRunningState(DemoObjectData* data)
 	this->demoObjectData = data;
 	auto tex = Textures::GetInstance();
 	m_Animation = new Animation();
-	m_Animation->AddFrames(tex->GetTexture(TEX_DEMOOBJECT), 1, 4, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(tex->GetTexture(TEX_DEMOOBJECT), 1, 4, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 DemoRunningState::~DemoRunningState()

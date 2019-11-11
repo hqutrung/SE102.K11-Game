@@ -54,8 +54,8 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 			CW_USEDEFAULT,
 			//y position
 			CW_USEDEFAULT,
-			ScreenWidth,
-			ScreenHeight,
+			ScreenWidth * 2,
+			ScreenHeight * 2,
 			//parents window
 			NULL,
 			NULL,
@@ -99,6 +99,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//OutputDebugString();
 
 		if (dt >= SPF) {
+
 			gameManager.ProcessInput();
 			gameManager.Update(dt);
 			gameManager.Render();
