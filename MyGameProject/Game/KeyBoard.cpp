@@ -104,6 +104,11 @@ void KeyBoard::ReleaseLastPressKey()
 	LastKey = -1;
 }
 
+KeyBoard::KeyBoard()
+{
+
+}
+
 KeyBoard::~KeyBoard()
 {
 	if (dikeyboard != NULL)

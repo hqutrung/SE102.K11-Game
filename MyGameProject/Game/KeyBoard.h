@@ -21,7 +21,7 @@ public:
 	int GetLastPressKey();
 	void ReleaseLastPressKey();
 private:
-	KeyBoard() {};
+	KeyBoard();
 	~KeyBoard();
 
 	bool BufferCheck(int DIK_Key);
