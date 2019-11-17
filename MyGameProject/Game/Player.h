@@ -14,9 +14,10 @@ public:
 	void Render() override;
 	void SetState(PlayerState::State name);
 	void HandleInput();
-	PlayerState* GetCurrentState();
+	
 	PlayerState* GetState(PlayerState::State name);
-
+	PlayerState::State GetNameCurrentState() { return nameCurrentState; }
+	PlayerState::State GetNamePrevState() { return namePrevState; }
 	// sử dụng cho State Jump
 	float GetPre_Y_Position() { return Pre_Y_Position; };
 	void SetPre_Y_Position(float y) { Pre_Y_Position = y; };
@@ -79,7 +80,7 @@ protected:
 		* idleThrowState
 		;
 	PlayerState::State nameCurrentState;
-	PlayerState::State currentState;
+	PlayerState::State namePrevState;
 	BoxCollider collider;
 	float collisionTime;
 

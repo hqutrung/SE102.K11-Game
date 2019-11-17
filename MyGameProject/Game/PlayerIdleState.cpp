@@ -25,7 +25,7 @@ void PlayerIdleState::Update(float dt)
 	if (m_Animation->GetCurrentFrameID() == 1 || m_Animation->GetCurrentFrameID() == 5)
 		m_Animation->SetDefaultTime(1.0f);
 	else
-		m_Animation->SetDefaultTime(0.11f);
+		m_Animation->SetDefaultTime(0.08f);
 
 	PlayerState::Update(dt);
 }
@@ -36,7 +36,7 @@ void PlayerIdleState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 	
-	if (keyboard->GetKey(THROW_ARROW))
+	if (keyboard->GetKeyDown(THROW_ARROW)&&player->GetState(IdleThrow)->countPressKey==1)
 	{
 		player->SetState(IdleThrow);
 		return;

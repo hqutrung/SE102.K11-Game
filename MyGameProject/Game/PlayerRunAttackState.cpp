@@ -6,7 +6,7 @@ PlayerRunAttackState::PlayerRunAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1003, "Resources/PlayerState/runattack.png", D3DCOLOR_XRGB(106, 148, 189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.06f, D3DCOLOR_XRGB(106, 148, 189));
+	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.08, D3DCOLOR_XRGB(106, 148, 189));
 
 }
 
