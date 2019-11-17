@@ -4,9 +4,9 @@ PlayerRunAttackState::PlayerRunAttackState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1003, "Resources/PlayerState/aladinidleattack.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1003, "Resources/PlayerState/runattack.png", D3DCOLOR_XRGB(106, 148, 189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1003), 1, 5, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.06f, D3DCOLOR_XRGB(106, 148, 189));
 
 }
 
@@ -19,9 +19,9 @@ void PlayerRunAttackState::Render()
 	D3DXVECTOR3 p;
 	auto player = playerData->player->GetInstance();
 	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
-		p = D3DXVECTOR3(player->GetPosition().x - (82 / 2 - 44 / 2), player->GetPosition().y + (74 / 2 - 55 / 2), 0);
+		p = D3DXVECTOR3(player->GetPosition().x - (73 / 2 - 44 / 2), player->GetPosition().y + (60 / 2 - 55 / 2), 0);
 	else
-		p = D3DXVECTOR3(player->GetPosition().x + (82 / 2 - 44 / 2), player->GetPosition().y + (74 / 2 - 55 / 2), 0);
+		p = D3DXVECTOR3(player->GetPosition().x + (73 / 2 - 44 / 2), player->GetPosition().y + (60 / 2 - 55 / 2), 0);
 	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
 
 }
@@ -52,6 +52,13 @@ void PlayerRunAttackState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+
+	if (keyboard->GetKeyDown(ATTACK_ARROW))
+	{
+		countPressKey++;
+		return;
+	}
+
 
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))

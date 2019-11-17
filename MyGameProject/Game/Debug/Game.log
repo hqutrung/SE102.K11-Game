@@ -6,6 +6,7 @@
   BlueVase.cpp
   Camera.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+<<<<<<< HEAD
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(13,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(14,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(36,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
@@ -131,3 +132,6 @@ D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(11,21): warnin
   Generating Code...
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(12,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung

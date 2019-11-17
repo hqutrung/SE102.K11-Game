@@ -22,16 +22,17 @@ public:
 		Jump,
 		Fall,
 		JumpCross,
-		JumpAttack
+		JumpAttack,
+		IdleThrow
 
 	};
+	int countPressKey = 1;
 	~PlayerState();
 	PlayerState();
 	virtual void Update(float dt);
 	virtual void Render();
 	virtual void HandleInput();
 	Animation* GetAnimation() { return m_Animation; }
-
 //	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
 	/*virtual State GetState();
 	virtual int GetAnimationHeight();

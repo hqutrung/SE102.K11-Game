@@ -4,9 +4,9 @@ PlayerLookUpAttackState::PlayerLookUpAttackState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1020, "Resources/PlayerState/lookupattack.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1020, "Resources/PlayerState/lookupattack .png", D3DCOLOR_XRGB(106, 148, 189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1020), 1, 12, 1.0f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1020), 1, 11, 0.1f, D3DCOLOR_XRGB(106, 148, 189));
 
 }
 
@@ -16,15 +16,13 @@ PlayerLookUpAttackState::~PlayerLookUpAttackState()
 
 void PlayerLookUpAttackState::Render()
 {
-	/*D3DXVECTOR3 p;
+	D3DXVECTOR3 p;
 	auto player = playerData->player->GetInstance();
 	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
-		p = D3DXVECTOR3(player->GetPosition().x - (92 / 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 34 / 2), 0);
+		p = D3DXVECTOR3(player->GetPosition().x, player->GetPosition().y + (86 / 2 - 55 / 2), 0);
 	else
-		p = D3DXVECTOR3(player->GetPosition().x + (92 / 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 34 / 2), 0);
-	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);*/
-
-	PlayerState::Render();
+		p = D3DXVECTOR3(player->GetPosition().x , player->GetPosition().y + (86 / 2 - 55 / 2), 0);
+	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
 }
 
 void PlayerLookUpAttackState::Update(float dt)

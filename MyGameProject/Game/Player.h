@@ -75,13 +75,14 @@ protected:
 		* jumpState,
 		* fallState,
 		* jumpCrossState,
-		* jumpAttackState
+		* jumpAttackState,
+		* idleThrowState
 		;
 	PlayerState::State nameCurrentState;
 	PlayerState::State currentState;
 	BoxCollider collider;
 	float collisionTime;
 
-	float Pre_Y_Position;
+	float Pre_Y_Position=0;
 private:
 };

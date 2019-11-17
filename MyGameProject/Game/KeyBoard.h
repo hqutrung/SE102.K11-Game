@@ -1,41 +1,41 @@
+
 #pragma once
-#pragma once
-#include <queue>
+#include <InitGuid.h>
 #include <dinput.h>
-#include <d3dx9.h>
+#include <vector>
+#define KEYBOARD_BUFFER_SIZE 1024
+#define KEYBOARD_LAST_PRESS_TIME 0.125f
 
-
-class KeyBoard {
-private:
-	static KeyBoard* instance;
-	//Doi tuong directinput de nhap input
-	LPDIRECTINPUT8 directinput;
-	LPDIRECTINPUTDEVICE8 keyboard;
-
-	BYTE keyState[256];							// Trang thai phim
-	bool pressKey[256];
-	DIDEVICEOBJECTDATA _KeyEvents[1024];		//Du lieu su kien phim
-
-	HWND hWnd;
-
-	//PLUS
-	//DIMOUSESTATE mouse_State;
-	//struct DIMOUSESTATE {
-	//	LONG lx;
-	//	LONG ly;
-	//	LONG lz;
-	//	BYTE rgbButton[4];
-	//};
-	//LPDIRECTINPUTDEVICE8 mouse;
-
+class KeyBoard
+{
 public:
 	static KeyBoard* GetInstance();
-	KeyBoard();
+	HRESULT Init(HWND hWnd);
+	void KeySnapShot(float dt);
+	void MouseSnapShot();
+	bool GetKey(int DIK_Key);
+	bool GetKeyDown(int DIK_Key);
+	bool GetKeyUp(int DIK_Key);
+	void Release();
+
+	int GetLastPressKey();
+	void ReleaseLastPressKey();
+private:
+	KeyBoard() {};
 	~KeyBoard();
-	void InitKeyboard(HWND _hWnd, HINSTANCE _hInstance);
-	void ProcessKeyboard();
-	bool GetKeyDown(int KeyCode);
-	bool GetKey(int KeyCode);
-	bool GetKeyUp(int KeyCode);
-	D3DXVECTOR2 GetMouseDis();
+
+	bool BufferCheck(int DIK_Key);
+
+	LPDIRECTINPUT8 dinput = NULL;
+	LPDIRECTINPUTDEVICE8 dikeyboard = NULL;
+	LPDIRECTINPUTDEVICE8 dimouse = NULL;
+
+	bool FirstCheck;
+	float delta;
+	int LastKey, BufferLastKey;
+
+	char keys[256];
+	char buffer[256];
+	DIMOUSESTATE mouse_state;
+	static KeyBoard* Instance;
 };
