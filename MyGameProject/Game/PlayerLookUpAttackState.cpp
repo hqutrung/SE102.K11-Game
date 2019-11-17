@@ -41,6 +41,7 @@ void PlayerLookUpAttackState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+
 	if (keyboard->GetKey(DOWN_ARROW))
 	{
 		player->SetState(Duck);
@@ -56,6 +57,11 @@ void PlayerLookUpAttackState::HandleInput()
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		player->SetState(Run);
+		return;
+	}
+	if (keyboard->GetKeyDown(ATTACK_ARROW))
+	{
+		countPressKey++;
 		return;
 	}
 	if (keyboard->GetKey(UP_ARROW))

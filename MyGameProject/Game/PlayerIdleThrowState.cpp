@@ -6,7 +6,7 @@ PlayerIdleThrowState::PlayerIdleThrowState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1030, "Resources/PlayerState/throw.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1030), 1, 6, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1030), 1, 6, 0.06f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
@@ -41,6 +41,12 @@ void PlayerIdleThrowState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+	
+	if (keyboard->GetKeyDown(THROW_ARROW))
+	{
+		countPressKey++;
+		return;
+	}
 
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKey(RIGHT_ARROW))
 	{

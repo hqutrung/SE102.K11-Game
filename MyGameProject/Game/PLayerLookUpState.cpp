@@ -6,7 +6,7 @@ PlayerLookUpState::PlayerLookUpState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1014, "Resources/PlayerState/lookup.png", D3DCOLOR_XRGB(106,148,189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1014), 1, 3, 0.1f, D3DCOLOR_XRGB(106,148,189));
+	m_Animation->AddFrames(texs->GetTexture(1014), 1, 3, 0.06f, D3DCOLOR_XRGB(106,148,189));
 
 }
 
@@ -46,7 +46,7 @@ void PlayerLookUpState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKey(ATTACK_ARROW))
+	if (keyboard->GetKeyDown(ATTACK_ARROW)&& player->GetState(LookUpAttack)->countPressKey==1)
 	{
 		player->SetState(LookUpAttack);
 		return;

@@ -48,6 +48,8 @@ Player::Player()
 	jumpAttackState = new PlayerJumpAttackState(playerData);
 	idleThrowState = new PlayerIdleThrowState(playerData);
 
+	nameCurrentState = PlayerState::Idle;
+	namePrevState = PlayerState::Idle;
 	SetState(PlayerState::Idle);
 	width = 44;
 	height = 55;
@@ -101,7 +103,10 @@ void Player::Render()
 
 void Player::SetState(PlayerState::State state)
 {
-	switch (state) {
+
+	namePrevState = nameCurrentState;
+	nameCurrentState = name;
+	switch (name) {
 	case PlayerState::Idle:
 		playerData->state = idleState;
 		nameCurrentState = PlayerState::Idle;
@@ -110,7 +115,8 @@ void Player::SetState(PlayerState::State state)
 	case PlayerState::Run:
 		playerData->state = runState;
 		nameCurrentState = PlayerState::Run;
-		playerData->state->GetAnimation()->ResetAnimation();
+		if(namePrevState!=PlayerState::RunAttack)
+			playerData->state->GetAnimation()->ResetAnimation();
 		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
@@ -190,15 +196,16 @@ if (keyboard->GetKeyUp(ATTACK_ARROW))
 	runAttackState->countPressKey = 1;
 	duckAttackState->countPressKey = 1;
 	jumpAttackState->countPressKey = 1;
+	lookUpAttackState->countPressKey = 1;
+}
+if (keyboard->GetKeyUp(THROW_ARROW))
+{
+	idleThrowState->countPressKey = 1;
 }
 	if (this->playerData->state)
 		playerData->state->HandleInput();
 }
 
-PlayerState* Player::GetCurrentState()
-{
-	return playerData->state;
-}
 
 PlayerState* Player::GetState(PlayerState::State state)
 {
@@ -227,6 +234,12 @@ PlayerState* Player::GetState(PlayerState::State state)
 		break;
 	case PlayerState::LookUp:
 		return lookUpState;
+		break;
+	case PlayerState::LookUpAttack:
+		return lookUpAttackState;
+		break;
+	case PlayerState::IdleThrow :
+		return idleThrowState;
 		break;
 	}
 }
