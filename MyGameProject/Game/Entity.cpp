@@ -9,7 +9,7 @@ void Entity::onSetPosition(D3DXVECTOR3 position)
 
 Entity::Entity()
 {
-	//Tag = NONE;
+	tag = NONE;
 	id = ++currentID;
 	isStatic = false;
 }
@@ -47,6 +47,16 @@ void Entity::SetStatic(bool flag)
 int Entity::GetID()
 {
 	return id;
+}
+
+Tag Entity::GetTag()
+{
+	return this->tag;
+}
+
+void Entity::SetTag(enum Tag tag)
+{
+	this->tag = tag;
 }
 
 void Entity::SetActive(bool active)

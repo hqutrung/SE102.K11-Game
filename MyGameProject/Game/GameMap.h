@@ -35,7 +35,7 @@ private:
 	LPCSTR mapPath;
 	int rows;
 	int columns;
-	int mapObject;
+	int mapObjects;
 	int** mapIDs;
 public:
 	GameMap(char* tilesetPath, char* mapPath, int tileHeight = 16, int tileWidth = 16, bool gridBuildIn = false);

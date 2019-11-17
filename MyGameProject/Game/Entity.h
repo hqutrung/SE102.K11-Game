@@ -6,6 +6,8 @@
 class Entity
 {
 public:
+	bool isStatic;
+	static int currentID;
 
 	// Huong di chuyen
 	enum MoveDirection {
@@ -16,18 +18,18 @@ public:
 protected:
 	bool isActived;
 	int id;
+	Tag tag;
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
 	float width, height;				// Kich thuoc
 	MoveDirection direction;			// Huong di chuyen
+	//float collisionTime;
+	//SideCollision side;
 
 	virtual void onSetPosition(D3DXVECTOR3 position);	// Set vi tri cua Entity, dung cho ke thua
 
 public:
-
-	bool isStatic;
-	static int currentID;
 
 	Entity();
 	virtual ~Entity();
@@ -42,6 +44,10 @@ public:
 
 	// ID
 	virtual int GetID();
+
+	// Tag
+	virtual Tag GetTag();
+	virtual void SetTag(enum Tag tag);
 	
 	// Active
 	virtual void SetActive(bool active);

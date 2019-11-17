@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "Player.h"
 Camera* Camera::instance = NULL;
 
 
@@ -12,6 +13,8 @@ Camera::Camera(int width, int height)
 	this->width = width;
 	this->height = height;
 	instance = this;
+	isLookLeft = false;
+	isLookRight = true;
 }
 
 Camera::~Camera()
@@ -50,8 +53,79 @@ BoxCollider Camera::GetRect()
 
 void Camera::FollowPlayer(float x, float y)
 {
-	position.x = x;
-	position.y = y;
+	auto player = Player::GetInstance();
+	auto keyboard = KeyBoard::GetInstance();
+	if (isLookRight)
+	{
+		if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
+		{
+			if (position.x >player->GetPosition().x)
+				return;
+			else
+				position.x = player->GetPosition().x;
+		}
+		else
+		{
+			if (keyboard->GetKey(LEFT_ARROW))
+			{
+				isLookLeft = true;
+				isLookRight = false;
+			}
+			else
+			{
+				if (position.x < player->GetPosition().x + 25)
+					position.x++;
+			}
+		}
+	}
+	if (isLookLeft)
+	{
+		if (keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
+		{
+			if (position.x < player->GetPosition().x)
+				return;
+			else
+				position.x = player->GetPosition().x;
+		}
+		else
+		{
+			if (keyboard->GetKey(RIGHT_ARROW))
+			{
+				isLookRight = true;
+				isLookLeft = false;
+			}
+			else
+			{
+				if (position.x > player->GetPosition().x - 25)
+					position.x--;
+			}
+		}
+	}
+
+	if (keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(DOWN_ARROW))
+	{
+		if (position.y < player->GetPosition().y + 30)
+			position.y++;
+	}
+	else if(keyboard->GetKey(DOWN_ARROW))
+	{
+		if (position.y > player->GetPosition().y - 30)
+			position.y--;
+		
+	}
+	else
+	{
+		if (position.y > (int)player->GetPosition().y)
+			position.y = (int)(position.y - 1);
+		else if (position.y < (int)player->GetPosition().y)
+			position.y = (int)(position.y + 1);
+		else
+			position.y = (int)player->GetPosition().y;
+		/*if (keyboard->GetKey(JUMP_ARROW))
+		{
+			position.y = (int)player->GetPosition().y;
+		}*/
+	}
 }
 
 bool Camera::IsCollide(BoxCollider r)

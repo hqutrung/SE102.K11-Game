@@ -21,7 +21,7 @@ protected:
 	BoxCollider box;
 	
 
-	LPDIRECT3DTEXTURE9 texture;		// load hinh anh vao day
+	LPDIRECT3DTEXTURE9 texture;			// load hinh anh vao day
 	LPD3DXSPRITE spriteHandler;			// dùng để lấy device và vẽ sprite lên màn hình
 
 	void InitWithSprite(const char* filePath, BoxCollider box = BoxCollider(), int width = NULL, int height = NULL, D3DCOLOR colorKey = NULL);

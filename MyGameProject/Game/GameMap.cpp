@@ -1,4 +1,19 @@
 #include "GameMap.h"
+#include "Apple.h"
+#include "Gem.h"
+#include "BlueHeart.h"
+#include "GenieToken.h"
+#include "BlueVase.h"
+#include "Stone.h"
+#include "Ball.h"
+#include "Spike.h"
+#include "Pillar.h"
+#include "ExitPort.h"
+#include "Bat.h"
+#include "Skeleton.h"
+#include "ThinGuard.h"
+#include "FatGuard.h"
+#include "ChainedPillar.h"
 
 Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
 	this->rows = rows;
@@ -101,37 +116,6 @@ Grid* GameMap::GetGrid()
 	return grid;
 }
 
-void GameMap::Draw() {
-
-	for (size_t i = 0; i < 1; i++) {
-
-		//chieu dai va chieu rong cua tile
-		int tileWidth = tileset->GetTileWidth();
-		int tileHeight = tileset->GetTileHeight();
-
-		for (int m = 0; m < this->rows; m++) {
-			for (int n = 0; n < this->columns ; n++) {
-				int id = mapIDs[m][n];
-
-				LPSPRITE sprite = tileset->GetSprite(id);
-
-				BoxCollider spriteBound;
-				spriteBound.top = (rows - m - 1) * tileHeight;
-				spriteBound.bottom = spriteBound.top - tileHeight;
-				spriteBound.left = n * tileWidth;
-				spriteBound.right = spriteBound.left + tileWidth;
-
-				if (Cam->IsCollide(spriteBound)) {
-					D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (rows - m - 1) * tileHeight + tileHeight / 2, 0);
-					sprite->SetHeight(tileHeight);
-					sprite->SetWidth(tileWidth);
-					sprite->Draw(position, BoxCollider());
-				}
-			}
-
-		}
-	}
-}
 void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
 	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
@@ -166,18 +150,6 @@ void GameMap::SetMapPath(char* mapPath)
 	reader >> columns;
 	reader >> rows;
 
-	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	grid = new Grid(gridRect, 71, 141);
-
-	// Demo add new enemy to Grid
-	/*DemoEnemy* demoEnemy1 = new DemoEnemy();
-	demoEnemy1->SetPosition(500, 150);
-	new Unit(grid, demoEnemy1);
-
-	DemoEnemy* demoEnemy2 = new DemoEnemy();
-	demoEnemy2->SetPosition(700, 300);
-	new Unit(grid, demoEnemy2);*/
-
 	mapIDs = new int* [rows];
 
 	for (int i = 0; i < rows; i++) {
@@ -187,4 +159,189 @@ void GameMap::SetMapPath(char* mapPath)
 		}
 	}
 
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	//grid = new Grid(gridRect, 71, 141);
+	grid = new Grid(gridRect, 30, 59);
+
+	reader >> mapObjects;
+	int id = 0;
+	int i = 0;
+	int posx = 0;
+	int posy = 0;
+	int wid = 0;
+	int hei = 0;
+	int direction = 0;
+
+	Unit* unit;
+
+	for (int i = 0; i < mapObjects; i++) {
+		reader >> id;
+		reader >> posx;
+		reader >> posy;
+		reader >> wid;
+		reader >> hei;
+		reader >> direction;
+
+		BoxCollider box;
+		box.top = posy;
+		box.left = posx;
+		box.bottom = posy - hei;
+		box.right = posx + wid;
+		
+		switch (id)
+		{
+		case BAT:
+		{
+			Bat* bat = new Bat();
+			bat->SetSpawnBox(box,direction);
+			unit = new Unit(grid, bat);
+			break;
+		}
+		case SKELETON:
+		{
+			Skeleton* skeleton = new Skeleton();
+			skeleton->SetSpawnBox(box, direction);
+			unit = new Unit(grid, skeleton);
+			break;
+		}
+		case THINGUARD:
+		{
+			ThinGuard* thinGuard = new ThinGuard();
+			thinGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, thinGuard);
+			break;
+		}
+		case FATGUARD:
+		{
+			FatGuard* fatGuard = new FatGuard();
+			fatGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, fatGuard);
+			break;
+		}
+		case PEDDLER:
+		{
+			break;
+		}
+		case CARPET:
+		{
+			break;
+		}
+		case JAFAR:
+		{
+			break;
+		}
+		case APPLE:
+		{
+			Apple* apple = new Apple();
+			apple->SetSpawnBox(box);
+			unit = new Unit(grid, apple);
+			break;
+		}
+		case BLUEHEART:
+		{
+			BlueHeart* blueheart = new BlueHeart();
+			blueheart->SetSpawnBox(box);
+			unit = new Unit(grid, blueheart);
+			break;
+		}
+		case GEM:
+		{
+			Gem* gem = new Gem();
+			gem->SetSpawnBox(box);
+			unit = new Unit(grid, gem);
+			break;
+		}
+		case GENIETOKEN:
+		{
+			GenieToken* genieToken = new GenieToken();
+			genieToken->SetSpawnBox(box);
+			unit = new Unit(grid, genieToken);
+			break;
+		}
+		case BLUEVASE:
+		{
+			BlueVase* blueVase = new BlueVase();
+			blueVase->SetSpawnBox(box);
+			unit = new Unit(grid, blueVase);
+			break;
+		}
+		case STONE:
+		{
+			Stone* stone = new Stone();
+			stone->SetSpawnBox(box);
+			unit = new Unit(grid, stone);
+			break;
+		}
+		case BALL:
+		{
+			Ball* ball = new Ball();
+			ball->SetSpawnBox(box);
+			unit = new Unit(grid, ball);
+			break;
+		}
+		case SPIKE:
+		{
+			Spike* spike = new Spike();
+			spike->SetSpawnBox(box);
+			unit = new Unit(grid, spike);
+			break;
+		}
+		case CHAINEDPILLAR:
+		{
+			/*ChainedPillar* chainedPillar = new ChainedPillar();
+			chainedPillar->SetSpawnBox(box);
+			unit = new Unit(grid, chainedPillar);*/
+			break;
+		}
+		case PILLAR:
+		{
+			/*Pillar* pillar = new Pillar();
+			pillar->SetSpawnBox(box);
+			unit = new Unit(grid, pillar);*/
+			break;
+		}
+		case EXITPORT:
+		{
+			ExitPort* exitPort = new ExitPort();
+			exitPort->SetSpawnBox(box);
+			unit = new Unit(grid, exitPort);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+}
+
+void GameMap::Draw() {
+
+	for (size_t i = 0; i < 1; i++) {
+
+		//chieu dai va chieu rong cua tile
+		int tileWidth = tileset->GetTileWidth();
+		int tileHeight = tileset->GetTileHeight();
+
+		for (int m = 0; m < this->rows; m++) {
+			for (int n = 0; n < this->columns; n++) {
+				int id = mapIDs[m][n];
+
+				LPSPRITE sprite = tileset->GetSprite(id);
+
+				BoxCollider spriteBound;
+				spriteBound.top = (rows - m) * tileHeight;
+				spriteBound.bottom = spriteBound.top - tileHeight;
+				spriteBound.left = n * tileWidth;
+				spriteBound.right = spriteBound.left + tileWidth;
+
+				if (!Cam->IsCollide(spriteBound)) {
+					continue;
+				}
+				D3DXVECTOR3 position(n * tileWidth + tileWidth / 2, (rows - m - 1) * tileHeight + tileHeight / 2, 0);
+				sprite->SetHeight(tileHeight);
+				sprite->SetWidth(tileWidth);
+				sprite->Draw(position, BoxCollider());
+			}
+
+		}
+	}
 }

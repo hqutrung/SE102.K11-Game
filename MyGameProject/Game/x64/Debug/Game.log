@@ -1,180 +1,128 @@
 ﻿  Animation.cpp
   Camera.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(12,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(13,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(33,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Debug.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Camera.h(4,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-E:\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,38): error C2664: 'void OutputDebugStringA(LPCSTR)': cannot convert argument 1 from 'const wchar_t [16]' to 'LPCSTR'
-E:\SE102.K11-Game\MyGameProject\Game\Debug.cpp(11,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
   demoEnemy.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\debugapi.h(55,1): message : see declaration of 'OutputDebugStringA'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(38,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(11,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
   DemoObject.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(12,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(12,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(31,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
   DemoObjectState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   DemoRunningState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   DemoScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(21,52): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(21,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(50,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Entity.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Scene.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(55,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(155,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   GameManager.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   GameMap.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(177,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(186,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(195,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(204,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(219,36): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(72,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(115,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxObjectGroup.h(61,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(164,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(164,17): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(119,38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(121,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(125,86): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(125,41): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(148,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(149,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(169,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameTime.cpp
   Graphic.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   Grid.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(169,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(52,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(53,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(54,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   KeyBoard.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Main.cpp
-E:\SE102.K11-Game\MyGameProject\Game\KeyBoard.h(5,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-  base64.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\base64.cpp(85,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\base64.cpp(96,69): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
-  tinyxml2.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\base64.cpp(113,65): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\tinyxml2.cpp(2146,82): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  TmxEllipse.cpp
-  TmxImage.cpp
-  Generating Code...
-  Compiling...
-  TmxImageLayer.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\tinyxml2.cpp(2146,82): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-  TmxLayer.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(177,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(186,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(195,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(204,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxMap.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(219,36): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(177,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(186,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(195,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(204,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(219,36): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxObjectGroup.h(61,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.cpp(126,51): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.cpp(179,41): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  TmxObject.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.cpp(193,41): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxObjectGroup.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxPolygon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxObjectGroup.h(61,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.cpp(44,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.cpp(48,5): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolygon.cpp(52,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  TmxPolyline.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.h(55,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.cpp(44,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.cpp(48,5): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPolyline.cpp(52,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  TmxPropertySet.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxTerrain.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.cpp(87,28): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  TmxTerrainArray.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxTile.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(72,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxTileLayer.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(115,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(177,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(186,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(195,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(204,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(219,36): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(154,5): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(193,56): warning C4267: 'argument': conversion from 'size_t' to 'uLong', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(201,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(245,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(251,5): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTileLayer.cpp(267,5): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  TmxTileOffset.cpp
-  TmxTileset.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxPropertySet.h(60,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(72,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxTile.h(115,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(177,34): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(186,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(195,40): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(204,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  TmxUtil.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(55,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(55,65): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(55,65): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Player.cpp
-E:\SE102.K11-Game\MyGameProject\Game\MapReader\TmxMap.h(219,36): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   PlayerData.cpp
   PlayerDuckAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PlayerDuckState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
-  PlayerFallState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(58,43): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(62,44): warning C4305: 'argument': truncation from 'double' to 'float'
   Compiling...
+  PlayerFallState.cpp
   PlayerIdleAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PlayerIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+  PlayerJumpAttack.cpp
+  PlayerJumpCrossState.cpp
   PlayerJumpState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PlayerLookUpAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PLayerLookUpState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: 'Player::GetState': not all control paths return a value
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(218): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(51,43): warning C4305: 'argument': truncation from 'double' to 'float'
   PlayerRunAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PlayerRunState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   PlayerSlideState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+  PlayerThrowState.cpp
   Scene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   SceneManager.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Scene.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Sprites.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Scene.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(41,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(54,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(64,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(74,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(37,10): warning C4101: 'result': unreferenced local variable
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(160,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(161,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   PlayerState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   Support.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(174,4): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(174,4): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
   Textures.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   Unit.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Graphic.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
   Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\BoxCollider.h(3,10): fatal error C1083: Cannot open include file: 'd3dx9.h': No such file or directory
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+Graphic.obj : error LNK2019: unresolved external symbol Direct3DCreate9 referenced in function "public: void __cdecl Graphic::Init(struct HWND__ *)" (?Init@Graphic@@QEAAXPEAUHWND__@@@Z)
+Graphic.obj : error LNK2019: unresolved external symbol D3DXCreateSprite referenced in function "public: void __cdecl Graphic::Init(struct HWND__ *)" (?Init@Graphic@@QEAAXPEAUHWND__@@@Z)
+KeyBoard.obj : error LNK2019: unresolved external symbol DirectInput8Create referenced in function "public: void __cdecl KeyBoard::InitKeyboard(struct HWND__ *,struct HINSTANCE__ *)" (?InitKeyboard@KeyBoard@@QEAAXPEAUHWND__@@PEAUHINSTANCE__@@@Z)
+KeyBoard.obj : error LNK2001: unresolved external symbol IID_IDirectInput8W
+KeyBoard.obj : error LNK2001: unresolved external symbol GUID_SysKeyboard
+KeyBoard.obj : error LNK2001: unresolved external symbol c_dfDIKeyboard
+Sprites.obj : error LNK2019: unresolved external symbol D3DXVec3Transform referenced in function "public: void __cdecl Sprites::Draw(struct D3DXVECTOR3,class BoxCollider,struct D3DXCOLOR,bool)" (?Draw@Sprites@@QEAAXUD3DXVECTOR3@@VBoxCollider@@UD3DXCOLOR@@_N@Z)
+Sprites.obj : error LNK2019: unresolved external symbol D3DXMatrixTransformation2D referenced in function "public: void __cdecl Sprites::Draw(struct D3DXVECTOR3,class BoxCollider,struct D3DXCOLOR,bool)" (?Draw@Sprites@@QEAAXUD3DXVECTOR3@@VBoxCollider@@UD3DXCOLOR@@_N@Z)
+Sprites.obj : error LNK2019: unresolved external symbol D3DXGetImageInfoFromFileA referenced in function "protected: void __cdecl Sprites::InitWithSprite(char const *,class BoxCollider,int,int,unsigned long)" (?InitWithSprite@Sprites@@IEAAXPEBDVBoxCollider@@HHK@Z)
+Textures.obj : error LNK2001: unresolved external symbol D3DXGetImageInfoFromFileA
+Sprites.obj : error LNK2019: unresolved external symbol D3DXCreateTextureFromFileExA referenced in function "protected: void __cdecl Sprites::InitWithSprite(char const *,class BoxCollider,int,int,unsigned long)" (?InitWithSprite@Sprites@@IEAAXPEBDVBoxCollider@@HHK@Z)
+Textures.obj : error LNK2001: unresolved external symbol D3DXCreateTextureFromFileExA
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\Documents\Game\SE102.K11-Game\MyGameProject\x64\Debug\Game.exe : fatal error LNK1120: 11 unresolved externals

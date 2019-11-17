@@ -111,7 +111,7 @@ bool KeyBoard::GetKey(int KeyCode) {
 }
 
 bool KeyBoard::GetKeyUp(int KeyCode) {
-	return false;
+	return !GetKey(KeyCode);
 }
 
 D3DXVECTOR2 KeyBoard::GetMouseDis() {

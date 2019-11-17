@@ -18,16 +18,17 @@ void DemoScene::LoadContent()
 	 
 
 	camera = new Camera(width, height);
-	camera->SetPosition(D3DXVECTOR3(width / 2, height / 2, 0));
+	//camera = new Camera(256, 224);
 
 	map->SetCamera(camera);
 
 	// Player
 	player = new Player();
 	player->SetPosition(32, 30 + player->GetBigHeight() / 2.0f);
+	//player->SetPosition(32, 568 + player->GetBigHeight() / 2.0f);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
-	camera->FollowPlayer(player->GetPosition().x, player->GetPosition().y);
+	camera->SetPosition(player->GetPosition());
 	CheckCamera();
 }
 

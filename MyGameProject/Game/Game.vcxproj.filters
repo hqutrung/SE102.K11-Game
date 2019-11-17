@@ -2,287 +2,389 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Animation.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyBoard.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphic.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMap.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="Support.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObject.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObjectState.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoRunningState.cpp">
-      <Filter>Demo\Object</Filter>
+      <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
     <ClCompile Include="demoEnemy.cpp">
-      <Filter>Demo\Object</Filter>
+      <Filter>Header Files\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObject.cpp">
+      <Filter>Header Files\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObjectState.cpp">
+      <Filter>Header Files\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoRunningState.cpp">
+      <Filter>Header Files\Demo</Filter>
     </ClCompile>
     <ClCompile Include="DemoScene.cpp">
-      <Filter>Demo\Scene</Filter>
+      <Filter>Header Files\Demo</Filter>
     </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>FrameWork</Filter>
+    <ClCompile Include="Graphic.cpp">
+      <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="Unit.cpp">
-      <Filter>FrameWork</Filter>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Sources</Filter>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Header Files\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="GameMap.cpp">
+      <Filter>Header Files\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerData.cpp">
-      <Filter>Object\Player\PlayerData</Filter>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Header Files\Misc</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Object\Player\PlayerObject</Filter>
+      <Filter>Header Files\Objects\Player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerIdleState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Header Files\Objects\Player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerRunState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerIdleAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerRunAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerDuckState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Header Files\Objects\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerDuckAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerSlideState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PLayerLookUpState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerLookUpAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerJumpState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerDuckState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
     <ClCompile Include="PlayerFallState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerJumpCrossState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerIdleAttackState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerIdleState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
     <ClCompile Include="PlayerJumpAttack.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpCrossState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLookUpAttackState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PLayerLookUpState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunAttackState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSlideState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
     <ClCompile Include="PlayerThrowState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Header Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Support.cpp">
+      <Filter>Header Files\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Header Files\Objects\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Header Files\Collission</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Header Files\Collission</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gem.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueHeart.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueVase.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Stone.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Pillar.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitPort.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GenieToken.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ThinGuard.cpp">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuard.cpp">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainedPillar.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyBoard.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMap.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConfig.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="BoxCollider.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Support.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObject.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectData.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectState.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoRunningState.h">
-      <Filter>Demo\Object</Filter>
+      <Filter>Header Files\FrameWork</Filter>
     </ClInclude>
     <ClInclude Include="demoEnemy.h">
-      <Filter>Demo\Object</Filter>
+      <Filter>Header Files\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObject.h">
+      <Filter>Header Files\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectData.h">
+      <Filter>Header Files\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectState.h">
+      <Filter>Header Files\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoRunningState.h">
+      <Filter>Header Files\Demo</Filter>
     </ClInclude>
     <ClInclude Include="DemoScene.h">
-      <Filter>Demo\Scene</Filter>
+      <Filter>Header Files\Demo</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>FrameWork</Filter>
+    <ClInclude Include="Graphic.h">
+      <Filter>Header Files\FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>FrameWork</Filter>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>Header Files\FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="GameConfig.h">
+      <Filter>Header Files\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerData.h">
-      <Filter>Object\Player\PlayerData</Filter>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMap.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Object\Player\PlayerObject</Filter>
+      <Filter>Header Files\Objects\Player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerIdleState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Header Files\Objects\Player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerRunState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerIdleAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerRunAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerDuckState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Header Files\Objects\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerDuckAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerSlideState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PLayerLookUpState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerLookUpAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerJumpState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerDuckState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerFallState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerJumpCrossState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerIdleAttackState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerIdleState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerJumpAttack.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpCrossState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLookUpAttackState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PLayerLookUpState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunAttackState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSlideState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerThrowState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Apple.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Support.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Header Files\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Objects\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Header Files\Collission</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Header Files\Collission</Filter>
+    </ClInclude>
+    <ClInclude Include="Gem.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueHeart.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="GenieToken.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueVase.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Stone.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Pillar.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitPort.h">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinGuard.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="FatGuard.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainedPillar.h">
+      <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="FrameWork">
-      <UniqueIdentifier>{4d139176-4286-41c5-885f-f43c6a282e68}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{fe2a66ed-c1ad-4e50-8e73-4bfe5578a376}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{0833e4d4-3e0a-401c-a668-3c80e2f3648e}</UniqueIdentifier>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f0e1570d-8e4f-43e7-a4ec-b940cc63a173}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{0e6333d8-5509-4923-a40c-7289831acb8d}</UniqueIdentifier>
+    <Filter Include="Header Files\FrameWork">
+      <UniqueIdentifier>{16381fe1-2c8f-4c7e-9588-34435a35a8af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{88cb5382-9ca3-4e99-9547-3e2030287461}</UniqueIdentifier>
+    <Filter Include="Header Files\Demo">
+      <UniqueIdentifier>{a9f223dc-15b9-491a-ba26-bd9e0ee4f0d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demo">
-      <UniqueIdentifier>{0bd9d4a4-51a8-4958-b3b8-cb979f34e15c}</UniqueIdentifier>
+    <Filter Include="Header Files\Manager">
+      <UniqueIdentifier>{ff5a1244-d703-4a60-9e3f-23ded2f4d3e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demo\Object">
-      <UniqueIdentifier>{518331d4-2dd0-4961-9571-49576a7eebd4}</UniqueIdentifier>
+    <Filter Include="Header Files\Misc">
+      <UniqueIdentifier>{6ff7fbe3-5e75-489d-823a-58128fae5a07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Demo\Scene">
-      <UniqueIdentifier>{f184cb28-3713-4ad3-b210-fc92d84e84bd}</UniqueIdentifier>
+    <Filter Include="Header Files\Collission">
+      <UniqueIdentifier>{3569fc27-fbc7-4379-af5c-126a5b575241}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{8a090afa-3a42-4fd0-8047-c43df36de600}</UniqueIdentifier>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{b5786271-33bc-4e41-acdd-c22342415bca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources">
-      <UniqueIdentifier>{4765e17c-d0b2-469d-ae50-799fbe42e6b5}</UniqueIdentifier>
+    <Filter Include="Header Files\Objects\Player">
+      <UniqueIdentifier>{9c05218e-c3fa-4c8b-b6b8-ae5936b0858a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Player\State">
+      <UniqueIdentifier>{d329e23b-94d5-451a-8ac9-c3ce0dbf3ab5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Player\Player_State">
-      <UniqueIdentifier>{2b9516ca-80e6-4725-98d0-05474ab1ff96}</UniqueIdentifier>
+    <Filter Include="Header Files\Objects\Item">
+      <UniqueIdentifier>{8ff31168-3670-4951-9ca7-d35d792b325a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Player\PlayerData">
-      <UniqueIdentifier>{5a287625-cd4b-4123-a23d-1920ffb4d0ad}</UniqueIdentifier>
+    <Filter Include="Header Files\Objects\General">
+      <UniqueIdentifier>{f322b143-a825-4e5e-85a5-eeaf62da5b4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Player\PlayerObject">
-      <UniqueIdentifier>{33c4df82-9d13-4eed-b87e-3ab99584c7c1}</UniqueIdentifier>
+    <Filter Include="Header Files\Objects\Enemy">
+      <UniqueIdentifier>{6deeb239-c3d3-4711-b23c-1b6e4ae2b2b9}</UniqueIdentifier>
     </Filter>
-      <UniqueIdentifier>{136835a8-8f76-43c8-a5fd-6e7a7621b92e}</UniqueIdentifier>
-    <Filter Include="Object\Player">
   </ItemGroup>
 </Project>

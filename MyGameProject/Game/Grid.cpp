@@ -1,5 +1,6 @@
 #include "Grid.h"
 #include "Unit.h"
+#include "Camera.h"
 
 Grid* Grid::instance = NULL;
 
@@ -59,7 +60,14 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 		{
-			if (i<r.left || i>r.right || j > r.top || j < r.bottom)
+			BoxCollider spriteBound;
+			spriteBound.top = (j + 1) * cellHeight;
+			spriteBound.bottom = spriteBound.top - cellWidth;
+			spriteBound.left = i * cellWidth;
+			spriteBound.right = spriteBound.left + cellWidth;
+
+			Camera* cam = Camera::GetInstance();
+			if (!cam->IsCollide(spriteBound))
 			{
 				activeCells[i][j] = false;
 				if (Cells[i][j] != NULL)
@@ -77,6 +85,25 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 				if (Cells[i][j] != NULL)
 					HandleActiveUnit(camRect, camDirection, Cells[i][j]);
 			}
+
+			//if (i < r.left || i > r.right || j > r.top || j < r.bottom)
+			//{
+			//	activeCells[i][j] = false;
+			//	if (Cells[i][j] != NULL)
+			//	{
+			//		if (Cells[i][j]->entity->IsActived())
+			//		{
+			//			HandleInActiveUnit(Cells[i][j]);
+			//			//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+			//		}
+			//	}
+			//}
+			//else
+			//{
+			//	activeCells[i][j] = true;
+			//	if (Cells[i][j] != NULL)
+			//		HandleActiveUnit(camRect, camDirection, Cells[i][j]);
+			//}
 		}
 
 
@@ -258,7 +285,11 @@ void Grid::RenderUnit(Unit* unit)
 	while (unit != NULL) 
 	{
 		if (unit->entity->IsActived())
-			unit->entity->Render();
+		{
+			Camera* cam = Camera::GetInstance();
+			if(cam->IsCollide(unit->entity->GetRect()))
+				unit->entity->Render();
+		}
 		unit = unit->next;
 	}
 }
