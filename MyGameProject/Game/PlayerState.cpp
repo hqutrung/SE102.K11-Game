@@ -19,6 +19,11 @@ void PlayerState::HandleInput()
 {
 }
 
+PlayerState::State PlayerState::GetState()
+{
+	return Idle;
+}
+
 PlayerState::PlayerState(PlayerData* data)
 {
 	this->playerData = data;

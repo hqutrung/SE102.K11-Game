@@ -68,3 +68,8 @@ void PlayerLookUpState::HandleInput()
 	}
 	player->SetState(Idle);
 }
+
+PlayerState::State PlayerLookUpState::GetState()
+{
+	return LookUp;
+}

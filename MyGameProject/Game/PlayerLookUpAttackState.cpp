@@ -63,3 +63,8 @@ void PlayerLookUpAttackState::HandleInput()
 		return;
 	}
 }
+
+PlayerState:: State PlayerLookUpAttackState::GetState()
+{
+	return LookUpAttack;
+}

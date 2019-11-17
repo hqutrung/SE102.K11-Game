@@ -99,9 +99,9 @@ void Player::Render()
 	playerData->state->Render();
 }
 
-void Player::SetState(PlayerState::State name)
+void Player::SetState(PlayerState::State state)
 {
-	switch (name) {
+	switch (state) {
 	case PlayerState::Idle:
 		playerData->state = idleState;
 		nameCurrentState = PlayerState::Idle;
@@ -200,9 +200,9 @@ PlayerState* Player::GetCurrentState()
 	return playerData->state;
 }
 
-PlayerState* Player::GetState(PlayerState::State name)
+PlayerState* Player::GetState(PlayerState::State state)
 {
-	switch (name) {
+	switch (state) {
 	case PlayerState::Idle:
 		return idleState;
 		break;

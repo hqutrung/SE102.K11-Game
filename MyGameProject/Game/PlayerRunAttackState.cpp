@@ -74,3 +74,8 @@ void PlayerRunAttackState::HandleInput()
 	}
 	player->SetState(Idle);
 }
+
+PlayerState::State PlayerRunAttackState::GetState()
+{
+	return RunAttack;
+}

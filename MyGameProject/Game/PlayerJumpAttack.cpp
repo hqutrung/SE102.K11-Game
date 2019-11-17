@@ -72,3 +72,8 @@ void PlayerJumpAttackState::HandleInput()
 		return;
 	}
 }
+
+PlayerState::State PlayerJumpAttackState::GetState()
+{
+	return JumpAttack;
+}

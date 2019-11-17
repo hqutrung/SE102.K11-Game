@@ -1,10 +1,10 @@
 #pragma once
 #include "Item.h"
-#include "Sprites.h"
 #include "Textures.h"
+#include "Animation.h"
 
 class Gem : public Item {
-	Sprites* sprite;
+	Animation* animation;
 public:
 	Gem();
 	~Gem();

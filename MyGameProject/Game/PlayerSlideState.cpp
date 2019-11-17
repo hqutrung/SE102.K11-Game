@@ -80,3 +80,8 @@ void PlayerSlideState::HandleInput()
 		return;
 	}
 }
+
+PlayerState::State PlayerSlideState::GetState()
+{
+	return Slide;
+}

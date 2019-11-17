@@ -49,3 +49,8 @@ void PlayerIdleThrowState::HandleInput()
 	}
 
 }
+
+PlayerState::State PlayerIdleThrowState::GetState()
+{
+	return IdleThrow;
+}

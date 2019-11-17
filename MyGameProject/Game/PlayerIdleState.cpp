@@ -97,3 +97,8 @@ void PlayerIdleState::HandleInput()
 	}
 }
 
+PlayerState::State PlayerIdleState::GetState()
+{
+	return Idle;
+}
+

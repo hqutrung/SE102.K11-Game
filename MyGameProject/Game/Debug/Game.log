@@ -1,14 +1,4 @@
-﻿  GameMap.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(132,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(133,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(162,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(162,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(186,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(187,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(188,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(189,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(331,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(333,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(339,85): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(339,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+﻿  Gem.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Gem.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Gem.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

@@ -32,9 +32,10 @@ public:
 	virtual void Update(float dt);
 	virtual void Render();
 	virtual void HandleInput();
+	virtual State GetState();
 	Animation* GetAnimation() { return m_Animation; }
-//	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
-	/*virtual State GetState();
+
+	/*virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
 	virtual int GetAnimationHeight();
 	virtual int GetAnimationWidth();
 	virtual BoxCollider GetBody();

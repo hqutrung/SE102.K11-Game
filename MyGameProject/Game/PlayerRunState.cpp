@@ -103,3 +103,8 @@ void PlayerRunState::HandleInput()
 	else
 		player->SetState(Idle);
 }
+
+PlayerState::State PlayerRunState::GetState()
+{
+	return Run;
+}

@@ -15,7 +15,6 @@ PlayerDuckAttackState::~PlayerDuckAttackState()
 
 void PlayerDuckAttackState::Render()
 {
-
 	D3DXVECTOR3 p;
 	auto player = playerData->player->GetInstance();
 	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
@@ -55,4 +54,9 @@ void PlayerDuckAttackState::HandleInput()
 	}
 	if (keyboard->GetKey(DOWN_ARROW))
 		return;
+}
+
+PlayerState::State PlayerDuckAttackState::GetState()
+{
+	return DuckAttack;
 }

@@ -5,17 +5,19 @@
 
 class Player : public Entity {
 public:
+	enum State {
 
+	};
 
 	static Player* GetInstance();
 	Player();
 	~Player();
 	void Update(float dt) override;
 	void Render() override;
-	void SetState(PlayerState::State name);
+	void SetState(PlayerState::State state);
 	void HandleInput();
 	PlayerState* GetCurrentState();
-	PlayerState* GetState(PlayerState::State name);
+	PlayerState* GetState(PlayerState::State state);
 
 	// sử dụng cho State Jump
 	float GetPre_Y_Position() { return Pre_Y_Position; };

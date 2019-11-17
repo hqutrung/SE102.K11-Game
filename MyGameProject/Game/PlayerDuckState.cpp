@@ -70,3 +70,8 @@ void PlayerDuckState::HandleInput()
 	//duck->idle
 	player->SetState(Idle);
 }
+
+PlayerState::State PlayerDuckState::GetState()
+{
+	return Duck;
+}
