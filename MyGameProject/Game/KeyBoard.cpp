@@ -1,120 +1,128 @@
 #include "KeyBoard.h"
 #include "Debug.h"
-KeyBoard* KeyBoard::instance = NULL;
 
-KeyBoard* KeyBoard::GetInstance() {
-	if (instance == NULL)
-		instance = new KeyBoard();
-	return instance;
+KeyBoard* KeyBoard::Instance = NULL;
+
+KeyBoard* KeyBoard::GetInstance()
+{
+	if (!Instance)
+		Instance = new KeyBoard();
+	return Instance;
 }
 
-KeyBoard::KeyBoard() {
-	directinput = NULL;
-	keyboard = NULL;
-}
-
-KeyBoard::~KeyBoard() {
-	if (directinput != NULL)
-		directinput->Release();
-	if (keyboard != NULL)
-		keyboard->Release();
-}
-
-void KeyBoard::InitKeyboard(HWND _hWnd, HINSTANCE _hInstance) {
-	hWnd = _hWnd;
-	HRESULT
-		hr = DirectInput8Create
-		(
-			_hInstance,
-			DIRECTINPUT_VERSION,
-			IID_IDirectInput8, (VOID**)&directinput, NULL
-		);
-	if (hr != DI_OK) return;
-
-	hr = directinput->CreateDevice(GUID_SysKeyboard, &keyboard, NULL);
-	if (hr != DI_OK) return;
-
-	keyboard->SetDataFormat(&c_dfDIKeyboard);
-	keyboard->SetCooperativeLevel(_hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
-
-	DIPROPDWORD dipdw;
-
-	dipdw.diph.dwSize = sizeof(DIPROPDWORD);
-	dipdw.diph.dwHeaderSize = sizeof(DIPROPHEADER);
-	dipdw.diph.dwObj = 0;
-	dipdw.diph.dwHow = DIPH_DEVICE;
-	dipdw.dwData = 1024; // Arbitary buffer size
-
-	hr = keyboard->SetProperty(DIPROP_BUFFERSIZE, &dipdw.diph);
-	if (hr != DI_OK) return;
-
-	hr = keyboard->Acquire();
-	if (hr != DI_OK) return;
-
-	//PLUS
-	/*hr = directinput->CreateDevice(GUID_SysMouse, &mouse, NULL);
-	mouse->SetDataFormat(&c_dfDIMouse);
-	mouse->SetCooperativeLevel(hWnd, DISCL_EXCLUSIVE | DISCL_FOREGROUND);
-	mouse->Acquire();*/
-}
-
-
-void KeyBoard::ProcessKeyboard() {
-	// Collect all key states first
-	static HRESULT result;
-	// Collect all key states first
-	result = keyboard->GetDeviceState(sizeof(keyState), keyState); //Xem phim nao dang nhan
-
-	if (FAILED(result))
-	{
-		// If the keyboard lost focus or was not acquired then try to get control back.
-		if ((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED))
-		{
-			keyboard->Acquire();
-		}
-	}// ----------------------------------------------
-
-	if (GetKeyDown(DIK_ESCAPE))
-	{
-		PostMessage(hWnd, WM_QUIT, 0, 0);
+HRESULT KeyBoard::Init(HWND hWnd)
+{
+	HRESULT result = DirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&dinput, NULL);
+	if (result != DI_OK)
+	{		return result;
 	}
+	result = dinput->CreateDevice(GUID_SysKeyboard, &dikeyboard, NULL);
+	if (result != DI_OK)
+	{
+	
+		return result;
+	}
+	result = dikeyboard->SetDataFormat(&c_dfDIKeyboard);
+	result = dikeyboard->SetCooperativeLevel(hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);;
+	result = dikeyboard->Acquire();
 
-	// Collect all buffered events
-	DWORD dwElements = 1024;
-	HRESULT hr = keyboard->GetDeviceData(sizeof(DIDEVICEOBJECTDATA), _KeyEvents, &dwElements, 0);
+	result = dinput->CreateDevice(GUID_SysMouse, &dimouse, NULL);
+	if (result != DI_OK)
+	{
+		
+		return result;
+	}
+	result = dimouse->SetDataFormat(&c_dfDIMouse);
+	result = dimouse->SetCooperativeLevel(hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
+	result = dimouse->Acquire();		
+	return result;
+}
+
+void KeyBoard::KeySnapShot(float dt)
+{
+
+	delta += dt;
+	if (delta > KEYBOARD_LAST_PRESS_TIME)
+		ReleaseLastPressKey();
 	for (int i = 0; i < 256; i++)
-		pressKey[i] = false;
-	// Scan through all data, check if the key is pressed or released
-	for (DWORD i = 0; i < dwElements; i++)
+		buffer[i] = keys[i];
+
+	HRESULT result = dikeyboard->GetDeviceState(sizeof(keys), (LPVOID)&keys);
+	while (result != DI_OK && (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED))
 	{
-		int KeyCode = _KeyEvents[i].dwOfs;
-		int KeyState = _KeyEvents[i].dwData;
-		if ((KeyState & 0x80) > 0)
-			pressKey[KeyCode] = true;
+		//Debug::PrintOut(L"[Error code %d] Error while Acquire Keyboard!", &result);
+		result = dikeyboard->Acquire();
 	}
-
-	//PLUS
-	/*result = mouse->GetDeviceState(sizeof(mouse_State), (LPVOID)&mouse_State);
-	if (FAILED(result)) {
-		mouse->Acquire();
-		mouse->GetDeviceState(sizeof(mouse_State), (LPVOID)&mouse_State);
-	}*/
-
+	FirstCheck = true;
 }
 
-bool KeyBoard::GetKeyDown(int KeyCode) {
-	return pressKey[KeyCode];
+void KeyBoard::MouseSnapShot()
+{
+	dimouse->GetDeviceState(sizeof(mouse_state), (LPVOID)&mouse_state);
 }
 
-bool KeyBoard::GetKey(int KeyCode) {
-	return ((keyState[KeyCode] & 0x80) > 0);
-}
-
-bool KeyBoard::GetKeyUp(int KeyCode) {
+bool KeyBoard::GetKey(int key)
+{
+	if (keys[key] & 0x80)
+	{
+		if (FirstCheck && buffer[key] != keys[key])
+		{
+			BufferLastKey = LastKey;
+			LastKey = key;
+			delta = 0.0f;
+			FirstCheck = false;
+		}
+		return true;
+	}
 	return false;
 }
 
-D3DXVECTOR2 KeyBoard::GetMouseDis() {
-	return D3DXVECTOR2(0, 0);
-	//return D3DXVECTOR2(mouse_State.lX, mouse_State.lY);
+bool KeyBoard::GetKeyDown(int Key)
+{
+	return GetKey(Key) && !BufferCheck(Key);
+}
+
+bool KeyBoard::GetKeyUp(int Key)
+{
+	return !GetKey(Key) && BufferCheck(Key);
+}
+
+void KeyBoard::Release()
+{
+	delete Instance;
+}
+
+int KeyBoard::GetLastPressKey()
+{
+	return BufferLastKey;
+}
+
+void KeyBoard::ReleaseLastPressKey()
+{
+	delta = 0.0f;
+	BufferLastKey = -1;
+	LastKey = -1;
+}
+
+KeyBoard::~KeyBoard()
+{
+	if (dikeyboard != NULL)
+	{
+		dikeyboard->Unacquire();
+		dikeyboard->Release();
+		dikeyboard = NULL;
+	}
+	if (dimouse != NULL)
+	{
+		dimouse->Unacquire();
+		dimouse->Release();
+		dimouse = NULL;
+	}
+	if (dinput != NULL)
+		dinput->Release();
+}
+
+bool KeyBoard::BufferCheck(int key)
+{
+	return buffer[key] & 0x80;
 }

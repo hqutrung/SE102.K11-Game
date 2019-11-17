@@ -1,305 +1,261 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Animation.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyBoard.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphic.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMap.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="Support.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObject.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObjectState.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoRunningState.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="demoEnemy.cpp">
-      <Filter>Demo\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoScene.cpp">
-      <Filter>Demo\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Unit.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerData.cpp">
-      <Filter>Object\Player\PlayerData</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Object\Player\PlayerObject</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerIdleState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerRunState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>FrameWork</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerIdleAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerRunAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerDuckAttackState.cpp">
+      <Filter>PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="PlayerDuckState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerDuckAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerSlideState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PLayerLookUpState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerLookUpAttackState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerJumpState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="PlayerFallState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerJumpCrossState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerIdleAttackState.cpp">
+      <Filter>PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerJumpAttack.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClCompile Include="PlayerIdleState.cpp">
+      <Filter>PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpAttack.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpCrossState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLookUpAttackState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PLayerLookUpState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunAttackState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSlideState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>other</Filter>
     </ClCompile>
     <ClCompile Include="Apple.cpp">
-      <Filter>Object\Apple</Filter>
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="demoEnemy.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObject.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoObjectState.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoRunningState.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoScene.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMap.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Support.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>other</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyBoard.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphic.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMap.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConfig.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="BoxCollider.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Support.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObject.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectData.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectState.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoRunningState.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="demoEnemy.h">
-      <Filter>Demo\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoScene.h">
-      <Filter>Demo\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerData.h">
-      <Filter>Object\Player\PlayerData</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Object\Player\PlayerObject</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerIdleState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerRunState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerIdleAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerRunAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerDuckAttackState.h">
+      <Filter>PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="PlayerDuckState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerDuckAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerSlideState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PLayerLookUpState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerLookUpAttackState.h">
-      <Filter>Object\Player\Player_State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerJumpState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="PlayerFallState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerJumpCrossState.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerIdleAttackState.h">
+      <Filter>PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerJumpAttack.h">
-      <Filter>Object\Player\Player_State</Filter>
+    <ClInclude Include="PlayerIdleState.h">
+      <Filter>PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
-      <Filter>Object\Player\Player_State</Filter>
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpAttack.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpCrossState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLookUpAttackState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PLayerLookUpState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunAttackState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSlideState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>other</Filter>
     </ClInclude>
     <ClInclude Include="Apple.h">
-      <Filter>Object\Apple</Filter>
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="demoEnemy.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObject.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectData.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoObjectState.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoRunningState.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoScene.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfig.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMap.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Support.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>other</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="FrameWork">
-      <UniqueIdentifier>{4d139176-4286-41c5-885f-f43c6a282e68}</UniqueIdentifier>
+    <Filter Include="PlayerState">
+      <UniqueIdentifier>{2f7e0ddb-6e97-430d-bde3-a4f7996b9868}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{0833e4d4-3e0a-401c-a668-3c80e2f3648e}</UniqueIdentifier>
+    <Filter Include="other">
+      <UniqueIdentifier>{7d6e6d65-5006-4587-b62e-e6ac80972e9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{0e6333d8-5509-4923-a40c-7289831acb8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{88cb5382-9ca3-4e99-9547-3e2030287461}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Demo">
-      <UniqueIdentifier>{0bd9d4a4-51a8-4958-b3b8-cb979f34e15c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Demo\Object">
-      <UniqueIdentifier>{518331d4-2dd0-4961-9571-49576a7eebd4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Demo\Scene">
-      <UniqueIdentifier>{f184cb28-3713-4ad3-b210-fc92d84e84bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{8a090afa-3a42-4fd0-8047-c43df36de600}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources">
-      <UniqueIdentifier>{4765e17c-d0b2-469d-ae50-799fbe42e6b5}</UniqueIdentifier>
-    </Filter>
-    </Filter>
-    <Filter Include="Object\Player\Player_State">
-      <UniqueIdentifier>{2b9516ca-80e6-4725-98d0-05474ab1ff96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Player\PlayerData">
-      <UniqueIdentifier>{5a287625-cd4b-4123-a23d-1920ffb4d0ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Player\PlayerObject">
-      <UniqueIdentifier>{33c4df82-9d13-4eed-b87e-3ab99584c7c1}</UniqueIdentifier>
-    </Filter>
-<<<<<<< HEAD
-    <Filter Include="Object\Apple">
-      <UniqueIdentifier>{b8f0a025-8cde-4782-bd5c-5c5c94121067}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MapReader\Tmx.h.in">
-      <Filter>TmxLib</Filter>
-    </None>
-=======
-      <UniqueIdentifier>{136835a8-8f76-43c8-a5fd-6e7a7621b92e}</UniqueIdentifier>
-    <Filter Include="Object\Player">
->>>>>>> vietHoang
   </ItemGroup>
 </Project>

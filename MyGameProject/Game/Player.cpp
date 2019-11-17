@@ -103,7 +103,6 @@ void Player::SetState(PlayerState::State name)
 {
 	switch (name) {
 	case PlayerState::Idle:
-
 		playerData->state = idleState;
 		nameCurrentState = PlayerState::Idle;
 		playerData->state->GetAnimation()->ResetAnimation();
@@ -183,6 +182,15 @@ void Player::SetState(PlayerState::State name)
 
 void Player::HandleInput()
 {
+auto keyboard=	KeyBoard::GetInstance();
+
+if (keyboard->GetKeyUp(ATTACK_ARROW))
+{
+	idleAttackState->countPressKey = 1;
+	runAttackState->countPressKey = 1;
+	duckAttackState->countPressKey = 1;
+	jumpAttackState->countPressKey = 1;
+}
 	if (this->playerData->state)
 		playerData->state->HandleInput();
 }

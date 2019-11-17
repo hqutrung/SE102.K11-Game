@@ -5,9 +5,9 @@ PlayerRunState::PlayerRunState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1001, "Resources/PlayerState/run.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1001, "Resources/PlayerState/run.png", D3DCOLOR_XRGB(106, 148, 189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1001), 1, 11, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.07f, D3DCOLOR_XRGB(106, 148, 189));
 }
 
 PlayerRunState::~PlayerRunState()
@@ -16,7 +16,14 @@ PlayerRunState::~PlayerRunState()
 
 void PlayerRunState::Render()
 {
-	PlayerState::Render();
+	D3DXVECTOR3 p;
+	auto player = playerData->player->GetInstance();
+	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
+		p = D3DXVECTOR3(player->GetPosition().x - (72 / 2 - 44 / 2), player->GetPosition().y + (61 / 2 - 55 / 2), 0);
+	else
+		p = D3DXVECTOR3(player->GetPosition().x + (72 / 2 - 44 / 2), player->GetPosition().y + (61 / 2 - 55 / 2), 0);
+	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
+
 }
 
 void PlayerRunState::Update(float dt)
@@ -33,13 +40,14 @@ void PlayerRunState::Update(float dt)
 			player->SetVx(-RUN_SPEED);
 		}
 	}
-
-	if (m_Animation->IsLastFrame(dt)==true)
+	
+	if (m_Animation->IsLastFrame(dt) == true)
 	{
 		m_Animation->abc = 1;
+		m_Animation->SetCurrentFrame(2);
 	}
-
 	PlayerState::Update(dt);
+	
 }
 
 void PlayerRunState::HandleInput()
@@ -50,11 +58,18 @@ void PlayerRunState::HandleInput()
 
 	//run -> attack
 
-	if (keyboard->GetKey(ATTACK_ARROW))
+	if (keyboard->GetKeyDown(ATTACK_ARROW)&&player->GetState(RunAttack)->countPressKey==1)
 	{
 		player->SetState(RunAttack);
 		return;
 	}
+
+	if (keyboard->GetKeyUp(ATTACK_ARROW))
+	{
+		countPressKey = 1;
+		return;
+	}
+
 	//run->jumpcross
 	if (keyboard->GetKey(JUMP_ARROW))
 	{

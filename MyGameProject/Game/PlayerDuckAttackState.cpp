@@ -19,9 +19,9 @@ void PlayerDuckAttackState::Render()
 	D3DXVECTOR3 p;
 	auto player = playerData->player->GetInstance();
 	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
-		p = D3DXVECTOR3(player->GetPosition().x - (92 / 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 34 / 2), 0);
+		p = D3DXVECTOR3(player->GetPosition().x - (100/ 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 31 / 2), 0);
 	else
-		p = D3DXVECTOR3(player->GetPosition().x + (92 / 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 34 / 2), 0);
+		p = D3DXVECTOR3(player->GetPosition().x + (100 / 2 - 44 / 2), player->GetPosition().y - (55 / 2 - 31 / 2), 0);
 	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
 
 }
@@ -50,7 +50,7 @@ void PlayerDuckAttackState::HandleInput()
 	}
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
+		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		return;
 	}
 	if (keyboard->GetKey(DOWN_ARROW))

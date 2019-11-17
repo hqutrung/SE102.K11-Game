@@ -5,7 +5,7 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 {
 	Graphic::GetInstance()->Init(hWnd);
 
-	KeyBoard::GetInstance()->InitKeyboard(hWnd, hInstance);
+	KeyBoard::GetInstance()->Init(hWnd);
 
 	SceneManager::GetInstance()->LoadScene(DEMO_SCENE);
 
@@ -28,6 +28,7 @@ void GameManager::Update(float dt)
 {
 	if (isPause)
 		return;
+	KeyBoard::GetInstance()->KeySnapShot(dt);
 	SceneManager::GetInstance()->GetCurrentScene()->Update(dt);
 }
 
@@ -56,8 +57,8 @@ void GameManager::Render()
 
 void GameManager::ProcessInput()
 {
-	auto input = KeyBoard::GetInstance();
+	/*auto input = KeyBoard::GetInstance();
 	KeyBoard::GetInstance()->ProcessKeyboard();
 	if ((input->GetKey(DIK_LSHIFT) || input->GetKey(DIK_RSHIFT)) && input->GetKeyDown(DIK_P))
-		isPause = !isPause;
+		isPause = !isPause;*/
 }

@@ -4,9 +4,9 @@ PlayerIdleState::PlayerIdleState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1000, "Resources/PlayerState/aladinidle.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1000, "Resources/PlayerState/idle.png", D3DCOLOR_XRGB(106, 148, 189));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1000), 1, 7, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1000), 1, 7, 0.1f, D3DCOLOR_XRGB(106, 148, 189));
 
 }
 
@@ -22,10 +22,10 @@ void PlayerIdleState::Render()
 void PlayerIdleState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
-	if (m_Animation->GetCurrentFrameID() == 3 || m_Animation->GetCurrentFrameID() == 6)
+	if (m_Animation->GetCurrentFrameID() == 1 || m_Animation->GetCurrentFrameID() == 5)
 		m_Animation->SetDefaultTime(1.0f);
 	else
-		m_Animation->SetDefaultTime(0.1f);
+		m_Animation->SetDefaultTime(0.11f);
 
 	PlayerState::Update(dt);
 }
@@ -65,7 +65,7 @@ void PlayerIdleState::HandleInput()
 
 	//====idle->idle_attack
 
-	if (keyboard->GetKey(ATTACK_ARROW))
+	if (keyboard->GetKeyDown(ATTACK_ARROW)&&player->GetState(IdleAttack)->countPressKey == 1)
 	{
 		player->SetState(IdleAttack);
 		return;
