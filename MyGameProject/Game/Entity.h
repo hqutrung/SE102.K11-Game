@@ -74,8 +74,8 @@ public:
 	virtual void AddVx(float vx);
 
 	virtual float GetVy();
-	virtual void SetVy(float vx);
-	virtual void AddVy(float vx);
+	virtual void SetVy(float vy);
+	virtual void AddVy(float vy);
 
 	// Kich Thuoc
 	virtual float GetWidth();

@@ -85,7 +85,7 @@ void PlayerJumpCrossState::HandleInput()
 	player->SetVx(0);
 }
 
-PlayerState::State PlayerJumpCrossState::GetState()
+PlayerState::State PlayerJumpCrossState::GetStateName()
 {
 	return JumpCross;
 }

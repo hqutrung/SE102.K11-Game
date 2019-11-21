@@ -19,9 +19,14 @@ void PlayerState::HandleInput()
 {
 }
 
-PlayerState::State PlayerState::GetState()
+PlayerState::State PlayerState::GetStateName()
 {
 	return Idle;
+}
+
+void PlayerState::ResetState()
+{
+	m_Animation->ResetAnimation();
 }
 
 PlayerState::PlayerState(PlayerData* data)

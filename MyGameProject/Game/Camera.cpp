@@ -13,8 +13,6 @@ Camera::Camera(int width, int height)
 	this->width = width;
 	this->height = height;
 	instance = this;
-	isLookLeft = false;
-	isLookRight = true;
 }
 
 Camera::~Camera()
@@ -51,67 +49,69 @@ BoxCollider Camera::GetRect()
 	return r;
 }
 
-void Camera::FollowPlayer(float x, float y)
+void Camera::Update(float dt)
 {
+	int index;
 	auto player = Player::GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-	if (isLookRight)
+
+	PlayerState::State currentNameState = player->GetCurrentState()->GetStateName();
+
+	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
 	{
 		if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
 		{
-			if (position.x >player->GetPosition().x)
+			if (position.x > player->GetPosition().x)
 				return;
+			//else if (position.x < player->GetPosition().x)
+			//	position.x++;
 			else
 				position.x = player->GetPosition().x;
+				
 		}
 		else
 		{
-			if (keyboard->GetKey(LEFT_ARROW))
-			{
-				isLookLeft = true;
-				isLookRight = false;
-			}
-			else
-			{
-				if (position.x < player->GetPosition().x + 25)
-					position.x++;
-			}
+			if (position.x <= player->GetPosition().x + INDEX_CAMERA_WIDTH)
+				position.x++;
 		}
+		/*if (index > 0)
+		{
+			position.x--;
+			index--;
+		}*/
 	}
-	if (isLookLeft)
+
+	if (player->GetMoveDirection() == Player::MoveDirection::RightToLeft)
 	{
 		if (keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 		{
 			if (position.x < player->GetPosition().x)
 				return;
+			/*else if (position.x > player->GetPosition().x)
+				position.x--;*/
 			else
 				position.x = player->GetPosition().x;
 		}
 		else
 		{
-			if (keyboard->GetKey(RIGHT_ARROW))
-			{
-				isLookRight = true;
-				isLookLeft = false;
-			}
-			else
-			{
-				if (position.x > player->GetPosition().x - 25)
-					position.x--;
-			}
+			if (position.x > player->GetPosition().x - INDEX_CAMERA_WIDTH)
+				position.x--;
 		}
 	}
 
-	if (keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(DOWN_ARROW))
+	if (currentNameState == PlayerState::LookUp)
 	{
-		if (position.y < player->GetPosition().y + 30)
-			position.y++;
+		if(player->GetCurrentState()->GetAnimation()->GetCurrentFrameID() == 2)
+			if (position.y < player->GetPosition().y + 30)
+				position.y++;
 	}
-	else if(keyboard->GetKey(DOWN_ARROW))
+	else if (player->GetCurrentState()->GetStateName() == PlayerState::Duck)
 	{
 		if (position.y > player->GetPosition().y - 30)
 			position.y--;
-		
+	}
+	else if (currentNameState == PlayerState::Jump || currentNameState == PlayerState::JumpCross) {
+		position.y += player->GetVy() * dt;
 	}
 	else
 	{
@@ -119,12 +119,6 @@ void Camera::FollowPlayer(float x, float y)
 			position.y = (int)(position.y - 1);
 		else if (position.y < (int)player->GetPosition().y)
 			position.y = (int)(position.y + 1);
-		else
-			position.y = (int)player->GetPosition().y;
-		/*if (keyboard->GetKey(JUMP_ARROW))
-		{
-			position.y = (int)player->GetPosition().y;
-		}*/
 	}
 }
 

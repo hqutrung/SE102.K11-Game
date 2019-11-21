@@ -56,7 +56,7 @@ void PlayerIdleThrowState::HandleInput()
 
 }
 
-PlayerState::State PlayerIdleThrowState::GetState()
+PlayerState::State PlayerIdleThrowState::GetStateName()
 {
 	return IdleThrow;
 }

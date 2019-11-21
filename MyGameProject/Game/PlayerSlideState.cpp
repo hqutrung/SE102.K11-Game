@@ -81,7 +81,7 @@ void PlayerSlideState::HandleInput()
 	}
 }
 
-PlayerState::State PlayerSlideState::GetState()
+PlayerState::State PlayerSlideState::GetStateName()
 {
 	return Slide;
 }

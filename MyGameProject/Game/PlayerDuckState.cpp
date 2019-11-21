@@ -71,7 +71,7 @@ void PlayerDuckState::HandleInput()
 	player->SetState(Idle);
 }
 
-PlayerState::State PlayerDuckState::GetState()
+PlayerState::State PlayerDuckState::GetStateName()
 {
 	return Duck;
 }

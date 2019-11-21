@@ -63,7 +63,7 @@ void PlayerIdleAttackState::HandleInput()
 
 }
 
-PlayerState::State PlayerIdleAttackState::GetState()
+PlayerState::State PlayerIdleAttackState::GetStateName()
 {
 	return IdleAttack;
 }

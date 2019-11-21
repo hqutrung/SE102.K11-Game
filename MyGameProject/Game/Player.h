@@ -15,11 +15,13 @@ public:
 	void Update(float dt) override;
 	void Render() override;
 	void SetState(PlayerState::State state);
+
 	void HandleInput();
 	
-	PlayerState* GetState(PlayerState::State name);
-	PlayerState::State GetNameCurrentState() { return nameCurrentState; }
-	PlayerState::State GetNamePrevState() { return namePrevState; }
+	PlayerState* GetCurrentState();
+	PlayerState* GetState(PlayerState::State state);
+
+	PlayerState::State GetNamePrevState() { return prevStateName; }
 	// sử dụng cho State Jump
 	float GetPre_Y_Position() { return Pre_Y_Position; };
 	void SetPre_Y_Position(float y) { Pre_Y_Position = y; };
@@ -81,8 +83,9 @@ protected:
 		* jumpAttackState,
 		* idleThrowState
 		;
-	PlayerState::State nameCurrentState;
-	PlayerState::State namePrevState;
+	PlayerState::State currentStateName;
+	PlayerState::State prevStateName;
+
 	BoxCollider collider;
 	float collisionTime;
 

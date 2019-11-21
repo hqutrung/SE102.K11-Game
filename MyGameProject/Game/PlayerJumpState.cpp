@@ -81,7 +81,7 @@ void PlayerJumpState::HandleInput()
 	player->SetVx(0);
 }
 
-PlayerState::State PlayerJumpState::GetState()
+PlayerState::State PlayerJumpState::GetStateName()
 {
 	return Jump;
 }

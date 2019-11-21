@@ -59,7 +59,6 @@ void PlayerRunAttackState::HandleInput()
 		return;
 	}
 
-
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
@@ -75,7 +74,7 @@ void PlayerRunAttackState::HandleInput()
 	player->SetState(Idle);
 }
 
-PlayerState::State PlayerRunAttackState::GetState()
+PlayerState::State PlayerRunAttackState::GetStateName()
 {
 	return RunAttack;
 }

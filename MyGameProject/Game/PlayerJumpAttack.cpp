@@ -73,7 +73,7 @@ void PlayerJumpAttackState::HandleInput()
 	}
 }
 
-PlayerState::State PlayerJumpAttackState::GetState()
+PlayerState::State PlayerJumpAttackState::GetStateName()
 {
 	return JumpAttack;
 }

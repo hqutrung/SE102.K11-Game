@@ -7,7 +7,6 @@ PlayerLookUpState::PlayerLookUpState(PlayerData* data)
 	texs->Add(1014, "Resources/PlayerState/lookup.png", D3DCOLOR_XRGB(106,148,189));
 	m_Animation = new Animation();
 	m_Animation->AddFrames(texs->GetTexture(1014), 1, 3, 0.06f, D3DCOLOR_XRGB(106,148,189));
-
 }
 
 PlayerLookUpState::~PlayerLookUpState()
@@ -69,7 +68,7 @@ void PlayerLookUpState::HandleInput()
 	player->SetState(Idle);
 }
 
-PlayerState::State PlayerLookUpState::GetState()
+PlayerState::State PlayerLookUpState::GetStateName()
 {
 	return LookUp;
 }

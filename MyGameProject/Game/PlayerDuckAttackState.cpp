@@ -56,7 +56,7 @@ void PlayerDuckAttackState::HandleInput()
 		return;
 }
 
-PlayerState::State PlayerDuckAttackState::GetState()
+PlayerState::State PlayerDuckAttackState::GetStateName()
 {
 	return DuckAttack;
 }

@@ -42,7 +42,7 @@ void DemoScene::Update(float dt)
 
 	// Camera follow player
 	D3DXVECTOR3 playerPos = player->GetPosition();
-	camera->FollowPlayer(playerPos.x, playerPos.y);
+	camera->Update(dt);
 	CheckCamera();
 
 	// 

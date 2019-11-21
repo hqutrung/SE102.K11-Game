@@ -60,14 +60,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 		{
-			BoxCollider spriteBound;
-			spriteBound.top = (j + 1) * cellHeight;
-			spriteBound.bottom = spriteBound.top - cellWidth;
-			spriteBound.left = i * cellWidth;
-			spriteBound.right = spriteBound.left + cellWidth;
-
-			Camera* cam = Camera::GetInstance();
-			if (!cam->IsCollide(spriteBound))
+			if (i < r.left - 1 || i > r.right + 1 || j > r.top + 1 || j < r.bottom - 1)
 			{
 				activeCells[i][j] = false;
 				if (Cells[i][j] != NULL)
@@ -85,25 +78,6 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 				if (Cells[i][j] != NULL)
 					HandleActiveUnit(camRect, camDirection, Cells[i][j]);
 			}
-
-			//if (i < r.left || i > r.right || j > r.top || j < r.bottom)
-			//{
-			//	activeCells[i][j] = false;
-			//	if (Cells[i][j] != NULL)
-			//	{
-			//		if (Cells[i][j]->entity->IsActived())
-			//		{
-			//			HandleInActiveUnit(Cells[i][j]);
-			//			//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
-			//		}
-			//	}
-			//}
-			//else
-			//{
-			//	activeCells[i][j] = true;
-			//	if (Cells[i][j] != NULL)
-			//		HandleActiveUnit(camRect, camDirection, Cells[i][j]);
-			//}
 		}
 
 

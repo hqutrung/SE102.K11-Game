@@ -57,7 +57,7 @@ void PlayerFallState::HandleInput()
 	}
 }
 
-PlayerState::State PlayerFallState::GetState()
+PlayerState::State PlayerFallState::GetStateName()
 {
 	return Fall;
 }

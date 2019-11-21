@@ -58,7 +58,7 @@ void PlayerRunState::HandleInput()
 
 	//run -> attack
 
-	if (keyboard->GetKeyDown(ATTACK_ARROW)&&player->GetState(RunAttack)->countPressKey==1)
+	if (keyboard->GetKeyDown(ATTACK_ARROW) && player->GetState(RunAttack)->countPressKey == 1)
 	{
 		player->SetState(RunAttack);
 		return;
@@ -104,7 +104,7 @@ void PlayerRunState::HandleInput()
 		player->SetState(Idle);
 }
 
-PlayerState::State PlayerRunState::GetState()
+PlayerState::State PlayerRunState::GetStateName()
 {
 	return Run;
 }

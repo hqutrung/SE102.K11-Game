@@ -70,7 +70,7 @@ void PlayerLookUpAttackState::HandleInput()
 	}
 }
 
-PlayerState:: State PlayerLookUpAttackState::GetState()
+PlayerState:: State PlayerLookUpAttackState::GetStateName()
 {
 	return LookUpAttack;
 }
