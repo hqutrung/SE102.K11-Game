@@ -21,7 +21,7 @@ public:
 	PlayerState* GetCurrentState();
 	PlayerState* GetState(PlayerState::State state);
 
-	PlayerState::State GetNamePrevState() { return prevStateName; }
+	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
 	float GetPre_Y_Position() { return Pre_Y_Position; };
 	void SetPre_Y_Position(float y) { Pre_Y_Position = y; };

@@ -115,11 +115,8 @@ void Player::SetState(PlayerState::State state)
 		playerData->state = runState;
 		currentStateName = GetCurrentState()->GetStateName();
 		if (prevStateName != PlayerState::RunAttack)
-		{
 			playerData->state->ResetState();
-		}
 		return;
-		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
 		break;
@@ -204,7 +201,6 @@ PlayerState* Player::GetState(PlayerState::State state)
 	case PlayerState::IdleAttack:
 		return idleAttackState;
 		break;
-
 	case PlayerState::RunAttack:
 		return runAttackState;
 		break;

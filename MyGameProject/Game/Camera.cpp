@@ -13,6 +13,8 @@ Camera::Camera(int width, int height)
 	this->width = width;
 	this->height = height;
 	instance = this;
+	isLookLeft = false;
+	isLookRight = true;
 }
 
 Camera::~Camera()
@@ -57,7 +59,7 @@ void Camera::Update(float dt)
 
 	PlayerState::State currentNameState = player->GetCurrentState()->GetStateName();
 
-	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+	if (isLookRight)
 	{
 		if (keyboard->GetKey(RIGHT_ARROW) && !keyboard->GetKey(LEFT_ARROW))
 		{
@@ -71,8 +73,16 @@ void Camera::Update(float dt)
 		}
 		else
 		{
-			if (position.x <= player->GetPosition().x + INDEX_CAMERA_WIDTH)
-				position.x++;
+			if (keyboard->GetKey(LEFT_ARROW))
+			{
+				isLookLeft = true;
+				isLookRight = false;
+			}
+			else
+			{
+				if (position.x <= player->GetPosition().x + INDEX_CAMERA_WIDTH)
+					position.x++;
+			}
 		}
 		/*if (index > 0)
 		{
@@ -81,7 +91,7 @@ void Camera::Update(float dt)
 		}*/
 	}
 
-	if (player->GetMoveDirection() == Player::MoveDirection::RightToLeft)
+	if (isLookLeft)
 	{
 		if (keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 		{
@@ -94,8 +104,16 @@ void Camera::Update(float dt)
 		}
 		else
 		{
-			if (position.x > player->GetPosition().x - INDEX_CAMERA_WIDTH)
-				position.x--;
+			if (keyboard->GetKey(RIGHT_ARROW))
+			{
+				isLookRight = true;
+				isLookLeft = false;
+			}
+			else
+			{
+				if (position.x > player->GetPosition().x - INDEX_CAMERA_WIDTH)
+					position.x--;
+			}
 		}
 	}
 
