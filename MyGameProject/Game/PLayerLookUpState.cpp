@@ -1,12 +1,13 @@
-#include "PLayerLookUpState.h"
+#include "PlayerLookUpState.h"
 
 PlayerLookUpState::PlayerLookUpState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1014, "Resources/PlayerState/lookup.png", D3DCOLOR_XRGB(106,148,189));
+	texs->Add(1014, "Resources/PlayerState/look_up_after.png", D3DCOLOR_XRGB(255,0,255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1014), 1, 3, 0.06f, D3DCOLOR_XRGB(106,148,189));
+	m_Animation->AddFrames(texs->GetTexture(1014), 1, 4, 0.08f, D3DCOLOR_XRGB(255, 0, 255));
+
 }
 
 PlayerLookUpState::~PlayerLookUpState()
@@ -15,13 +16,7 @@ PlayerLookUpState::~PlayerLookUpState()
 
 void PlayerLookUpState::Render()
 {
-	D3DXVECTOR3 p;
-	auto player = playerData->player->GetInstance();
-	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
-		p = D3DXVECTOR3(player->GetPosition().x +3 , player->GetPosition().y + (58 / 2 - 55 / 2), 0);
-	else
-		p = D3DXVECTOR3(player->GetPosition().x -3, player->GetPosition().y + (58 / 2 - 55 / 2), 0);
-	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
+	PlayerState::Render();
 }
 
 void PlayerLookUpState::Update(float dt)

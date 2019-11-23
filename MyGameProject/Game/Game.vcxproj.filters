@@ -70,9 +70,6 @@
     <ClCompile Include="PlayerJumpState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerLookUpAttackState.cpp">
-      <Filter>Header Files\Objects\Player\State</Filter>
-    </ClCompile>
     <ClCompile Include="PLayerLookUpState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
@@ -169,6 +166,15 @@
     <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerDuckThrowState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLookUpAttackState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRunThrowState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -244,9 +250,6 @@
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerJumpState.h">
-      <Filter>Header Files\Objects\Player\State</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerLookUpAttackState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PLayerLookUpState.h">
@@ -343,6 +346,15 @@
       <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDuckThrowState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLookUpAttackState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRunThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
   </ItemGroup>

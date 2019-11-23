@@ -63,7 +63,7 @@ public:
 	////check for immortal
 	//bool renderPreviousFrame;
 
-	
+
 protected:
 	static Player* instance;
 	PlayerData* playerData;
@@ -81,7 +81,9 @@ protected:
 		* fallState,
 		* jumpCrossState,
 		* jumpAttackState,
-		* idleThrowState
+		* idleThrowState,
+		* duckThrowState,
+		* runThrowState
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
@@ -89,6 +91,6 @@ protected:
 	BoxCollider collider;
 	float collisionTime;
 
-	float Pre_Y_Position=0;
+	float Pre_Y_Position = 0;
 private:
 };

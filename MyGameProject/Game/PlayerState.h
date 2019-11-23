@@ -23,7 +23,9 @@ public:
 		Fall,
 		JumpCross,
 		JumpAttack,
-		IdleThrow
+		IdleThrow,
+		DuckThrow,
+		RunThrow
 
 	};
 	int countPressKey = 1;

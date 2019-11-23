@@ -4,10 +4,10 @@ PlayerIdleState::PlayerIdleState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1000, "Resources/PlayerState/idle.png", D3DCOLOR_XRGB(106, 148, 189));
+	texs->Add(1000, "Resources/PlayerState/idle_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1000), 1, 7, 0.1f, D3DCOLOR_XRGB(106, 148, 189));
-
+	//m_Animation->AddFrames(texs->GetTexture(1000), 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 PlayerIdleState::~PlayerIdleState()
@@ -16,16 +16,23 @@ PlayerIdleState::~PlayerIdleState()
 
 void PlayerIdleState::Render()
 {
-	PlayerState::Render();
+	auto player = playerData->player->GetInstance();
+	D3DXVECTOR3	p = D3DXVECTOR3(player->GetPosition().x, player->GetPosition().y + 1, 0);
+	m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
 }
 
 void PlayerIdleState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
-	if (m_Animation->GetCurrentFrameID() == 1 || m_Animation->GetCurrentFrameID() == 5)
-		m_Animation->SetDefaultTime(1.0f);
+	if (m_Animation->GetCurrentFrameID() == 0 || m_Animation->GetCurrentFrameID() == 3 || m_Animation->GetCurrentFrameID() == 7)
+		m_Animation->SetDefaultTime(0.8f);
 	else
-		m_Animation->SetDefaultTime(0.08f);
+		m_Animation->SetDefaultTime(0.10f);
+
+	if (m_Animation->IsLastFrame(dt) == true)
+	{
+		m_Animation->SetCurrentFrame(15);
+	}
 
 	PlayerState::Update(dt);
 }

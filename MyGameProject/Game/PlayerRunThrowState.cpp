@@ -1,25 +1,25 @@
-﻿#include "PlayerRunAttackState.h"
+﻿#include "PlayerRunThrowState.h"
 
-PlayerRunAttackState::PlayerRunAttackState(PlayerData* data)
+PlayerRunThrowState::PlayerRunThrowState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1003, "Resources/PlayerState/run_attack_after.png", D3DCOLOR_XRGB(255,0,255));
+	/*texs->Add(1003, "Resources/PlayerState/run_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));*/
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.08, D3DCOLOR_XRGB(255,0,255));
+	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.08, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
-PlayerRunAttackState::~PlayerRunAttackState()
+PlayerRunThrowState::~PlayerRunThrowState()
 {
 }
 
-void PlayerRunAttackState::Render()
+void PlayerRunThrowState::Render()
 {
 	PlayerState::Render();
 }
 
-void PlayerRunAttackState::Update(float dt)
+void PlayerRunThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 
@@ -33,7 +33,7 @@ void PlayerRunAttackState::Update(float dt)
 			player->SetVx(-RUN_SPEED);
 		}
 	}
-	
+
 	if (m_Animation->IsLastFrame(dt))
 	{
 		player->SetState(Run);
@@ -42,7 +42,7 @@ void PlayerRunAttackState::Update(float dt)
 	PlayerState::Update(dt);
 }
 
-void PlayerRunAttackState::HandleInput()
+void PlayerRunThrowState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
@@ -66,9 +66,4 @@ void PlayerRunAttackState::HandleInput()
 		return;
 	}
 	player->SetState(Run);
-}
-
-PlayerState::State PlayerRunAttackState::GetStateName()
-{
-	return RunAttack;
 }

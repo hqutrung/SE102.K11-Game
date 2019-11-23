@@ -14,6 +14,8 @@
 #include"PlayerJumpCrossState.h"
 #include"PlayerJumpAttack.h"
 #include"PlayerIdleThrowState.h"
+#include"PlayerDuckThrowState.h"
+#include"PlayerRunThrowState.h"
 
 Player* Player::instance = NULL;
 
@@ -47,6 +49,8 @@ Player::Player()
 	jumpCrossState = new PlayerJumpCrossState(playerData);
 	jumpAttackState = new PlayerJumpAttackState(playerData);
 	idleThrowState = new PlayerIdleThrowState(playerData);
+	duckThrowState = new PlayerDuckThrowState(playerData);
+	runThrowState = new PlayerRunThrowState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -84,7 +88,6 @@ Player::~Player()
 	delete jumpAttackState;
 	delete idleThrowState;
 	idleThrowState = NULL;
-
 	delete playerData;
 	instance = NULL;
 }
@@ -120,7 +123,6 @@ void Player::SetState(PlayerState::State state)
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
 		break;
-
 	case PlayerState::RunAttack:
 		playerData->state = runAttackState;
 		break;
@@ -158,6 +160,12 @@ void Player::SetState(PlayerState::State state)
 	case PlayerState::IdleThrow:
 		playerData->state = idleThrowState;
 		break;
+	case PlayerState::DuckThrow:
+		playerData->state = duckThrowState;
+		break;
+	case PlayerState::RunThrow:
+		playerData->state = runThrowState;
+		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
 	playerData->state->ResetState();
@@ -167,18 +175,19 @@ void Player::HandleInput()
 {
 	auto keyboard = KeyBoard::GetInstance();
 
-	if (keyboard->GetKeyUp(ATTACK_ARROW))
-	{
-		idleAttackState->countPressKey = 1;
-		runAttackState->countPressKey = 1;
-		duckAttackState->countPressKey = 1;
-		jumpAttackState->countPressKey = 1;
-		lookUpAttackState->countPressKey = 1;
-	}
-	if (keyboard->GetKeyUp(THROW_ARROW))
-	{
-		idleThrowState->countPressKey = 1;
-	}
+if (keyboard->GetKeyUp(ATTACK_ARROW))
+{
+	idleAttackState->countPressKey = 1;
+	runAttackState->countPressKey = 1;
+	duckAttackState->countPressKey = 1;
+	jumpAttackState->countPressKey = 1;
+	lookUpAttackState->countPressKey = 1;
+}
+if (keyboard->GetKeyUp(THROW_ARROW))
+{
+	idleThrowState->countPressKey = 1;
+	runThrowState->countPressKey = 1;
+}
 	if (this->playerData->state)
 		playerData->state->HandleInput();
 }
@@ -194,33 +203,27 @@ PlayerState* Player::GetState(PlayerState::State state)
 	switch (state) {
 	case PlayerState::Idle:
 		return idleState;
-		break;
 	case PlayerState::Run:
 		return runState;
-		break;
 	case PlayerState::IdleAttack:
 		return idleAttackState;
 		break;
+
 	case PlayerState::RunAttack:
 		return runAttackState;
-		break;
 	case PlayerState::Duck:
 		return duckState;
-		break;
 	case PlayerState::DuckAttack:
 		return duckAttackState;
-		break;
 	case PlayerState::Slide:
 		return slideState;
-		break;
 	case PlayerState::LookUp:
 		return lookUpState;
-		break;
 	case PlayerState::LookUpAttack:
 		return lookUpAttackState;
-		break;
-	case PlayerState::IdleThrow:
+	case PlayerState::IdleThrow :
 		return idleThrowState;
-		break;
+	case PlayerState::RunThrow:
+		return runThrowState;
 	}
 }

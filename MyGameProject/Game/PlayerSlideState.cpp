@@ -8,9 +8,9 @@ PlayerSlideState::PlayerSlideState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1012, "Resources/PlayerState/slide.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1012, "Resources/PlayerState/slide_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1012), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1012), 1, 12, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 PlayerSlideState::~PlayerSlideState()
@@ -19,18 +19,7 @@ PlayerSlideState::~PlayerSlideState()
 
 void PlayerSlideState::Render()
 {
-	D3DXVECTOR3 p;
-	auto player = playerData->player->GetInstance();
-	if (playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft)
-	{
-		p = D3DXVECTOR3(player->GetPosition().x - (57 / 2 - 44 / 2), player->GetPosition().y + (61 / 2 - 55 / 2), 0);
-		m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), true);
-	}
-	else
-	{
-		p = D3DXVECTOR3(player->GetPosition().x + (57 / 2 - 44 / 2), player->GetPosition().y + (61 / 2 - 55 / 2), 0);
-		m_Animation->Render(p, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
-	}
+	PlayerState::Render();
 }
 
 void PlayerSlideState::Update(float dt)
@@ -40,7 +29,7 @@ void PlayerSlideState::Update(float dt)
 		player->SetVx(SLIDE_SPEED);
 	else
 		player->SetVx(-SLIDE_SPEED); 
-	PlayerState::Update(dt);
+	
 	if (m_Animation->GetCurrentFrameID()>=4)
 	{
 		player->SetVx(0);
@@ -49,6 +38,8 @@ void PlayerSlideState::Update(float dt)
 	{
 		player->SetState(Idle);
 	}
+
+	PlayerState::Update(dt);
 }
 
 void PlayerSlideState::HandleInput()
@@ -61,11 +52,27 @@ void PlayerSlideState::HandleInput()
 		player->SetState(LookUp);
 		return;
 	}
+	if (keyboard->GetKey(DOWN_ARROW))
+	{
+		player->SetState(Duck);
+		return;
+	}
 	if (keyboard->GetKey(ATTACK_ARROW))
 	{
 		player->SetState(IdleAttack);
 		return;
 	}
+	if (keyboard->GetKey(THROW_ARROW))
+	{
+		player->SetState(IdleThrow);
+		return;
+	}
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		player->SetState(Jump);
+		return;
+	}
+
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
@@ -75,7 +82,6 @@ void PlayerSlideState::HandleInput()
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		player->SetState(Run);
 		return;
 	}
