@@ -36,17 +36,24 @@ void Animation::AddFrames(LPDIRECT3DTEXTURE9 texture, int rows, int columns, flo
 		}
 }
 
-void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int stRows, int fnRows, int columns, int rowNumber, int columnNumber, float timePerFrame, D3DCOLOR colorKey)
+void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstColumn, int finalRow, int finalColumn, int rowNumber, int columnNumber, float timePerFrame, D3DCOLOR colorKey)
 {
 	defaultTime = (timePerFrame == 0) ? defaultTime : timePerFrame;
-	totalFrame = (fnRows - stRows + 1) * columns;
+	totalFrame = (finalRow - firstRow) * columnNumber + (finalColumn - firstColumn + 1);
+	int columns;
+	if (totalFrame >= 10)
+		columns = 10;
+	else columns= finalColumn - firstColumn;
+	
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
 	float frameWidth = (float)desc.Width / columnNumber;
 	float frameHeight = (float)desc.Height / rowNumber;
 	BoxCollider r = BoxCollider(0, 0, frameHeight, frameWidth);
-	for (int i = stRows - 1; i < fnRows; i++)
+	for (int i = firstRow - 1; i < finalRow; i++)
 		for (int j = 0; j < columns; j++) {
+			if ((i == firstRow - 1 && j < firstColumn - 1) || (i == finalRow - 1 && j > finalColumn - 1))
+				continue;
 			r.left = j * frameWidth;
 			r.top = i * frameHeight;
 			r.bottom = r.top + frameHeight;

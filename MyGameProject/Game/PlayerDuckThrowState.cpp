@@ -1,28 +1,30 @@
-#include "PlayerDuckAttackState.h"
+#include "PlayerDuckThrowState.h"
 
-PlayerDuckAttackState::PlayerDuckAttackState(PlayerData* data)
+PlayerDuckThrowState::PlayerDuckThrowState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1011, "Resources/PlayerState/duck_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1051, "Resources/PlayerState/duck_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1011), 1, 7, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1051), 1, 7, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
-PlayerDuckAttackState::~PlayerDuckAttackState()
+
+PlayerDuckThrowState::~PlayerDuckThrowState()
 {
 }
 
-void PlayerDuckAttackState::Render()
+void PlayerDuckThrowState::Render()
 {
 	PlayerState::Render();
 }
 
-void PlayerDuckAttackState::Update(float dt)
+void PlayerDuckThrowState::Update(float dt)
 {
+
 	auto player = playerData->player->GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
-	
+
 	if (m_Animation->IsLastFrame(dt))
 	{
 		player->SetState(Duck);
@@ -32,11 +34,17 @@ void PlayerDuckAttackState::Update(float dt)
 	PlayerState::Update(dt);
 }
 
-void PlayerDuckAttackState::HandleInput()
+void PlayerDuckThrowState::HandleInput()
 {
+
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(UP_ARROW))
+		 {
+		player->SetState(Idle);
+		return;
+	}
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);

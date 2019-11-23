@@ -166,6 +166,7 @@
     <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="PlayerDuckAttackState.cpp" />
     <ClCompile Include="PlayerDuckState.cpp" />
+    <ClCompile Include="PlayerDuckThrowState.cpp" />
     <ClCompile Include="PlayerFallState.cpp" />
     <ClCompile Include="PlayerIdleAttackState.cpp" />
     <ClCompile Include="PlayerIdleState.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="PLayerLookUpState.cpp" />
     <ClCompile Include="PlayerRunAttackState.cpp" />
     <ClCompile Include="PlayerRunState.cpp" />
+    <ClCompile Include="PlayerRunThrowState.cpp" />
     <ClCompile Include="PlayerSlideState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -226,6 +228,7 @@
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerDuckAttackState.h" />
     <ClInclude Include="PlayerDuckState.h" />
+    <ClInclude Include="PlayerDuckThrowState.h" />
     <ClInclude Include="PlayerFallState.h" />
     <ClInclude Include="PlayerIdleAttackState.h" />
     <ClInclude Include="PlayerIdleState.h" />
@@ -237,6 +240,7 @@
     <ClInclude Include="PLayerLookUpState.h" />
     <ClInclude Include="PlayerRunAttackState.h" />
     <ClInclude Include="PlayerRunState.h" />
+    <ClInclude Include="PlayerRunThrowState.h" />
     <ClInclude Include="PlayerSlideState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />

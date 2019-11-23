@@ -14,7 +14,7 @@ public:
 	void Render() override;
 	void SetState(PlayerState::State name);
 	void HandleInput();
-	
+
 	PlayerState* GetState(PlayerState::State name);
 	PlayerState::State GetNameCurrentState() { return nameCurrentState; }
 	PlayerState::State GetNamePrevState() { return namePrevState; }
@@ -59,7 +59,7 @@ public:
 	////check for immortal
 	//bool renderPreviousFrame;
 
-	
+
 protected:
 	static Player* instance;
 	PlayerData* playerData;
@@ -77,13 +77,15 @@ protected:
 		* fallState,
 		* jumpCrossState,
 		* jumpAttackState,
-		* idleThrowState
+		* idleThrowState,
+		* duckThrowState,
+		* runThrowState
 		;
 	PlayerState::State nameCurrentState;
 	PlayerState::State namePrevState;
 	BoxCollider collider;
 	float collisionTime;
 
-	float Pre_Y_Position=0;
+	float Pre_Y_Position = 0;
 private:
 };
