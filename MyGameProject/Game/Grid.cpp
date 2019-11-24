@@ -261,7 +261,7 @@ void Grid::RenderUnit(Unit* unit)
 		if (unit->entity->IsActived())
 		{
 			Camera* cam = Camera::GetInstance();
-			if(cam->IsCollide(unit->entity->GetRect()))
+			//if(cam->IsCollide(unit->entity->GetRect()))
 				unit->entity->Render();
 		}
 		unit = unit->next;

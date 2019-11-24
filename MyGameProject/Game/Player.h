@@ -28,9 +28,14 @@ public:
 	bool IsJump;
 	//
 
+	void SetColliderTop(int top);
+	void SetColliderLeft(int left);
+	void SetColliderBottom(int bottom);
+	void SetColliderRight(int right);
+	BoxCollider GetRect();
+
 
 	//void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
-	//BoxCollider GetRect();
 	//BoxCollider GetBigBound();
 	//BoxCollider GetBody();
 	//PlayerState::State GetState();
@@ -40,10 +45,7 @@ public:
 	//float GetHeight() override;
 	//void SetActive(bool active);
 	//void OnFalling();
-	//void SetColliderTop(int top);
-	//void SetColliderLeft(int left);
-	//void SetColliderBottom(int bottom);
-	//void SetColliderRight(int right);
+
 	//void SetMoveDirection(Entity::EntityDirection dir) override;
 	//void InjuredByOther(Entity* impactor);
 	//void OnImmortal();

@@ -35,7 +35,7 @@ public:
 	virtual void Render();
 	virtual void HandleInput();
 	virtual State GetStateName();
-	void ResetState();
+	virtual void ResetState();
 	Animation* GetAnimation() { return m_Animation; }
 
 	/*virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);

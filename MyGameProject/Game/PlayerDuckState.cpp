@@ -75,3 +75,14 @@ PlayerState::State PlayerDuckState::GetStateName()
 {
 	return Duck;
 }
+
+void PlayerDuckState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-20);
+	player->SetColliderRight(54);
+	player->SetColliderTop(9);
+	player->SetColliderBottom(-33);
+	PlayerState::ResetState();
+}

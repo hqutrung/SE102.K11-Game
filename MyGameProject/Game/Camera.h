@@ -13,6 +13,7 @@ class Camera
 	float height;
 	static Camera* instance;
 	bool isLookLeft, isLookRight;
+	int index;
 public:
 	static Camera* GetInstance();
 	Camera(int width, int height);

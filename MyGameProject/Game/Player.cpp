@@ -208,7 +208,6 @@ PlayerState* Player::GetState(PlayerState::State state)
 	case PlayerState::IdleAttack:
 		return idleAttackState;
 		break;
-
 	case PlayerState::RunAttack:
 		return runAttackState;
 	case PlayerState::Duck:
@@ -226,4 +225,40 @@ PlayerState* Player::GetState(PlayerState::State state)
 	case PlayerState::RunThrow:
 		return runThrowState;
 	}
+}
+
+void Player::SetColliderTop(int top)
+{
+	collider.top = top;
+}
+
+void Player::SetColliderLeft(int left)
+{
+	collider.left = left;
+}
+
+void Player::SetColliderBottom(int bottom)
+{
+	collider.bottom = bottom;
+}
+
+void Player::SetColliderRight(int right)
+{
+	collider.right = right;
+}
+
+BoxCollider Player::GetRect()
+{
+	BoxCollider r;
+	r.top = position.y + collider.top;
+	r.bottom = position.y + collider.bottom;
+	if (direction == LeftToRight) {
+		r.left = position.x + collider.left;
+		r.right = position.x + collider.right;
+	}
+	else {
+		r.left = position.x - collider.right;
+		r.right = position.x - collider.left;
+	}
+	return r;
 }

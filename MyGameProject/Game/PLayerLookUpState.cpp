@@ -67,3 +67,14 @@ PlayerState::State PlayerLookUpState::GetStateName()
 {
 	return LookUp;
 }
+
+void PlayerLookUpState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-25);
+	player->SetColliderRight(24);
+	player->SetColliderTop(33);
+	player->SetColliderBottom(-25);
+	PlayerState::ResetState();
+}

@@ -84,7 +84,7 @@ bool KeyBoard::GetKeyDown(int Key)
 
 bool KeyBoard::GetKeyUp(int Key)
 {
-	return !GetKey(Key) && BufferCheck(Key);
+ 	return !GetKey(Key) && BufferCheck(Key);
 }
 
 void KeyBoard::Release()

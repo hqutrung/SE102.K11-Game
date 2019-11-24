@@ -62,8 +62,6 @@ void DemoScene::Render()
 	map->Draw();
 
 	map->GetGrid()->Render();
-
-	//player->Render();
 }
 
 int DemoScene::GetSceneID()
