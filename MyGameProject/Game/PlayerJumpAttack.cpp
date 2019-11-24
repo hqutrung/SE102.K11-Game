@@ -6,7 +6,7 @@ PlayerJumpAttackState::PlayerJumpAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1029, "Resources/PlayerState/jump_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1029), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1029), 1, 7, 0.065f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
@@ -40,9 +40,12 @@ void PlayerJumpAttackState::Update(float dt)
 		player->SetPosition(player->GetPosition().x, player->_LegY);
 		player->SetState(Idle);
 	}
-	if (m_Animation->IsLastFrame(dt))
-		m_Animation->SetCurrentFrame(m_Animation->GetCurrentFrameID() - 1);
+	if (m_Animation->GetCurrentFrameID() == 6)
+		m_Animation->SetDefaultTime(0.5);
+	else m_Animation->SetDefaultTime(0.065f);
 
+	if (m_Animation->IsLastFrame(dt) == true)
+		player->SetState(Fall);
 
 	PlayerState::Update(dt);
 }
@@ -71,4 +74,15 @@ void PlayerJumpAttackState::HandleInput()
 PlayerState::State PlayerJumpAttackState::GetStateName()
 {
 	return JumpAttack;
+}
+
+void PlayerJumpAttackState::ResetState()
+{
+	auto player = playerData->player;
+//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-22);
+	player->SetColliderRight(63);
+	player->SetColliderTop(50);
+	player->SetColliderBottom(-20);
+	PlayerState::ResetState();
 }

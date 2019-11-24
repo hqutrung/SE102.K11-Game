@@ -45,8 +45,6 @@ void PlayerIdleAttackState::HandleInput()
 		countPressKey++;
 		return;
 	}
-	
-
 
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKey(RIGHT_ARROW))
 	{
@@ -60,4 +58,15 @@ void PlayerIdleAttackState::HandleInput()
 PlayerState::State PlayerIdleAttackState::GetStateName()
 {
 	return IdleAttack;
+}
+
+void PlayerIdleAttackState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-18);
+	player->SetColliderRight(64);
+	player->SetColliderTop(44);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState();
 }

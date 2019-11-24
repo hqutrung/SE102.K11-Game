@@ -6,7 +6,7 @@ PlayerDuckAttackState::PlayerDuckAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1011, "Resources/PlayerState/duck_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1011), 1, 7, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1011), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 PlayerDuckAttackState::~PlayerDuckAttackState()
@@ -54,4 +54,15 @@ void PlayerDuckAttackState::HandleInput()
 PlayerState::State PlayerDuckAttackState::GetStateName()
 {
 	return DuckAttack;
+}
+
+void PlayerDuckAttackState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-18);
+	player->SetColliderRight(74);
+	player->SetColliderTop(8);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState();
 }

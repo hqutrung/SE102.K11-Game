@@ -54,3 +54,14 @@ PlayerState::State PlayerIdleThrowState::GetStateName()
 {
 	return IdleThrow;
 }
+
+void PlayerIdleThrowState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-20);
+	player->SetColliderRight(34);
+	player->SetColliderTop(38);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState();
+}

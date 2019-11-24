@@ -94,3 +94,14 @@ PlayerState::State PlayerFallState::GetStateName()
 {
 	return Fall;
 }
+
+void PlayerFallState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(9);
+	player->SetColliderBottom(-22);
+	PlayerState::ResetState();
+}

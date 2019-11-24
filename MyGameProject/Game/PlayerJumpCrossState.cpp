@@ -105,3 +105,14 @@ PlayerState::State PlayerJumpCrossState::GetStateName()
 {
 	return JumpCross;
 }
+
+void PlayerJumpCrossState::ResetState()
+{
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-17);
+	player->SetColliderRight(23);
+	player->SetColliderTop(37);
+	player->SetColliderBottom(-20);
+	PlayerState::ResetState();
+}
