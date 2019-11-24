@@ -7,7 +7,7 @@ PlayerRunState::PlayerRunState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1001, "Resources/PlayerState/run_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.08f, D3DCOLOR_XRGB(255, 0,255));
+	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.06f, D3DCOLOR_XRGB(255, 0,255));
 }
 
 PlayerRunState::~PlayerRunState()
@@ -51,7 +51,7 @@ void PlayerRunState::HandleInput()
 
 	if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(RunThrow)->countPressKey == 1)
 	{
-		player->SetState(RunAttack);
+		player->SetState(RunThrow);
 		return;
 	}
 	//run -> attack
@@ -105,4 +105,14 @@ void PlayerRunState::HandleInput()
 PlayerState::State PlayerRunState::GetStateName()
 {
 	return Run;
+}
+
+void PlayerRunState::ResetState()
+{
+	auto player = Player::GetInstance();
+
+	if (player->GetPrevStateName() == PlayerState::RunAttack || player->GetPrevStateName() == PlayerState::RunThrow)
+		m_Animation->SetCurrentFrame(2);
+	else m_Animation->ResetAnimation();
+
 }

@@ -33,6 +33,28 @@ void PlayerRunAttackState::Update(float dt)
 			player->SetVx(-RUN_SPEED);
 		}
 	}
+
+	switch (m_Animation->GetCurrentFrameID())
+	{
+	case 0:
+		m_Animation->SetDefaultTime(0.05f);
+		break;
+	case 1:
+		m_Animation->SetDefaultTime(0.05f);
+		break;
+	case 2:
+		m_Animation->SetDefaultTime(0.1f);
+		break;
+	case 3:
+		m_Animation->SetDefaultTime(0.1f);
+		break;
+	case 4:
+		m_Animation->SetDefaultTime(0.1f);
+		break;
+	default:
+		m_Animation->SetDefaultTime(0.05f);
+		break;
+	}
 	
 	if (m_Animation->IsLastFrame(dt))
 	{

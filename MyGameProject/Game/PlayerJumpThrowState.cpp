@@ -1,25 +1,25 @@
-﻿#include "PlayerJumpAttack.h"
+﻿#include "PlayerJumpThrowState.h"
 
-PlayerJumpAttackState::PlayerJumpAttackState(PlayerData* data)
+PlayerJumpThrowState::PlayerJumpThrowState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1029, "Resources/PlayerState/jump_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1036, "Resources/PlayerState/jump_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1029), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1036), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
-PlayerJumpAttackState::~PlayerJumpAttackState()
+PlayerJumpThrowState::~PlayerJumpThrowState()
 {
 }
 
-void PlayerJumpAttackState::Render()
+void PlayerJumpThrowState::Render()
 {
 	PlayerState::Render();
 }
 
-void PlayerJumpAttackState::Update(float dt)
+void PlayerJumpThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 	if (player->GetPosition().y > player->_LegY + 68)
@@ -47,7 +47,7 @@ void PlayerJumpAttackState::Update(float dt)
 	PlayerState::Update(dt);
 }
 
-void PlayerJumpAttackState::HandleInput()
+void PlayerJumpThrowState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
@@ -62,13 +62,13 @@ void PlayerJumpAttackState::HandleInput()
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		player->SetVx(- RUN_SPEED / 1.1f);
+		player->SetVx(-RUN_SPEED / 1.1f);
 		return;
 	}
 	player->SetVx(0);
 }
 
-PlayerState::State PlayerJumpAttackState::GetStateName()
+PlayerState::State PlayerJumpThrowState::GetStateName()
 {
-	return JumpAttack;
+	return JumpThrow;
 }
