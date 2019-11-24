@@ -62,7 +62,7 @@ public:
 
 	////check for immortal
 	//bool renderPreviousFrame;
-	float _LegY = 50;
+	float _LegY = 800;
 
 protected:
 	static Player* instance;

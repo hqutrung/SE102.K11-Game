@@ -113,6 +113,7 @@ void PlayerRunState::ResetState()
 
 	if (player->GetPrevStateName() == PlayerState::RunAttack || player->GetPrevStateName() == PlayerState::RunThrow)
 		m_Animation->SetCurrentFrame(2);
-	else m_Animation->ResetAnimation();
+	else
+		PlayerState::ResetState();
 
 }
