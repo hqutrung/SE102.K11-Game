@@ -175,6 +175,9 @@
     <ClCompile Include="PlayerRunThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerJumpThrowState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -355,6 +358,9 @@
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="PlayerRunThrowState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
   </ItemGroup>

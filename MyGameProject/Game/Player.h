@@ -23,8 +23,6 @@ public:
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	float GetPre_Y_Position() { return Pre_Y_Position; };
-	void SetPre_Y_Position(float y) { Pre_Y_Position = y; };
 	bool IsJump;
 	//
 
@@ -64,7 +62,7 @@ public:
 
 	////check for immortal
 	//bool renderPreviousFrame;
-
+	float _LegY = 50;
 
 protected:
 	static Player* instance;
@@ -85,14 +83,15 @@ protected:
 		* jumpAttackState,
 		* idleThrowState,
 		* duckThrowState,
-		* runThrowState
+		* runThrowState,
+		* jumpThrowState
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
 
 	BoxCollider collider;
 	float collisionTime;
+	
 
-	float Pre_Y_Position = 0;
 private:
 };

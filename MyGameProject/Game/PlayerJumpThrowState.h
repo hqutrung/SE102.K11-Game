@@ -1,12 +1,12 @@
-#pragma once
 #include "PlayerState.h"
 #include "Player.h"
-#include "PlayerRunState.h"
-class PlayerRunThrowState : public PlayerState
+
+class PlayerJumpThrowState : public PlayerState
 {
 public:
-	PlayerRunThrowState(PlayerData* data);
-	~PlayerRunThrowState();
+	PlayerJumpThrowState() {};
+	PlayerJumpThrowState(PlayerData* data);
+	~PlayerJumpThrowState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

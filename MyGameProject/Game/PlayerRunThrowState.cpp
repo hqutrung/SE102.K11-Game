@@ -4,9 +4,9 @@ PlayerRunThrowState::PlayerRunThrowState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	/*texs->Add(1003, "Resources/PlayerState/run_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));*/
+	texs->Add(1168, "Resources/PlayerState/run_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1003), 1, 6, 0.08, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1168), 1, 6, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -66,4 +66,10 @@ void PlayerRunThrowState::HandleInput()
 		return;
 	}
 	player->SetState(Run);
+}
+
+
+PlayerState::State PlayerRunThrowState::GetStateName()
+{
+	return RunThrow;
 }

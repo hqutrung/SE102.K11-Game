@@ -25,7 +25,7 @@ void DemoScene::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(32, 30 + player->GetBigHeight() / 2.0f);
+	player->SetPosition(50,50);
 	//player->SetPosition(32, 800 + player->GetBigHeight() / 2.0f);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
@@ -42,8 +42,8 @@ void DemoScene::Update(float dt)
 
 	// Camera follow player
 	D3DXVECTOR3 playerPos = player->GetPosition();
-	camera->Update(dt);
-	CheckCamera();
+	/*camera->Update(dt);
+	CheckCamera();*/
 
 	// 
 	if (playerPos.x < 16)

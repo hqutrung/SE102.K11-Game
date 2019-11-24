@@ -6,7 +6,7 @@ PlayerIdleThrowState::PlayerIdleThrowState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1030, "Resources/PlayerState/idle_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1030), 1, 8, 0.06f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1030), 1, 8, 0.05f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 

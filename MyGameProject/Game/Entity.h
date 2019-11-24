@@ -22,6 +22,7 @@ protected:
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
+	D3DXVECTOR2 acceleration = D3DXVECTOR2(0,0);           // gia toc
 	float width, height;				// Kich thuoc
 	MoveDirection direction;			// Huong di chuyen
 	//float collisionTime;
@@ -69,6 +70,7 @@ public:
 	virtual void SetVelocity(D3DXVECTOR2 vel);
 	virtual void AddVelocity(D3DXVECTOR2 vel);
 
+
 	virtual float GetVx();
 	virtual void SetVx(float vx);
 	virtual void AddVx(float vx);
@@ -76,7 +78,11 @@ public:
 	virtual float GetVy();
 	virtual void SetVy(float vy);
 	virtual void AddVy(float vy);
-
+	//gia toc
+	virtual D3DXVECTOR2 GetAcceleration() { return acceleration; };
+	virtual void SetAcceleration(float ax, float ay) {
+		acceleration.x = ax; acceleration.y = ay;
+	};
 	// Kich Thuoc
 	virtual float GetWidth();
 	virtual void SetWidth(int width);

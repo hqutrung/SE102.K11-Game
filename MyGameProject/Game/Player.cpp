@@ -1,4 +1,5 @@
 ﻿#include "Player.h"
+#include"Textures.h"
 #include"PlayerIdleState.h"
 #include"PlayerRunState.h"
 #include"PlayerIdleAttackState.h"
@@ -6,7 +7,6 @@
 #include"PlayerDuckState.h"
 #include"PlayerDuckAttackState.h"
 #include"PlayerSlideState.h"
-#include"Textures.h"
 #include"PLayerLookUpState.h"
 #include"PlayerLookUpAttackState.h"
 #include"PlayerJumpState.h"
@@ -16,6 +16,8 @@
 #include"PlayerIdleThrowState.h"
 #include"PlayerDuckThrowState.h"
 #include"PlayerRunThrowState.h"
+#include"PlayerJumpThrowState.h"
+
 
 Player* Player::instance = NULL;
 
@@ -51,14 +53,14 @@ Player::Player()
 	idleThrowState = new PlayerIdleThrowState(playerData);
 	duckThrowState = new PlayerDuckThrowState(playerData);
 	runThrowState = new PlayerRunThrowState(playerData);
+	jumpThrowState = new PlayerJumpThrowState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
 	SetState(PlayerState::Idle);
-	width = 44;
+	width = 37;
 	height = 55;
 
-	Pre_Y_Position = position.y;
 }
 
 Player::~Player()
@@ -86,8 +88,16 @@ Player::~Player()
 	delete jumpCrossState;
 	jumpCrossState = NULL;
 	delete jumpAttackState;
+	jumpAttackState = NULL;
 	delete idleThrowState;
 	idleThrowState = NULL;
+	delete duckThrowState;
+	duckThrowState = NULL;
+	delete runThrowState;
+	runThrowState = NULL;
+	delete	jumpThrowState;
+	jumpThrowState = NULL;
+
 	delete playerData;
 	instance = NULL;
 }
@@ -116,10 +126,7 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Run:
 		playerData->state = runState;
-		currentStateName = GetCurrentState()->GetStateName();
-		if (prevStateName != PlayerState::RunAttack)
-			playerData->state->ResetState();
-		return;
+		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
 		break;
@@ -143,7 +150,6 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
-		Pre_Y_Position = position.y;
 		IsJump = true;
 		break;
 	case PlayerState::Fall:
@@ -151,7 +157,6 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::JumpCross:
 		playerData->state = jumpCrossState;
-		Pre_Y_Position = position.y;
 		IsJump = true;
 		break;
 	case PlayerState::JumpAttack:
@@ -166,6 +171,9 @@ void Player::SetState(PlayerState::State state)
 	case PlayerState::RunThrow:
 		playerData->state = runThrowState;
 		break;
+	case PlayerState::JumpThrow:
+		playerData->state = jumpThrowState;
+		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
 	playerData->state->ResetState();
@@ -175,19 +183,19 @@ void Player::HandleInput()
 {
 	auto keyboard = KeyBoard::GetInstance();
 
-if (keyboard->GetKeyUp(ATTACK_ARROW))
-{
-	idleAttackState->countPressKey = 1;
-	runAttackState->countPressKey = 1;
-	duckAttackState->countPressKey = 1;
-	jumpAttackState->countPressKey = 1;
-	lookUpAttackState->countPressKey = 1;
-}
-if (keyboard->GetKeyUp(THROW_ARROW))
-{
-	idleThrowState->countPressKey = 1;
-	runThrowState->countPressKey = 1;
-}
+	if (keyboard->GetKeyUp(ATTACK_ARROW))
+	{
+		idleAttackState->countPressKey = 1;
+		runAttackState->countPressKey = 1;
+		duckAttackState->countPressKey = 1;
+		jumpAttackState->countPressKey = 1;
+		lookUpAttackState->countPressKey = 1;
+	}
+	if (keyboard->GetKeyUp(THROW_ARROW))
+	{
+		idleThrowState->countPressKey = 1;
+		runThrowState->countPressKey = 1;
+	}
 	if (this->playerData->state)
 		playerData->state->HandleInput();
 }
@@ -220,7 +228,7 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return lookUpState;
 	case PlayerState::LookUpAttack:
 		return lookUpAttackState;
-	case PlayerState::IdleThrow :
+	case PlayerState::IdleThrow:
 		return idleThrowState;
 	case PlayerState::RunThrow:
 		return runThrowState;

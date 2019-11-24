@@ -25,7 +25,8 @@ public:
 		JumpAttack,
 		IdleThrow,
 		DuckThrow,
-		RunThrow
+		RunThrow,
+		JumpThrow
 
 	};
 	int countPressKey = 1;
