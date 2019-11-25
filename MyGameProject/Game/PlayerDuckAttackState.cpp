@@ -62,7 +62,7 @@ void PlayerDuckAttackState::ResetState()
 	//collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-18);
 	player->SetColliderRight(74);
-	player->SetColliderTop(8);
+	player->SetColliderTop(9);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState();
 }

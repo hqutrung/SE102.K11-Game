@@ -67,7 +67,10 @@ void PlayerJumpState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		countPressKey++;
+	}
 	if (keyboard->GetKey(THROW_ARROW))
 	{
 		player->SetState(JumpThrow);

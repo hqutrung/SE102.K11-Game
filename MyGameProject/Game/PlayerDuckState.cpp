@@ -7,7 +7,7 @@ PlayerDuckState::PlayerDuckState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1010, "Resources/PlayerState/duck_after.png", D3DCOLOR_XRGB(255,0,255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1010), 1, 5, 0.08f, D3DCOLOR_XRGB(255,0,255));
+	m_Animation->AddFrames(texs->GetTexture(1010), 1, 5, 0.05f, D3DCOLOR_XRGB(255,0,255));
 
 }
 
@@ -82,7 +82,7 @@ void PlayerDuckState::ResetState()
 	//collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-17);
 	player->SetColliderRight(30);
-	player->SetColliderTop(7);
+	player->SetColliderTop(9);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState();
 }
