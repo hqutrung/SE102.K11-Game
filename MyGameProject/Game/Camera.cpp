@@ -152,7 +152,7 @@ void Camera::Update(float dt)
 			position.y = Support::Clamp(position.y, player->GetRect().top + 10 - height / 2, player->GetPosition().y);
 		}
 	}
-	else if (!keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && keyboard->GetKey(JUMP_ARROW))
+	else if (!keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && keyboard->GetKeyDown(JUMP_ARROW))
 	//else if (currentStateName == PlayerState::Jump || currentStateName == PlayerState::JumpCross || currentStateName == PlayerState::JumpAttack) 
 	{
 		if (player->GetRect().top > position.y + 3/4 * height)
