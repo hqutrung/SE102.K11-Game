@@ -196,10 +196,6 @@ void Player::HandleInput()
 		idleThrowState->countPressKey = 1;
 		runThrowState->countPressKey = 1;
 	}
-	if (keyboard->GetKeyUp(JUMP_ARROW))
-	{
-		jumpState->countPressKey = 1;
-	}
 	if (this->playerData->state)
 		playerData->state->HandleInput();
 }
@@ -236,8 +232,6 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return idleThrowState;
 	case PlayerState::RunThrow:
 		return runThrowState;
-	case PlayerState::Jump:
-		return jumpState;
 	}
 }
 

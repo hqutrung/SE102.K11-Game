@@ -49,7 +49,7 @@ void PlayerIdleState::HandleInput()
 		return;
 	}
 	
-	if (keyboard->GetKeyDown(JUMP_ARROW)&&player->GetState(Jump)->countPressKey==1)
+	if (keyboard->GetKey(JUMP_ARROW)|| keyboard->GetKeyDown(JUMP_ARROW))
 	{
 		player->SetState(Jump);
 		return;

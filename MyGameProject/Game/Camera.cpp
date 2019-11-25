@@ -95,6 +95,8 @@ void Camera::Update(float dt)
 	index = player->GetPosition().x - position.x;
 	position.x = Support::Clamp(position.x, player->GetPosition().x - INDEX_CAMERA_WIDTH, player->GetPosition().x + INDEX_CAMERA_WIDTH);
 
+	
+
 	// Camera.Y
 
 	//if (keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(DOWN_ARROW))
@@ -150,11 +152,11 @@ void Camera::Update(float dt)
 			position.y = Support::Clamp(position.y, player->GetRect().top + 10 - height / 2, player->GetPosition().y);
 		}
 	}
-	else if (!keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && keyboard->GetKeyDown(JUMP_ARROW))
+	else if (!keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && keyboard->GetKey(JUMP_ARROW))
 	//else if (currentStateName == PlayerState::Jump || currentStateName == PlayerState::JumpCross || currentStateName == PlayerState::JumpAttack) 
 	{
-		if (player->GetRect().top > GetRect().top - 100)
-				position.y += player->GetVy() * dt;
+		if (player->GetRect().top > position.y + 3/4 * height)
+			position.y += player->GetVy() * dt;
 	}
 	else
 	{
@@ -168,8 +170,6 @@ void Camera::Update(float dt)
 			position.y = Support::Clamp(position.y, player->GetRect().top - height / 2, player->GetPosition().y);
 		}
 	}
-
-
 }
 
 bool Camera::IsCollide(BoxCollider r)
