@@ -40,6 +40,11 @@ void PlayerDuckThrowState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(ATTACK_ARROW))
+	{
+		player->SetState(DuckAttack);
+		return;
+	}
 	if (keyboard->GetKey(UP_ARROW))
 		 {
 		player->SetState(Idle);

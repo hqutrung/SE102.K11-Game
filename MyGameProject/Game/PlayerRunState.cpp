@@ -69,7 +69,7 @@ void PlayerRunState::HandleInput()
 	}
 
 	//run->jumpcross
-	if (keyboard->GetKey(JUMP_ARROW))
+	if (keyboard->GetKeyDown(JUMP_ARROW) && player->GetState(JumpCross)->countPressKey == 1)
 	{
 		player->SetState(JumpCross);
 		return;

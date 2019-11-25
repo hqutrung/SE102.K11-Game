@@ -74,7 +74,11 @@ void PlayerRunAttackState::HandleInput()
 		countPressKey++;
 		return;
 	}
-
+	if (keyboard->GetKey(THROW_ARROW) || keyboard->GetKeyDown(THROW_ARROW))
+	{
+		player->SetState(RunThrow);
+		return;
+	}
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
