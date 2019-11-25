@@ -1,5 +1,5 @@
 #include "PlayerIdleThrowState.h"
-
+//aaaaa
 PlayerIdleThrowState::PlayerIdleThrowState(PlayerData* data)
 {
 	this->playerData = data;

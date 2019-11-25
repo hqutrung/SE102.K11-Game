@@ -72,6 +72,11 @@ void PlayerFallState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(JUMP_ARROW)&&m_Animation->GetCurrentFrameID()>=5&&player->GetState(Jump)->countPressKey==1)
+	{
+		player->SetState(Jump);
+		return;
+	}
 
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))

@@ -37,6 +37,12 @@ void PlayerDuckAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+
+	if (keyboard->GetKey(THROW_ARROW))
+	{
+		player->SetState(DuckThrow);
+			return;
+	}
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);

@@ -76,6 +76,11 @@ void PlayerJumpState::HandleInput()
 	{
 		player->SetState(JumpAttack);
 	}
+
+	if (keyboard->GetKey(JUMP_ARROW)|| keyboard->GetKeyDown(JUMP_ARROW))
+	{
+		countPressKey++;
+	}
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
