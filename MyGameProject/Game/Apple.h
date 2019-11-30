@@ -10,5 +10,5 @@ public:
 	~Apple();
 	void Update(float dt) override;
 	void Render() override;
-
+	void ResetState() override;
 };

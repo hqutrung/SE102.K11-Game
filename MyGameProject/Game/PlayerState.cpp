@@ -29,6 +29,14 @@ void PlayerState::ResetState()
 	m_Animation->ResetAnimation();
 }
 
+void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
+void PlayerState::ResetState(int dummy)
+{
+}
+
 PlayerState::PlayerState(PlayerData* data)
 {
 	this->playerData = data;

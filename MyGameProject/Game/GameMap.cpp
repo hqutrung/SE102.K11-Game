@@ -120,10 +120,10 @@ void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
 	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(234);
-	/*D3DSURFACE_DESC desc;
-	texture->GetLevelDesc(0, &desc);*/
-	auto width = 13200;
-	auto height = 64;
+	D3DSURFACE_DESC desc;
+	texture->GetLevelDesc(0, &desc);
+	auto width = desc.Width;
+	auto height = desc.Height;
 	tileset = new Tileset(height / tileHeight, width / tileWidth, tileWidth, tileHeight);
 
 	for (int j = 0; j < tileset->GetColumns(); j++) {
@@ -234,7 +234,9 @@ void GameMap::SetMapPath(char* mapPath)
 		{
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
+			apple->SetType(Layer::StaticType);
 			unit = new Unit(grid, apple);
+			grid->AddStaticObject(apple);
 			break;
 		}
 		case BLUEHEART:

@@ -68,8 +68,16 @@ void PlayerRunThrowState::HandleInput()
 	player->SetState(Run);
 }
 
+void PlayerRunThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 
 PlayerState::State PlayerRunThrowState::GetStateName()
 {
 	return RunThrow;
+}
+
+void PlayerRunThrowState::ResetState(int dummy)
+{
 }

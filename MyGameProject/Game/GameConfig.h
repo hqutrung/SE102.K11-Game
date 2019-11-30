@@ -1,13 +1,16 @@
 #pragma once
 
-//#define SCREEN_WIDTH 1000
-//#define SCREEN_HEIGHT 518
-#define SCREEN_WIDTH 318
-#define SCREEN_HEIGHT 230
+#define SCREEN_WIDTH 1000
+#define SCREEN_HEIGHT 518
+//#define SCREEN_WIDTH 318
+//#define SCREEN_HEIGHT 230
 
 #define INDEX_CAMERA_WIDTH 30
 #define INDEX_CAMERA_HEIGHT 20
 #define VELOCITY_CAMERA 3
+
+#define FPS 60
+#define SPF 1.0f/FPS
 
 // TEX ID
 #define TEX_DEMOOBJECT 100
@@ -78,6 +81,21 @@ enum Tag {
 	CHAINEDPILLAR,
 	PILLAR,
 	EXITPORT,
-	NONE
+	NONE,
+	PLAYER
 };
 
+enum Layer {
+	StaticType,
+	PlayerType,
+	EnemyType,
+	//Enemy projectile
+	EProjectileType,
+	//Player projectile
+	PProjectileType,
+	//katana + pprojectile tac dong duoc
+	ItemHolderType,
+	//katana + pprojectile ko tac dong dc
+	ItemAvailableType,
+	NoneType
+};

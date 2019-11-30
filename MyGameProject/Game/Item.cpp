@@ -18,6 +18,29 @@ void Item::Render()
 {
 }
 
+void Item::SetColliderTop(int top) {
+	collider.top = top;
+}
+
+void Item::SetColliderLeft(int left) {
+	collider.left = left;
+	collider.right = -left;
+}
+
+void Item::SetColliderBottom(int bottom) {
+	collider.bottom = bottom;
+}
+
+void Item::SetColliderRight(int right) {
+	collider.right = right;
+}
+
+void Item::ResetState()
+{
+	
+}
+
+
 void Item::SetSpawnBox(BoxCollider box)
 {
 	position = D3DXVECTOR3(box.getCenter());

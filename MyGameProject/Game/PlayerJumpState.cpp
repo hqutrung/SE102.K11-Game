@@ -93,7 +93,32 @@ void PlayerJumpState::HandleInput()
 	player->SetVx(0);
 }
 
+void PlayerJumpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+	auto player = playerData->player;
+	auto impactorType = impactor->GetType();
+	if (impactorType == Layer::StaticType) {
+		impactor->SetActive(false);
+	}
+	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
+		//
+	}
+}
+
 PlayerState::State PlayerJumpState::GetStateName()
 {
 	return Jump;
+}
+
+void PlayerJumpState::ResetState(int dummy)
+{
+	auto player = Player::GetInstance();
+
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-10);
+	player->SetColliderTop(110);
+	player->SetColliderBottom(-110);
+	player->SetColliderRight(110);
+
+	PlayerState::ResetState(dummy);
 }

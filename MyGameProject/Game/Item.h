@@ -14,6 +14,13 @@ public:
 	virtual void Update(float dt);
 	virtual void Render();
 
+	void SetColliderTop(int top);
+	void SetColliderLeft(int left);
+	void SetColliderBottom(int bottom);
+	void SetColliderRight(int right);
+
+	virtual void ResetState();
+
 	void SetSpawnBox(BoxCollider box);
 
 	BoxCollider GetRect() override;

@@ -15,10 +15,25 @@ public:
 		RightToLeft,
 		None
 	};
+
+	enum SideCollision {
+		Left, //0
+		Right, //1
+		Top, //2
+		Bottom, //3
+		TopLeft,
+		TopRight,
+		BottomLeft,
+		BottomRight,
+		NotKnow
+	};
+
 protected:
 	bool isActived;
 	int id;
 	Tag tag;
+
+	Layer type;
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
@@ -49,6 +64,9 @@ public:
 	// Tag
 	virtual Tag GetTag();
 	virtual void SetTag(enum Tag tag);
+	//layer
+	virtual Layer GetType();
+	virtual void SetType(Layer type);
 	
 	// Active
 	virtual void SetActive(bool active);
@@ -95,5 +113,13 @@ public:
 	// Huong di chuyen
 	virtual MoveDirection GetMoveDirection();
 	virtual void SetMoveDirection(MoveDirection direction);
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = SPF);
+
+
+	struct CollisionReturn
+	{
+		bool IsCollided;
+		BoxCollider regionCollision;
+	};
 
 };

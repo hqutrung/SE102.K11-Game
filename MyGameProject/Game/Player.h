@@ -5,8 +5,11 @@
 
 class Player : public Entity {
 public:
-	enum State {
-
+	enum Status {
+		Jumping,
+		Falling,
+		OnGround,
+		Climbing
 	};
 
 	static Player* GetInstance();
@@ -32,8 +35,9 @@ public:
 	void SetColliderRight(int right);
 	BoxCollider GetRect();
 
+	Status status;
 
-	//void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 	//BoxCollider GetBigBound();
 	//BoxCollider GetBody();
 	//PlayerState::State GetState();
@@ -62,7 +66,7 @@ public:
 
 	////check for immortal
 	//bool renderPreviousFrame;
-	float _LegY = 800;
+	float _LegY = 50;
 
 protected:
 	static Player* instance;

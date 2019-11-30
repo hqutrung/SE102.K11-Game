@@ -3,6 +3,7 @@
 #include "GameConfig.h"
 #include "Entity.h"
 #include "Support.h"
+#include <vector>
 
 class Unit;
 class Grid
@@ -16,7 +17,7 @@ class Grid
 	bool activeCells[GRID_COLUMN_NUMBERS][GRID_ROW_NUMBERS];
 	RECT activeRect;
 
-	//std::vector<Entity*> staticObjects;
+	std::vector<Entity*> staticObjects;
 
 public:
 	static Grid* GetInstance();
@@ -32,10 +33,12 @@ public:
 	void HandleInActiveUnit(Unit* unit);
 
 	// Collision
-	void HandMelee();								// partitioned the battlefield into little skirmishes
-	void HandleCell(int cellX, int cellY);			// handle this cell
-	void HandleUnit(Unit* unit, Unit* other);		// handle this Unit
-	void HandleCollision(Unit* unit, Unit *other);	// handle collision
+	void HandleMelee(Entity* ent1, Entity* ent2, double dt);   // partitioned the battlefield into little skirmishes
+	void HandleCell(int x, int y, RECT r, double dt);
+	void HandleUnit(Unit* unit, Unit* other, double dt);	// handle this Unit
+	void HandleCollision(double dt = SPF);	// handle collision
+	void HandleCollideStatic(Entity* ent1, Entity* ent2, double dt);
+	void HandleCellWithStatic(Unit* unit, double dt);
 
 	void Move(Unit* unit, float x, float y);		// Move Unit
 	void MoveActiveUnit(Unit* unit);				// Move active Unit after update
@@ -45,6 +48,8 @@ public:
 
 	void UpdateUnit(Unit* unit, float dt);			// Update, render 1 Unit
 	void RenderUnit(Unit* unit);
+
+	void AddStaticObject(Entity* ent);
 
 	/*void AddStaticObject(Entity* ent);
 	void HandleCellWithStatic(Unit *unit, double dt);*/

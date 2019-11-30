@@ -8,6 +8,7 @@ Unit::Unit(Grid* grid, Entity* entity)
 	prev = NULL;
 	next = NULL;
 	grid->Add(this);
+	
 }
 
 Unit::~Unit()

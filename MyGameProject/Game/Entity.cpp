@@ -16,6 +16,7 @@ Entity::Entity()
 
 Entity::~Entity()
 {
+
 }
 
 BoxCollider Entity::GetRect()
@@ -60,6 +61,14 @@ Tag Entity::GetTag()
 void Entity::SetTag(enum Tag tag)
 {
 	this->tag = tag;
+}
+
+Layer Entity::GetType() {
+	return type;
+}
+
+void Entity::SetType(Layer type) {
+	this->type = type;
 }
 
 void Entity::SetActive(bool active)
@@ -193,4 +202,8 @@ Entity::MoveDirection Entity::GetMoveDirection()
 void Entity::SetMoveDirection(MoveDirection direction)
 {
 	this->direction = direction;
+}
+
+void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }

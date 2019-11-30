@@ -104,6 +104,10 @@ void PlayerIdleState::HandleInput()
 	}
 }
 
+void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerIdleState::GetStateName()
 {
 	return Idle;
