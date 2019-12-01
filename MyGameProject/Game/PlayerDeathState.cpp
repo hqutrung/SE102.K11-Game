@@ -29,12 +29,16 @@ void PlayerDeathState::HandleInput()
 {
 }
 
+void PlayerDeathState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
+{
+}
+
 PlayerState::State PlayerDeathState::GetStateName()
 {
 	return Death;
 }
 
-void PlayerDeathState::ResetState()
+void PlayerDeathState::ResetState(int dummy)
 {
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

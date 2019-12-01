@@ -94,12 +94,16 @@ void PlayerClimbState::HandleInput()
 
 }
 
+void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
+{
+}
+
 PlayerState::State PlayerClimbState::GetStateName()
 {
 	return Climb;
 }
 
-void PlayerClimbState::ResetState()
+void PlayerClimbState::ResetState(int dummy)
 {
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

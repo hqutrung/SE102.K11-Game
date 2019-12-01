@@ -26,7 +26,7 @@ void DemoScene::LoadContent()
 	// Player
 	player = new Player();
 	player->SetPosition(32,40);
-	player->SetPosition(32,800);
+	//player->SetPosition(32,800);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -102,7 +102,7 @@ void DemoScene::CheckActive()
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
 }
 
-void DemoScene::CheckCollision(double dt)
+void DemoScene::CheckCollision(float dt)
 {
-	map->GetGrid()->HandleCollision(dt);
+	map->GetGrid()->HandMelee(dt);
 }

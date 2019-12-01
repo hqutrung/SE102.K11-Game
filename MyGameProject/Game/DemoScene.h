@@ -24,6 +24,6 @@ public:
 	void ProcessInput() override;
 	void CheckCamera();
 	void CheckActive();
-	void CheckCollision(double dt = SPF);
+	void CheckCollision(float dt = SPF);
 };
 

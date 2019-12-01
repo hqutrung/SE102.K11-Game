@@ -178,7 +178,6 @@
     <ClCompile Include="PlayerJumpThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerClimbState.cpp" />
     <ClCompile Include="PlayerClimbAttackState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
@@ -188,12 +187,17 @@
     <ClCompile Include="PlayerClimbJumpState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerInjuredState.cpp" />
     <ClCompile Include="PlayerDeathState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
     <ClCompile Include="CollisionDetector.cpp">
       <Filter>Header Files\Collission</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerClimbState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInjuredState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

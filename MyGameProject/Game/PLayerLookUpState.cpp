@@ -69,7 +69,7 @@ void PlayerLookUpState::HandleInput()
 	player->SetState(Idle);
 }
 
-void PlayerLookUpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerLookUpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 
@@ -78,7 +78,7 @@ PlayerState::State PlayerLookUpState::GetStateName()
 	return LookUp;
 }
 
-void PlayerLookUpState::ResetState()
+void PlayerLookUpState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 
@@ -90,5 +90,5 @@ void PlayerLookUpState::ResetState()
 
 	if (player->GetPrevStateName() == IdleThrow)
 		m_Animation->SetCurrentFrame(3);
-	else PlayerState::ResetState();
+	else PlayerState::ResetState(dummy);
 }

@@ -76,7 +76,7 @@ void PlayerLookUpAttackState::HandleInput()
 	}
 }
 
-void PlayerLookUpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerLookUpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 

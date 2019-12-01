@@ -36,13 +36,13 @@ public:
 	void HandleInActiveUnit(Unit* unit);
 
 	// Collision
-	void HandMelee();								// partitioned the battlefield into little skirmishes
-	void HandleCell(int cellX, int cellY);			// handle this cell
-	void HandleUnit(Unit* unit, Unit* other);		// handle this Unit
-	void HandleCollision(Entity* ent1, Entity* ent2);	// handle collision
+	void HandMelee(float dt);								// partitioned the battlefield into little skirmishes
+	void HandleCell(int cellX, int cellY, float dt);			// handle this cell
+	void HandleUnit(Unit* unit, Unit* other, float dt);		// handle this Unit
+	void HandleCollision(Entity* ent1, Entity* ent2, float dt);	// handle collision
 
-	/*void HandleCellWithStatic(Unit* unit);
-	void HandleColissionStatic(Entity* ent1, Entity* ent2);*/
+	void HandleCellWithStatic(Unit* unit, float dt);
+	void HandleColissionStatic(Entity* ent1, Entity* ent2, float dt);
 
 
 	void Move(Unit* unit, float x, float y);		// Move Unit

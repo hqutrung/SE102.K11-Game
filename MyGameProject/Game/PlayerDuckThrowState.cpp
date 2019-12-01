@@ -69,12 +69,16 @@ void PlayerDuckThrowState::HandleInput()
 		return;
 }
 
+void PlayerDuckThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
+{
+}
+
 PlayerState::State PlayerDuckThrowState::GetStateName()
 {
 	return DuckThrow;
 }
 
-void PlayerDuckThrowState::ResetState()
+void PlayerDuckThrowState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
@@ -82,5 +86,5 @@ void PlayerDuckThrowState::ResetState()
 	player->SetColliderRight(54);
 	player->SetColliderTop(7);
 	player->SetColliderBottom(-24);
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

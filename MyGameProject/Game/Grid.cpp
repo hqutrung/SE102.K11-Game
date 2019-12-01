@@ -163,7 +163,64 @@ void Grid::HandleInActiveUnit(Unit* unit)
 
 // Colission
 
-void Grid::HandMelee()
+void Grid::HandMelee(float dt)
+{
+	for (int x = 0; x < colNumbers; x++)
+		for (int y = 0; y < rowNumbers; y++)
+			if (Cells[x][y] != NULL && activeCells[x][y] == true) {
+				HandleCellWithStatic(Cells[x][y], dt);
+			}
+
+	//CHECK COLLISION
+	for (int x = 0; x < colNumbers; x++)
+		for (int y = 0; y < rowNumbers; y++)
+			if (Cells[x][y] != NULL && activeCells[x][y] == true)
+				HandleCell(x, y, dt);
+}
+
+void Grid::HandleCell(int cellX, int cellY, float dt)
+
+{
+	if (!Cells[cellX][cellY]->active)
+		return;
+
+	Unit* unit = Cells[cellX][cellY];
+
+	while (unit != NULL)
+	{
+		if (unit->entity->IsActived())
+		{
+			// Handle other units in this cell
+			HandleUnit(unit, unit->next, dt);
+
+			// Handle the neighbor cells
+			if (cellX > 0 && cellY > 0)
+				HandleUnit(unit, Cells[cellX - 1][cellY - 1], dt);
+			if (cellX > 0)
+				HandleUnit(unit, Cells[cellX - 1][cellY], dt);
+			if (cellY > 0)
+				HandleUnit(unit, Cells[cellX][cellY - 1], dt);
+			if (cellX > 0 && cellY < cellHeight)
+				HandleUnit(unit, Cells[cellX - 1][cellY + 1], dt);
+		}
+		unit = unit->next;
+	}
+
+}
+
+void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
+{
+	while (other != NULL)
+	{
+		if (other->entity->IsActived())
+			{
+				HandleCollision(unit->entity, other->entity, dt);
+			}
+		other = other->next;
+	}
+}
+
+void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 {
 	Entity::SideCollision side;
 
@@ -186,82 +243,7 @@ void Grid::HandMelee()
 	}
 }
 
-void Grid::	HandleCell(int x, int y, RECT r, double dt)
-
-{
-	//if (!Cells[cellX][cellY]->active)
-	//	return;
-
-	//Unit* unit = Cells[cellX][cellY];
-
-	//while (unit != NULL)
-	//{
-	//	if (unit->entity->IsActived())
-	//	{
-	//		// Handle other units in this cell
-	//		HandleUnit(unit, unit->next);
-
-	//		// Handle the neighbor cells
-	//		if (cellX > 0 && cellY > 0)
-	//			HandleUnit(unit, Cells[cellX - 1][cellY - 1]);
-	//		if (cellX > 0)
-	//			HandleUnit(unit, Cells[cellX - 1][cellY]);
-	//		if (cellY > 0)
-	//			HandleUnit(unit, Cells[cellX][cellY - 1]);
-	//		if (cellX > 0 && cellY < cellHeight)
-	//			HandleUnit(unit, Cells[cellX - 1][cellY + 1]);
-	//	}
-	//	unit = unit->next;
-	//}
-	if (!Cells[x][y]->active)
-		return;
-
-	Unit* unit = Cells[x][y];
-
-	while (unit != NULL) {
-		if (unit->entity->IsActived()) {
-			HandleUnit(unit, unit->next, dt);
-
-			if (x > 0 && y > 0) HandleUnit(unit, Cells[x - 1][y - 1], dt);
-			if (x > 0) HandleUnit(unit, Cells[x - 1][y], dt);
-			if (y < rowNumbers - 1) HandleUnit(unit, Cells[x][y + 1], dt);
-			if (x > 0 && y < rowNumbers - 1)
-				HandleUnit(unit, Cells[x - 1][y + 1], dt);
-		}
-		unit = unit->next;
-	}
-
-}
-
-void Grid::HandleUnit(Unit* unit, Unit* other, double dt)
-{
-	while (other != NULL)
-	{
-		if (other->entity->IsActived())
-			{
-				HandleCollision(unit->entity, other->entity);
-			}
-		other = other->next;
-	}
-}
-
-void Grid::HandleCollision(Entity* ent1, Entity* ent2)
-{
-	for (int x = 0; x < colNumbers; x++)
-		for (int y = 0; y < rowNumbers; y++)
-			if (Cells[x][y] != NULL && activeCells[x][y] == true) {
-
-				HandleCellWithStatic(Cells[x][y], dt);
-			}
-
-	//CHECK COLLISION
-	for (int x = 0; x < colNumbers; x++)
-		for (int y = 0; y < rowNumbers; y++)
-			if (Cells[x][y] != NULL && activeCells[x][y] == true)
-				HandleCell(x, y, activeRect, dt);
-}
-
-void Grid::HandleCollideStatic(Entity* ent1, Entity* ent2, double dt)
+void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 {
 	//ent2's always static
 	Entity::SideCollision side;
@@ -283,12 +265,12 @@ void Grid::HandleCollideStatic(Entity* ent1, Entity* ent2, double dt)
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
-void Grid::HandleCellWithStatic(Unit* unit, double dt)
+void Grid::HandleCellWithStatic(Unit* unit, float dt)
 {
 	while (unit != NULL) {
 		if (unit->entity->IsActived()) {
 			for (size_t i = 0; i < staticObjects.size(); i++)
-				HandleCollideStatic(unit->entity, staticObjects[i], dt);
+				HandleColissionStatic(unit->entity, staticObjects[i], dt);
 		}
 		unit = unit->next;
 	}

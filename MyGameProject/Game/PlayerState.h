@@ -42,13 +42,12 @@ public:
 	virtual void Render();
 	virtual void HandleInput();
 	virtual State GetStateName();
-	virtual void ResetState();
+	virtual void ResetState(int dummy);
 	Animation* GetAnimation() { return m_Animation; }
 
 	virtual BoxCollider GetBody();
 
-	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
-	//virtual void ResetState(int dummy);
+	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60);
 protected:
 	Animation* m_Animation;
 	PlayerState(PlayerData* data);

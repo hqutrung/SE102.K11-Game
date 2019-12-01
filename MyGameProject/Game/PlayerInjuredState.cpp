@@ -78,12 +78,16 @@ void PlayerInjuredState::HandleInput()
 	}
 }
 
+void PlayerInjuredState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
+{
+}
+
 PlayerState::State PlayerInjuredState::GetStateName()
 {
 	return Injured;
 }
 
-void PlayerInjuredState::ResetState()
+void PlayerInjuredState::ResetState(int dummy)
 {
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

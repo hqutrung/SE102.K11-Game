@@ -149,7 +149,7 @@ void Player::Render()
 	playerData->state->Render();
 }
 
-void Player::SetState(PlayerState::State state)
+void Player::SetState(PlayerState::State state, int dummy)
 {
 	if (playerData->state != NULL)
 		prevStateName = currentStateName;
@@ -229,7 +229,7 @@ void Player::SetState(PlayerState::State state)
 		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
-	playerData->state->ResetState();
+	playerData->state->ResetState(dummy);
 }
 
 void Player::HandleInput()
@@ -390,7 +390,7 @@ void Player::SetMoveDirection(Entity::MoveDirection dir)
 	direction = dir;
 }
 
-void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();

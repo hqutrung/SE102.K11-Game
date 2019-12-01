@@ -205,6 +205,6 @@ void Entity::SetMoveDirection(MoveDirection direction)
 	this->direction = direction;
 }
 
-void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 }

@@ -11,7 +11,7 @@ public:
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;
-	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = SPF) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = SPF) override;
 	State GetStateName() override;
 	void ResetState(int dummy) override;
 };

@@ -87,7 +87,7 @@ void PlayerSlideState::HandleInput()
 	}
 }
 
-void PlayerSlideState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerSlideState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 

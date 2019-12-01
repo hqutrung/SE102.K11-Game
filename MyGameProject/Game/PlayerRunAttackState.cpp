@@ -94,7 +94,7 @@ void PlayerRunAttackState::HandleInput()
 	player->SetState(Run);
 }
 
-void PlayerRunAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerRunAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 

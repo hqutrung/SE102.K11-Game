@@ -100,20 +100,20 @@ void PlayerJumpState::HandleInput()
 	player->SetVx(0);
 }
 
-void PlayerJumpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerJumpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = playerData->player;
 	auto impactorType = impactor->GetType();
 	
-	if (impactorType == Layer::ItemAvailableType ) {
+	if (impactorType == Layer::ItemType ) {
 		impactor->SetActive(false);
 		player->_LegY = 40;
 		//DebugOut(L"Va cham");
 
 	}
-	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
-		//
-	}
+	//else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
+	//	//
+	//}
 }
 
 PlayerState::State PlayerJumpState::GetStateName()

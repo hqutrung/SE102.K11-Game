@@ -7,7 +7,7 @@ Apple::Apple()
 	sprite = new Sprites(textures->GetTexture(TEX_APPLE), BoxCollider());
 
 	SetTag(APPLE);
-	SetType(ItemAvailableType);
+	SetType(ItemType);
 
 }
 

@@ -77,7 +77,7 @@ void PlayerJumpThrowState::HandleInput()
 	player->SetVx(0);
 }
 
-void PlayerJumpThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerJumpThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 

@@ -108,7 +108,7 @@ void PlayerJumpCrossState::HandleInput()
 	player->SetVx(0);
 }
 
-void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 

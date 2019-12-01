@@ -102,7 +102,7 @@ void PlayerRunState::HandleInput()
 		player->SetState(Idle);
 }
 
-void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 
@@ -111,13 +111,13 @@ PlayerState::State PlayerRunState::GetStateName()
 	return Run;
 }
 
-void PlayerRunState::ResetState()
+void PlayerRunState::ResetState(int dummy)
 {
 	auto player = Player::GetInstance();
 
 	if (player->GetPrevStateName() == PlayerState::RunAttack || player->GetPrevStateName() == PlayerState::RunThrow)
 		m_Animation->SetCurrentFrame(2);
 	else
-		PlayerState::ResetState();
+		PlayerState::ResetState(dummy);
 
 }

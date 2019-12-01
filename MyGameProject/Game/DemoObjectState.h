@@ -24,7 +24,7 @@ public:
 	virtual void Update(float dt);
 	virtual void Render();
 	virtual void HandleInput();
-	//virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
+	//virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60);
 	virtual State GetState();
 	//virtual void ResetState(int dummy);
 	virtual int GetAnimationHeight();

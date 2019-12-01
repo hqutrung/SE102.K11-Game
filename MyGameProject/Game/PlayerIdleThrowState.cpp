@@ -53,7 +53,7 @@ void PlayerIdleThrowState::HandleInput()
 
 }
 
-void PlayerIdleThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerIdleThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 
@@ -62,7 +62,7 @@ PlayerState::State PlayerIdleThrowState::GetStateName()
 	return IdleThrow;
 }
 
-void PlayerIdleThrowState::ResetState()
+void PlayerIdleThrowState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
@@ -70,5 +70,5 @@ void PlayerIdleThrowState::ResetState()
 	player->SetColliderRight(34);
 	player->SetColliderTop(38);
 	player->SetColliderBottom(-24);
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

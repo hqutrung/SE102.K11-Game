@@ -17,7 +17,7 @@ public:
 	~Player();
 	void Update(float dt) override;
 	void Render() override;
-	void SetState(PlayerState::State state);
+	void SetState(PlayerState::State state, int dummy = 0);
 
 	void HandleInput();
 
@@ -26,8 +26,6 @@ public:
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	Status status;
-	//
 	Status status;
 
 	void SetColliderTop(int top);
@@ -50,7 +48,7 @@ public:
 	//void OnImmortal();
 	//void OffImmortal();
 
-	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	
 
 	//bool isImmortal;
@@ -59,7 +57,7 @@ public:
 	float timeOnAir;
 
 	//bool renderPreviousFrame;
-	float _LegY = 800;
+	float _LegY = 40;
 
 protected:
 	static Player* instance;

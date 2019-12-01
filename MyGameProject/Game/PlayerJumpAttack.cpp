@@ -81,7 +81,7 @@ void PlayerJumpAttackState::HandleInput()
 	player->SetVx(0);
 }
 
-void PlayerJumpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerJumpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 
@@ -90,7 +90,7 @@ PlayerState::State PlayerJumpAttackState::GetStateName()
 	return JumpAttack;
 }
 
-void PlayerJumpAttackState::ResetState()
+void PlayerJumpAttackState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 //collider around center point, collider often smaller than player sprite
@@ -98,5 +98,5 @@ void PlayerJumpAttackState::ResetState()
 	player->SetColliderRight(63);
 	player->SetColliderTop(50);
 	player->SetColliderBottom(-20);
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

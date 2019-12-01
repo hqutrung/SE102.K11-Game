@@ -112,9 +112,7 @@ public:
 	// Huong di chuyen
 	virtual MoveDirection GetMoveDirection();
 	virtual void SetMoveDirection(MoveDirection direction);
-	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = SPF);
-
-	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = (1.0 / 60));
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = SPF);
 	//virtual EarnedData OnDestroy();
 
 };

@@ -106,7 +106,7 @@ void PlayerFallState::HandleInput()
 			player->SetState(Run);
 			return;
 		}
-
+	}
 	if (keyboard->GetKey(JUMP_ARROW)&&m_Animation->GetCurrentFrameID()>=5&&player->GetState(Jump)->countPressKey==1)
 	{
 		player->SetState(Jump);
@@ -130,7 +130,7 @@ void PlayerFallState::HandleInput()
 
 }
 
-void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = playerData->player;
 	auto impactorType = impactor->GetType();
@@ -141,10 +141,9 @@ void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, 
 		player->_LegY = impactor->GetRect().top;
 	}
 
-	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
-		//
-	}
-
+	//else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
+	//	//
+	//}
 }
 
 PlayerState::State PlayerFallState::GetStateName()
@@ -152,7 +151,7 @@ PlayerState::State PlayerFallState::GetStateName()
 	return Fall;
 }
 
-void PlayerFallState::ResetState()
+void PlayerFallState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
@@ -160,5 +159,5 @@ void PlayerFallState::ResetState()
 	player->SetColliderRight(19);
 	player->SetColliderTop(9);
 	player->SetColliderBottom(-22);
-	PlayerState::ResetState();
+	PlayerState::ResetState(dummy);
 }

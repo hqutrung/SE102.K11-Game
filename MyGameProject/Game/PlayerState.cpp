@@ -24,7 +24,7 @@ PlayerState::State PlayerState::GetStateName()
 	return Idle;
 }
 
-void PlayerState::ResetState()
+void PlayerState::ResetState(int dummy)
 {
 	m_Animation->ResetAnimation();
 }
@@ -34,7 +34,7 @@ BoxCollider PlayerState::GetBody()
 	return playerData->player->GetRect();
 }
 
-void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 }
 
