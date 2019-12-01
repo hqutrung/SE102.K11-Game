@@ -42,8 +42,6 @@ public:
 	~GameMap();
 	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
 
-	void SetMapGrid(char* mapPath);
-
 	void SetMap(char* mapPath, char* gridPath, bool gridBuilt);
 	void SetGrid(char* gridPath);
 	void SetGridBuilt(char* gridBuiltPath);

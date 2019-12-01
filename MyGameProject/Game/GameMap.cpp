@@ -140,192 +140,6 @@ void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	}
 }
 
-void GameMap::SetMapGrid(char* mapPath)
-{
-	this->mapPath = mapPath;
-	std::fstream reader(mapPath);
-	if (reader.fail()) {
-		return;
-	}
-
-	reader >> columns;
-	reader >> rows;
-
-	mapIDs = new int* [rows];
-
-	for (int i = 0; i < rows; i++) {
-		mapIDs[i] = new int[columns];
-		for (int j = 0; j < columns; j++) {
-			reader >> mapIDs[i][j];
-		}
-	}
-
-	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
-	//grid = new Grid(gridRect, 71, 141);
-	grid = new Grid(gridRect, 30, 59);
-
-	reader >> mapObjects;
-	int id = 0;
-	int i = 0;
-	int posx = 0;
-	int posy = 0;
-	int wid = 0;
-	int hei = 0;
-	int direction = 0;
-
-	Unit* unit;
-
-	for (int i = 0; i < mapObjects; i++) {
-		reader >> id;
-		reader >> posx;
-		reader >> posy;
-		reader >> wid;
-		reader >> hei;
-		reader >> direction;
-
-		if (id == (int)Tag::GROUND) {
-			Entity* ground = new Entity();
-			ground->SetTag((Tag)id);
-			ground->SetType(Layer::StaticType);
-			ground->SetStatic(true);
-			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
-			ground->SetWidth(wid);
-			ground->SetHeight(hei);
-			grid->AddStaticObject(ground);
-			continue;
-		}
-
-		BoxCollider box;
-		box.top = posy;
-		box.left = posx;
-		box.bottom = posy - hei;
-		box.right = posx + wid;
-		
-		switch (id)
-		{
-		case BAT:
-		{
-			Bat* bat = new Bat();
-			bat->SetSpawnBox(box,direction);
-			unit = new Unit(grid, bat);
-			break;
-		}
-		case SKELETON:
-		{
-			Skeleton* skeleton = new Skeleton();
-			skeleton->SetSpawnBox(box, direction);
-			unit = new Unit(grid, skeleton);
-			break;
-		}
-		case THINGUARD:
-		{
-			ThinGuard* thinGuard = new ThinGuard();
-			thinGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, thinGuard);
-			break;
-		}
-		case FATGUARD:
-		{
-			FatGuard* fatGuard = new FatGuard();
-			fatGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, fatGuard);
-			break;
-		}
-		case PEDDLER:
-		{
-			break;
-		}
-		case CARPET:
-		{
-			break;
-		}
-		case JAFAR:
-		{
-			break;
-		}
-		case APPLE:
-		{
-			Apple* apple = new Apple();
-			apple->SetSpawnBox(box);
-			unit = new Unit(grid, apple);
-			break;
-		}
-		case BLUEHEART:
-		{
-			BlueHeart* blueheart = new BlueHeart();
-			blueheart->SetSpawnBox(box);
-			unit = new Unit(grid, blueheart);
-			break;
-		}
-		case GEM:
-		{
-			Gem* gem = new Gem();
-			gem->SetSpawnBox(box);
-			unit = new Unit(grid, gem);
-			break;
-		}
-		case GENIETOKEN:
-		{
-			GenieToken* genieToken = new GenieToken();
-			genieToken->SetSpawnBox(box);
-			unit = new Unit(grid, genieToken);
-			break;
-		}
-		case BLUEVASE:
-		{
-			BlueVase* blueVase = new BlueVase();
-			blueVase->SetSpawnBox(box);
-			unit = new Unit(grid, blueVase);
-			break;
-		}
-		case STONE:
-		{
-			Stone* stone = new Stone();
-			stone->SetSpawnBox(box);
-			unit = new Unit(grid, stone);
-			break;
-		}
-		case BALL:
-		{
-			Ball* ball = new Ball();
-			ball->SetSpawnBox(box);
-			unit = new Unit(grid, ball);
-			break;
-		}
-		case SPIKE:
-		{
-			Spike* spike = new Spike();
-			spike->SetSpawnBox(box);
-			unit = new Unit(grid, spike);
-			break;
-		}
-		case CHAINEDPILLAR:
-		{
-			/*ChainedPillar* chainedPillar = new ChainedPillar();
-			chainedPillar->SetSpawnBox(box);
-			unit = new Unit(grid, chainedPillar);*/
-			break;
-		}
-		case PILLAR:
-		{
-			/*Pillar* pillar = new Pillar();
-			pillar->SetSpawnBox(box);
-			unit = new Unit(grid, pillar);*/
-			break;
-		}
-		case EXITPORT:
-		{
-			ExitPort* exitPort = new ExitPort();
-			exitPort->SetSpawnBox(box);
-			unit = new Unit(grid, exitPort);
-			break;
-		}
-		default:
-			break;
-		}
-	}
-}
-
 void GameMap::SetMap(char* mapPath, char* gridPath, bool gridBuilt)
 {
 	this->mapPath = mapPath;
@@ -497,25 +311,18 @@ void GameMap::SetGrid(char* gridPath)
 			unit = new Unit(grid, spike);
 			break;
 		}
-		case CHAINEDPILLAR:
-		{
-			/*ChainedPillar* chainedPillar = new ChainedPillar();
-			chainedPillar->SetSpawnBox(box);
-			unit = new Unit(grid, chainedPillar);*/
-			break;
-		}
-		case PILLAR:
-		{
-			/*Pillar* pillar = new Pillar();
-			pillar->SetSpawnBox(box);
-			unit = new Unit(grid, pillar);*/
-			break;
-		}
 		case EXITPORT:
 		{
 			ExitPort* exitPort = new ExitPort();
 			exitPort->SetSpawnBox(box);
 			unit = new Unit(grid, exitPort);
+			break;
+		}
+		case CHAINEDPILLAR:
+		{
+			/*ChainedPillar* chainedPillar = new ChainedPillar();
+			chainedPillar->SetSpawnBox(box);
+			unit = new Unit(grid, chainedPillar);*/
 			break;
 		}
 		default:
@@ -563,15 +370,15 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		reader >> cellX;
 		reader >> cellY;
 
-		if (id == (int)Tag::GROUND) {
-			Entity* ground = new Entity();
-			ground->SetTag((Tag)id);
-			ground->SetType(Layer::StaticType);
-			ground->SetStatic(true);
-			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
-			ground->SetWidth(wid);
-			ground->SetHeight(hei);
-			grid->AddStaticObject(ground);
+		if (id == (int)Tag::GROUND || id == (int)Tag::WALL || id == (int)Tag::CHAINE) {
+			Entity* ent = new Entity();
+			ent->SetTag((Tag)id);
+			ent->SetType(Layer::StaticType);
+			ent->SetStatic(true);
+			ent->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ent->SetWidth(wid);
+			ent->SetHeight(hei);
+			grid->AddStaticObject(ent);
 			continue;
 		}
 
@@ -587,28 +394,28 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Bat* bat = new Bat();
 			bat->SetSpawnBox(box, direction);
-			unit = new Unit(grid, bat, cellX, cellY);
+			unit = new Unit(grid, bat);
 			break;
 		}
 		case SKELETON:
 		{
 			Skeleton* skeleton = new Skeleton();
 			skeleton->SetSpawnBox(box, direction);
-			unit = new Unit(grid, skeleton, cellX, cellY);
+			unit = new Unit(grid, skeleton);
 			break;
 		}
 		case THINGUARD:
 		{
 			ThinGuard* thinGuard = new ThinGuard();
 			thinGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, thinGuard, cellX, cellY);
+			unit = new Unit(grid, thinGuard);
 			break;
 		}
 		case FATGUARD:
 		{
 			FatGuard* fatGuard = new FatGuard();
 			fatGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, fatGuard, cellX, cellY);
+			unit = new Unit(grid, fatGuard);
 			break;
 		}
 		case PEDDLER:
@@ -627,77 +434,98 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
-			unit = new Unit(grid, apple, cellX, cellY);
+			unit = new Unit(grid, apple);
 			break;
 		}
 		case BLUEHEART:
 		{
 			BlueHeart* blueheart = new BlueHeart();
 			blueheart->SetSpawnBox(box);
-			unit = new Unit(grid, blueheart, cellX, cellY);
+			unit = new Unit(grid, blueheart);
 			break;
 		}
 		case GEM:
 		{
 			Gem* gem = new Gem();
 			gem->SetSpawnBox(box);
-			unit = new Unit(grid, gem, cellX, cellY);
+			unit = new Unit(grid, gem);
 			break;
 		}
 		case GENIETOKEN:
 		{
 			GenieToken* genieToken = new GenieToken();
 			genieToken->SetSpawnBox(box);
-			unit = new Unit(grid, genieToken, cellX, cellY);
+			unit = new Unit(grid, genieToken);
 			break;
 		}
 		case BLUEVASE:
 		{
 			BlueVase* blueVase = new BlueVase();
 			blueVase->SetSpawnBox(box);
-			unit = new Unit(grid, blueVase, cellX, cellY);
+			unit = new Unit(grid, blueVase);
 			break;
 		}
 		case STONE:
 		{
 			Stone* stone = new Stone();
 			stone->SetSpawnBox(box);
-			unit = new Unit(grid, stone, cellX, cellY);
+			unit = new Unit(grid, stone);
 			break;
 		}
 		case BALL:
 		{
 			Ball* ball = new Ball();
 			ball->SetSpawnBox(box);
-			unit = new Unit(grid, ball, cellX, cellY);
+			unit = new Unit(grid, ball);
 			break;
 		}
 		case SPIKE:
 		{
 			Spike* spike = new Spike();
 			spike->SetSpawnBox(box);
-			unit = new Unit(grid, spike, cellX, cellY);
-			break;
-		}
-		case CHAINEDPILLAR:
-		{
-			/*ChainedPillar* chainedPillar = new ChainedPillar();
-			chainedPillar->SetSpawnBox(box);
-			unit = new Unit(grid, chainedPillar);*/
-			break;
-		}
-		case PILLAR:
-		{
-			/*Pillar* pillar = new Pillar();
-			pillar->SetSpawnBox(box);
-			unit = new Unit(grid, pillar);*/
+			unit = new Unit(grid, spike);
 			break;
 		}
 		case EXITPORT:
 		{
 			ExitPort* exitPort = new ExitPort();
 			exitPort->SetSpawnBox(box);
-			unit = new Unit(grid, exitPort, cellX, cellY);
+			grid->AddStaticObject(exitPort);
+			break;
+		}
+		case CHAINEDPILLAR:
+		{
+			ChainedPillar* chainedPillar = new ChainedPillar();
+			chainedPillar->SetSpawnBox(box);
+			grid->AddStaticObject(chainedPillar);
+			break;
+		}
+		case PILLAR1:
+		{
+			Pillar* pillar = new Pillar(1);
+			pillar->SetSpawnBox(box);
+			grid->AddStaticObject(pillar);
+			break;
+		}
+		case PILLAR2:
+		{
+			Pillar* pillar = new Pillar(2);
+			pillar->SetSpawnBox(box);
+			grid->AddStaticObject(pillar);
+			break;
+		}
+		case PILLAR3:
+		{
+			Pillar* pillar = new Pillar(3);
+			pillar->SetSpawnBox(box);
+			grid->AddStaticObject(pillar);
+			break;
+		}
+		case PILLAR4:
+		{
+			Pillar* pillar = new Pillar(4);
+			pillar->SetSpawnBox(box);
+			grid->AddStaticObject(pillar);
 			break;
 		}
 		default:

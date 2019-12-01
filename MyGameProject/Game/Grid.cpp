@@ -206,7 +206,6 @@ void Grid::HandleCell(int cellX, int cellY, float dt)
 		}
 		unit = unit->next;
 	}
-
 }
 
 void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
@@ -349,7 +348,18 @@ void Grid::Render()
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
 
-	
+	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+	for (size_t i = 0; i < staticObjects.size(); i++)
+	{
+		if (staticObjects[i]->GetType() == Surface)
+			staticObjects[i]->Render();
+		else {
+			BoxCollider boundbox = staticObjects[i]->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+			Sprites* sprite = new Sprites(texture, boundbox);
+			sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
+		}
+	}
 }
 
 void Grid::UpdateUnit(Unit* unit, float dt)
@@ -366,26 +376,18 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 
 void Grid::RenderUnit(Unit* unit)
 {
-	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
-	for (size_t i = 0; i < staticObjects.size(); i++)
-	{
-		BoxCollider boundbox = staticObjects[i]->GetRect();
-		D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-		Sprites* sprite = new Sprites(texture, boundbox);
-		sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
-	}
 	while (unit != NULL) 
 	{
-
+		LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 		if (unit->entity->IsActived())
 		{
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
-				BoxCollider boundbox = unit->entity->GetRect();
-				D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
-				Sprites* sprite = new Sprites(texture, boundbox);
-				sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));
-				unit->entity->Render();
+			/*BoxCollider boundbox = unit->entity->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
+			Sprites* sprite = new Sprites(texture, boundbox);
+			sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));*/
+			unit->entity->Render();
 
 		}
 		unit = unit->next;

@@ -59,7 +59,7 @@ public:
 	float timeOnAir;
 
 	//bool renderPreviousFrame;
-	float _LegY = 0;
+	float _LegY = 30;
 
 protected:
 	static Player* instance;

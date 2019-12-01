@@ -6,7 +6,7 @@
 class Pillar : public Item {
 	Sprites* sprite;
 public:
-	Pillar();
+	Pillar(int id);
 	~Pillar();
 	void Update(float dt) override;
 	void Render() override;

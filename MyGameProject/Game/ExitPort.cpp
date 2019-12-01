@@ -5,6 +5,9 @@ ExitPort::ExitPort() : Item()
 	Textures* textures = Textures::GetInstance();
 	textures->Add(TEX_EXITPORT, "Resources/Items/exitport.png", D3DCOLOR_XRGB(255, 255, 255));
 	sprite = new Sprites(textures->GetTexture(TEX_EXITPORT), BoxCollider());
+	SetTag(EXITPORT);
+	SetType(StaticType);
+	SetStatic(true);
 }
 
 ExitPort::~ExitPort()
