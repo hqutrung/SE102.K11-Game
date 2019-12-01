@@ -3,9 +3,9 @@
 GenieToken::GenieToken() : Item()
 {
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_GENIETOKEN, "Resources/Items/genietoken.png", D3DCOLOR_XRGB(255, 255, 255));
+	textures->Add(TEX_GENIETOKEN, "Resources/Items/genietoken.png", D3DCOLOR_XRGB(255, 0, 255));
 	animation = new Animation();
-	animation->AddFrames(textures->GetTexture(TEX_GENIETOKEN), 1, 4, 0.2f, D3DCOLOR_XRGB(255, 255, 255));
+	animation->AddFrames(textures->GetTexture(TEX_GENIETOKEN), 1, 4, 0.2f, D3DCOLOR_XRGB(255, 0, 255));
 	D3DSURFACE_DESC desc;
 
 	textures->GetTexture(TEX_GENIETOKEN)->GetLevelDesc(0, &desc);

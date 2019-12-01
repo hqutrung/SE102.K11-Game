@@ -42,7 +42,24 @@ void PlayerIdleState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-	
+	// test
+	if (keyboard->GetKey(DIK_L))
+	{
+		player->SetState(Death);
+		return;
+	}
+	if (keyboard->GetKey(DIK_J))
+	{
+		player->SetState(Climb);
+		return;
+	}
+
+	if (keyboard->GetKey(DIK_K))
+	{
+		player->SetState(Injured);
+		return;
+	}
+
 	if (keyboard->GetKeyDown(THROW_ARROW)&&player->GetState(IdleThrow)->countPressKey==1)
 	{
 		player->SetState(IdleThrow);

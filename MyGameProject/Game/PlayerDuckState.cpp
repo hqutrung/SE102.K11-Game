@@ -43,17 +43,19 @@ void PlayerDuckState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKeyDown(THROW_ARROW))
+	if (keyboard->GetKey(THROW_ARROW)&&player->GetState(DuckThrow)->countPressKey==1)
 	{
 		player->SetState(DuckThrow);
 		return;
 	}
 
 	//duck->duckAttack
-	if (keyboard->GetKeyDown(ATTACK_ARROW))
+	if (keyboard->GetKey(ATTACK_ARROW) && player->GetState(DuckAttack)->countPressKey == 1)
 	{
 		player->SetState(DuckAttack);
+		return;
 	}
+
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
 		player->SetVx(0.000000000000000000000001);

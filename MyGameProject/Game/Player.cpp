@@ -17,7 +17,12 @@
 #include"PlayerDuckThrowState.h"
 #include"PlayerRunThrowState.h"
 #include"PlayerJumpThrowState.h"
-
+#include"PlayerClimbState.h"
+#include"PlayerClimbAttackState.h"
+#include"PlayerClimbThrowState.h"
+#include"PlayerInjuredState.h"
+#include"PlayerClimbJumpState.h"
+#include"PlayerDeathState.h"
 
 Player* Player::instance = NULL;
 
@@ -54,6 +59,12 @@ Player::Player()
 	duckThrowState = new PlayerDuckThrowState(playerData);
 	runThrowState = new PlayerRunThrowState(playerData);
 	jumpThrowState = new PlayerJumpThrowState(playerData);
+	climbState = new PlayerClimbState(playerData);
+	climbAttackState = new PlayerClimbAttackState(playerData);
+	climbThrowState = new PlayerClimbThrowState(playerData);
+	climbJumpState = new PlayerClimbJumpState(playerData);
+	injuredState = new PlayerInjuredState(playerData);
+	deathState = new PlayerDeathState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -97,7 +108,18 @@ Player::~Player()
 	runThrowState = NULL;
 	delete	jumpThrowState;
 	jumpThrowState = NULL;
-
+	delete climbState;
+	climbState = NULL;
+	delete climbAttackState;
+	climbAttackState = NULL;
+	delete climbThrowState;
+	climbThrowState = NULL;
+	delete climbJumpState;
+	climbThrowState = NULL;
+	delete injuredState;
+	climbThrowState = NULL;
+	delete deathState;
+	deathState = NULL;
 	delete playerData;
 	instance = NULL;
 }
@@ -150,14 +172,15 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
-		IsJump = true;
+		status = Jumping;
 		break;
 	case PlayerState::Fall:
 		playerData->state = fallState;
+		status = Falling;
 		break;
 	case PlayerState::JumpCross:
 		playerData->state = jumpCrossState;
-		IsJump = true;
+		status = Jumping;
 		break;
 	case PlayerState::JumpAttack:
 		playerData->state = jumpAttackState;
@@ -173,6 +196,24 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::JumpThrow:
 		playerData->state = jumpThrowState;
+		break;
+	case PlayerState::Climb:
+		playerData->state = climbState;
+		break;
+	case PlayerState::ClimbAttack:
+		playerData->state = climbAttackState;
+		break;
+	case PlayerState::ClimbThrow:
+		playerData->state = climbThrowState;
+		break;
+	case PlayerState::ClimbJump:
+		playerData->state = climbJumpState;
+		break;
+	case PlayerState::Injured:
+		playerData->state = injuredState;
+		break;
+	case PlayerState::Death:
+		playerData->state = deathState;
 		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
@@ -190,11 +231,14 @@ void Player::HandleInput()
 		duckAttackState->countPressKey = 1;
 		jumpAttackState->countPressKey = 1;
 		lookUpAttackState->countPressKey = 1;
+		climbAttackState->countPressKey = 1;
 	}
 	if (keyboard->GetKeyUp(THROW_ARROW))
 	{
 		idleThrowState->countPressKey = 1;
 		runThrowState->countPressKey = 1;
+		climbThrowState->countPressKey = 1;
+		duckThrowState->countPressKey = 1;
 	}
 	if (this->playerData->state)
 		playerData->state->HandleInput();
@@ -232,6 +276,12 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return idleThrowState;
 	case PlayerState::RunThrow:
 		return runThrowState;
+	case PlayerState::ClimbAttack:
+		return climbAttackState;
+	case PlayerState::ClimbThrow:
+		return climbThrowState;
+	case PlayerState::DuckThrow:
+		return duckThrowState;
 	}
 }
 

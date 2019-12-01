@@ -5,8 +5,11 @@
 
 class Player : public Entity {
 public:
-	enum State {
-
+	enum Status {
+		Jumping,
+		Falling,
+		OnGround,
+		Climbing
 	};
 
 	static Player* GetInstance();
@@ -17,13 +20,13 @@ public:
 	void SetState(PlayerState::State state);
 
 	void HandleInput();
-	
+
 	PlayerState* GetCurrentState();
 	PlayerState* GetState(PlayerState::State state);
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	bool IsJump;
+	Status status;
 	//
 
 	void SetColliderTop(int top);
@@ -84,14 +87,20 @@ protected:
 		* idleThrowState,
 		* duckThrowState,
 		* runThrowState,
-		* jumpThrowState
+		* jumpThrowState,
+		* climbState,
+		* climbAttackState,
+		* climbThrowState,
+		* climbJumpState,
+		* injuredState,
+		* deathState
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
 
 	BoxCollider collider;
 	float collisionTime;
-	
+
 
 private:
 };

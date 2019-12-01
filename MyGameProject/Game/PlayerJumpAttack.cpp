@@ -24,29 +24,33 @@ void PlayerJumpAttackState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	if (player->GetPosition().y > player->_LegY + 68)
 	{
-		player->IsJump = false;
+		player->status = Player::Status::Falling;
 	}
-
-	if (player->GetPosition().y < player->_LegY + 68 && player->IsJump == true)
+	// van toc
+	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
 	{
 		player->SetVy(JUMP_SPEED * 1.1);
 	}
 	else {
 		player->SetVy(-JUMP_SPEED * 1.1);
 	}
+	// diem dung
 
 	if (player->GetPosition().y < player->_LegY - 10)
 	{
-		player->SetPosition(player->GetPosition().x, player->_LegY);
-		player->SetState(Idle);
+		player->SetState(Fall);
 	}
+	
+	// set time cua cac frame
 	if (m_Animation->GetCurrentFrameID() == 6)
-		m_Animation->SetDefaultTime(0.5);
+		m_Animation->SetDefaultTime(0.2);
 	else m_Animation->SetDefaultTime(0.065f);
 
+	// end frame
 	if (m_Animation->IsLastFrame(dt) == true)
 		player->SetState(Fall);
 
+	// animation update
 	PlayerState::Update(dt);
 }
 
@@ -55,16 +59,22 @@ void PlayerJumpAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	/*
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
+		player->SetVx(RUN_SPEED / 1.1f);
+		return;
+	}*/
+
+
+	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
+	{
 		player->SetVx(RUN_SPEED / 1.1f);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		player->SetVx(- RUN_SPEED / 1.1f);
 		return;
 	}

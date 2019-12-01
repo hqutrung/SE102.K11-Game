@@ -24,26 +24,26 @@ void PlayerJumpCrossState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	if (player->GetPosition().y > player->_LegY + 68)
 	{
-		player->IsJump = false;
-		m_Animation->SetCurrentFrame(4);
+		player->status = Player::Status::Falling;
 	}
 
-	if (player->GetPosition().y < player->_LegY + 68 && player->IsJump == true)
+	// van toc
+	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
 	{
-		player->SetVy(JUMP_SPEED*1.1);
+		player->SetVy(JUMP_SPEED * 1.1);
 	}
 	else {
-		player->SetVy(-JUMP_SPEED*1.1);
+		player->SetVy(-JUMP_SPEED * 1.1);
 	}
 
-	if (player->GetPosition().y < player->_LegY - 10)
+	// diem dung tam thoi
+	if (player->GetPosition().y <= player->_LegY - 10)
 	{
-		player->SetPosition(player->GetPosition().x, player->_LegY);
-		player->SetState(Idle);
+		player->SetState(Fall);
 	}
-	if (m_Animation->IsLastFrame(dt))
-		m_Animation->SetCurrentFrame(m_Animation->GetCurrentFrameID() - 1);
+	
 
+	// set time frame
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 0:
@@ -64,6 +64,8 @@ void PlayerJumpCrossState::Update(float dt)
 		break;
 	}
 
+	if (m_Animation->IsLastFrame(dt))
+		player->SetState(Fall);
 	PlayerState::Update(dt);
 }
 

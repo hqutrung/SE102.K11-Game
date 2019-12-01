@@ -26,7 +26,13 @@ public:
 		IdleThrow,
 		DuckThrow,
 		RunThrow,
-		JumpThrow
+		JumpThrow,
+		Climb,
+		ClimbAttack,
+		ClimbThrow,
+		ClimbJump,
+		Injured,
+		Death
 
 	};
 	int countPressKey = 1;

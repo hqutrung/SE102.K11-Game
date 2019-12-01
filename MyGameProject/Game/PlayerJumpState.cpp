@@ -24,10 +24,10 @@ void PlayerJumpState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	if (player->GetPosition().y > player->_LegY + 75)
 	{
-		player->IsJump = false;
+		player->status = Player::Status::Jumping;
 	}
 	
-	if (player->GetPosition().y < player->_LegY + 75 && player->IsJump == true)
+	if (player->GetPosition().y < player->_LegY + 75 && player->status == Player::Status::Jumping)
 	{
 		player->SetVy(JUMP_SPEED);
 	}

@@ -3,9 +3,9 @@
 Gem::Gem() : Item()
 {
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_GEM, "Resources/Items/gem.png", D3DCOLOR_XRGB(255, 255, 255));
+	textures->Add(TEX_GEM, "Resources/Items/gem.png", D3DCOLOR_XRGB(255, 0, 255));
 	animation = new Animation();
-	animation->AddFrames(textures->GetTexture(TEX_GEM), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	animation->AddFrames(textures->GetTexture(TEX_GEM), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 	D3DSURFACE_DESC desc;
 
 	textures->GetTexture(TEX_GEM)->GetLevelDesc(0, &desc);

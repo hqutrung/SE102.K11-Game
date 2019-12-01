@@ -110,6 +110,29 @@ void Animation::Update(float dt)
 	time += dt;
 }
 
+void Animation::Update1(float dt)
+{
+	//delay 1 frame
+	if (!startUpdate) {
+		startUpdate = true;
+		return;
+	}
+	currentTotalTime += dt;
+	//DebugOut(L"CurrentTotalTime: %f \n", currentTotalTime);
+	//DebugOut(L"defaultTime: %f \n", defaultTime);
+	//DebugOut(L"currentFrame: %d \n", currentFrame);
+	int nextFrame = currentFrame - 1;
+	if (nextFrame <= -1)
+		nextFrame = totalFrame-1;
+
+	if (currentTotalTime >= defaultTime) {
+		currentTotalTime = 0;
+		currentFrame = nextFrame;
+	}
+
+	time += dt;
+}
+
 void Animation::ResetAnimation()
 {
 	currentFrame = 0;

@@ -24,26 +24,35 @@ void PlayerJumpThrowState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	if (player->GetPosition().y > player->_LegY + 68)
 	{
-		player->IsJump = false;
+		player->status = Player::Status::Falling;
 	}
-
-	if (player->GetPosition().y < player->_LegY + 68 && player->IsJump == true)
+	// van toc
+	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
 	{
 		player->SetVy(JUMP_SPEED * 1.1);
 	}
 	else {
 		player->SetVy(-JUMP_SPEED * 1.1);
 	}
+	// diem dung
 
 	if (player->GetPosition().y < player->_LegY - 10)
 	{
-		player->SetPosition(player->GetPosition().x, player->_LegY);
-		player->SetState(Idle);
+		player->SetState(Fall);
 	}
-	if (m_Animation->IsLastFrame(dt))
-		m_Animation->SetCurrentFrame(m_Animation->GetCurrentFrameID() - 1);
+	
+
+	// set time cua cac frame
+	if (m_Animation->GetCurrentFrameID() == 6)
+		m_Animation->SetDefaultTime(0.07f);
+	else m_Animation->SetDefaultTime(0.06f);
 
 
+	if (m_Animation->IsLastFrame(dt) == true)
+	{
+		player->SetState(Fall);
+	}
+	// animation update
 	PlayerState::Update(dt);
 }
 
