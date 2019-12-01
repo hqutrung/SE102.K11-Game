@@ -4,6 +4,7 @@ Item::Item()
 {
 	isDisappeared = false;
 	isActived = false;
+	isStatic = true;
 }
 
 Item::~Item()

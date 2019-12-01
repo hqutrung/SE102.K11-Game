@@ -54,12 +54,11 @@
 
 // state speed
 #define RUN_SPEED 120
-#define JUMP_SPEED 2
+#define JUMP_SPEED 250
 #define SLIDE_SPEED 50
 #define MAX_JUMP 90
 #define CLIMB_SPEED 100
 
-#define PLAYER_JUMP_FORCE 500
 
 //
 enum Tag {

@@ -41,16 +41,12 @@ void PlayerFallState::Update(float dt)
 	//	player->SetPosition(player->GetPosition().x, player->_LegY + 25);
 	//}
 
-	float t = JUMP_SPEED * player->timeOnAir;
-	if (t > 1)
-		t = 1;
-	//linear interpolation
-	player->SetVy(Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
-
+	
+	player->SetVy(-JUMP_SPEED);
 	// van toc
 	if (m_Animation->GetCurrentFrameID() <= 4)
 	{
-		player->SetVy(-Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
+		
 	}
 	else
 	{
@@ -73,7 +69,7 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetDefaultTime(0.06f);
 		break;
 	case 4:
-		m_Animation->SetDefaultTime(1.0f);
+		m_Animation->SetDefaultTime(100.0f);
 		break;
 	case 22:
 		m_Animation->SetDefaultTime(0.07);
@@ -88,17 +84,14 @@ void PlayerFallState::Update(float dt)
 	}
 
 	// frame cuoi -> ve state Idle
-	if ((player->status == Player::Status::OnGround) && (m_Animation->countLoopFrame ==1) )
-	{
-		m_Animation->SetCurrentFrame(22);
-		m_Animation->countLoopFrame ++;
-	}
 	if (m_Animation->IsLastFrame(dt) || m_Animation->GetCurrentFrameID() == 21 )
 	{
 		m_Animation->countLoopFrame = 1;
 		player->SetState(Idle);
+		player->lastposition = player->GetPosition();
+		player->SetVy(0);
+		DebugOut(L"y2 = : %f\n", player->GetPosition().y);
 	}
-	player->timeOnAir -= dt;
 	PlayerState::Update(dt);
 }
 
@@ -106,7 +99,7 @@ void PlayerFallState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-	if (m_Animation->GetCurrentFrameID() >= 6)
+	/*if (m_Animation->GetCurrentFrameID() >= 6)
 	{
 		if (keyboard->GetKey(JUMP_ARROW) || keyboard->GetKeyDown(JUMP_ARROW))
 		{
@@ -123,7 +116,7 @@ void PlayerFallState::HandleInput()
 	{
 		player->SetState(Jump);
 		return;
-	}
+	}*/
 
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
@@ -144,10 +137,6 @@ void PlayerFallState::HandleInput()
 
 void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	auto impactorType = impactor->GetType();
-		if (playerData->player->GetVy() < 0 && impactor->GetTag() == GROUND && side == Entity::Bottom) {
-			playerData->player->timeOnAir = 0;
-		}
 
 }
 
@@ -162,7 +151,7 @@ void PlayerFallState::ResetState(int dummy)
 	//collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-16);
 	player->SetColliderRight(19);
-	player->SetColliderTop(9);
-	player->SetColliderBottom(-22);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

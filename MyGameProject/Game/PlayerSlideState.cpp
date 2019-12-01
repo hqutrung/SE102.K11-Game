@@ -98,4 +98,6 @@ PlayerState::State PlayerSlideState::GetStateName()
 
 void PlayerSlideState::ResetState(int dummy)
 {
+
+	m_Animation->ResetAnimation();
 }
