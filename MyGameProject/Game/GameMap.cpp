@@ -118,6 +118,7 @@ Grid* GameMap::GetGrid()
 
 void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
+	Textures::GetInstance()->Add(2911, (char*)"Resources/khung.png", D3DCOLOR_XRGB(255, 0, 255));
 	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(234);
 	D3DSURFACE_DESC desc;

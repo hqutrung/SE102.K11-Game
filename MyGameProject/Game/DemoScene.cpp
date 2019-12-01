@@ -25,8 +25,8 @@ void DemoScene::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(32,40);
-	//player->SetPosition(32,800);
+	player->SetPosition(100,30);
+	//player->SetPosition(32,32);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());

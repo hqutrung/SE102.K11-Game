@@ -23,6 +23,9 @@ void PlayerIdleState::Render()
 
 void PlayerIdleState::Update(float dt)
 {
+
+	auto player = playerData->player->GetInstance();
+
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 	if (m_Animation->GetCurrentFrameID() == 0 || m_Animation->GetCurrentFrameID() == 3 || m_Animation->GetCurrentFrameID() == 7)
 		m_Animation->SetDefaultTime(0.8f);
@@ -123,13 +126,6 @@ void PlayerIdleState::HandleInput()
 
 void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	//auto player = playerData->player;
-	//auto impactorType = impactor->GetType();
-	//if (impactor->GetTag() == Tag::GROUND)
-	//{
-	//	player->_LegY = impactor->GetPosition().y;
-
-	//}
 }
 
 PlayerState::State PlayerIdleState::GetStateName()

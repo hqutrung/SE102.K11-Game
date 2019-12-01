@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include "GameConfig.h"
 #include "Entity.h"
+#include "Sprites.h"
 #include "Support.h"
 #include <vector>
 

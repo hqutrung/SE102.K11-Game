@@ -52,12 +52,14 @@ public:
 	
 
 	//bool isImmortal;
+	//bool checkGroundInFrame;
+	//float timeOnAir;
 	//float immortalTime;
 	bool checkGroundInFrame;
 	float timeOnAir;
 
 	//bool renderPreviousFrame;
-	float _LegY = 40;
+	float _LegY = 0;
 
 protected:
 	static Player* instance;

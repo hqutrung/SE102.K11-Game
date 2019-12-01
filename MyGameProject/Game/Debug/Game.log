@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Camera.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(13,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -93,3 +94,13 @@ D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,8
   Generating Code...
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(41,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  PlayerFallState.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(79,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(82,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(86,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(126,33): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(132,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> D:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Trung
