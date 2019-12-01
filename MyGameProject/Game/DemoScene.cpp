@@ -12,7 +12,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap((char*)"Resources/tileset16.png",(char*)"Resources/tilemap16.txt");
+	map = new GameMap((char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16, true);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -25,7 +25,7 @@ void DemoScene::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(50,50);
+	player->SetPosition(32,40);
 	player->SetPosition(32,800);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 

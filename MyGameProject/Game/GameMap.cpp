@@ -46,10 +46,10 @@ LPSPRITE Tileset::GetSprite(int id) {
 	return tiles[id];
 }
 
-GameMap::GameMap(char* tilesetPath, char* mapPath, int tileHeight , int tileWidth, bool gridBuildIn)
+GameMap::GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight , int tileWidth, bool gridBuilt)
 {
 	LoadTileset(tilesetPath, tileWidth, tileHeight);
-	SetMapPath(mapPath);
+	SetMap(mapPath, gridPath, gridBuilt);
 }
 
 GameMap::~GameMap()
@@ -139,7 +139,7 @@ void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	}
 }
 
-void GameMap::SetMapPath(char* mapPath)
+void GameMap::SetMapGrid(char* mapPath)
 {
 	this->mapPath = mapPath;
 	std::fstream reader(mapPath);
@@ -305,6 +305,361 @@ void GameMap::SetMapPath(char* mapPath)
 			ExitPort* exitPort = new ExitPort();
 			exitPort->SetSpawnBox(box);
 			unit = new Unit(grid, exitPort);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+}
+
+void GameMap::SetMap(char* mapPath, char* gridPath, bool gridBuilt)
+{
+	this->mapPath = mapPath;
+	std::fstream reader(mapPath);
+	if (reader.fail()) {
+		return;
+	}
+
+	reader >> columns;
+	reader >> rows;
+
+	mapIDs = new int* [rows];
+
+	for (int i = 0; i < rows; i++) {
+		mapIDs[i] = new int[columns];
+		for (int j = 0; j < columns; j++) {
+			reader >> mapIDs[i][j];
+		}
+	}
+
+	if (gridBuilt)
+		SetGridBuilt(gridPath);
+	else
+		SetGrid(gridPath);
+}
+
+void GameMap::SetGrid(char* gridPath)
+{
+	std::fstream reader(gridPath);
+	if (reader.fail()) {
+		return;
+	}
+
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	//grid = new Grid(gridRect, 71, 141);
+	grid = new Grid(gridRect, GRID_ROW_NUMBERS, GRID_COLUMN_NUMBERS);
+
+	reader >> mapObjects;
+	int id = 0;
+	int posx = 0;
+	int posy = 0;
+	int wid = 0;
+	int hei = 0;
+	int direction = 0;
+
+	Unit* unit;
+
+	for (int i = 0; i < mapObjects; i++) {
+		reader >> id;
+		reader >> posx;
+		reader >> posy;
+		reader >> wid;
+		reader >> hei;
+		reader >> direction;
+
+		BoxCollider box;
+		box.top = posy;
+		box.left = posx;
+		box.bottom = posy - hei;
+		box.right = posx + wid;
+
+		switch (id)
+		{
+		case BAT:
+		{
+			Bat* bat = new Bat();
+			bat->SetSpawnBox(box, direction);
+			unit = new Unit(grid, bat);
+			break;
+		}
+		case SKELETON:
+		{
+			Skeleton* skeleton = new Skeleton();
+			skeleton->SetSpawnBox(box, direction);
+			unit = new Unit(grid, skeleton);
+			break;
+		}
+		case THINGUARD:
+		{
+			ThinGuard* thinGuard = new ThinGuard();
+			thinGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, thinGuard);
+			break;
+		}
+		case FATGUARD:
+		{
+			FatGuard* fatGuard = new FatGuard();
+			fatGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, fatGuard);
+			break;
+		}
+		case PEDDLER:
+		{
+			break;
+		}
+		case CARPET:
+		{
+			break;
+		}
+		case JAFAR:
+		{
+			break;
+		}
+		case APPLE:
+		{
+			Apple* apple = new Apple();
+			apple->SetSpawnBox(box);
+			unit = new Unit(grid, apple);
+			break;
+		}
+		case BLUEHEART:
+		{
+			BlueHeart* blueheart = new BlueHeart();
+			blueheart->SetSpawnBox(box);
+			unit = new Unit(grid, blueheart);
+			break;
+		}
+		case GEM:
+		{
+			Gem* gem = new Gem();
+			gem->SetSpawnBox(box);
+			unit = new Unit(grid, gem);
+			break;
+		}
+		case GENIETOKEN:
+		{
+			GenieToken* genieToken = new GenieToken();
+			genieToken->SetSpawnBox(box);
+			unit = new Unit(grid, genieToken);
+			break;
+		}
+		case BLUEVASE:
+		{
+			BlueVase* blueVase = new BlueVase();
+			blueVase->SetSpawnBox(box);
+			unit = new Unit(grid, blueVase);
+			break;
+		}
+		case STONE:
+		{
+			Stone* stone = new Stone();
+			stone->SetSpawnBox(box);
+			unit = new Unit(grid, stone);
+			break;
+		}
+		case BALL:
+		{
+			Ball* ball = new Ball();
+			ball->SetSpawnBox(box);
+			unit = new Unit(grid, ball);
+			break;
+		}
+		case SPIKE:
+		{
+			Spike* spike = new Spike();
+			spike->SetSpawnBox(box);
+			unit = new Unit(grid, spike);
+			break;
+		}
+		case CHAINEDPILLAR:
+		{
+			/*ChainedPillar* chainedPillar = new ChainedPillar();
+			chainedPillar->SetSpawnBox(box);
+			unit = new Unit(grid, chainedPillar);*/
+			break;
+		}
+		case PILLAR:
+		{
+			/*Pillar* pillar = new Pillar();
+			pillar->SetSpawnBox(box);
+			unit = new Unit(grid, pillar);*/
+			break;
+		}
+		case EXITPORT:
+		{
+			ExitPort* exitPort = new ExitPort();
+			exitPort->SetSpawnBox(box);
+			unit = new Unit(grid, exitPort);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+}
+
+void GameMap::SetGridBuilt(char* gridBuiltPath)
+{
+	std::fstream reader(gridBuiltPath);
+	if (reader.fail()) {
+		return;
+	}
+
+	int gridRows, gridColumns;
+
+	reader >> gridRows;
+	reader >> gridColumns;
+	
+	BoxCollider gridRect = BoxCollider(GetHeight(), 0, GetWidth(), 0);
+	grid = new Grid(gridRect, gridRows, gridColumns);
+
+	reader >> mapObjects;
+
+	int id = 0;
+	int posx = 0;
+	int posy = 0;
+	int wid = 0;
+	int hei = 0;
+	int direction = 0;
+	int cellX = 0;
+	int cellY = 0;
+
+	Unit* unit;
+
+	for (int i = 0; i < mapObjects; i++) {
+		reader >> id;
+		reader >> posx;
+		reader >> posy;
+		reader >> wid;
+		reader >> hei;
+		reader >> direction;
+		reader >> cellX;
+		reader >> cellY;
+
+		BoxCollider box;
+		box.top = posy;
+		box.left = posx;
+		box.bottom = posy - hei;
+		box.right = posx + wid;
+
+		switch (id)
+		{
+		case BAT:
+		{
+			Bat* bat = new Bat();
+			bat->SetSpawnBox(box, direction);
+			unit = new Unit(grid, bat, cellX, cellY);
+			break;
+		}
+		case SKELETON:
+		{
+			Skeleton* skeleton = new Skeleton();
+			skeleton->SetSpawnBox(box, direction);
+			unit = new Unit(grid, skeleton, cellX, cellY);
+			break;
+		}
+		case THINGUARD:
+		{
+			ThinGuard* thinGuard = new ThinGuard();
+			thinGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, thinGuard, cellX, cellY);
+			break;
+		}
+		case FATGUARD:
+		{
+			FatGuard* fatGuard = new FatGuard();
+			fatGuard->SetSpawnBox(box, direction);
+			unit = new Unit(grid, fatGuard, cellX, cellY);
+			break;
+		}
+		case PEDDLER:
+		{
+			break;
+		}
+		case CARPET:
+		{
+			break;
+		}
+		case JAFAR:
+		{
+			break;
+		}
+		case APPLE:
+		{
+			Apple* apple = new Apple();
+			apple->SetSpawnBox(box);
+			unit = new Unit(grid, apple, cellX, cellY);
+			break;
+		}
+		case BLUEHEART:
+		{
+			BlueHeart* blueheart = new BlueHeart();
+			blueheart->SetSpawnBox(box);
+			unit = new Unit(grid, blueheart, cellX, cellY);
+			break;
+		}
+		case GEM:
+		{
+			Gem* gem = new Gem();
+			gem->SetSpawnBox(box);
+			unit = new Unit(grid, gem, cellX, cellY);
+			break;
+		}
+		case GENIETOKEN:
+		{
+			GenieToken* genieToken = new GenieToken();
+			genieToken->SetSpawnBox(box);
+			unit = new Unit(grid, genieToken, cellX, cellY);
+			break;
+		}
+		case BLUEVASE:
+		{
+			BlueVase* blueVase = new BlueVase();
+			blueVase->SetSpawnBox(box);
+			unit = new Unit(grid, blueVase, cellX, cellY);
+			break;
+		}
+		case STONE:
+		{
+			Stone* stone = new Stone();
+			stone->SetSpawnBox(box);
+			unit = new Unit(grid, stone, cellX, cellY);
+			break;
+		}
+		case BALL:
+		{
+			Ball* ball = new Ball();
+			ball->SetSpawnBox(box);
+			unit = new Unit(grid, ball, cellX, cellY);
+			break;
+		}
+		case SPIKE:
+		{
+			Spike* spike = new Spike();
+			spike->SetSpawnBox(box);
+			unit = new Unit(grid, spike, cellX, cellY);
+			break;
+		}
+		case CHAINEDPILLAR:
+		{
+			/*ChainedPillar* chainedPillar = new ChainedPillar();
+			chainedPillar->SetSpawnBox(box);
+			unit = new Unit(grid, chainedPillar);*/
+			break;
+		}
+		case PILLAR:
+		{
+			/*Pillar* pillar = new Pillar();
+			pillar->SetSpawnBox(box);
+			unit = new Unit(grid, pillar);*/
+			break;
+		}
+		case EXITPORT:
+		{
+			ExitPort* exitPort = new ExitPort();
+			exitPort->SetSpawnBox(box);
+			unit = new Unit(grid, exitPort, cellX, cellY);
 			break;
 		}
 		default:

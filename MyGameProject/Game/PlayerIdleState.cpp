@@ -42,7 +42,14 @@ void PlayerIdleState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-	
+
+	if ((keyboard->GetKey(LEFT_ARROW) && keyboard->GetKey(JUMP_ARROW) && player->GetState(JumpCross)->countPressKey == 1) || 
+		(keyboard->GetKey(RIGHT_ARROW) && keyboard->GetKey(JUMP_ARROW) && player->GetState(JumpCross)->countPressKey == 1))
+	{
+		player->SetState(JumpCross);
+		return;
+	}
+
 	if (keyboard->GetKeyDown(THROW_ARROW)&&player->GetState(IdleThrow)->countPressKey==1)
 	{
 		player->SetState(IdleThrow);

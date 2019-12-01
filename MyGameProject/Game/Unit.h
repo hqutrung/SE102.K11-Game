@@ -14,6 +14,8 @@ class Unit
 public:
 
 	Unit(Grid* grid, Entity* entity);
+	Unit(Grid* grid, Entity* entity, int cellX, int cellY);
+
 	virtual ~Unit();
 
 	void Move(float x, float y);

@@ -1,7 +1,7 @@
 #pragma once
 
-//#define SCREEN_WIDTH 1000
-//#define SCREEN_HEIGHT 518
+//#define SCREEN_WIDTH 2256
+//#define SCREEN_HEIGHT 1136
 #define SCREEN_WIDTH 318
 #define SCREEN_HEIGHT 230
 
@@ -46,8 +46,8 @@
 #define DEMO_SCENE 1
 
 // GRID
-#define GRID_COLUMN_NUMBERS 141
-#define GRID_ROW_NUMBERS 71
+#define GRID_ROW_NUMBERS 30
+#define GRID_COLUMN_NUMBERS 60
 
 
 // state speed
@@ -78,6 +78,15 @@ enum Tag {
 	CHAINEDPILLAR,
 	PILLAR,
 	EXITPORT,
+	CHAINE,
+	PLAYER,
 	NONE
+};
+
+enum Layer {
+	StaticType,
+	PlayerType,
+	EnemyType,
+	NoneType
 };
 

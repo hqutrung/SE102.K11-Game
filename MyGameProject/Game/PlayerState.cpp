@@ -29,6 +29,11 @@ void PlayerState::ResetState()
 	m_Animation->ResetAnimation();
 }
 
+BoxCollider PlayerState::GetBody()
+{
+	return playerData->player->GetRect();
+}
+
 PlayerState::PlayerState(PlayerData* data)
 {
 	this->playerData = data;

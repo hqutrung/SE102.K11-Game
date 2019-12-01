@@ -5,8 +5,11 @@
 
 class Player : public Entity {
 public:
-	enum State {
-
+	enum Status {
+		Jumping,
+		Falling,
+		OnGround,
+		Climbing
 	};
 
 	static Player* GetInstance();
@@ -23,44 +26,38 @@ public:
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	bool IsJump;
+	bool IsJumping;
 	//
+	Status status;
 
 	void SetColliderTop(int top);
 	void SetColliderLeft(int left);
 	void SetColliderBottom(int bottom);
 	void SetColliderRight(int right);
+
 	BoxCollider GetRect();
+	BoxCollider GetBody();
+	float GetBigWidth() override;
+	float GetBigHeight() override;
+	float GetWidth() override;
+	float GetHeight() override;
 
+	void SetActive(bool active);
+	void OnFalling();
 
-	//void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
-	//BoxCollider GetBigBound();
-	//BoxCollider GetBody();
-	//PlayerState::State GetState();
-	//float GetBigWidth() override;
-	//float GetBigHeight() override;
-	//float GetWidth() override;
-	//float GetHeight() override;
-	//void SetActive(bool active);
-	//void OnFalling();
+	void SetMoveDirection(Entity::MoveDirection dir) override;
 
-	//void SetMoveDirection(Entity::EntityDirection dir) override;
-	//void InjuredByOther(Entity* impactor);
 	//void OnImmortal();
 	//void OffImmortal();
-	//void CheckForUseItem();
-	//void ThrowShuriken();
-	//void ThrowBigShuriken();
-	//void ThrowFlames();
-	//virtual BoxCollider GetCollider();
-	//Status status;
+
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
+	
 
 	//bool isImmortal;
-	//bool checkGroundInFrame;
-	//float timeOnAir;
 	//float immortalTime;
+	bool checkGroundInFrame;
+	float timeOnAir;
 
-	////check for immortal
 	//bool renderPreviousFrame;
 	float _LegY = 800;
 
@@ -91,7 +88,7 @@ protected:
 
 	BoxCollider collider;
 	float collisionTime;
-	
+	SideCollision side;
 
 private:
 };

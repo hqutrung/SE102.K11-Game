@@ -25,7 +25,10 @@ void PlayerIdleThrowState::Update(float dt)
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 	if (m_Animation->IsLastFrame(dt))
 	{
-		playerData->player->SetState(Idle);
+		if(playerData->player->GetPrevStateName()==LookUp)
+			playerData->player->SetState(LookUp);
+		else
+			playerData->player->SetState(Idle);
 	}
 
 	PlayerState::Update(dt);

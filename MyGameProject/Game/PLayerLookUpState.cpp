@@ -34,6 +34,12 @@ void PlayerLookUpState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 	
+	if (keyboard->GetKey(THROW_ARROW))
+	{
+		player->SetState(IdleThrow);
+		return;
+	}
+
 	if (keyboard->GetKey(JUMP_ARROW))
 	{
 		player->SetState(Jump);
@@ -71,10 +77,14 @@ PlayerState::State PlayerLookUpState::GetStateName()
 void PlayerLookUpState::ResetState()
 {
 	auto player = playerData->player;
+
 	//collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-25);
 	player->SetColliderRight(24);
 	player->SetColliderTop(33);
 	player->SetColliderBottom(-25);
-	PlayerState::ResetState();
+
+	if (player->GetPrevStateName() == IdleThrow)
+		m_Animation->SetCurrentFrame(3);
+	else PlayerState::ResetState();
 }

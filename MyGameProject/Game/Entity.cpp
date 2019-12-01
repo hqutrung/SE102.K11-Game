@@ -62,6 +62,16 @@ void Entity::SetTag(enum Tag tag)
 	this->tag = tag;
 }
 
+Layer Entity::GetType()
+{
+	return layer;
+}
+
+void Entity::SetType(enum Layer layer)
+{
+	this->layer = layer;
+}
+
 void Entity::SetActive(bool active)
 {
 	this->isActived = active;
@@ -193,4 +203,8 @@ Entity::MoveDirection Entity::GetMoveDirection()
 void Entity::SetMoveDirection(MoveDirection direction)
 {
 	this->direction = direction;
+}
+
+void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }

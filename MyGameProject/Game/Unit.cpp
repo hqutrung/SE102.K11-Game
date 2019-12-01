@@ -8,6 +8,18 @@ Unit::Unit(Grid* grid, Entity* entity)
 	prev = NULL;
 	next = NULL;
 	grid->Add(this);
+	//active = false;
+}
+
+Unit::Unit(Grid* grid, Entity* entity, int cellX, int cellY)
+{
+	this->grid = grid;
+	this->entity = entity;
+	this->pos = D3DXVECTOR2(entity->GetPosition());
+	prev = NULL;
+	next = NULL;
+	grid->Add(this, cellX, cellY);
+	//active = false;
 }
 
 Unit::~Unit()

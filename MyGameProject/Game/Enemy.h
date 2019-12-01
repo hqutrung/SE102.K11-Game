@@ -5,6 +5,7 @@ class Enemy : public Entity {
 protected:
 	bool isDisappeared;
 	BoxCollider collider;
+	BoxCollider spawnBox;
 	D3DXVECTOR3 spawnPosition;
 	int spawnDirector;
 

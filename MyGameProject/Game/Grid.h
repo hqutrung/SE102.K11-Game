@@ -24,7 +24,10 @@ public:
 	Grid(BoxCollider r, int rowNumbers, int colNumbers);
 	~Grid();
 
-	void Add(Unit* Unit);							// Add Unit to Grid
+	void Add(Unit* unit);							// Add Unit to Grid
+	void Add(Unit* unit, int cellX, int cellY);
+
+	//void AddStaticObject(Entity* ent);
 
 	// Active Unit is in camera
 	void HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection);
@@ -35,7 +38,11 @@ public:
 	void HandMelee();								// partitioned the battlefield into little skirmishes
 	void HandleCell(int cellX, int cellY);			// handle this cell
 	void HandleUnit(Unit* unit, Unit* other);		// handle this Unit
-	void HandleCollision(Unit* unit, Unit *other);	// handle collision
+	void HandleCollision(Entity* ent1, Entity* ent2);	// handle collision
+
+	/*void HandleCellWithStatic(Unit* unit);
+	void HandleColissionStatic(Entity* ent1, Entity* ent2);*/
+
 
 	void Move(Unit* unit, float x, float y);		// Move Unit
 	void MoveActiveUnit(Unit* unit);				// Move active Unit after update

@@ -99,66 +99,49 @@ void Camera::Update(float dt)
 
 	// Camera.Y
 
-	//if (keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(DOWN_ARROW))
-	//{
-	//	if (position.y < player->GetPosition().y + 30)
-	//		position.y++;
-	//}
-	//else if (keyboard->GetKey(DOWN_ARROW))
-	//{
-	//	if (position.y > player->GetPosition().y - 30)
-	//		position.y--;
-
-	//}
-	//else if (keyboard->GetKey(JUMP_ARROW))
-	//{
-	//	if (player->GetPosition().y > position.y + 30)
-	//		//position.y += player->GetVy() * dt;
-	//		position.y = player->GetPosition().y;
-	//}
-	//else
-	//{
-	//	if (position.y > (int)player->GetPosition().y)
-	//		position.y = (int)(position.y - 1);
-	//	else if (position.y < (int)player->GetPosition().y)
-	//		position.y = (int)(position.y + 1);
-	//	else
-	//		position.y = (int)player->GetPosition().y;
-	//	/*if (keyboard->GetKey(JUMP_ARROW))
-	//	{
-	//		position.y = (int)player->GetPosition().y;
-	//	}*/
-	//}
-
-	//if (currentStateName == PlayerState::LookUp)
-	if (!keyboard->GetKey(DOWN_ARROW) && keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(JUMP_ARROW))
+	switch (currentStateName)
 	{
-		DebugOut(L"huhuh\n");
-		DebugOut(L"%d\n", player->GetCurrentState()->GetAnimation()->GetCurrentFrameID());
+	case PlayerState::LookUp:
+	{
 		if (player->GetCurrentState()->GetAnimation()->GetCurrentFrameID() == 3)
 		{
 			if (player->GetRect().bottom - 10 > position.y - height / 2)
 				position.y += 10;
 			position.y = Support::Clamp(position.y, player->GetPosition().y, player->GetRect().bottom - 10 + height / 2);
 		}
+		break;
 	}
-	else if (keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && !keyboard->GetKey(JUMP_ARROW))
-	//else if (player->GetCurrentState()->GetStateName() == PlayerState::Duck)
+	case PlayerState::Duck: 
 	{
 		if (player->GetCurrentState()->GetAnimation()->GetCurrentFrameID() == 4)
 		{
-			if (player->GetRect().top + 10 < position.y + height / 2)
+			if (player->GetRect().top + 15 < position.y + height / 2)
 				position.y -= 10;
-			position.y = Support::Clamp(position.y, player->GetRect().top + 10 - height / 2, player->GetPosition().y);
+			position.y = Support::Clamp(position.y, player->GetRect().top + 15 - height / 2, player->GetPosition().y);
 		}
+		break;
 	}
-	else if (!keyboard->GetKey(DOWN_ARROW) && !keyboard->GetKey(UP_ARROW) && keyboard->GetKeyDown(JUMP_ARROW))
-	//else if (currentStateName == PlayerState::Jump || currentStateName == PlayerState::JumpCross || currentStateName == PlayerState::JumpAttack) 
+
+	case PlayerState::DuckAttack:
+	case PlayerState::DuckThrow:
+		break;
+	case PlayerState::Jump:
+	case PlayerState::JumpCross:
+	case PlayerState::JumpAttack:
+	case PlayerState::JumpThrow:
 	{
-		if (player->GetRect().top > position.y + 3/4 * height)
-			position.y += player->GetVy() * dt;
+		position.y = player->GetPosition().y;
+		break;
 	}
-	else
+	case PlayerState::LookUpAttack:
+		if(keyboard->GetKey(UP_ARROW))
+			break;
+	case PlayerState::IdleThrow:
+	{
+		if(player->GetPrevStateName() == PlayerState::State::LookUp)
+			break;
+	}
+	default:
 	{
 		if (position.y > player->GetPosition().y) {
 			position.y = (position.y - 10);
@@ -169,6 +152,8 @@ void Camera::Update(float dt)
 			position.y = (position.y + 10);
 			position.y = Support::Clamp(position.y, player->GetRect().top - height / 2, player->GetPosition().y);
 		}
+		break;
+	}
 	}
 }
 

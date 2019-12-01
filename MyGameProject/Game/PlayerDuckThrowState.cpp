@@ -64,6 +64,11 @@ void PlayerDuckThrowState::HandleInput()
 		return;
 }
 
+PlayerState::State PlayerDuckThrowState::GetStateName()
+{
+	return DuckThrow;
+}
+
 void PlayerDuckThrowState::ResetState()
 {
 	auto player = playerData->player;

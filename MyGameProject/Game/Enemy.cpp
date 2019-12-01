@@ -19,11 +19,8 @@ void Enemy::Render()
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
 {
+	spawnBox = box;
 	position = D3DXVECTOR3(box.getCenter());
-	collider.top = box.top - position.y;
-	collider.left = box.left - position.x;
-	collider.bottom = box.bottom - position.y;
-	collider.right = box.right - position.x;
 	spawnDirector = (MoveDirection)direction;
 }
 

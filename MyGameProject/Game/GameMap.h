@@ -38,9 +38,15 @@ private:
 	int mapObjects;
 	int** mapIDs;
 public:
-	GameMap(char* tilesetPath, char* mapPath, int tileHeight = 16, int tileWidth = 16, bool gridBuildIn = false);
+	GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight = 16, int tileWidth = 16, bool gridBuilt = false);
+	~GameMap();
 	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
-	void SetMapPath(char* mapPath);
+
+	void SetMapGrid(char* mapPath);
+
+	void SetMap(char* mapPath, char* gridPath, bool gridBuilt);
+	void SetGrid(char* gridPath);
+	void SetGridBuilt(char* gridBuiltPath);
 
 	bool isContain(BoxCollider rect1, BoxCollider rect2);
 
@@ -51,13 +57,10 @@ public:
 	int GetRows();
 	int GetColumns();
 
-	void SetCamera(Camera* cam);
-
 	Grid* GetGrid();
-
+	void SetCamera(Camera* cam);
 	void Draw();
 
-	~GameMap();
 };
 
 #endif

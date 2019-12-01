@@ -49,18 +49,19 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 		CreateWindow(
 			WINDOW_CLASS_NAME,
 			MAIN_WINDOW_TITLE,
-			WS_OVERLAPPEDWINDOW, // WS_EX_TOPMOST | WS_Active | WS_POPUP,
+			WS_OVERLAPPEDWINDOW, //| WS_EX_TOPMOST | WS_POPUP | WS_VISIBLE,
 			//x position
 			CW_USEDEFAULT,
 			//y position
 			CW_USEDEFAULT,
-			ScreenWidth * 2,
-			ScreenHeight * 2,
+			ScreenWidth * 2.5,
+			ScreenHeight * 2.5,
 			//parents window
 			NULL,
 			NULL,
 			hInstance,
 			NULL);
+	
 	if (!hWnd)
 	{
 		OutputDebugString(L"[ERROR] Create Window failed");

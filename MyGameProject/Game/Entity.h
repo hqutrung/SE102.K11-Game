@@ -6,8 +6,23 @@
 class Entity
 {
 public:
-	bool isStatic;
-	static int currentID;
+	enum SideCollision {
+		Left, //0
+		Right, //1
+		Top, //2
+		Bottom, //3
+		TopLeft,
+		TopRight,
+		BottomLeft,
+		BottomRight,
+		NotKnow
+	};
+
+	struct CollisionReturn
+	{
+		bool IsCollided;
+		BoxCollider regionCollision;
+	};
 
 	// Huong di chuyen
 	enum MoveDirection {
@@ -15,18 +30,20 @@ public:
 		RightToLeft,
 		None
 	};
+
+	bool isStatic;
+	static int currentID;
+	
 protected:
 	bool isActived;
 	int id;
 	Tag tag;
+	Layer layer;
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
-	D3DXVECTOR2 acceleration = D3DXVECTOR2(0,0);           // gia toc
 	float width, height;				// Kich thuoc
 	MoveDirection direction;			// Huong di chuyen
-	//float collisionTime;
-	//SideCollision side;
 
 	virtual void onSetPosition(D3DXVECTOR3 position);	// Set vi tri cua Entity, dung cho ke thua
 
@@ -49,6 +66,8 @@ public:
 	// Tag
 	virtual Tag GetTag();
 	virtual void SetTag(enum Tag tag);
+	virtual Layer GetType();
+	virtual void SetType(enum Layer layer);
 	
 	// Active
 	virtual void SetActive(bool active);
@@ -78,11 +97,7 @@ public:
 	virtual float GetVy();
 	virtual void SetVy(float vy);
 	virtual void AddVy(float vy);
-	//gia toc
-	virtual D3DXVECTOR2 GetAcceleration() { return acceleration; };
-	virtual void SetAcceleration(float ax, float ay) {
-		acceleration.x = ax; acceleration.y = ay;
-	};
+
 	// Kich Thuoc
 	virtual float GetWidth();
 	virtual void SetWidth(int width);
@@ -95,5 +110,8 @@ public:
 	// Huong di chuyen
 	virtual MoveDirection GetMoveDirection();
 	virtual void SetMoveDirection(MoveDirection direction);
+
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = (1.0 / 60));
+	//virtual EarnedData OnDestroy();
 
 };

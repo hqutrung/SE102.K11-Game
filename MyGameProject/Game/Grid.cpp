@@ -44,7 +44,19 @@ void Grid::Add(Unit* unit)
 
 	if (unit->next != NULL)
 		unit->next->prev = unit;
-}	
+}
+void Grid::Add(Unit* unit, int cellX, int cellY)
+{
+	// Add Unit to the front of list at the cell it's in
+	unit->prev = NULL;
+	unit->next = Cells[cellX][cellY];
+	Cells[cellX][cellY] = unit;
+
+	if (unit->next != NULL)
+		unit->next->prev = unit;
+}
+
+// Active/InActive
 
 void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 {
@@ -113,7 +125,7 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	}
 }
 
-
+// Colission
 
 void Grid::HandMelee()
 {
@@ -158,13 +170,13 @@ void Grid::HandleUnit(Unit* unit, Unit* other)
 	{
 		if (other->entity->IsActived())
 			{
-				HandleCollision(unit, other);
+				HandleCollision(unit->entity, other->entity);
 			}
 		other = other->next;
 	}
 }
 
-void Grid::HandleCollision(Unit* unit, Unit *other)
+void Grid::HandleCollision(Entity* ent1, Entity* ent2)
 {
 	//OnCollision();
 }

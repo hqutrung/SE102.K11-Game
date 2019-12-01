@@ -58,9 +58,15 @@ Player::Player()
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
 	SetState(PlayerState::Idle);
+	SetTag(PLAYER);
+	SetType(PlayerType);
+
+	status = OnGround;
+
 	width = 37;
 	height = 55;
 
+	SetActive(true);
 }
 
 Player::~Player()
@@ -107,6 +113,10 @@ void Player::Update(float dt)
 	Entity::Update(dt);
 	if (playerData->state)
 		playerData->state->Update(dt);
+	/*if (checkGroundInFrame == false && status == OnGround)
+		OnFalling();
+
+	checkGroundInFrame = false;*/
 }
 
 void Player::Render()
@@ -117,9 +127,8 @@ void Player::Render()
 void Player::SetState(PlayerState::State state)
 {
 	if (playerData->state != NULL)
-	{
 		prevStateName = currentStateName;
-	}
+
 	switch (state) {
 	case PlayerState::Idle:
 		playerData->state = idleState;
@@ -150,14 +159,14 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
-		IsJump = true;
+		IsJumping = true;
 		break;
 	case PlayerState::Fall:
 		playerData->state = fallState;
 		break;
 	case PlayerState::JumpCross:
 		playerData->state = jumpCrossState;
-		IsJump = true;
+		IsJumping = true;
 		break;
 	case PlayerState::JumpAttack:
 		playerData->state = jumpAttackState;
@@ -278,4 +287,56 @@ BoxCollider Player::GetRect()
 		r.right = position.x - collider.left;
 	}
 	return r;
+}
+
+BoxCollider Player::GetBody()
+{
+	return playerData->state->GetBody();
+}
+
+float Player::GetBigWidth()
+{
+	return Entity::GetWidth();
+}
+
+float Player::GetBigHeight()
+{
+	return Entity::GetHeight();
+}
+
+float Player::GetWidth()
+{
+	return collider.right - collider.left;
+}
+
+float Player::GetHeight()
+{
+	return collider.top - collider.bottom;
+}
+
+void Player::SetActive(bool active)
+{
+	/*if (active == false) {
+		playerData->state = injuredState;
+		DataManager::SetPlayerDead();
+	}
+	else {*/
+		Entity::SetActive(true);
+	//}
+}
+
+void Player::OnFalling()
+{
+	SetState(PlayerState::Fall);
+}
+
+void Player::SetMoveDirection(Entity::MoveDirection dir)
+{
+	if (dir == direction)
+		return;
+	direction = dir;
+}
+
+void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
 }
