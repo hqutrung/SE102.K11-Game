@@ -1,3 +1,5 @@
-﻿  PlayerJumpState.cpp
+﻿  PlayerJumpCrossState.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(86,32): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(93,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> D:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

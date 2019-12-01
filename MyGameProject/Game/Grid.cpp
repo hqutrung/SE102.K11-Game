@@ -373,6 +373,7 @@ void Grid::RenderUnit(Unit* unit)
 		D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 		Sprites* sprite = new Sprites(texture, boundbox);
 		sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
+		delete sprite;
 	}
 	while (unit != NULL) 
 	{
@@ -385,6 +386,7 @@ void Grid::RenderUnit(Unit* unit)
 				D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
 				Sprites* sprite = new Sprites(texture, boundbox);
 				sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));
+				delete sprite;
 				unit->entity->Render();
 
 		}

@@ -12,7 +12,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap((char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16, true);
+	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16, true);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();

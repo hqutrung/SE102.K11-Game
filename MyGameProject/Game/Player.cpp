@@ -71,7 +71,7 @@ Player::Player()
 	SetState(PlayerState::Idle);
 	SetTag(PLAYER);
 	SetType(PlayerType);
-
+	lastposition = position;
 	status = OnGround;
 
 	width = 37;
@@ -141,7 +141,7 @@ void Player::Update(float dt)
 		OnFalling();
 
 	checkGroundInFrame = false;*/
-	DebugOut(L"y = %f\n", position.y);
+
 }
 
 void Player::Render()
@@ -392,27 +392,34 @@ void Player::SetMoveDirection(Entity::MoveDirection dir)
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
 	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;
 
-	D3DXVECTOR2 newVelocity = velocity;
 
-	if (impactor->GetType() == StaticType) {
-		if (side == Bottom && status != Jumping) {
-			if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
-				newVelocity.y *= collisionTime;
-				status = OnGround;
-			}
+	if (side == Entity::SideCollision::Bottom && status != Jumping)
+	{
+		if (impactor->GetType() == Layer::StaticType && round(playerBottom) == impactorRect.top && velocity.y < 0)
+		{
+			DebugOut(L"Va cham tai: %f\n", playerBottom);
+			DebugOut(L"y = : %f\n", position.y + collisionTime * dt * velocity.y);
+			status = OnGround;
+			SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
+			lastposition = position;
+			SetState(PlayerState::Idle);
+			
 		}
-	}
-		
 
-		if (impactor->GetType() == Layer::ItemType)
-			{
-				impactor->SetActive(false);
-			}
+	}
+
+
+	if (impactor->GetType() == Layer::ItemType)
+	{
+		impactor->SetActive(false);
+	}
+
 
 		//else {
 
@@ -459,8 +466,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 		//	}
 		//}
-
-	velocity = newVelocity;
 
 	playerData->state->OnCollision(impactor, side, collisionTime, dt);
 }

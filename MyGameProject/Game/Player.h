@@ -51,14 +51,11 @@ public:
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	
 
-	//bool isImmortal;
+	D3DXVECTOR3 lastposition;
 	//bool checkGroundInFrame;
 	//float timeOnAir;
-	//float immortalTime;
-	bool checkGroundInFrame;
-	float timeOnAir;
 
-	//bool renderPreviousFrame;
+	////bool renderPreviousFrame;
 	float _LegY = 0;
 
 protected:

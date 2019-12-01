@@ -21,19 +21,15 @@ void PlayerJumpState::Render()
 
 void PlayerJumpState::Update(float dt)
 {
-	auto player = playerData->player;
 
-	float t = JUMP_SPEED * player->timeOnAir;
-	if (t > 1)
-		t = 1;
-	//linear interpolation
-	player->SetVy(Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
-
-	if (player->GetVelocity().y <= 0) {
+	auto player = playerData->player->GetInstance();
+	player->SetVy(JUMP_SPEED);
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
+	{
+		player->status == Player::Status::Falling;
 		player->SetState(Fall);
+		player->SetVy(-JUMP_SPEED);
 	}
-
-	
 
 	switch (m_Animation->GetCurrentFrameID())
 	{
@@ -54,7 +50,6 @@ void PlayerJumpState::Update(float dt)
 		m_Animation->SetDefaultTime(0.2f);
 		break;
 	}
-	player->timeOnAir += dt;
 	PlayerState::Update(dt);
 	
 
@@ -97,16 +92,7 @@ void PlayerJumpState::HandleInput()
 
 void PlayerJumpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	auto player = playerData->player;
-	auto impactorType = impactor->GetType();
-	
-	if (impactorType == Layer::ItemType ) {
-		impactor->SetActive(false);
-		
-	}
-	//else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
-	//	//
-	//}
+
 }
 
 PlayerState::State PlayerJumpState::GetStateName()
@@ -123,20 +109,6 @@ void PlayerJumpState::ResetState(int dummy)
 	player->SetColliderTop(41);
 	player->SetColliderBottom(-24);
 	player->SetColliderRight(19);
-
-	if (player->timeOnAir == 0) {
-		//dummy = 0  means jumping
-		if (dummy == 0) {
-			player->status = Player::Jumping;
-			player->timeOnAir = 0;
-		}
-		else {
-			player->timeOnAir = 0.4f;
-			player->status = Player::Falling;
-		}
-	}
-	else
-		player->status = (player->timeOnAir >= 0.5) ? Player::Falling : Player::Jumping;
 
 	PlayerState::ResetState(dummy);
 }
