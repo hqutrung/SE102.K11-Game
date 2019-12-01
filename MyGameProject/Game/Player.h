@@ -66,7 +66,7 @@ public:
 	////check for immortal
 	//bool renderPreviousFrame;
 	float _LegY = 800;
-
+	//cc
 protected:
 	static Player* instance;
 	PlayerData* playerData;
