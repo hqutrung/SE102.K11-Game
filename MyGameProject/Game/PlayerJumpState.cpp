@@ -119,10 +119,10 @@ void PlayerJumpState::ResetState(int dummy)
 	auto player = Player::GetInstance();
 
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(0);
-	player->SetColliderTop(0);
-	player->SetColliderBottom(0);
-	player->SetColliderRight(0);
+	player->SetColliderLeft(-16);
+	player->SetColliderTop(41);
+	player->SetColliderBottom(-24);
+	player->SetColliderRight(19);
 
 	if (player->timeOnAir == 0) {
 		//dummy = 0  means jumping

@@ -409,7 +409,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 		
 
-		if (impactor->GetType() == Layer::ItemAvailableType)
+		if (impactor->GetType() == Layer::ItemType)
 			{
 				impactor->SetActive(false);
 			}

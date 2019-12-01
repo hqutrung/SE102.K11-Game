@@ -381,6 +381,18 @@ void GameMap::SetGrid(char* gridPath)
 		reader >> hei;
 		reader >> direction;
 
+		if (id == (int)Tag::GROUND) {
+			Entity* ground = new Entity();
+			ground->SetTag((Tag)id);
+			ground->SetType(Layer::StaticType);
+			ground->SetStatic(true);
+			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ground->SetWidth(wid);
+			ground->SetHeight(hei);
+			grid->AddStaticObject(ground);
+			continue;
+		}
+
 		BoxCollider box;
 		box.top = posy;
 		box.left = posx;
@@ -538,6 +550,7 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 	int cellX = 0;
 	int cellY = 0;
 
+
 	Unit* unit;
 
 	for (int i = 0; i < mapObjects; i++) {
@@ -549,6 +562,18 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		reader >> direction;
 		reader >> cellX;
 		reader >> cellY;
+
+		if (id == (int)Tag::GROUND) {
+			Entity* ground = new Entity();
+			ground->SetTag((Tag)id);
+			ground->SetType(Layer::StaticType);
+			ground->SetStatic(true);
+			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ground->SetWidth(wid);
+			ground->SetHeight(hei);
+			grid->AddStaticObject(ground);
+			continue;
+		}
 
 		BoxCollider box;
 		box.top = posy;
