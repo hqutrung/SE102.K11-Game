@@ -30,8 +30,6 @@ BoxCollider Entity::GetRect()
 
 void Entity::Update(float dt)
 {
-	velocity.x += acceleration.x;
-	velocity.y += acceleration.y;
 	position.x += velocity.x * dt;
 	position.y += velocity.y * dt;
 	

@@ -26,7 +26,7 @@ public:
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	bool IsJumping;
+	bool IsJump;
 	//
 	Status status;
 

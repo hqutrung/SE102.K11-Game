@@ -27,6 +27,22 @@ void Item::SetSpawnBox(BoxCollider box)
 	collider.right = box.right - position.x;
 }
 
+void Item::SetColliderTop(float top) {
+	collider.top = top;
+}
+
+void Item::SetColliderLeft(float left) {
+	collider.left = left;
+}
+
+void Item::SetColliderBottom(float bottom) {
+	collider.bottom = bottom;
+}
+
+void Item::SetColliderRight(float right) {
+	collider.right = right;
+}
+
 BoxCollider Item::GetRect()
 {
 	BoxCollider r;
@@ -54,7 +70,16 @@ void Item::SetActive(bool active)
 	if (active && !isDisappeared)
 		Spawn();
 	else
-		isActived = false;
+		MakeInactive();
+}
+
+void Item::MakeInactive()
+{
+	isActived = false;
+}
+
+void Item::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }
 
 void Item::Spawn()

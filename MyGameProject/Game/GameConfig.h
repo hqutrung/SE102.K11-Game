@@ -78,7 +78,6 @@ enum Tag {
 	CHAINEDPILLAR,
 	PILLAR,
 	EXITPORT,
-	CHAINE,
 	PLAYER,
 	NONE
 };
@@ -87,6 +86,7 @@ enum Layer {
 	StaticType,
 	PlayerType,
 	EnemyType,
+	ItemType,
 	NoneType
 };
 

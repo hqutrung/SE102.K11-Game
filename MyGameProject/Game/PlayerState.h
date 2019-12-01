@@ -41,13 +41,10 @@ public:
 
 	virtual BoxCollider GetBody();
 
-	/*virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
-	virtual int GetAnimationHeight();
-	virtual int GetAnimationWidth();
-	virtual void ResetState(int dummy);*/
+	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
+	//virtual void ResetState(int dummy);
 protected:
 	Animation* m_Animation;
 	PlayerState(PlayerData* data);
-	
 	PlayerData* playerData;
 };

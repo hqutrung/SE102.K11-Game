@@ -19,3 +19,7 @@ void Pillar::Render()
 {
 	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
 }
+
+void Pillar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
+}

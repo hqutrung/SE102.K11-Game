@@ -26,3 +26,7 @@ void BlueHeart::Render()
 {
 	animation->Render(this->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
 }
+
+void BlueHeart::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
+}

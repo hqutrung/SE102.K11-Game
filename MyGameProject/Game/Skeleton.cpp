@@ -17,5 +17,5 @@ void Skeleton::Update(float dt)
 
 void Skeleton::Render()
 {
-	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), spawnDirector == MoveDirection::RightToLeft);
+	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), spawnDirection == MoveDirection::RightToLeft);
 }

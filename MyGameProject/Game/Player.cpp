@@ -68,7 +68,7 @@ Player::Player()
 
 	SetActive(true);
 }
-
+	
 Player::~Player()
 {
 	delete idleState;
@@ -159,14 +159,14 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
-		IsJumping = true;
+		IsJump = true;
 		break;
 	case PlayerState::Fall:
 		playerData->state = fallState;
 		break;
 	case PlayerState::JumpCross:
 		playerData->state = jumpCrossState;
-		IsJumping = true;
+		IsJump = true;
 		break;
 	case PlayerState::JumpAttack:
 		playerData->state = jumpAttackState;

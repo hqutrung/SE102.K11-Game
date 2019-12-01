@@ -17,5 +17,5 @@ void ThinGuard::Update(float dt)
 
 void ThinGuard::Render()
 {
-	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), spawnDirector == MoveDirection::LeftToRight);
+	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), spawnDirection == MoveDirection::LeftToRight);
 }

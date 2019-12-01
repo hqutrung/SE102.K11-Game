@@ -34,6 +34,10 @@ BoxCollider PlayerState::GetBody()
 	return playerData->player->GetRect();
 }
 
+void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::PlayerState(PlayerData* data)
 {
 	this->playerData = data;
