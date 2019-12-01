@@ -53,6 +53,10 @@ void PlayerIdleThrowState::HandleInput()
 
 }
 
+void PlayerIdleThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerIdleThrowState::GetStateName()
 {
 	return IdleThrow;

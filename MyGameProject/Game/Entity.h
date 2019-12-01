@@ -40,6 +40,8 @@ protected:
 	Tag tag;
 	Layer layer;
 
+	Layer type;
+
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
 	float width, height;				// Kich thuoc
@@ -110,6 +112,7 @@ public:
 	// Huong di chuyen
 	virtual MoveDirection GetMoveDirection();
 	virtual void SetMoveDirection(MoveDirection direction);
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = SPF);
 
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = (1.0 / 60));
 	//virtual EarnedData OnDestroy();

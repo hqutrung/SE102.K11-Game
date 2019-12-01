@@ -1,4 +1,190 @@
+<<<<<<< HEAD
 ﻿Graphic.obj : error LNK2019: unresolved external symbol Direct3DCreate9 referenced in function "public: void __cdecl Graphic::Init(struct HWND__ *)" (?Init@Graphic@@QEAAXPEAUHWND__@@@Z)
+=======
+﻿  Animation.cpp
+  Apple.cpp
+  Ball.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Ball.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Bat.cpp
+  BlueHeart.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Ball.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\BlueHeart.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  BlueVase.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\BlueHeart.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\BlueVase.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Camera.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\BlueVase.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\BlueVase.cpp(13,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(13,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(14,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(37,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(42,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  ChainedPillar.cpp
+  CollisionDetector.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(95,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(68,43): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(70,35): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(158,23): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+  Debug.cpp
+  demoEnemy.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(159,24): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(11,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  DemoObject.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(12,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\demoEnemy.cpp(12,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(31,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  DemoObjectState.cpp
+  DemoRunningState.cpp
+  DemoScene.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoObject.cpp(32,15): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(55,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Enemy.cpp
+  Entity.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\DemoScene.cpp(60,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(177,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  ExitPort.cpp
+  FatGuard.cpp
+  GameManager.cpp
+  Generating Code...
+  Compiling...
+  GameMap.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(186,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(186,17): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(132,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(133,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(162,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(162,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(186,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(187,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(188,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(189,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(333,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(335,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(341,85): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  GameTime.cpp
+  Gem.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(341,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Gem.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  GenieToken.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Gem.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\GenieToken.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Graphic.cpp
+  Grid.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\GenieToken.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(70,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(71,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(72,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Item.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(73,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(22,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(26,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(27,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(31,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  KeyBoard.cpp
+  Main.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(35,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(35,19): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\Item.cpp(35,19): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Pillar.cpp
+  Player.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(111,14): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(240,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(245,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(250,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(255,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  PlayerData.cpp
+  PlayerDuckAttackState.cpp
+  PlayerDuckState.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(279,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(279,21): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(279,21): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(59,43): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerDuckThrowState.cpp
+  PlayerFallState.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(63,44): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(63,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(63,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(44,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(47,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(51,34): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(79,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerIdleAttackState.cpp
+  PlayerIdleState.cpp
+  PlayerIdleThrowState.cpp
+  PlayerJumpAttack.cpp
+  Generating Code...
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(85,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(85,35): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(85,35): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(85,35): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(85,35): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Compiling...
+  PlayerJumpCrossState.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(236): warning C4715: 'Player::GetState': not all control paths return a value
+D:\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(236): warning C4715: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(91,32): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerJumpState.cpp
+  PlayerJumpThrowState.cpp
+  PlayerLookUpAttackState.cpp
+  PLayerLookUpState.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(98,33): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(98,33): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(98,33): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(98,33): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(98,33): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(51,43): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerRunAttackState.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(55,44): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerRunState.cpp
+  PlayerRunThrowState.cpp
+  PlayerSlideState.cpp
+  Scene.cpp
+  SceneManager.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Skeleton.cpp
+  Spike.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(41,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Spike.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Sprites.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Spike.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(54,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(64,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(74,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(37,10): warning C4101: 'result': unreferenced local variable
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(160,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(161,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  PlayerState.cpp
+  Stone.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(174,4): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(174,4): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\Stone.cpp(13,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Support.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Stone.cpp(14,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+  Textures.cpp
+  ThinGuard.cpp
+  Unit.cpp
+  Generating Code...
+D:\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+CollisionDetector.obj : error LNK2019: unresolved external symbol D3DXVec2Normalize referenced in function "public: static enum Entity::SideCollision __cdecl CollisionDetector::GetSideCollision4(class BoxCollider,struct Entity::CollisionReturn)" (?GetSideCollision4@CollisionDetector@@SA?AW4SideCollision@Entity@@VBoxCollider@@UCollisionReturn@3@@Z)
+Graphic.obj : error LNK2019: unresolved external symbol Direct3DCreate9 referenced in function "public: void __cdecl Graphic::Init(struct HWND__ *)" (?Init@Graphic@@QEAAXPEAUHWND__@@@Z)
+>>>>>>> Tung
 Graphic.obj : error LNK2019: unresolved external symbol D3DXCreateSprite referenced in function "public: void __cdecl Graphic::Init(struct HWND__ *)" (?Init@Graphic@@QEAAXPEAUHWND__@@@Z)
 KeyBoard.obj : error LNK2019: unresolved external symbol DirectInput8Create referenced in function "public: long __cdecl KeyBoard::Init(struct HWND__ *)" (?Init@KeyBoard@@QEAAJPEAUHWND__@@@Z)
 KeyBoard.obj : error LNK2001: unresolved external symbol c_dfDIMouse
@@ -10,4 +196,8 @@ Textures.obj : error LNK2001: unresolved external symbol D3DXGetImageInfoFromFil
 Sprites.obj : error LNK2019: unresolved external symbol D3DXCreateTextureFromFileExA referenced in function "protected: void __cdecl Sprites::InitWithSprite(char const *,class BoxCollider,int,int,unsigned long)" (?InitWithSprite@Sprites@@IEAAXPEBDVBoxCollider@@HHK@Z)
 Textures.obj : error LNK2001: unresolved external symbol D3DXCreateTextureFromFileExA
 MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+<<<<<<< HEAD
 E:\SE102.K11-Game\MyGameProject\x64\Debug\Game.exe : fatal error LNK1120: 10 unresolved externals
+=======
+D:\Game\SE102.K11-Game\MyGameProject\x64\Debug\Game.exe : fatal error LNK1120: 11 unresolved externals
+>>>>>>> Tung

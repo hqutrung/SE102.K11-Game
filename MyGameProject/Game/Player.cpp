@@ -17,7 +17,12 @@
 #include"PlayerDuckThrowState.h"
 #include"PlayerRunThrowState.h"
 #include"PlayerJumpThrowState.h"
-
+#include"PlayerClimbState.h"
+#include"PlayerClimbAttackState.h"
+#include"PlayerClimbThrowState.h"
+#include"PlayerInjuredState.h"
+#include"PlayerClimbJumpState.h"
+#include"PlayerDeathState.h"
 
 Player* Player::instance = NULL;
 
@@ -54,6 +59,12 @@ Player::Player()
 	duckThrowState = new PlayerDuckThrowState(playerData);
 	runThrowState = new PlayerRunThrowState(playerData);
 	jumpThrowState = new PlayerJumpThrowState(playerData);
+	climbState = new PlayerClimbState(playerData);
+	climbAttackState = new PlayerClimbAttackState(playerData);
+	climbThrowState = new PlayerClimbThrowState(playerData);
+	climbJumpState = new PlayerClimbJumpState(playerData);
+	injuredState = new PlayerInjuredState(playerData);
+	deathState = new PlayerDeathState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -65,6 +76,8 @@ Player::Player()
 
 	width = 37;
 	height = 55;
+	SetTag(PLAYER);
+	SetType(Layer::PlayerType);
 
 	SetActive(true);
 }
@@ -103,7 +116,18 @@ Player::~Player()
 	runThrowState = NULL;
 	delete	jumpThrowState;
 	jumpThrowState = NULL;
-
+	delete climbState;
+	climbState = NULL;
+	delete climbAttackState;
+	climbAttackState = NULL;
+	delete climbThrowState;
+	climbThrowState = NULL;
+	delete climbJumpState;
+	climbThrowState = NULL;
+	delete injuredState;
+	climbThrowState = NULL;
+	delete deathState;
+	deathState = NULL;
 	delete playerData;
 	instance = NULL;
 }
@@ -117,6 +141,7 @@ void Player::Update(float dt)
 		OnFalling();
 
 	checkGroundInFrame = false;*/
+	DebugOut(L"y = %f\n", position.y);
 }
 
 void Player::Render()
@@ -159,14 +184,15 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
-		IsJump = true;
+		status = Jumping;
 		break;
 	case PlayerState::Fall:
 		playerData->state = fallState;
+		status = Falling;
 		break;
 	case PlayerState::JumpCross:
 		playerData->state = jumpCrossState;
-		IsJump = true;
+		status = Jumping;
 		break;
 	case PlayerState::JumpAttack:
 		playerData->state = jumpAttackState;
@@ -182,6 +208,24 @@ void Player::SetState(PlayerState::State state)
 		break;
 	case PlayerState::JumpThrow:
 		playerData->state = jumpThrowState;
+		break;
+	case PlayerState::Climb:
+		playerData->state = climbState;
+		break;
+	case PlayerState::ClimbAttack:
+		playerData->state = climbAttackState;
+		break;
+	case PlayerState::ClimbThrow:
+		playerData->state = climbThrowState;
+		break;
+	case PlayerState::ClimbJump:
+		playerData->state = climbJumpState;
+		break;
+	case PlayerState::Injured:
+		playerData->state = injuredState;
+		break;
+	case PlayerState::Death:
+		playerData->state = deathState;
 		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
@@ -199,11 +243,14 @@ void Player::HandleInput()
 		duckAttackState->countPressKey = 1;
 		jumpAttackState->countPressKey = 1;
 		lookUpAttackState->countPressKey = 1;
+		climbAttackState->countPressKey = 1;
 	}
 	if (keyboard->GetKeyUp(THROW_ARROW))
 	{
 		idleThrowState->countPressKey = 1;
 		runThrowState->countPressKey = 1;
+		climbThrowState->countPressKey = 1;
+		duckThrowState->countPressKey = 1;
 	}
 	if (keyboard->GetKeyUp(JUMP_ARROW))
 	{
@@ -250,6 +297,12 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return jumpState;
 	case PlayerState::JumpCross:
 		return jumpCrossState;
+	case PlayerState::ClimbAttack:
+		return climbAttackState;
+	case PlayerState::ClimbThrow:
+		return climbThrowState;
+	case PlayerState::DuckThrow:
+		return duckThrowState;
 	}
 }
 
@@ -339,4 +392,67 @@ void Player::SetMoveDirection(Entity::MoveDirection dir)
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
 {
+	auto impactorRect = impactor->GetRect();
+	auto impactorDir = impactor->GetMoveDirection();
+	auto impactorTag = impactor->GetTag();
+	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;;
+
+	D3DXVECTOR2 newVelocity = velocity;
+
+	//if (impactor->GetType() == StaticType)
+	//	if (side == Bottom) {
+
+	//		if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
+	//			newVelocity.y *= collisionTime;
+	//		}
+	//	}
+		//else {
+
+		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;
+
+		//	bool canPassLeft = specialWall && velocity.x < 0 && impactorDir == RightToLeft;
+		//	bool canPassRight = specialWall && velocity.x > 0 && impactorDir == RightToLeft;
+
+		//	float slashCaseLeft = (impactorRect.left - GetBody().right) / (dt * velocity.x);
+		//	float slashCaseRight = (impactorRect.right - GetBody().left) / (dt * velocity.x);
+
+		//	if (currentState == PlayerState::Slash) {
+		//		//BUG
+		//		if (collisionTime == 0)
+		//			collisionTime = min(slashCaseLeft, slashCaseRight);
+		//		if (collisionTime > 1)
+		//			collisionTime = 0;
+		//	}
+
+		//	float playerLeft = GetBody().left + velocity.x * collisionTime * dt;
+		//	float playerRight = GetBody().right + velocity.x * collisionTime * dt;
+
+		//	if ((side == Left && velocity.x < 0 && impactorRect.right == round(playerLeft)) || ((side == Right && velocity.x > 0) && impactorRect.left == round(playerRight))) {
+		//		if (impactorRect.top > round(playerBottom) && impactorRect.bottom <= round(playerBottom)) {
+
+		//			if (!canPassLeft || !canPassRight)
+		//				newVelocity.x *= collisionTime;
+
+		//			if ((int)impactorRect.top - (int)impactorRect.bottom > 32) {
+		//				//if (GetRect().bottom < impactorRect.bottom)
+		//				//	return;
+		//				int sign = -1;
+		//				if (impactorTag == LADDER)
+		//					sign = 1;
+		//				bool climbToWall = (impactorDir != RightToLeft && velocity.x < 0) || (impactorDir != LeftToRight && velocity.x > 0);
+		//				bool climbToLadder = (sign == 1) && (playerBottom + LADDER_OFFSET < impactorRect.top) && climbToWall;
+		//				climbToWall = climbToWall && (sign == -1) && velocity.y != 0;
+		//				if (climbToWall || climbToLadder) {
+		//					SetMoveDirection(impactor->GetPosition().x > position.x ? LeftToRight : RightToLeft);
+		//					SetState(PlayerState::Climb, sign * impactorRect.top);
+		//				}
+		//			}
+		//		}
+
+		//	}
+		//}
+
+	velocity = newVelocity;
+
+	playerData->state->OnCollision(impactor, side, collisionTime, dt);
 }

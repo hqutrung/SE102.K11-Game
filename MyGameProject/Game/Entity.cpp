@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Debug.h"
 
 int Entity::currentID = 0;
 
@@ -16,6 +17,7 @@ Entity::Entity()
 
 Entity::~Entity()
 {
+
 }
 
 BoxCollider Entity::GetRect()
@@ -32,7 +34,7 @@ void Entity::Update(float dt)
 {
 	position.x += velocity.x * dt;
 	position.y += velocity.y * dt;
-	
+
 }
 
 void Entity::Render()

@@ -20,13 +20,13 @@ public:
 	void SetState(PlayerState::State state);
 
 	void HandleInput();
-	
+
 	PlayerState* GetCurrentState();
 	PlayerState* GetState(PlayerState::State state);
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
-	bool IsJump;
+	Status status;
 	//
 	Status status;
 
@@ -81,7 +81,13 @@ protected:
 		* idleThrowState,
 		* duckThrowState,
 		* runThrowState,
-		* jumpThrowState
+		* jumpThrowState,
+		* climbState,
+		* climbAttackState,
+		* climbThrowState,
+		* climbJumpState,
+		* injuredState,
+		* deathState
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
@@ -89,6 +95,7 @@ protected:
 	BoxCollider collider;
 	float collisionTime;
 	SideCollision side;
+
 
 private:
 };

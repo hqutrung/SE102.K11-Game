@@ -60,6 +60,11 @@ void PlayerDuckThrowState::HandleInput()
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		return;
 	}
+	if (keyboard->GetKeyDown(THROW_ARROW) || keyboard->GetKey(THROW_ARROW))
+	{
+		countPressKey++;
+	}
+
 	if (keyboard->GetKey(DOWN_ARROW))
 		return;
 }

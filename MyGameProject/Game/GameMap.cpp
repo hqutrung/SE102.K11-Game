@@ -120,10 +120,10 @@ void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
 	//Parse map tu file 
 	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(234);
-	/*D3DSURFACE_DESC desc;
-	texture->GetLevelDesc(0, &desc);*/
-	auto width = 13200;
-	auto height = 64;
+	D3DSURFACE_DESC desc;
+	texture->GetLevelDesc(0, &desc);
+	auto width = desc.Width;
+	auto height = desc.Height;
 	tileset = new Tileset(height / tileHeight, width / tileWidth, tileWidth, tileHeight);
 
 	for (int j = 0; j < tileset->GetColumns(); j++) {
@@ -181,6 +181,18 @@ void GameMap::SetMapGrid(char* mapPath)
 		reader >> wid;
 		reader >> hei;
 		reader >> direction;
+
+		if (id == (int)Tag::GROUND) {
+			Entity* ground = new Entity();
+			ground->SetTag((Tag)id);
+			ground->SetType(Layer::StaticType);
+			ground->SetStatic(true);
+			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ground->SetWidth(wid);
+			ground->SetHeight(hei);
+			grid->AddStaticObject(ground);
+			continue;
+		}
 
 		BoxCollider box;
 		box.top = posy;

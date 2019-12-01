@@ -36,6 +36,10 @@ void PlayerDuckAttackState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+	if (keyboard->GetKeyDown(ATTACK_ARROW) || keyboard->GetKey(ATTACK_ARROW))
+	{
+		countPressKey++;
+	}
 
 
 	if (keyboard->GetKey(THROW_ARROW))
@@ -55,6 +59,10 @@ void PlayerDuckAttackState::HandleInput()
 	}
 	if (keyboard->GetKey(DOWN_ARROW))
 		return;
+}
+
+void PlayerDuckAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
 }
 
 PlayerState::State PlayerDuckAttackState::GetStateName()

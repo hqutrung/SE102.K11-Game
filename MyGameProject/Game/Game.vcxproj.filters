@@ -178,6 +178,23 @@
     <ClCompile Include="PlayerJumpThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerClimbState.cpp" />
+    <ClCompile Include="PlayerClimbAttackState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerClimbThrowState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerClimbJumpState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInjuredState.cpp" />
+    <ClCompile Include="PlayerDeathState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionDetector.cpp">
+      <Filter>Header Files\Collission</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -362,6 +379,27 @@
     </ClInclude>
     <ClInclude Include="PlayerJumpThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerClimbState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerClimbAttackState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerClimbThrowState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerClimbJumpState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInjuredState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDeathState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetector.h">
+      <Filter>Header Files\Collission</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

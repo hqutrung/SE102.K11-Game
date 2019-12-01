@@ -69,6 +69,10 @@ void PlayerLookUpState::HandleInput()
 	player->SetState(Idle);
 }
 
+void PlayerLookUpState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerLookUpState::GetStateName()
 {
 	return LookUp;

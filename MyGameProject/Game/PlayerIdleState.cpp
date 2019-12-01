@@ -42,11 +42,21 @@ void PlayerIdleState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-
-	if ((keyboard->GetKey(LEFT_ARROW) && keyboard->GetKey(JUMP_ARROW) && player->GetState(JumpCross)->countPressKey == 1) || 
-		(keyboard->GetKey(RIGHT_ARROW) && keyboard->GetKey(JUMP_ARROW) && player->GetState(JumpCross)->countPressKey == 1))
+	// test
+	if (keyboard->GetKey(DIK_L))
 	{
-		player->SetState(JumpCross);
+		player->SetState(Death);
+		return;
+	}
+	if (keyboard->GetKey(DIK_J))
+	{
+		player->SetState(Climb);
+		return;
+	}
+
+	if (keyboard->GetKey(DIK_K))
+	{
+		player->SetState(Injured);
 		return;
 	}
 
@@ -109,6 +119,17 @@ void PlayerIdleState::HandleInput()
 		player->SetVy(0);
 		return;
 	}
+}
+
+void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+	//auto player = playerData->player;
+	//auto impactorType = impactor->GetType();
+	//if (impactor->GetTag() == Tag::GROUND)
+	//{
+	//	player->_LegY = impactor->GetPosition().y;
+
+	//}
 }
 
 PlayerState::State PlayerIdleState::GetStateName()

@@ -9,6 +9,9 @@
 #define INDEX_CAMERA_HEIGHT 20
 #define VELOCITY_CAMERA 3
 
+#define FPS 60
+#define SPF 1.0f/FPS
+
 // TEX ID
 #define TEX_DEMOOBJECT 100
 #define TEX_DEMOENEMY 200
@@ -55,6 +58,7 @@
 #define JUMP_SPEED 150
 #define SLIDE_SPEED 50
 #define MAX_JUMP 90
+#define CLIMB_SPEED 100
 
 //
 enum Tag {

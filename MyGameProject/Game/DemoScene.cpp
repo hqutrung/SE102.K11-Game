@@ -37,6 +37,7 @@ void DemoScene::Update(float dt)
 {
 	CheckActive();
 	ProcessInput(); 
+	CheckCollision(dt);
 	map->GetGrid()->Update(dt);
 	//player->Update(dt);
 
@@ -99,4 +100,9 @@ void DemoScene::CheckActive()
 {
 	Entity::MoveDirection camDirection = player->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
+}
+
+void DemoScene::CheckCollision(double dt)
+{
+	map->GetGrid()->HandleCollision(dt);
 }

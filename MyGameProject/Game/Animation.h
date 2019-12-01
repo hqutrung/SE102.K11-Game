@@ -39,6 +39,7 @@ public:
 	void Render(D3DXVECTOR3 position = D3DXVECTOR3(), BoxCollider sourceRect = BoxCollider(), D3DXCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255), bool isReverse = false);
 	void NormalRender(D3DXVECTOR3 position);
 	void Update(float dt);
+	void Update1(float dt);
 	void ResetAnimation();
 	bool IsLastFrame(float dt);
 	double GetPercentTime();

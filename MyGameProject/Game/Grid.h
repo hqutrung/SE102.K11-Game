@@ -3,6 +3,7 @@
 #include "GameConfig.h"
 #include "Entity.h"
 #include "Support.h"
+#include <vector>
 
 class Unit;
 class Grid
@@ -16,7 +17,7 @@ class Grid
 	bool activeCells[GRID_COLUMN_NUMBERS][GRID_ROW_NUMBERS];
 	RECT activeRect;
 
-	//std::vector<Entity*> staticObjects;
+	std::vector<Entity*> staticObjects;
 
 public:
 	static Grid* GetInstance();
@@ -52,6 +53,8 @@ public:
 
 	void UpdateUnit(Unit* unit, float dt);			// Update, render 1 Unit
 	void RenderUnit(Unit* unit);
+
+	void AddStaticObject(Entity* ent);
 
 	/*void AddStaticObject(Entity* ent);
 	void HandleCellWithStatic(Unit *unit, double dt);*/
