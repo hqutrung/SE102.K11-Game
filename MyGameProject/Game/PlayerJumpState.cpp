@@ -30,10 +30,12 @@ void PlayerJumpState::Update(float dt)
 	if (player->GetPosition().y < player->_LegY + 75 && player->IsJump == true)
 	{
 		player->SetVy(JUMP_SPEED);
+		DebugOut(L"y= %f\n", player->GetPosition().y);
 	}
 	else {
 		player->SetVy(-JUMP_SPEED);
 		player->SetState(Fall);
+		DebugOut(L"y= %f\n", player->GetPosition().y);
 	}
 	
 	
@@ -97,8 +99,12 @@ void PlayerJumpState::OnCollision(Entity* impactor, Entity::SideCollision side, 
 {
 	auto player = playerData->player;
 	auto impactorType = impactor->GetType();
-	if (impactorType == Layer::StaticType) {
+	
+	if (impactorType == Layer::ItemAvailableType ) {
 		impactor->SetActive(false);
+		player->_LegY = 40;
+		//DebugOut(L"Va cham");
+
 	}
 	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
 		//
@@ -115,10 +121,10 @@ void PlayerJumpState::ResetState(int dummy)
 	auto player = Player::GetInstance();
 
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(-10);
-	player->SetColliderTop(110);
-	player->SetColliderBottom(-110);
-	player->SetColliderRight(110);
+	player->SetColliderLeft(0);
+	player->SetColliderTop(0);
+	player->SetColliderBottom(0);
+	player->SetColliderRight(0);
 
 	PlayerState::ResetState(dummy);
 }

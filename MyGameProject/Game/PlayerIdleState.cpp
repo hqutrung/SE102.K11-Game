@@ -106,6 +106,13 @@ void PlayerIdleState::HandleInput()
 
 void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
 {
+	//auto player = playerData->player;
+	//auto impactorType = impactor->GetType();
+	//if (impactor->GetTag() == Tag::GROUND)
+	//{
+	//	player->_LegY = impactor->GetPosition().y;
+
+	//}
 }
 
 PlayerState::State PlayerIdleState::GetStateName()

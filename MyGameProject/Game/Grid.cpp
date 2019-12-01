@@ -2,6 +2,7 @@
 #include "Unit.h"
 #include "Camera.h"
 #include "CollisionDetector.h"
+#include "Debug.h"
 
 Grid* Grid::instance = NULL;
 
@@ -86,7 +87,9 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 					{
 						HandleInActiveUnit(Cells[i][j]);
 					
-						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+						if (Cells[i][j] == NULL)
+							continue;
+						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -115,6 +118,22 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 		other = other->next;	
 	}
 
+	/*float camCenterX = camRect.getCenter().x;
+
+	while (unit != NULL) {
+		unit->active = true;
+		if (!unit->entity->IsActived()) {
+			auto entity = unit->entity;
+			auto entityRect = entity->GetRect();
+			Entity::MoveDirection direction = entity->GetMoveDirection();
+			auto childPos = entity->GetPosition();
+
+			if (unit->entity->GetType() == Layer::ItemAvailableType)
+				entity->SetActive(true);
+
+		}
+		unit = unit->next;
+	}*/
 }
 
 void Grid::HandleInActiveUnit(Unit* unit)
@@ -149,6 +168,8 @@ void Grid::HandleMelee(Entity* ent1, Entity* ent2, double dt)
 	}
 	if (!ent2->isStatic) {
 		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
+		if (collisionTime == 2)
+			return;
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
 }
@@ -235,12 +256,18 @@ void Grid::HandleCollideStatic(Entity* ent1, Entity* ent2, double dt)
 
 	BoxCollider rectEnt1 = ent1->GetRect();
 	if (ent1->GetType() == Layer::PlayerType)
+	{
 		rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
+		
+	}
 
 	auto impactorRect = ent2->GetRect();
 
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
+	
 
+	if (groundTime == 2) 
+		return;
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 

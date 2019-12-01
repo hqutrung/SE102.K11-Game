@@ -27,8 +27,6 @@ void DemoScene::LoadContent()
 	player = new Player();
 	player->SetPosition(50,50);
 	//player->SetPosition(32,32);
-	player->SetType(Layer::PlayerType);
-	map->GetGrid()->AddStaticObject(player);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());

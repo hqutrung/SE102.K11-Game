@@ -51,7 +51,10 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetDefaultTime(0.1);
 		break;
 	}
-
+	DebugOut(L"y roi = %f\n", player->GetPosition().y);
+	DebugOut(L"x roi = %f\n", player->GetPosition().x);
+	DebugOut(L"VY roi = %f\n", player->GetVy());
+	DebugOut(L"LEGY roi = %f\n", player->_LegY);
 	// Diem dung tam thoi
 
 	if (player->GetPosition().y <= player->_LegY-10)
@@ -59,6 +62,7 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetCurrentFrame(5);
 		player->SetPosition(player->GetPosition().x, player->_LegY);
 		player->SetVy(0);
+		
 	}
 	if (m_Animation->IsLastFrame(dt))
 	{
@@ -92,6 +96,19 @@ void PlayerFallState::HandleInput()
 
 void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
 {
+	auto player = playerData->player;
+	auto impactorType = impactor->GetType();
+
+	if (impactor->GetType() == Layer::StaticType )
+	{
+		DebugOut(L"box top= %f\n", impactor->GetRect().top);
+		player->_LegY = impactor->GetRect().top;
+	}
+
+	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
+		//
+	}
+
 }
 
 PlayerState::State PlayerFallState::GetStateName()

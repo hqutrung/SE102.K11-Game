@@ -182,6 +182,18 @@ void GameMap::SetMapPath(char* mapPath)
 		reader >> hei;
 		reader >> direction;
 
+		if (id == (int)Tag::GROUND) {
+			Entity* ground = new Entity();
+			ground->SetTag((Tag)id);
+			ground->SetType(Layer::StaticType);
+			ground->SetStatic(true);
+			ground->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ground->SetWidth(wid);
+			ground->SetHeight(hei);
+			grid->AddStaticObject(ground);
+			continue;
+		}
+
 		BoxCollider box;
 		box.top = posy;
 		box.left = posx;
@@ -234,9 +246,7 @@ void GameMap::SetMapPath(char* mapPath)
 		{
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
-			apple->SetType(Layer::StaticType);
 			unit = new Unit(grid, apple);
-			grid->AddStaticObject(apple);
 			break;
 		}
 		case BLUEHEART:

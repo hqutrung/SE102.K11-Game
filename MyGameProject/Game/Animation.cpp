@@ -95,9 +95,6 @@ void Animation::Update(float dt)
 		return;
 	}
 	currentTotalTime += dt;
-	//DebugOut(L"CurrentTotalTime: %f \n", currentTotalTime);
-	//DebugOut(L"defaultTime: %f \n", defaultTime);
-	//DebugOut(L"currentFrame: %d \n", currentFrame);
 	int nextFrame = currentFrame + 1;
 	if (nextFrame >= totalFrame)
 		nextFrame = 0;

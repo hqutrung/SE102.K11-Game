@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Debug.h"
 
 int Entity::currentID = 0;
 
@@ -35,7 +36,7 @@ void Entity::Update(float dt)
 	velocity.y += acceleration.y;
 	position.x += velocity.x * dt;
 	position.y += velocity.y * dt;
-	
+
 }
 
 void Entity::Render()

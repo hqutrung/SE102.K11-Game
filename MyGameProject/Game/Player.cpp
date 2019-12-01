@@ -60,6 +60,8 @@ Player::Player()
 	SetState(PlayerState::Idle);
 	width = 37;
 	height = 55;
+	SetTag(PLAYER);
+	SetType(Layer::PlayerType);
 
 }
 
@@ -107,6 +109,7 @@ void Player::Update(float dt)
 	Entity::Update(dt);
 	if (playerData->state)
 		playerData->state->Update(dt);
+	DebugOut(L"y = %f\n", position.y);
 }
 
 void Player::Render()
@@ -281,13 +284,12 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	D3DXVECTOR2 newVelocity = velocity;
 
 	if (impactor->GetType() == StaticType)
-		//if (side == Bottom && status != Jumping && (status != Climbing || impactorTag != THINSURFACE)) {
+		if (side == Bottom) {
 
-		//	if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
-		//		newVelocity.y *= collisionTime;
-		//		checkGroundInFrame = true;
-		//	}
-		//}
+			if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
+				newVelocity.y *= collisionTime;
+			}
+		}
 		//else {
 
 		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;

@@ -6,7 +6,8 @@ Apple::Apple()
 	textures->Add(TEX_APPLE, "Resources/Items/apple.png", D3DCOLOR_XRGB(255, 255, 255));
 	sprite = new Sprites(textures->GetTexture(TEX_APPLE), BoxCollider());
 
-
+	SetTag(APPLE);
+	SetType(ItemAvailableType);
 
 }
 
