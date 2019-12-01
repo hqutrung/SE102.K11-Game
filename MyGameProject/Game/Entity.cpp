@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Debug.h"
 
 int Entity::currentID = 0;
 
@@ -16,6 +17,7 @@ Entity::Entity()
 
 Entity::~Entity()
 {
+
 }
 
 BoxCollider Entity::GetRect()
@@ -34,7 +36,7 @@ void Entity::Update(float dt)
 	velocity.y += acceleration.y;
 	position.x += velocity.x * dt;
 	position.y += velocity.y * dt;
-	
+
 }
 
 void Entity::Render()
@@ -60,6 +62,14 @@ Tag Entity::GetTag()
 void Entity::SetTag(enum Tag tag)
 {
 	this->tag = tag;
+}
+
+Layer Entity::GetType() {
+	return type;
+}
+
+void Entity::SetType(Layer type) {
+	this->type = type;
 }
 
 void Entity::SetActive(bool active)
@@ -193,4 +203,8 @@ Entity::MoveDirection Entity::GetMoveDirection()
 void Entity::SetMoveDirection(MoveDirection direction)
 {
 	this->direction = direction;
+}
+
+void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }

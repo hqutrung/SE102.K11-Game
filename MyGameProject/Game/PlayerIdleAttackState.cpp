@@ -55,6 +55,10 @@ void PlayerIdleAttackState::HandleInput()
 
 }
 
+void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerIdleAttackState::GetStateName()
 {
 	return IdleAttack;

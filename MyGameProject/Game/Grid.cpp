@@ -1,6 +1,8 @@
 #include "Grid.h"
 #include "Unit.h"
 #include "Camera.h"
+#include "CollisionDetector.h"
+#include "Debug.h"
 
 Grid* Grid::instance = NULL;
 
@@ -29,6 +31,22 @@ Grid::Grid(BoxCollider r, int rowNumbers, int colNumbers)
 
 Grid::~Grid()
 {
+	for (int x = 0; x < colNumbers; x++)
+		for (int y = 0; y < rowNumbers; y++)
+			if (Cells[x][y] != NULL) {
+				Unit* unit = Cells[x][y];
+				Unit* other;
+				while (unit != NULL) {
+					other = unit->next;
+					delete unit;
+					unit = other;
+				}
+				Cells[x][y] = NULL;
+			}
+	for (size_t i = 0; i < staticObjects.size(); i++) {
+		delete staticObjects[i];
+		staticObjects[i] = NULL;
+	}
 }
 
 void Grid::Add(Unit* unit)
@@ -68,7 +86,10 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 					if (Cells[i][j]->entity->IsActived())
 					{
 						HandleInActiveUnit(Cells[i][j]);
-						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+					
+						if (Cells[i][j] == NULL)
+							continue;
+						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -97,76 +118,168 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 		other = other->next;	
 	}
 
+	/*float camCenterX = camRect.getCenter().x;
+
+	while (unit != NULL) {
+		unit->active = true;
+		if (!unit->entity->IsActived()) {
+			auto entity = unit->entity;
+			auto entityRect = entity->GetRect();
+			Entity::MoveDirection direction = entity->GetMoveDirection();
+			auto childPos = entity->GetPosition();
+
+			if (unit->entity->GetType() == Layer::ItemAvailableType)
+				entity->SetActive(true);
+
+		}
+		unit = unit->next;
+	}*/
 }
 
 void Grid::HandleInActiveUnit(Unit* unit)
 {
 	Unit* other = unit;
-	while (other != NULL)
-	{
+	while (other != NULL) {
 		unit = other;
+		other = unit->next;
 		unit->active = false;
-		unit->entity->SetActive(false);
-		//other->active = false;
-		//other->entity->SetActive(false);
-		other = other->next;
+		if (unit->entity->GetTag() != Tag::PLAYER)
+			//maybe unit value of this unit pointer delete
+			unit->entity->SetActive(false);
 	}
 }
 
 
 
-void Grid::HandMelee()
+void Grid::HandleMelee(Entity* ent1, Entity* ent2, double dt)
 {
-	//  walks each cell
-	for (int i = 0; i < colNumbers; i++)
-		for (int j = 0; j < rowNumbers; j++)
-			if (Cells[i][j] != NULL && activeCells[i][j] == true)
-				HandleCell(i, j);
+	Entity::SideCollision side;
+
+	float collisionTime = 2;
+
+	if (ent1->GetTag() == PLAYER || ent2->GetTag() == PLAYER)
+		ent1 = ent1;
+
+	if (!ent1->isStatic) {
+		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
+		if (collisionTime == 2)
+			return;
+		ent1->OnCollision(ent2, side, collisionTime, dt);
+	}
+	if (!ent2->isStatic) {
+		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
+		if (collisionTime == 2)
+			return;
+		ent2->OnCollision(ent1, side, collisionTime, dt);
+	}
 }
 
-void Grid::HandleCell(int cellX, int cellY)
+void Grid::	HandleCell(int x, int y, RECT r, double dt)
+
 {
-	if (!Cells[cellX][cellY]->active)
+	//if (!Cells[cellX][cellY]->active)
+	//	return;
+
+	//Unit* unit = Cells[cellX][cellY];
+
+	//while (unit != NULL)
+	//{
+	//	if (unit->entity->IsActived())
+	//	{
+	//		// Handle other units in this cell
+	//		HandleUnit(unit, unit->next);
+
+	//		// Handle the neighbor cells
+	//		if (cellX > 0 && cellY > 0)
+	//			HandleUnit(unit, Cells[cellX - 1][cellY - 1]);
+	//		if (cellX > 0)
+	//			HandleUnit(unit, Cells[cellX - 1][cellY]);
+	//		if (cellY > 0)
+	//			HandleUnit(unit, Cells[cellX][cellY - 1]);
+	//		if (cellX > 0 && cellY < cellHeight)
+	//			HandleUnit(unit, Cells[cellX - 1][cellY + 1]);
+	//	}
+	//	unit = unit->next;
+	//}
+	if (!Cells[x][y]->active)
 		return;
 
-	Unit* unit = Cells[cellX][cellY];
+	Unit* unit = Cells[x][y];
 
-	while (unit != NULL)
-	{
-		if (unit->entity->IsActived())
-		{
-			// Handle other units in this cell
-			HandleUnit(unit, unit->next);
+	while (unit != NULL) {
+		if (unit->entity->IsActived()) {
+			HandleUnit(unit, unit->next, dt);
 
-			// Handle the neighbor cells
-			if (cellX > 0 && cellY > 0)
-				HandleUnit(unit, Cells[cellX - 1][cellY - 1]);
-			if (cellX > 0)
-				HandleUnit(unit, Cells[cellX - 1][cellY]);
-			if (cellY > 0)
-				HandleUnit(unit, Cells[cellX][cellY - 1]);
-			if (cellX > 0 && cellY < cellHeight)
-				HandleUnit(unit, Cells[cellX - 1][cellY + 1]);
+			if (x > 0 && y > 0) HandleUnit(unit, Cells[x - 1][y - 1], dt);
+			if (x > 0) HandleUnit(unit, Cells[x - 1][y], dt);
+			if (y < rowNumbers - 1) HandleUnit(unit, Cells[x][y + 1], dt);
+			if (x > 0 && y < rowNumbers - 1)
+				HandleUnit(unit, Cells[x - 1][y + 1], dt);
 		}
 		unit = unit->next;
 	}
+
 }
 
-void Grid::HandleUnit(Unit* unit, Unit* other)
+void Grid::HandleUnit(Unit* unit, Unit* other, double dt)
 {
 	while (other != NULL)
 	{
 		if (other->entity->IsActived())
 			{
-				HandleCollision(unit, other);
+			HandleMelee(unit->entity, other->entity, dt);
 			}
 		other = other->next;
 	}
 }
 
-void Grid::HandleCollision(Unit* unit, Unit *other)
+void Grid::HandleCollision(double dt)
 {
-	//OnCollision();
+	for (int x = 0; x < colNumbers; x++)
+		for (int y = 0; y < rowNumbers; y++)
+			if (Cells[x][y] != NULL && activeCells[x][y] == true) {
+
+				HandleCellWithStatic(Cells[x][y], dt);
+			}
+
+	//CHECK COLLISION
+	for (int x = 0; x < colNumbers; x++)
+		for (int y = 0; y < rowNumbers; y++)
+			if (Cells[x][y] != NULL && activeCells[x][y] == true)
+				HandleCell(x, y, activeRect, dt);
+}
+
+void Grid::HandleCollideStatic(Entity* ent1, Entity* ent2, double dt)
+{
+	//ent2's always static
+	Entity::SideCollision side;
+
+	BoxCollider rectEnt1 = ent1->GetRect();
+	if (ent1->GetType() == Layer::PlayerType)
+	{
+		rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
+		
+	}
+
+	auto impactorRect = ent2->GetRect();
+
+	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
+	
+
+	if (groundTime == 2) 
+		return;
+	ent1->OnCollision(ent2, side, groundTime, dt);
+}
+
+void Grid::HandleCellWithStatic(Unit* unit, double dt)
+{
+	while (unit != NULL) {
+		if (unit->entity->IsActived()) {
+			for (size_t i = 0; i < staticObjects.size(); i++)
+				HandleCollideStatic(unit->entity, staticObjects[i], dt);
+		}
+		unit = unit->next;
+	}
 }
 
 
@@ -266,4 +379,7 @@ void Grid::RenderUnit(Unit* unit)
 		}
 		unit = unit->next;
 	}
+}
+void Grid::AddStaticObject(Entity* ent) {
+	staticObjects.push_back(ent);
 }

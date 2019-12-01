@@ -102,6 +102,10 @@ void PlayerRunState::HandleInput()
 		player->SetState(Idle);
 }
 
+void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerRunState::GetStateName()
 {
 	return Run;

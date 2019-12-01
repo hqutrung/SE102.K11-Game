@@ -12,7 +12,7 @@ DemoScene::~DemoScene()
 
 void DemoScene::LoadContent()
 {
-	map = new GameMap((char*)"Resources/tileset16.png",(char*)"Resources/tilemap16.txt");
+	map = new GameMap((char*)"Resources/tilesetnew.png",(char*)"Resources/tilemap16.txt");
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -26,7 +26,7 @@ void DemoScene::LoadContent()
 	// Player
 	player = new Player();
 	player->SetPosition(50,50);
-	player->SetPosition(32,800);
+	//player->SetPosition(32,32);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -37,6 +37,7 @@ void DemoScene::Update(float dt)
 {
 	CheckActive();
 	ProcessInput(); 
+	CheckCollision(dt);
 	map->GetGrid()->Update(dt);
 	//player->Update(dt);
 
@@ -99,4 +100,9 @@ void DemoScene::CheckActive()
 {
 	Entity::MoveDirection camDirection = player->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
+}
+
+void DemoScene::CheckCollision(double dt)
+{
+	map->GetGrid()->HandleCollision(dt);
 }

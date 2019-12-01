@@ -9,6 +9,9 @@
 #define INDEX_CAMERA_HEIGHT 20
 #define VELOCITY_CAMERA 3
 
+#define FPS 60
+#define SPF 1.0f/FPS
+
 // TEX ID
 #define TEX_DEMOOBJECT 100
 #define TEX_DEMOENEMY 200
@@ -79,6 +82,21 @@ enum Tag {
 	CHAINEDPILLAR,
 	PILLAR,
 	EXITPORT,
-	NONE
+	NONE,
+	PLAYER
 };
 
+enum Layer {
+	StaticType,
+	PlayerType,
+	EnemyType,
+	//Enemy projectile
+	EProjectileType,
+	//Player projectile
+	PProjectileType,
+	//katana + pprojectile tac dong duoc
+	ItemHolderType,
+	//katana + pprojectile ko tac dong dc
+	ItemAvailableType,
+	NoneType
+};

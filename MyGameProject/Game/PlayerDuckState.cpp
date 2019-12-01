@@ -73,6 +73,10 @@ void PlayerDuckState::HandleInput()
 	player->SetState(Idle);
 }
 
+void PlayerDuckState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerDuckState::GetStateName()
 {
 	return Duck;

@@ -77,7 +77,15 @@ void PlayerJumpThrowState::HandleInput()
 	player->SetVx(0);
 }
 
+void PlayerJumpThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState::State PlayerJumpThrowState::GetStateName()
 {
 	return JumpThrow;
+}
+
+void PlayerJumpThrowState::ResetState(int dummy)
+{
 }

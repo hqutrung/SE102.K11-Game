@@ -35,8 +35,9 @@ public:
 	void SetColliderRight(int right);
 	BoxCollider GetRect();
 
+	Status status;
 
-	//void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 	//BoxCollider GetBigBound();
 	//BoxCollider GetBody();
 	//PlayerState::State GetState();
@@ -66,7 +67,7 @@ public:
 	////check for immortal
 	//bool renderPreviousFrame;
 	float _LegY = 800;
-	//cc
+
 protected:
 	static Player* instance;
 	PlayerData* playerData;

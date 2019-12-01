@@ -64,6 +64,10 @@ void PlayerDuckThrowState::HandleInput()
 		return;
 }
 
+void PlayerDuckThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 void PlayerDuckThrowState::ResetState()
 {
 	auto player = playerData->player;

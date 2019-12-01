@@ -71,6 +71,8 @@ Player::Player()
 	SetState(PlayerState::Idle);
 	width = 37;
 	height = 55;
+	SetTag(PLAYER);
+	SetType(Layer::PlayerType);
 
 }
 
@@ -129,6 +131,7 @@ void Player::Update(float dt)
 	Entity::Update(dt);
 	if (playerData->state)
 		playerData->state->Update(dt);
+	DebugOut(L"y = %f\n", position.y);
 }
 
 void Player::Render()
@@ -319,4 +322,71 @@ BoxCollider Player::GetRect()
 		r.right = position.x - collider.left;
 	}
 	return r;
+}
+
+void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+	auto impactorRect = impactor->GetRect();
+	auto impactorDir = impactor->GetMoveDirection();
+	auto impactorTag = impactor->GetTag();
+	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;;
+
+	D3DXVECTOR2 newVelocity = velocity;
+
+	//if (impactor->GetType() == StaticType)
+	//	if (side == Bottom) {
+
+	//		if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
+	//			newVelocity.y *= collisionTime;
+	//		}
+	//	}
+		//else {
+
+		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;
+
+		//	bool canPassLeft = specialWall && velocity.x < 0 && impactorDir == RightToLeft;
+		//	bool canPassRight = specialWall && velocity.x > 0 && impactorDir == RightToLeft;
+
+		//	float slashCaseLeft = (impactorRect.left - GetBody().right) / (dt * velocity.x);
+		//	float slashCaseRight = (impactorRect.right - GetBody().left) / (dt * velocity.x);
+
+		//	if (currentState == PlayerState::Slash) {
+		//		//BUG
+		//		if (collisionTime == 0)
+		//			collisionTime = min(slashCaseLeft, slashCaseRight);
+		//		if (collisionTime > 1)
+		//			collisionTime = 0;
+		//	}
+
+		//	float playerLeft = GetBody().left + velocity.x * collisionTime * dt;
+		//	float playerRight = GetBody().right + velocity.x * collisionTime * dt;
+
+		//	if ((side == Left && velocity.x < 0 && impactorRect.right == round(playerLeft)) || ((side == Right && velocity.x > 0) && impactorRect.left == round(playerRight))) {
+		//		if (impactorRect.top > round(playerBottom) && impactorRect.bottom <= round(playerBottom)) {
+
+		//			if (!canPassLeft || !canPassRight)
+		//				newVelocity.x *= collisionTime;
+
+		//			if ((int)impactorRect.top - (int)impactorRect.bottom > 32) {
+		//				//if (GetRect().bottom < impactorRect.bottom)
+		//				//	return;
+		//				int sign = -1;
+		//				if (impactorTag == LADDER)
+		//					sign = 1;
+		//				bool climbToWall = (impactorDir != RightToLeft && velocity.x < 0) || (impactorDir != LeftToRight && velocity.x > 0);
+		//				bool climbToLadder = (sign == 1) && (playerBottom + LADDER_OFFSET < impactorRect.top) && climbToWall;
+		//				climbToWall = climbToWall && (sign == -1) && velocity.y != 0;
+		//				if (climbToWall || climbToLadder) {
+		//					SetMoveDirection(impactor->GetPosition().x > position.x ? LeftToRight : RightToLeft);
+		//					SetState(PlayerState::Climb, sign * impactorRect.top);
+		//				}
+		//			}
+		//		}
+
+		//	}
+		//}
+
+	velocity = newVelocity;
+
+	playerData->state->OnCollision(impactor, side, collisionTime, dt);
 }

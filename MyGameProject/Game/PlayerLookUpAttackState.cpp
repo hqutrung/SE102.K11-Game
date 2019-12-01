@@ -76,7 +76,15 @@ void PlayerLookUpAttackState::HandleInput()
 	}
 }
 
+void PlayerLookUpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+}
+
 PlayerState:: State PlayerLookUpAttackState::GetStateName()
 {
 	return LookUpAttack;
+}
+
+void PlayerLookUpAttackState::ResetState(int dummy)
+{
 }

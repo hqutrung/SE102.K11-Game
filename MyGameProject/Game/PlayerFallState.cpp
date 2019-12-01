@@ -125,6 +125,23 @@ void PlayerFallState::HandleInput()
 
 }
 
+void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+{
+	auto player = playerData->player;
+	auto impactorType = impactor->GetType();
+
+	if (impactor->GetType() == Layer::StaticType )
+	{
+		DebugOut(L"box top= %f\n", impactor->GetRect().top);
+		player->_LegY = impactor->GetRect().top;
+	}
+
+	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
+		//
+	}
+
+}
+
 PlayerState::State PlayerFallState::GetStateName()
 {
 	return Fall;
