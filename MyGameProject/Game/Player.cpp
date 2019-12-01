@@ -283,13 +283,13 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 	D3DXVECTOR2 newVelocity = velocity;
 
-	if (impactor->GetType() == StaticType)
-		if (side == Bottom) {
+	//if (impactor->GetType() == StaticType)
+	//	if (side == Bottom) {
 
-			if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
-				newVelocity.y *= collisionTime;
-			}
-		}
+	//		if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
+	//			newVelocity.y *= collisionTime;
+	//		}
+	//	}
 		//else {
 
 		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;
