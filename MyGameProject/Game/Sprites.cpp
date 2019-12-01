@@ -96,6 +96,7 @@ void Sprites::InitWithSprite(const char* filePath, BoxCollider box, int width, i
 
 Sprites::~Sprites()
 {
+
 }
 
 int Sprites::GetWidth()

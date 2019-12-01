@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-﻿  BlueHeart.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BlueHeart.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-  Gem.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BlueHeart.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Gem.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-  Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\Gem.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
-=======
 ﻿  PlayerFallState.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(44,35): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(47,35): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(51,34): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(83,33): warning C4305: 'argument': truncation from 'double' to 'float'
-  PlayerJumpState.cpp
-  Generating Code...
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(89,35): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(89,35): warning C4305: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(79,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(82,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(86,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(126,33): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerFallState.cpp(132,34): warning C4305: 'argument': truncation from 'double' to 'float'
   Game.vcxproj -> D:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
->>>>>>> Trung

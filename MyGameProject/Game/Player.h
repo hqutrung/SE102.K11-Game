@@ -35,7 +35,6 @@ public:
 	void SetColliderRight(int right);
 	BoxCollider GetRect();
 
-	Status status;
 
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 	//BoxCollider GetBigBound();
@@ -61,12 +60,12 @@ public:
 
 	//bool isImmortal;
 	//bool checkGroundInFrame;
-	//float timeOnAir;
+	float timeOnAir;
 	//float immortalTime;
 
 	////check for immortal
 	//bool renderPreviousFrame;
-	float _LegY = 800;
+	float _LegY = 0;
 
 protected:
 	static Player* instance;

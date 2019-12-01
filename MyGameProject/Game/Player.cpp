@@ -329,17 +329,25 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
-	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;;
+	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;
 
 	D3DXVECTOR2 newVelocity = velocity;
 
-	//if (impactor->GetType() == StaticType)
-	//	if (side == Bottom) {
+	if (impactor->GetType() == StaticType) {
+		if (side == Bottom && status != Jumping) {
+			if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
+				newVelocity.y *= collisionTime;
+				status = OnGround;
+			}
+		}
+	}
+		
 
-	//		if (round(playerBottom) == impactorRect.top && velocity.y <= 0) {
-	//			newVelocity.y *= collisionTime;
-	//		}
-	//	}
+		if (impactor->GetType() == Layer::ItemAvailableType)
+			{
+				impactor->SetActive(false);
+			}
+
 		//else {
 
 		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;

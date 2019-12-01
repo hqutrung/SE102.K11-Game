@@ -22,25 +22,16 @@ void PlayerJumpCrossState::Render()
 void PlayerJumpCrossState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
-	if (player->GetPosition().y > player->_LegY + 68)
-	{
-		player->status = Player::Status::Falling;
-	}
 
-	// van toc
-	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
-	{
-		player->SetVy(JUMP_SPEED * 1.1);
-	}
-	else {
-		player->SetVy(-JUMP_SPEED * 1.1);
-	}
+	float t = JUMP_SPEED * player->timeOnAir;
+	if (t > 1)
+		t = 1;
+	//linear interpolation
+	player->SetVy(Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
+
+
 
 	// diem dung tam thoi
-	if (player->GetPosition().y <= player->_LegY - 10)
-	{
-		player->SetState(Fall);
-	}
 	
 
 	// set time frame
@@ -66,6 +57,7 @@ void PlayerJumpCrossState::Update(float dt)
 
 	if (m_Animation->IsLastFrame(dt))
 		player->SetState(Fall);
+	player->timeOnAir += dt;
 	PlayerState::Update(dt);
 }
 
@@ -105,6 +97,14 @@ void PlayerJumpCrossState::HandleInput()
 
 void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
 {
+
+	auto impactorType = impactor->GetType();
+	if (playerData->player->GetVy() < 0 && impactor->GetTag() == GROUND && side == Entity::Bottom) {
+		playerData->player->timeOnAir = 0;
+		playerData->player->SetState(Idle);
+		playerData->player->status = Player::Status::OnGround;
+	}
+
 }
 
 PlayerState::State PlayerJumpCrossState::GetStateName()

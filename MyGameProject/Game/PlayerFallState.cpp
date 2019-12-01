@@ -26,26 +26,31 @@ void PlayerFallState::Update(float dt)
 	//set frame ID
 	
 	// state trc la jump or jump cross ve frame 22 (tiep dat nhe)
-	if (player->GetPosition().y <= player->_LegY - 10
-		&& (player->GetPrevStateName() == Jump || player->GetPrevStateName() == JumpCross))
-	{
-		m_Animation->SetCurrentFrame(22);
-		player->SetPosition(player->GetPosition().x, player->_LegY);
-	}
+	//if (player->GetPosition().y <= player->_LegY - 10
+	//	&& (player->GetPrevStateName() == Jump || player->GetPrevStateName() == JumpCross))
+	//{
+	//	m_Animation->SetCurrentFrame(22);
+	//	player->SetPosition(player->GetPosition().x, player->_LegY + 25);
+	//}
 
-	// state trc la jump or jump cross ve frame 5 (Tiep dat manh)
-	if ((player->GetPosition().y <= player->_LegY - 10)
-		&& (player->GetPrevStateName() == JumpAttack || player->GetPrevStateName() == JumpThrow))
-	{
-		m_Animation->SetCurrentFrame(5);
-		player->SetPosition(player->GetPosition().x, player->_LegY);
-	}
+	//// state trc la jump or jump cross ve frame 5 (Tiep dat manh)
+	//if ((player->GetPosition().y <= player->_LegY - 10)
+	//	&& (player->GetPrevStateName() == JumpAttack || player->GetPrevStateName() == JumpThrow))
+	//{
+	//	m_Animation->SetCurrentFrame(5);
+	//	player->SetPosition(player->GetPosition().x, player->_LegY + 25);
+	//}
 
-	
+	float t = JUMP_SPEED * player->timeOnAir;
+	if (t > 1)
+		t = 1;
+	//linear interpolation
+	player->SetVy(Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
+
 	// van toc
 	if (m_Animation->GetCurrentFrameID() <= 4)
 	{
-		player->SetVy(-JUMP_SPEED);
+		player->SetVy(-Support::Lerp(PLAYER_JUMP_FORCE, -PLAYER_JUMP_FORCE, t));
 	}
 	else
 	{
@@ -83,10 +88,17 @@ void PlayerFallState::Update(float dt)
 	}
 
 	// frame cuoi -> ve state Idle
-	if (m_Animation->IsLastFrame(dt) || m_Animation->GetCurrentFrameID() == 21)
+	if ((player->status == Player::Status::OnGround) && (m_Animation->countLoopFrame ==1) )
 	{
+		m_Animation->SetCurrentFrame(22);
+		m_Animation->countLoopFrame ++;
+	}
+	if (m_Animation->IsLastFrame(dt) || m_Animation->GetCurrentFrameID() == 21 )
+	{
+		m_Animation->countLoopFrame = 1;
 		player->SetState(Idle);
 	}
+	player->timeOnAir -= dt;
 	PlayerState::Update(dt);
 }
 
@@ -127,18 +139,10 @@ void PlayerFallState::HandleInput()
 
 void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
 {
-	auto player = playerData->player;
 	auto impactorType = impactor->GetType();
-
-	if (impactor->GetType() == Layer::StaticType )
-	{
-		DebugOut(L"box top= %f\n", impactor->GetRect().top);
-		player->_LegY = impactor->GetRect().top;
-	}
-
-	else if (impactorType == Layer::EnemyType || impactorType == Layer::EProjectileType) {
-		//
-	}
+		if (playerData->player->GetVy() < 0 && impactor->GetTag() == GROUND && side == Entity::Bottom) {
+			playerData->player->timeOnAir = 0;
+		}
 
 }
 
