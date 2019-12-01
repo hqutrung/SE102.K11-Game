@@ -11,6 +11,10 @@ Spike::Spike() : Item()
 	textures->GetTexture(TEX_SPIKE)->GetLevelDesc(0, &desc);
 	width = desc.Width / 10;
 	height = desc.Height;
+
+	SetTag(SPIKE);
+	SetType(ItemType);
+	isStatic = true;
 }
 
 Spike::~Spike()

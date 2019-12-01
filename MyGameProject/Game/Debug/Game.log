@@ -1,5 +1,10 @@
-﻿  PlayerJumpCrossState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(86,32): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpCrossState.cpp(93,33): warning C4305: 'argument': truncation from 'double' to 'float'
-  Game.vcxproj -> D:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+﻿  Grid.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(84,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(85,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(86,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Stone.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(87,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Stone.cpp(13,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Generating Code...
+E:\SE102.K11-Game\MyGameProject\Game\Stone.cpp(14,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe

@@ -23,6 +23,7 @@
 #include"PlayerInjuredState.h"
 #include"PlayerClimbJumpState.h"
 #include"PlayerDeathState.h"
+#include "CollisionDetector.h"
 
 Player* Player::instance = NULL;
 
@@ -72,16 +73,16 @@ Player::Player()
 	SetTag(PLAYER);
 	SetType(PlayerType);
 	lastposition = position;
-	status = OnGround;
+	status = Falling;
 
 	width = 37;
 	height = 55;
 	SetTag(PLAYER);
 	SetType(Layer::PlayerType);
-
+	isStatic = false;
 	SetActive(true);
 }
-	
+
 Player::~Player()
 {
 	delete idleState;
@@ -374,7 +375,7 @@ void Player::SetActive(bool active)
 		DataManager::SetPlayerDead();
 	}
 	else {*/
-		Entity::SetActive(true);
+	Entity::SetActive(true);
 	//}
 }
 
@@ -392,16 +393,15 @@ void Player::SetMoveDirection(Entity::MoveDirection dir)
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
 	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;
 
-
-	if (side == Entity::SideCollision::Bottom && status != Jumping)
+	// đứng trên Ground
+	if (side == Entity::SideCollision::Bottom && status ==Falling)
 	{
-		if (impactor->GetType() == Layer::StaticType && round(playerBottom) == impactorRect.top && velocity.y < 0)
+		if ((impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && round(playerBottom) == impactorRect.top && velocity.y < 0)
 		{
 			DebugOut(L"Va cham tai: %f\n", playerBottom);
 			DebugOut(L"y = : %f\n", position.y + collisionTime * dt * velocity.y);
@@ -409,63 +409,84 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
 			lastposition = position;
 			SetState(PlayerState::Idle);
-			
 		}
-
 	}
 
+	
 
-	if (impactor->GetType() == Layer::ItemType)
+
+	//// STONE
+	//if (status == Falling && side == SideCollision::Bottom
+	//	&& impactor->GetTag() == STONE && velocity.y < 0)
+	//{
+	//	status = OnGround;
+	//	SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
+	//	lastposition = position;
+	//	SetState(PlayerState::Idle);
+	//}
+
+	// APPLE
+	if (impactor->GetTag() == Tag::APPLE)
 	{
 		impactor->SetActive(false);
 	}
 
 
-		//else {
+	//else {
 
-		//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;
+	//	bool specialWall = ((int)impactorRect.right - (int)impactorRect.left <= 16) && impactorTag == GROUND;
 
-		//	bool canPassLeft = specialWall && velocity.x < 0 && impactorDir == RightToLeft;
-		//	bool canPassRight = specialWall && velocity.x > 0 && impactorDir == RightToLeft;
+	//	bool canPassLeft = specialWall && velocity.x < 0 && impactorDir == RightToLeft;
+	//	bool canPassRight = specialWall && velocity.x > 0 && impactorDir == RightToLeft;
 
-		//	float slashCaseLeft = (impactorRect.left - GetBody().right) / (dt * velocity.x);
-		//	float slashCaseRight = (impactorRect.right - GetBody().left) / (dt * velocity.x);
+	//	float slashCaseLeft = (impactorRect.left - GetBody().right) / (dt * velocity.x);
+	//	float slashCaseRight = (impactorRect.right - GetBody().left) / (dt * velocity.x);
 
-		//	if (currentState == PlayerState::Slash) {
-		//		//BUG
-		//		if (collisionTime == 0)
-		//			collisionTime = min(slashCaseLeft, slashCaseRight);
-		//		if (collisionTime > 1)
-		//			collisionTime = 0;
-		//	}
+	//	if (currentState == PlayerState::Slash) {
+	//		//BUG
+	//		if (collisionTime == 0)
+	//			collisionTime = min(slashCaseLeft, slashCaseRight);
+	//		if (collisionTime > 1)
+	//			collisionTime = 0;
+	//	}
 
-		//	float playerLeft = GetBody().left + velocity.x * collisionTime * dt;
-		//	float playerRight = GetBody().right + velocity.x * collisionTime * dt;
+	//	float playerLeft = GetBody().left + velocity.x * collisionTime * dt;
+	//	float playerRight = GetBody().right + velocity.x * collisionTime * dt;
 
-		//	if ((side == Left && velocity.x < 0 && impactorRect.right == round(playerLeft)) || ((side == Right && velocity.x > 0) && impactorRect.left == round(playerRight))) {
-		//		if (impactorRect.top > round(playerBottom) && impactorRect.bottom <= round(playerBottom)) {
+	//	if ((side == Left && velocity.x < 0 && impactorRect.right == round(playerLeft)) || ((side == Right && velocity.x > 0) && impactorRect.left == round(playerRight))) {
+	//		if (impactorRect.top > round(playerBottom) && impactorRect.bottom <= round(playerBottom)) {
 
-		//			if (!canPassLeft || !canPassRight)
-		//				newVelocity.x *= collisionTime;
+	//			if (!canPassLeft || !canPassRight)
+	//				newVelocity.x *= collisionTime;
 
-		//			if ((int)impactorRect.top - (int)impactorRect.bottom > 32) {
-		//				//if (GetRect().bottom < impactorRect.bottom)
-		//				//	return;
-		//				int sign = -1;
-		//				if (impactorTag == LADDER)
-		//					sign = 1;
-		//				bool climbToWall = (impactorDir != RightToLeft && velocity.x < 0) || (impactorDir != LeftToRight && velocity.x > 0);
-		//				bool climbToLadder = (sign == 1) && (playerBottom + LADDER_OFFSET < impactorRect.top) && climbToWall;
-		//				climbToWall = climbToWall && (sign == -1) && velocity.y != 0;
-		//				if (climbToWall || climbToLadder) {
-		//					SetMoveDirection(impactor->GetPosition().x > position.x ? LeftToRight : RightToLeft);
-		//					SetState(PlayerState::Climb, sign * impactorRect.top);
-		//				}
-		//			}
-		//		}
+	//			if ((int)impactorRect.top - (int)impactorRect.bottom > 32) {
+	//				//if (GetRect().bottom < impactorRect.bottom)
+	//				//	return;
+	//				int sign = -1;
+	//				if (impactorTag == LADDER)
+	//					sign = 1;
+	//				bool climbToWall = (impactorDir != RightToLeft && velocity.x < 0) || (impactorDir != LeftToRight && velocity.x > 0);
+	//				bool climbToLadder = (sign == 1) && (playerBottom + LADDER_OFFSET < impactorRect.top) && climbToWall;
+	//				climbToWall = climbToWall && (sign == -1) && velocity.y != 0;
+	//				if (climbToWall || climbToLadder) {
+	//					SetMoveDirection(impactor->GetPosition().x > position.x ? LeftToRight : RightToLeft);
+	//					SetState(PlayerState::Climb, sign * impactorRect.top);
+	//				}
+	//			}
+	//		}
 
-		//	}
-		//}
-
+	//	}
+	//}
+	// !OnGround rớt đất
+	if (status == OnGround && side == SideCollision::Bottom
+		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
+	{
+		DebugOut(L"x = : %f\n", position.x + collisionTime * dt * velocity.x);
+		if (position.x<impactor->GetRect().left || position.x>impactor->GetRect().right)
+		{
+			SetVy(-JUMP_SPEED);
+			SetState(PlayerState::Fall);
+		}
+	}
 	playerData->state->OnCollision(impactor, side, collisionTime, dt);
 }
