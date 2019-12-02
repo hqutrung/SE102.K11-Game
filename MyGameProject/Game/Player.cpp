@@ -393,17 +393,17 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
-	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;
+	float playerBottom = GetRect().bottom + collisionTime * dt * velocity.y;
 	if (impactor->GetTag() == STONE)
 		position.x = position.x;
 
 	D3DXVECTOR2 newVelocity = velocity;
 
 	// stand on Ground
-	if (side == Entity::SideCollision::Bottom && status == Falling)
+	if (side == Entity::SideCollision::Bottom && status != Jumping)
 	{
-		if ((impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y < 0
-			&& !(position.x<impactor->GetRect().left || position.x>impactor->GetRect().right))
+		if ((impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && round(playerBottom) == impactorRect.top && velocity.y < 0
+			&& !(position.x<impactor->GetRect().left -5 || position.x>impactor->GetRect().right + 5))
 		{
 			DebugOut(L"Va cham tai: %f\n", playerBottom);
 			status = OnGround;
@@ -488,7 +488,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
 	{
 		DebugOut(L"x = : %f\n", position.x + collisionTime * dt * velocity.x);
-		if (position.x <impactor->GetRect().left || position.x > impactor->GetRect().right)
+		if (position.x <impactor->GetRect().left - 5 || position.x > impactor->GetRect().right + 5)
 		{
 			SetVy(-JUMP_SPEED);
 			SetState(PlayerState::Fall);

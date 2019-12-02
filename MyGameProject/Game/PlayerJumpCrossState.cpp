@@ -47,7 +47,6 @@ void PlayerJumpCrossState::Update(float dt)
 	case 3:
 		m_Animation->SetDefaultTime(0.25f);
 		break;
-
 	default:
 		m_Animation->SetDefaultTime(0.25f);
 		break;

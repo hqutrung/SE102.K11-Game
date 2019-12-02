@@ -252,7 +252,7 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	BoxCollider rectEnt1 = ent1->GetRect();
 	if (ent1->GetType() == Layer::PlayerType)
 	{
-		rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
+		//rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
 		rectEnt1 = ent1->GetRect();
 	}
 
