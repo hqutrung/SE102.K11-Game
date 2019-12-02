@@ -87,9 +87,6 @@ void PlayerFallState::Update(float dt)
 	if (m_Animation->IsLastFrame(dt) || m_Animation->GetCurrentFrameID() == 21 )
 	{
 		m_Animation->countLoopFrame = 1;
-		player->SetState(Idle);
-		player->lastposition = player->GetPosition();
-		player->SetVy(0);
 		DebugOut(L"y2 = : %f\n", player->GetPosition().y);
 	}
 	PlayerState::Update(dt);

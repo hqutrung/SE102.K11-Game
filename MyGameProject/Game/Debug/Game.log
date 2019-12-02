@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 ﻿  Ball.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Ball.cpp(12,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Ball.cpp(13,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  Stone.cpp
+D:\Game\SE102.K11-Game\MyGameProject\Game\Stone.cpp(13,21): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+D:\Game\SE102.K11-Game\MyGameProject\Game\Stone.cpp(14,15): warning C4244: '=': conversion from 'UINT' to 'float', possible loss of data
+  Game.vcxproj -> D:\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Trung

@@ -13,9 +13,9 @@ Stone::Stone() : Item()
 	width = desc.Width / 8;
 	height = desc.Height;
 
-	isStatic = true;
-	SetTag(STONE);
-	SetType(ItemType);
+	SetTag(Tag::STONE);
+	SetType(Layer::StaticType);
+	SetStatic(true);
 }
 
 Stone::~Stone()

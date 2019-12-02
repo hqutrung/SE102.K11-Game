@@ -22,10 +22,11 @@ void PlayerJumpCrossState::Render()
 void PlayerJumpCrossState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
-
-	player->SetVy(JUMP_SPEED);
+	if(player->status == Player::Status::Jumping)
+		player->SetVy(JUMP_SPEED);
 	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
 	{
+		player->status = Player::Status::Falling;
 		player->SetVy(-JUMP_SPEED);
 	}
 	// diem dung tam thoi
