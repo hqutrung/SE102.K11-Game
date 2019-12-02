@@ -228,15 +228,24 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 
 	if (ent1->GetTag()==Tag::PLAYER) 
 	{
-		collisionTime = CollisionDetector::SweptAABB(ent1->GetRect(),ent1->GetVelocity(), ent2->GetRect(), D3DXVECTOR2(0, 0), side, dt);
+		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
+	}
+	if (ent2->GetTag() == Tag::PLAYER)
+	{
+		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
+		if (collisionTime == 2)
+			return;
+		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
 }
 
 void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 {
+	if(ent2->GetTag() == CHAINEDPILLAR)
+		return;
 	//ent2's always static
 	Entity::SideCollision side;
 
@@ -244,6 +253,7 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	if (ent1->GetType() == Layer::PlayerType)
 	{
 		rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
+		rectEnt1 = ent1->GetRect();
 	}
 
 	auto impactorRect = ent2->GetRect();
@@ -346,13 +356,14 @@ void Grid::Render()
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == Surface)
+		if (staticObjects[i]->GetType() == Surface || (staticObjects[i]->GetType() == StaticType && staticObjects[i]->GetTag() == EXITPORT))
 			staticObjects[i]->Render();
 		else {
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Sprites* sprite = new Sprites(texture, boundbox);
-			sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
+			//sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
+			delete sprite;
 		}
 	}
 }
@@ -381,7 +392,7 @@ void Grid::RenderUnit(Unit* unit)
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
 				Sprites* sprite = new Sprites(texture, boundbox);
-				sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));
+				//sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));
 				delete sprite;
 				unit->entity->Render();
 

@@ -98,12 +98,12 @@ float CollisionDetector::SweptAABB(Entity* ent1, Entity* ent2, Entity::SideColli
 		dxExit = r2.left - r1.right;
 	}
 	if (deltaVel.y > 0) {
-		dyEntry = r2.top - r1.bottom;
-		dyExit = r2.bottom - r1.top;
-	}
-	else {
 		dyEntry = r2.bottom - r1.top;
 		dyExit = r2.top - r1.bottom;
+	}
+	else {
+		dyEntry = r2.top - r1.bottom;
+		dyExit = r2.bottom - r1.top;
 	}
 
 	float txEntry = 0, txExit = 0;
@@ -131,6 +131,7 @@ float CollisionDetector::SweptAABB(Entity* ent1, Entity* ent2, Entity::SideColli
 
 	if (entryTime > exitTime || (txEntry < 0.0f && tyEntry < 0.0f) || txEntry > 1 || tyEntry > 1)
 		return 2;
+
 	if (txEntry > tyEntry) {
 		if (dxEntry < 0.0f)
 			side = Entity::Left;

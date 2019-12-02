@@ -6,6 +6,7 @@ ChainedPillar::ChainedPillar()
 	textures->Add(TEX_CHAINEDPILLAR, "Resources/Items/chainedpillar.png", D3DCOLOR_XRGB(255, 255, 255));
 	sprite = new Sprites(textures->GetTexture(TEX_CHAINEDPILLAR), BoxCollider());
 	SetType(Surface);
+	SetTag(CHAINEDPILLAR);
 	SetStatic(true);
 }
 

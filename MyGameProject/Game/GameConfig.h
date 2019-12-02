@@ -1,9 +1,9 @@
 #pragma once
 
-#define SCREEN_WIDTH 2256
-#define SCREEN_HEIGHT 1136
-//#define SCREEN_WIDTH 318
-//#define SCREEN_HEIGHT 230
+//#define SCREEN_WIDTH 2256
+//#define SCREEN_HEIGHT 1136
+#define SCREEN_WIDTH 318
+#define SCREEN_HEIGHT 230
 
 #define INDEX_CAMERA_WIDTH 30
 #define INDEX_CAMERA_HEIGHT 20
@@ -56,7 +56,8 @@
 #define RUN_SPEED 120
 #define JUMP_SPEED 250
 #define SLIDE_SPEED 50
-#define MAX_JUMP 90
+//#define MAX_JUMP 90
+#define MAX_JUMP 150
 #define CLIMB_SPEED 100
 
 

@@ -73,12 +73,9 @@ Player::Player()
 	SetTag(PLAYER);
 	SetType(PlayerType);
 	lastposition = position;
-	status = Falling;
-
+	status = OnGround;
 	width = 37;
 	height = 55;
-	SetTag(PLAYER);
-	SetType(Layer::PlayerType);
 	isStatic = false;
 	SetActive(true);
 }
@@ -397,21 +394,30 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
 	float playerBottom = position.y - GetBigHeight() / 2.0 + collisionTime * dt * velocity.y;
+	if (impactor->GetTag() == STONE)
+		position.x = position.x;
 
-	// đứng trên Ground
-	if (side == Entity::SideCollision::Bottom && status ==Falling)
+	D3DXVECTOR2 newVelocity = velocity;
+
+	// stand on Ground
+	if (side == Entity::SideCollision::Bottom && status == Falling)
 	{
-		if ((impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && round(playerBottom) == impactorRect.top && velocity.y < 0)
+		if ((impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y < 0
+			&& !(position.x<impactor->GetRect().left || position.x>impactor->GetRect().right))
 		{
 			DebugOut(L"Va cham tai: %f\n", playerBottom);
-			DebugOut(L"y = : %f\n", position.y + collisionTime * dt * velocity.y);
 			status = OnGround;
-			SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
-			lastposition = position;
+
+			newVelocity.y *= collisionTime;
+
+			DebugOut(L"y = : %f\n", position.y + newVelocity.y * dt);
+			//SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
+			lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt , 0);
 			SetState(PlayerState::Idle);
 		}
 	}
 
+	velocity = newVelocity;
 	
 
 
@@ -478,14 +484,15 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	//	}
 	//}
 	// !OnGround rớt đất
-	if (status == OnGround && side == SideCollision::Bottom
+	else if (status == OnGround && side == SideCollision::Bottom
 		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
 	{
 		DebugOut(L"x = : %f\n", position.x + collisionTime * dt * velocity.x);
-		if (position.x<impactor->GetRect().left || position.x>impactor->GetRect().right)
+		if (position.x <impactor->GetRect().left || position.x > impactor->GetRect().right)
 		{
 			SetVy(-JUMP_SPEED);
 			SetState(PlayerState::Fall);
+			status = Falling;
 		}
 	}
 	playerData->state->OnCollision(impactor, side, collisionTime, dt);
