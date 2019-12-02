@@ -25,7 +25,8 @@ void DemoScene::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(100,200);
+	player->SetPosition(100,65);
+	player->lastposition = player->GetPosition();
 	//player->SetPosition(32,32);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 

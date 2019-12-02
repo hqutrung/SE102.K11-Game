@@ -495,9 +495,9 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		}
 		case CHAINEDPILLAR:
 		{
-			ChainedPillar* chainedPillar = new ChainedPillar();
+			/*ChainedPillar* chainedPillar = new ChainedPillar();
 			chainedPillar->SetSpawnBox(box);
-			grid->AddStaticObject(chainedPillar);
+			grid->AddStaticObject(chainedPillar);*/
 			break;
 		}
 		case PILLAR1:

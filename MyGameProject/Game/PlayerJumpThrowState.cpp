@@ -22,38 +22,29 @@ void PlayerJumpThrowState::Render()
 void PlayerJumpThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
-	if (player->GetPosition().y > player->_LegY + 68)
+
+	if (player->status == Player::Status::Jumping && player->GetPosition().y < player->lastposition.y + MAX_JUMP)
+		player->SetVy(JUMP_SPEED);
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
 	{
 		player->status = Player::Status::Falling;
+		player->SetVy(-JUMP_SPEED);
 	}
-	// van toc
-	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
-	{
-		player->SetVy(JUMP_SPEED * 1.1);
-	}
-	else {
-		player->SetVy(-JUMP_SPEED * 1.1);
-	}
-	// diem dung
-
-	if (player->GetPosition().y < player->_LegY - 10)
-	{
-		player->SetState(Fall);
-	}
-	
-
 	// set time cua cac frame
 	if (m_Animation->GetCurrentFrameID() == 6)
 		m_Animation->SetDefaultTime(0.07f);
 	else m_Animation->SetDefaultTime(0.06f);
 
+	
+	if (player->status == Player::Status::OnGround)
+		player->SetState(Idle);
 
-	if (m_Animation->IsLastFrame(dt) == true)
-	{
-		player->SetState(Fall);
-	}
 	// animation update
+
+	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
+		player->SetState(Fall);
 	PlayerState::Update(dt);
+
 }
 
 void PlayerJumpThrowState::HandleInput()

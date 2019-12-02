@@ -22,35 +22,27 @@ void PlayerJumpAttackState::Render()
 void PlayerJumpAttackState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
-	if (player->GetPosition().y > player->_LegY + 68)
+	
+	if (player->status == Player::Status::Jumping&&player->GetPosition().y < player->lastposition.y + MAX_JUMP)
+		player->SetVy(JUMP_SPEED);
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
 	{
 		player->status = Player::Status::Falling;
+		player->SetVy(-JUMP_SPEED);
 	}
-	// van toc
-	if (player->GetPosition().y < player->_LegY + 68 && player->status == Player::Status::Jumping)
-	{
-		player->SetVy(JUMP_SPEED * 1.1);
-	}
-	else {
-		player->SetVy(-JUMP_SPEED * 1.1);
-	}
-	// diem dung
-
-	if (player->GetPosition().y < player->_LegY - 10)
-	{
-		player->SetState(Fall);
-	}
-	
 	// set time cua cac frame
 	if (m_Animation->GetCurrentFrameID() == 6)
-		m_Animation->SetDefaultTime(0.2);
-	else m_Animation->SetDefaultTime(0.065f);
+		m_Animation->SetDefaultTime(0.1);
+	else m_Animation->SetDefaultTime(0.05f);
 
 	// end frame
-	if (m_Animation->IsLastFrame(dt) == true)
-		player->SetState(Fall);
+	if (player->status==Player::Status::OnGround)
+		player->SetState(Idle);
 
 	// animation update
+
+	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
+		player->SetState(Fall);
 	PlayerState::Update(dt);
 }
 
@@ -97,6 +89,6 @@ void PlayerJumpAttackState::ResetState(int dummy)
 	player->SetColliderLeft(-22);
 	player->SetColliderRight(63);
 	player->SetColliderTop(50);
-	player->SetColliderBottom(-20);
+	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

@@ -250,11 +250,11 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	Entity::SideCollision side;
 
 	BoxCollider rectEnt1 = ent1->GetRect();
-	if (ent1->GetType() == Layer::PlayerType)
-	{
-		//rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
-		rectEnt1 = ent1->GetRect();
-	}
+	//if (ent1->GetType() == Layer::PlayerType)
+	//{
+	//	//rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
+	//	rectEnt1 = ent1->GetRect();
+	//}
 
 	auto impactorRect = ent2->GetRect();
 
@@ -362,7 +362,7 @@ void Grid::Render()
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Sprites* sprite = new Sprites(texture, boundbox);
-			//sprite->Draw(position, boundbox, D3DXCOLOR(5, 255, 255, 255));
+			sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
 			delete sprite;
 		}
 	}
@@ -392,7 +392,7 @@ void Grid::RenderUnit(Unit* unit)
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
 				Sprites* sprite = new Sprites(texture, boundbox);
-				//sprite->Draw(position, boundbox, D3DXCOLOR(5,255,255,255));
+				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
 				delete sprite;
 				unit->entity->Render();
 

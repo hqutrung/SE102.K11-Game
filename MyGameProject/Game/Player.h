@@ -58,6 +58,8 @@ public:
 	////bool renderPreviousFrame;
 	float _LegY = 0;
 
+
+
 protected:
 	static Player* instance;
 	PlayerData* playerData;

@@ -39,10 +39,10 @@ void PlayerJumpCrossState::Update(float dt)
 		m_Animation->SetDefaultTime(0.05f);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.1f);
+		m_Animation->SetDefaultTime(0.07f);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.2f);
+		m_Animation->SetDefaultTime(0.08f);
 		break;
 	case 3:
 		m_Animation->SetDefaultTime(0.25f);
@@ -52,7 +52,7 @@ void PlayerJumpCrossState::Update(float dt)
 		break;
 	}
 
-	if (m_Animation->IsLastFrame(dt))
+	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
 		player->SetState(Fall);
 	PlayerState::Update(dt);
 }
@@ -114,6 +114,6 @@ void PlayerJumpCrossState::ResetState(int dummy)
 	player->SetColliderLeft(-17);
 	player->SetColliderRight(23);
 	player->SetColliderTop(37);
-	player->SetColliderBottom(-20);
+	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }
