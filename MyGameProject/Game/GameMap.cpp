@@ -283,6 +283,7 @@ void GameMap::SetMapGrid(char* mapPath)
 			Stone* stone = new Stone();
 			stone->SetSpawnBox(box);
 			unit = new Unit(grid, stone);
+			grid->AddStaticObject(stone);
 			break;
 		}
 		case BALL:

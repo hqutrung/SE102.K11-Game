@@ -12,6 +12,10 @@ Stone::Stone() : Item()
 	textures->GetTexture(TEX_STONE)->GetLevelDesc(0, &desc);
 	width = desc.Width / 8;
 	height = desc.Height;
+
+	SetTag(Tag::STONE);
+	SetType(Layer::StaticType);
+	SetStatic(true);
 }
 
 Stone::~Stone()
