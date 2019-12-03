@@ -1,14 +1,8 @@
 #pragma once
-#include "Item.h"
-#include "Sprites.h"
-#include "Textures.h"
+#include "Surface.h"
 
-class Pillar : public Item {
-	Sprites* sprite;
+class Pillar : public Surface {
 public:
 	Pillar(int id);
 	~Pillar();
-	void Update(float dt) override;
-	void Render() override;
-	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 };

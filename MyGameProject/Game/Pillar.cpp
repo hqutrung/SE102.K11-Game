@@ -2,8 +2,8 @@
 
 Pillar::Pillar(int id)
 {
+	Surface();
 	Textures* textures = Textures::GetInstance();
-	Item();
 	switch (id)
 	{
 	case 1:
@@ -24,23 +24,8 @@ Pillar::Pillar(int id)
 		break;
 	}
 	sprite = new Sprites(textures->GetTexture(TEX_PILLAR + id), BoxCollider());
-	SetType(Surface);
-	SetStatic(true);
 }
 
 Pillar::~Pillar()
-{
-}
-
-void Pillar::Update(float dt)
-{
-}
-
-void Pillar::Render()
-{
-	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
-}
-
-void Pillar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
 {
 }

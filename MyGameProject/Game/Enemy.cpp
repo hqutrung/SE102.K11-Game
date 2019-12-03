@@ -3,6 +3,10 @@
 Enemy::Enemy()
 {
 	SetType(EnemyType);
+	SetStatic(false);
+	SetActive(false);
+
+	animation = new Animation(0.1f);
 }
 
 Enemy::~Enemy()

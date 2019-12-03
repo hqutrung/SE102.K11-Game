@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Entity.h"
+#include "Textures.h"
 #include "PlayerData.h"
 #include "PlayerState.h"
 

@@ -1,14 +1,12 @@
 #pragma once
-#include "Item.h"
+#include "Obstacles.h"
 #include "Textures.h"
 #include "Animation.h"
 
-class BlueVase : public Item {
-	Animation* animation;
+class BlueVase : public Obstacles {
 public:
 	BlueVase();
 	~BlueVase();
 	void Update(float dt) override;
-	void Render() override;
 	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 };

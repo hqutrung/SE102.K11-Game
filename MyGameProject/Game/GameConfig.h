@@ -1,9 +1,9 @@
 #pragma once
 
-//#define SCREEN_WIDTH 2256
-//#define SCREEN_HEIGHT 1136
-#define SCREEN_WIDTH 318
-#define SCREEN_HEIGHT 230
+#define SCREEN_WIDTH 2256
+#define SCREEN_HEIGHT 1136
+//#define SCREEN_WIDTH 318
+//#define SCREEN_HEIGHT 230
 
 #define INDEX_CAMERA_WIDTH 30
 #define INDEX_CAMERA_HEIGHT 20
@@ -95,6 +95,7 @@ enum Layer {
 	PlayerType,
 	EnemyType,
 	ItemType,
+	ObstaclesType,	// Chuong ngai vat
 	StaticType,
 	Surface,
 	NoneType

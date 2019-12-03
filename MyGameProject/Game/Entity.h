@@ -36,6 +36,7 @@ public:
 	
 protected:
 	bool isActived;
+	bool isCollidable;
 	int id;
 	Tag tag;
 	Layer layer;
@@ -64,6 +65,7 @@ public:
 
 	// ID
 	virtual int GetID();
+	virtual bool IsCollidable() { return isCollidable; };
 
 	// Tag
 	virtual Tag GetTag();

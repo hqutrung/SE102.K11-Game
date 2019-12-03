@@ -13,6 +13,8 @@ Entity::Entity()
 	tag = NONE;
 	id = ++currentID;
 	isStatic = false;
+	isCollidable = true;
+	isActived = false;
 }
 
 Entity::~Entity()

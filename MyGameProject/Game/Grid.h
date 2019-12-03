@@ -1,10 +1,14 @@
 #pragma once
-#include <Windows.h>
 #include "GameConfig.h"
 #include "Entity.h"
 #include "Sprites.h"
 #include "Support.h"
+#include "Camera.h"
+#include "CollisionDetector.h"
+#include "Debug.h"
+#include "Textures.h"
 #include <vector>
+#include <Windows.h>
 
 class Unit;
 class Grid

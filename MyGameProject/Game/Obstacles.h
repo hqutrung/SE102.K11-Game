@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "Animation.h"
 
-class Item : public Entity {
+class Obstacles : public Entity {
 protected:
 	bool isDisappeared;
 	BoxCollider collider;
@@ -11,8 +11,8 @@ protected:
 	Animation* animation;
 
 public:
-	Item();
-	~Item();
+	Obstacles();
+	~Obstacles();
 
 	virtual void Update(float dt);
 	virtual void Render();
@@ -31,4 +31,6 @@ public:
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60);
 
 	void Spawn();
+
+	Animation* GetAnimation() { return animation; };
 };

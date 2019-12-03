@@ -38,12 +38,11 @@ private:
 	int mapObjects;
 	int** mapIDs;
 public:
-	GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight = 16, int tileWidth = 16, bool gridBuilt = false);
+	GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight = 16, int tileWidth = 16);
 	~GameMap();
 	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
 
-	void SetMap(char* mapPath, char* gridPath, bool gridBuilt);
-	void SetGrid(char* gridPath);
+	void SetMap(char* mapPath, char* gridPath);
 	void SetGridBuilt(char* gridBuiltPath);
 
 	bool isContain(BoxCollider rect1, BoxCollider rect2);

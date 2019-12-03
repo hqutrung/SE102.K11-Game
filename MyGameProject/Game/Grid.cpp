@@ -1,9 +1,6 @@
 #include "Grid.h"
 #include "Unit.h"
-#include "Camera.h"
-#include "CollisionDetector.h"
-#include "Debug.h"
-#include "Textures.h"
+#include "Player.h"
 
 Grid* Grid::instance = NULL;
 
@@ -114,6 +111,17 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 			}
 		}
 
+	// Handle Active staticObjects
+	for (size_t i = 0; i < staticObjects.size(); i++)
+	{
+		/*if (staticObjects[i]->GetType() == StaticType)
+			continue;*/
+		BoxCollider box = staticObjects[i]->GetRect();
+		if (Camera::GetInstance()->IsCollide(box)) 
+			staticObjects[i]->SetActive(true);
+		else
+			staticObjects[i]->SetActive(false);
+	}
 
 }
 
@@ -130,23 +138,6 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 
 		other = other->next;	
 	}
-
-	/*float camCenterX = camRect.getCenter().x;
-
-	while (unit != NULL) {
-		unit->active = true;
-		if (!unit->entity->IsActived()) {
-			auto entity = unit->entity;
-			auto entityRect = entity->GetRect();
-			Entity::MoveDirection direction = entity->GetMoveDirection();
-			auto childPos = entity->GetPosition();
-
-			if (unit->entity->GetType() == Layer::ItemAvailableType)
-				entity->SetActive(true);
-
-		}
-		unit = unit->next;
-	}*/
 }
 
 void Grid::HandleInActiveUnit(Unit* unit)
@@ -180,7 +171,6 @@ void Grid::HandMelee(float dt)
 }
 
 void Grid::HandleCell(int cellX, int cellY, float dt)
-
 {
 	if (!Cells[cellX][cellY]->active)
 		return;
@@ -226,6 +216,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	
 	float collisionTime = 2;
 
+
 	if (ent1->GetTag()==Tag::PLAYER) 
 	{
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
@@ -242,43 +233,37 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	}
 }
 
-void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
-{
-	if(ent2->GetTag() == CHAINEDPILLAR)
-		return;
-	//ent2's always static
-	Entity::SideCollision side;
-
-	BoxCollider rectEnt1 = ent1->GetRect();
-	//if (ent1->GetType() == Layer::PlayerType)
-	//{
-	//	//rectEnt1 = BoxCollider(ent1->GetPosition(), ent1->GetWidth(), ent1->GetBigHeight());
-	//	rectEnt1 = ent1->GetRect();
-	//}
-
-	auto impactorRect = ent2->GetRect();
-
-	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
-	
-
-	if (groundTime == 2) 
-		return;
-	ent1->OnCollision(ent2, side, groundTime, dt);
-}
-
 void Grid::HandleCellWithStatic(Unit* unit, float dt)
 {
 	while (unit != NULL) {
 		if (unit->entity->IsActived()) {
 			for (size_t i = 0; i < staticObjects.size(); i++)
 			{
-				if (staticObjects[i]->GetID() == 1&& unit->entity->GetType()==PlayerType)
+				if (staticObjects[i]->GetID() == 1 && unit->entity->GetType() == PlayerType)
 					printf("");
-				HandleColissionStatic(unit->entity, staticObjects[i], dt);
+				if ((staticObjects[i]->GetType() != Surface || staticObjects[i]->GetTag() == EXITPORT) && staticObjects[i]->IsActived())
+					HandleColissionStatic(unit->entity, staticObjects[i], dt);
 			}
 		}
 		unit = unit->next;
 	}
+}
+
+void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
+{
+	if (ent2->GetTag() == CHAINEDPILLAR)
+		return;
+	//ent2's always static
+	Entity::SideCollision side;
+
+	BoxCollider rectEnt1 = ent1->GetRect();
+	auto impactorRect = ent2->GetRect();
+
+	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
+
+	if (groundTime == 2)
+		return;
+	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
 
@@ -348,23 +333,43 @@ void Grid::Update(float dt)
 
 void Grid::Render()
 {
+	// Draw Grid
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
-
-	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+	
+	// Draw Player
+	Player::GetInstance()->GetCurrentState()->Render();
+	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
+	Support::DrawRect(pos, Player::GetInstance()->GetRect());
+	
+	// Draw surface + objectRect
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == Surface || (staticObjects[i]->GetType() == StaticType && staticObjects[i]->GetTag() == EXITPORT))
-			staticObjects[i]->Render();
-		else {
-			BoxCollider boundbox = staticObjects[i]->GetRect();
-			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-			Sprites* sprite = new Sprites(texture, boundbox);
-			sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
-			delete sprite;
+		D3DXCOLOR color = D3DCOLOR_ARGB(255, 255, 255, 255);
+		switch (staticObjects[i]->GetType()) {
+		case PlayerType:
+			break;
+		case EnemyType:
+			break;
+		case ItemType:
+			break;
+		case ObstaclesType:
+			break;
+		case StaticType:
+			break;
+		case Surface:
+			break;
 		}
+		BoxCollider boundbox = staticObjects[i]->GetRect();
+		D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+
+		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
+			staticObjects[i]->Render();
+
+		if (staticObjects[i]->IsActived())
+			Support::DrawRect(position, boundbox);
 	}
 }
 
@@ -384,18 +389,21 @@ void Grid::RenderUnit(Unit* unit)
 {
 	while (unit != NULL) 
 	{
-		LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
-		if (unit->entity->IsActived())
-		{
-			Camera* cam = Camera::GetInstance();
-			//if(cam->IsCollide(unit->entity->GetRect()))
-				BoxCollider boundbox = unit->entity->GetRect();
-				D3DXVECTOR3 position = (D3DXVECTOR3) boundbox.getCenter();
-				Sprites* sprite = new Sprites(texture, boundbox);
-				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
-				delete sprite;
+		if (unit->entity->GetTag() != PLAYER) {
+			LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+			if (unit->entity->IsActived())
+			{
+				
+				Camera* cam = Camera::GetInstance();
+				//if(cam->IsCollide(unit->entity->GetRect()))
+				// Draw entity
 				unit->entity->Render();
 
+				// Draw ObjectRect
+				BoxCollider boundbox = unit->entity->GetRect();
+				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+				Support::DrawRect(position, boundbox);
+			}
 		}
 		unit = unit->next;
 	}

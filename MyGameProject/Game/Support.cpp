@@ -29,4 +29,12 @@ float Support::Lerp(float a, float b, float t) {
 	return a + (b - a) * t;
 }
 
+void Support::DrawRect(D3DXVECTOR3 pos, BoxCollider box)
+{
+	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+	Sprites* sprite = new Sprites(texture, box);
+	sprite->Draw(pos, box, D3DCOLOR_ARGB(130, 255, 255, 255));
+	delete sprite;
+}
+
 

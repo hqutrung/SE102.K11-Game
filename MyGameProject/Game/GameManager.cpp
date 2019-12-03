@@ -57,8 +57,8 @@ void GameManager::Render()
 
 void GameManager::ProcessInput()
 {
-	/*auto input = KeyBoard::GetInstance();
-	KeyBoard::GetInstance()->ProcessKeyboard();
-	if ((input->GetKey(DIK_LSHIFT) || input->GetKey(DIK_RSHIFT)) && input->GetKeyDown(DIK_P))
-		isPause = !isPause;*/
+	auto input = KeyBoard::GetInstance();
+	////KeyBoard::GetInstance()->ProcessKeyboard();
+	/*if ((input->GetKey(DIK_LSHIFT)))
+		isDrawObjectRect = !isDrawObjectRect;*/
 }

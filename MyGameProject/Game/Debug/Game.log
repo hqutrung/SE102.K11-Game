@@ -1,6 +1,2 @@
-﻿  Grid.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(84,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(85,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(86,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(87,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Stone.cpp
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

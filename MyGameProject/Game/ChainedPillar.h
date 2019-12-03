@@ -1,14 +1,9 @@
 #pragma once
-#include "Item.h"
-#include "Sprites.h"
-#include "Textures.h"
+#include "Surface.h"
 
-class ChainedPillar : public Item {
+class ChainedPillar : public Surface {
 	Sprites* sprite;
 public:
 	ChainedPillar();
 	~ChainedPillar();
-	void Update(float dt) override;
-	void Render() override;
-	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60) override;
 };

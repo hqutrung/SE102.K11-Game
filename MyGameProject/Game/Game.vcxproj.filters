@@ -124,24 +124,6 @@
     <ClCompile Include="BlueHeart.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
-    <ClCompile Include="BlueVase.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Stone.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Spike.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Pillar.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="ExitPort.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClCompile>
@@ -159,9 +141,6 @@
     </ClCompile>
     <ClCompile Include="FatGuard.cpp">
       <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="ChainedPillar.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
@@ -198,6 +177,33 @@
     </ClCompile>
     <ClCompile Include="PlayerInjuredState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacles.cpp">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Stone.cpp">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueVase.cpp">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Pillar.cpp">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainedPillar.cpp">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitPort.cpp">
+      <Filter>Header Files\Objects\Surface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -333,24 +339,6 @@
     <ClInclude Include="GenieToken.h">
       <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
-    <ClInclude Include="BlueVase.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Stone.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Spike.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Pillar.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="ExitPort.h">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClInclude>
@@ -365,9 +353,6 @@
     </ClInclude>
     <ClInclude Include="FatGuard.h">
       <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="ChainedPillar.h">
-      <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
@@ -404,6 +389,33 @@
     </ClInclude>
     <ClInclude Include="CollisionDetector.h">
       <Filter>Header Files\Collission</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacles.h">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Stone.h">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueVase.h">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files\Objects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Pillar.h">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainedPillar.h">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitPort.h">
+      <Filter>Header Files\Objects\Surface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -445,6 +457,12 @@
     </Filter>
     <Filter Include="Header Files\Objects\Enemy">
       <UniqueIdentifier>{6deeb239-c3d3-4711-b23c-1b6e4ae2b2b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Obstacles">
+      <UniqueIdentifier>{2460e126-a687-4f48-a599-f95b26fb1793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Surface">
+      <UniqueIdentifier>{ad283311-d8cb-468b-ac0c-8f2abafa5cf4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

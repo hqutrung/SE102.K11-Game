@@ -162,6 +162,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Obstacles.cpp" />
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerClimbAttackState.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Stone.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="ThinGuard.cpp" />
     <ClCompile Include="Unit.cpp" />
@@ -232,6 +234,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyBoard.h" />
+    <ClInclude Include="Obstacles.h" />
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerClimbAttackState.h" />
@@ -266,6 +269,7 @@
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Stone.h" />
     <ClInclude Include="Support.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="ThinGuard.h" />
     <ClInclude Include="Unit.h" />

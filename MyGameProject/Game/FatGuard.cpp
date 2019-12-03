@@ -2,6 +2,9 @@
 
 FatGuard::FatGuard()
 {
+	Enemy();
+	SetTag(FATGUARD);
+
 	Textures* textures = Textures::GetInstance();
 	textures->Add(TEX_FATGUARD, "Resources/Enemys/fatguard.png", D3DCOLOR_XRGB(255, 255, 255));
 	sprite = new Sprites(textures->GetTexture(TEX_FATGUARD), BoxCollider());

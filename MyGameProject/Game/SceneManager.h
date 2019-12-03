@@ -28,7 +28,6 @@ public:
 	//void UpdateTransition(double dt);
 	bool IsTransitioning();
 	int GetSceneID();
-
 };
 
 #endif

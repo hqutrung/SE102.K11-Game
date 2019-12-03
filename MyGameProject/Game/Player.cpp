@@ -1,5 +1,4 @@
 ﻿#include "Player.h"
-#include"Textures.h"
 #include"PlayerIdleState.h"
 #include"PlayerRunState.h"
 #include"PlayerIdleAttackState.h"
@@ -394,6 +393,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
 	float playerBottom = GetRect().bottom + collisionTime * dt * velocity.y;
+
+	//Debug
 	if (impactor->GetTag() == STONE)
 		position.x = position.x;
 
@@ -402,7 +403,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// stand on Ground
 	if (side == Entity::SideCollision::Bottom && status != Jumping)
 	{
-		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE)) && round(playerBottom) == impactorRect.top && velocity.y < 0
+		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && round(playerBottom) == impactorRect.top && velocity.y < 0
 			&& !(position.x<impactor->GetRect().left - 5 || position.x>impactor->GetRect().right + 5))
 		{
 			DebugOut(L"Va cham tai: %f\n", playerBottom);
@@ -420,15 +421,17 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	velocity = newVelocity;
 
 
-	// APPLE
-	if (impactor->GetTag() == Tag::APPLE)
+	// ItemType
+	if (impactor->GetType() == ItemType)
 	{
 		impactor->SetActive(false);
 	}
+	else if (impactor->GetTag() == EXITPORT)
+		exit(0);
 	// !OnGround rớt đất
 	else if (status == OnGround && side == SideCollision::Bottom && (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
 	{
-		if (position.x <impactor->GetRect().left - 5 || position.x > impactor->GetRect().right + 5)
+		if ((position.x <impactor->GetRect().left - 5 || position.x > impactor->GetRect().right + 5)|| !impactor->IsCollidable())
 		{
 			SetVy(-JUMP_SPEED);
 			SetState(PlayerState::Fall);
