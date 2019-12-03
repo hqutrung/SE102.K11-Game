@@ -57,6 +57,10 @@ void DemoScene::Update(float dt)
 		player->SetPosition(playerPos.x, 16);
 	if (playerPos.y > map->GetHeight() - 16)
 		player->SetPosition(playerPos.x, map->GetHeight() - 16);
+	//
+
+	
+	
 }
 
 void DemoScene::Render()

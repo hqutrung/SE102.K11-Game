@@ -199,6 +199,7 @@
     <ClCompile Include="PlayerInjuredState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerPushState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -404,6 +405,9 @@
     </ClInclude>
     <ClInclude Include="CollisionDetector.h">
       <Filter>Header Files\Collission</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPushState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

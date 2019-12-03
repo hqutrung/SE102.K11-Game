@@ -27,6 +27,10 @@ public:
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 	// sử dụng cho State Jump
 	Status status;
+	D3DXVECTOR3 lastposition;
+	//
+	bool isClaimWall = false;
+	//
 
 	void SetColliderTop(int top);
 	void SetColliderLeft(int left);
@@ -37,6 +41,7 @@ public:
 	BoxCollider GetBody();
 	float GetBigWidth() override;
 	float GetBigHeight() override;
+	BoxCollider GetBigBound();
 	float GetWidth() override;
 	float GetHeight() override;
 
@@ -51,12 +56,12 @@ public:
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	
 
-	D3DXVECTOR3 lastposition;
+	
 	//bool checkGroundInFrame;
 	//float timeOnAir;
 
 	////bool renderPreviousFrame;
-	float _LegY = 0;
+	
 
 
 
@@ -86,7 +91,8 @@ protected:
 		* climbThrowState,
 		* climbJumpState,
 		* injuredState,
-		* deathState
+		* deathState,
+		* pushState
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;

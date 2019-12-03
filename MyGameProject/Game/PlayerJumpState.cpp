@@ -77,14 +77,14 @@ void PlayerJumpState::HandleInput()
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
-		player->SetVx(RUN_SPEED/1.5);
+		player->SetVx(RUN_SPEED*0.8);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		player->SetVx(-RUN_SPEED/1.5);
+		player->SetVx(-RUN_SPEED*0.8f);
 		return;
 	}
 	player->SetVx(0);

@@ -32,7 +32,7 @@ void PlayerJumpAttackState::Update(float dt)
 	}
 	// set time cua cac frame
 	if (m_Animation->GetCurrentFrameID() == 6)
-		m_Animation->SetDefaultTime(0.1);
+		m_Animation->SetDefaultTime(0.15f);
 	else m_Animation->SetDefaultTime(0.05f);
 
 	// end frame
@@ -75,6 +75,7 @@ void PlayerJumpAttackState::HandleInput()
 
 void PlayerJumpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	
 }
 
 PlayerState::State PlayerJumpAttackState::GetStateName()

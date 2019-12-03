@@ -184,6 +184,7 @@
     <ClCompile Include="PlayerJumpThrowState.cpp" />
     <ClCompile Include="PlayerLookUpAttackState.cpp" />
     <ClCompile Include="PLayerLookUpState.cpp" />
+    <ClCompile Include="PlayerPushState.cpp" />
     <ClCompile Include="PlayerRunAttackState.cpp" />
     <ClCompile Include="PlayerRunState.cpp" />
     <ClCompile Include="PlayerRunThrowState.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="PlayerJumpThrowState.h" />
     <ClInclude Include="PlayerLookUpAttackState.h" />
     <ClInclude Include="PLayerLookUpState.h" />
+    <ClInclude Include="PlayerPushState.h" />
     <ClInclude Include="PlayerRunAttackState.h" />
     <ClInclude Include="PlayerRunState.h" />
     <ClInclude Include="PlayerRunThrowState.h" />
