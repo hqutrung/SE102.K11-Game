@@ -36,19 +36,19 @@ void PlayerJumpCrossState::Update(float dt)
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 0:
-		m_Animation->SetDefaultTime(0.05f);
+		m_Animation->SetDefaultTime(0.05);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.07f);
+		m_Animation->SetDefaultTime(0.12f);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.08f);
+		m_Animation->SetDefaultTime(0.12f);
 		break;
 	case 3:
-		m_Animation->SetDefaultTime(0.25f);
+		m_Animation->SetDefaultTime(0.12f);
 		break;
 	default:
-		m_Animation->SetDefaultTime(0.25f);
+		m_Animation->SetDefaultTime(0.14f);
 		break;
 	}
 
@@ -83,14 +83,14 @@ void PlayerJumpCrossState::HandleInput()
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
-		player->SetVx(RUN_SPEED / 1.1);
+		player->SetVx(RUN_SPEED*0.9);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		player->SetVx(-RUN_SPEED / 1.1);
+		player->SetVx(-RUN_SPEED *0.9);
 		return;
 	}
 	player->SetVx(0);
@@ -98,7 +98,6 @@ void PlayerJumpCrossState::HandleInput()
 
 void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-
 	
 }
 

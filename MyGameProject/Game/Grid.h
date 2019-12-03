@@ -23,8 +23,9 @@ class Grid
 	RECT activeRect;
 
 	std::vector<Entity*> staticObjects;
-
+	int isDraw = 0;
 public:
+	
 	static Grid* GetInstance();
 
 	Grid(BoxCollider r, int rowNumbers, int colNumbers);

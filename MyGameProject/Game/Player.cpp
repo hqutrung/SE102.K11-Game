@@ -23,6 +23,8 @@
 #include"PlayerClimbJumpState.h"
 #include"PlayerDeathState.h"
 #include "CollisionDetector.h"
+#include"PlayerPushState.h"
+
 
 Player* Player::instance = NULL;
 
@@ -65,6 +67,7 @@ Player::Player()
 	climbJumpState = new PlayerClimbJumpState(playerData);
 	injuredState = new PlayerInjuredState(playerData);
 	deathState = new PlayerDeathState(playerData);
+	pushState = new PlayerPushState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -125,19 +128,20 @@ Player::~Player()
 	climbThrowState = NULL;
 	delete deathState;
 	deathState = NULL;
+	delete pushState;
+	pushState = NULL;
+
 	delete playerData;
 	instance = NULL;
+
 }
 
 void Player::Update(float dt)
 {
 	Entity::Update(dt);
+
 	if (playerData->state)
 		playerData->state->Update(dt);
-	/*if (checkGroundInFrame == false && status == OnGround)
-		OnFalling();
-
-	checkGroundInFrame = false;*/
 
 }
 
@@ -224,6 +228,9 @@ void Player::SetState(PlayerState::State state, int dummy)
 	case PlayerState::Death:
 		playerData->state = deathState;
 		break;
+	case PlayerState::Push:
+		playerData->state = pushState;
+		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
 	playerData->state->ResetState(dummy);
@@ -300,6 +307,8 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return climbThrowState;
 	case PlayerState::DuckThrow:
 		return duckThrowState;
+	case PlayerState::Push:
+		return pushState;
 	}
 }
 
@@ -338,7 +347,14 @@ BoxCollider Player::GetRect()
 	}
 	return r;
 }
-
+BoxCollider Player::GetBigBound() {
+	BoxCollider box;
+	if (GetMoveDirection() == Player::MoveDirection::LeftToRight)
+		box = BoxCollider(position.y + 25, position.x - 16, position.x + 19, position.y - 24);
+	else
+		box = BoxCollider(position.y + 25, position.x - 19, position.x + 16, position.y - 24);
+	return box;
+}
 BoxCollider Player::GetBody()
 {
 	return playerData->state->GetBody();
@@ -392,35 +408,54 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
+
+	// Rect tiep theo cua state hien tai
 	float playerBottom = GetRect().bottom + collisionTime * dt * velocity.y;
+	float playerRight = GetRect().right + collisionTime * dt * velocity.x;
+	float playerLeft = GetRect().left + collisionTime * dt * velocity.x;
+	float playerTop = GetRect().top + collisionTime * dt * velocity.y;
 
 	//Debug
 	if (impactor->GetTag() == STONE)
 		position.x = position.x;
 
+	// Rect tiep theo cua body
+	float rPlayer = GetBigBound().right + collisionTime * dt * velocity.x;
+	float lPlayer = GetBigBound().left + collisionTime * dt * velocity.x;
+	float tPlayer = GetBigBound().top + collisionTime * dt * velocity.y;
+	float bPlayer = GetBigBound().bottom + collisionTime * dt * velocity.y;
+
+
 	D3DXVECTOR2 newVelocity = velocity;
 
 	// stand on Ground
-	if (side == Entity::SideCollision::Bottom && status != Jumping)
+	if (side == Entity::SideCollision::Bottom && status != Jumping&&status!=Climbing)
 	{
-		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && round(playerBottom) == impactorRect.top && velocity.y < 0
-			&& !(position.x<impactor->GetRect().left - 5 || position.x>impactor->GetRect().right + 5))
+		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE)) && round(playerBottom) == impactorRect.top && velocity.y < 0
+			&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
 		{
-			DebugOut(L"Va cham tai: %f\n", playerBottom);
 			status = OnGround;
-
 			newVelocity.y *= collisionTime;
-
-			DebugOut(L"y = : %f\n", position.y + newVelocity.y * dt);
-			//SetPosition(position.x, position.y + collisionTime * dt * velocity.y);
 			lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
 			SetState(PlayerState::Idle);
 		}
 	}
+	// va cham tuong (WALL)
+	if (impactor->GetTag() == WALL)
+	{
+		newVelocity.x *= collisionTime;
 
-	velocity = newVelocity;
-
-
+		if ((side == Right && round(rPlayer) == impactorRect.left || side == Left && round(lPlayer) == impactorRect.right)
+			&& velocity.x != 0
+			&& (bPlayer >= impactor->GetRect().bottom && bPlayer < impactor->GetRect().top))
+		{
+			if (GetCurrentState()->GetStateName() == PlayerState::State::Run)
+			{
+				lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
+				SetState(PlayerState::Push);
+			}
+		}
+	}
 	// ItemType
 	if (impactor->GetType() == ItemType)
 	{
@@ -431,12 +466,26 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// !OnGround rớt đất
 	else if (status == OnGround && side == SideCollision::Bottom && (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
 	{
-		if ((position.x <impactor->GetRect().left - 5 || position.x > impactor->GetRect().right + 5)|| !impactor->IsCollidable())
+		if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false)
 		{
 			SetVy(-JUMP_SPEED);
 			SetState(PlayerState::Fall);
 			status = Falling;
 		}
 	}
+	if (impactor->GetTag() == CHAINE)
+		int x = 0;
+
+	// climb
+	if (impactor->GetTag() == CHAINE)
+	{
+		if (side != Top && status == Falling && Support::IsContainedIn(position.x, impactor->GetPosition().x - 2, impactor->GetPosition().x + 2))
+		{
+			status = Climbing;
+			SetState(PlayerState::Climb);
+		}
+	}
+
+	velocity = newVelocity;
 	playerData->state->OnCollision(impactor, side, collisionTime, dt);
 }

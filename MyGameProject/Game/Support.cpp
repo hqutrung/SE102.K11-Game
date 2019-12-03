@@ -29,6 +29,10 @@ float Support::Lerp(float a, float b, float t) {
 	return a + (b - a) * t;
 }
 
+bool Support::IsContainedIn(float x, float a, float b)
+{
+	return (x <= b && x >= a);
+}
 void Support::DrawRect(D3DXVECTOR3 pos, BoxCollider box)
 {
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);

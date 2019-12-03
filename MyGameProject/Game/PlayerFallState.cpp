@@ -118,13 +118,13 @@ void PlayerFallState::HandleInput()
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetVx(RUN_SPEED / 1.65);
+		player->SetVx(RUN_SPEED *0.8);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
-		player->SetVx(-RUN_SPEED / 1.65);
+		player->SetVx(-RUN_SPEED *0.8);
 		return;
 	}
 
@@ -134,7 +134,7 @@ void PlayerFallState::HandleInput()
 
 void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-
+	
 }
 
 PlayerState::State PlayerFallState::GetStateName()

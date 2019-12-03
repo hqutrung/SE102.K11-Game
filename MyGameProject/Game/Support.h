@@ -13,5 +13,6 @@ public:
 	static float Clamp(float x, float a, float b);
 	static float Distance(float x1, float x2);
 	static float Lerp(float a, float b, float t);
+	static bool IsContainedIn(float x, float a, float b);
 	static void DrawRect(D3DXVECTOR3 pos, BoxCollider box);
 };

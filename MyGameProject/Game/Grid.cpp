@@ -96,7 +96,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 					if (Cells[i][j]->entity->IsActived())
 					{
 						HandleInActiveUnit(Cells[i][j]);
-					
+
 						if (Cells[i][j] == NULL)
 							continue;
 						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
@@ -128,7 +128,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirection, Unit* unit)
 {
 	Unit* other = unit;
-	
+
 	while (other != NULL)
 	{
 		other->active = true;
@@ -136,7 +136,7 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 		// Set active entity
 		other->entity->SetActive(true);
 
-		other = other->next;	
+		other = other->next;
 	}
 }
 
@@ -203,9 +203,9 @@ void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
 	while (other != NULL)
 	{
 		if (other->entity->IsActived())
-			{
-				HandleCollision(unit->entity, other->entity, dt);
-			}
+		{
+			HandleCollision(unit->entity, other->entity, dt);
+		}
 		other = other->next;
 	}
 }
@@ -213,11 +213,10 @@ void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
 void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 {
 	Entity::SideCollision side;
-	
+
 	float collisionTime = 2;
 
-
-	if (ent1->GetTag()==Tag::PLAYER) 
+	if (ent1->GetTag() == Tag::PLAYER)
 	{
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
@@ -251,21 +250,44 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 
 void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 {
+	auto player = Player::GetInstance();
+
 	if (ent2->GetTag() == CHAINEDPILLAR)
 		return;
-	//ent2's always static
 	Entity::SideCollision side;
+	auto rectEnt1 = ent1->GetRect();
 
-	BoxCollider rectEnt1 = ent1->GetRect();
+	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
+	{
+		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x + 5, player->GetBigBound().right, player->GetBigBound().bottom);
+		else 
+			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
+	}
+
 	auto impactorRect = ent2->GetRect();
-
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 
 	if (groundTime == 2)
 		return;
+	
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
+void Grid::HandleCellWithStatic(Unit* unit, float dt)
+{
+	while (unit != NULL) {
+		if (unit->entity->IsActived()) {
+			for (size_t i = 0; i < staticObjects.size(); i++)
+			{
+				if (staticObjects[i]->GetID() == 1&& unit->entity->GetType()==PlayerType)
+					printf("");
+				HandleColissionStatic(unit->entity, staticObjects[i], dt);
+			}
+		}
+		unit = unit->next;
+	}
+}
 
 void Grid::Move(Unit* unit, float x, float y)
 {
@@ -292,7 +314,7 @@ void Grid::Move(Unit* unit, float x, float y)
 		return;
 
 	// Unlink it from the list of its old cell.
-	if(unit->prev != NULL)
+	if (unit->prev != NULL)
 		unit->prev->next = unit->next;
 	if (unit->next != NULL)
 		unit->next->prev = unit->prev;
@@ -367,15 +389,25 @@ void Grid::Render()
 
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
+		else {
+			BoxCollider boundbox = staticObjects[i]->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+			Sprites* sprite = new Sprites(texture, boundbox);
+			if (KeyBoard::GetInstance()->GetKey(DIK_NUMPAD0))
+				isDraw = 0;
+			if (KeyBoard::GetInstance()->GetKey(DIK_NUMPAD1))
+				isDraw = 1;
+			if (isDraw == 1)
+				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
 
-		if (staticObjects[i]->IsActived())
-			Support::DrawRect(position, boundbox);
+			delete sprite;
+		}
 	}
 }
 
 void Grid::UpdateUnit(Unit* unit, float dt)
 {
-	while (unit != NULL) 
+	while (unit != NULL)
 	{
 		if (unit->entity->IsActived())
 		{
@@ -387,17 +419,20 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 
 void Grid::RenderUnit(Unit* unit)
 {
-	while (unit != NULL) 
+	while (unit != NULL)
 	{
-		if (unit->entity->GetTag() != PLAYER) {
-			LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
-			if (unit->entity->IsActived())
-			{
-				
-				Camera* cam = Camera::GetInstance();
-				//if(cam->IsCollide(unit->entity->GetRect()))
-				// Draw entity
-				unit->entity->Render();
+		LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+		if (unit->entity->IsActived())
+		{
+			Camera* cam = Camera::GetInstance();
+			//if(cam->IsCollide(unit->entity->GetRect()))
+			BoxCollider boundbox = unit->entity->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+			Sprites* sprite = new Sprites(texture, boundbox);
+			if (isDraw == 1)
+				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
+			delete sprite;
+			unit->entity->Render();
 
 				// Draw ObjectRect
 				BoxCollider boundbox = unit->entity->GetRect();

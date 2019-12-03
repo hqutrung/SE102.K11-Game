@@ -32,7 +32,8 @@ public:
 		ClimbThrow,
 		ClimbJump,
 		Injured,
-		Death
+		Death,
+		Push
 
 	};
 	int countPressKey = 1;

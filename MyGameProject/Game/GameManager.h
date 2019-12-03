@@ -13,7 +13,7 @@ class GameManager {
 public:
 	GameManager(HWND hWnd, HINSTANCE hInstance);
 	~GameManager();
-
+	
 	void Update(float dt);
 	void Render();
 	void ProcessInput();

@@ -1,2 +1,10 @@
+<<<<<<< HEAD
 ﻿  Stone.cpp
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  PlayerClimbState.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(80,31): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(85,30): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung

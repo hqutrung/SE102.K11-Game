@@ -42,6 +42,7 @@ public:
 	void Update1(float dt);
 	void ResetAnimation();
 	bool IsLastFrame(float dt);
+	bool IsEndFrame(int frame, float dt);
 	double GetPercentTime();
 	void SetDefaultTime(float x) {
 		this->defaultTime = x;

@@ -6,7 +6,7 @@ PlayerClimbState::PlayerClimbState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1245, "Resources/PlayerState/climb_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1245), 2,8,0.05f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1245), 2, 8, 0.05f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -26,19 +26,20 @@ void PlayerClimbState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
-	player->SetVelocity(D3DXVECTOR2(0, 0));	
-
+	player->SetVelocity(D3DXVECTOR2(0, 0));
 
 	if (keyboard->GetKey(UP_ARROW))
 	{
+		if (m_Animation->countLoopFrame == 1)
+			m_Animation->Update(dt);
 		player->SetVy(CLIMB_SPEED);
-		m_Animation->Update(dt);
 	}
 	else if (keyboard->GetKey(DOWN_ARROW))
 	{
 		player->SetVy(-CLIMB_SPEED);
 		m_Animation->Update1(dt);
 	}
+
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 1:
@@ -63,7 +64,7 @@ void PlayerClimbState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKey(ATTACK_ARROW)&&player->GetState(ClimbAttack)->countPressKey==1)
+	if (keyboard->GetKey(ATTACK_ARROW) && player->GetState(ClimbAttack)->countPressKey == 1)
 	{
 		player->SetState(ClimbAttack);
 		return;
@@ -90,12 +91,26 @@ void PlayerClimbState::HandleInput()
 	//	return;
 	//}
 
-	
+
 
 }
 
 void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	auto player = Player::GetInstance();
+
+	if (player->status == Player::Status::Climbing
+		&& player->GetRect().bottom < impactor->GetRect().bottom)
+	{
+		player->SetState(PlayerState::Fall);
+	}
+	if (player->status == Player::Status::Climbing
+		&& player->GetRect().top > impactor->GetRect().top - 15 && player->GetVy() > 0)
+	{
+		m_Animation->countLoopFrame++;
+		player->SetVy(0);
+	}
+	else m_Animation->countLoopFrame = 1;
 }
 
 PlayerState::State PlayerClimbState::GetStateName()

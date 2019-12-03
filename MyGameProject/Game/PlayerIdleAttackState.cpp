@@ -6,7 +6,7 @@ PlayerIdleAttackState::PlayerIdleAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1002, "Resources/PlayerState/idle_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1002), 1, 10, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1002), 1, 9, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -23,12 +23,21 @@ void PlayerIdleAttackState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 
-	if (m_Animation->GetCurrentFrameID()==6)
+	//set default time
+
+	if (m_Animation->GetCurrentFrameID() == 6)
+		m_Animation->SetDefaultTime(0.06f);
+	else m_Animation->SetDefaultTime(0.04f);
+
+	// chuyen state
+	if (m_Animation->IsEndFrame(5,dt))
 	{
+		m_Animation->countLoopFrame = 1;
 		playerData->player->SetState(Idle);
 	}
 	if (m_Animation->IsLastFrame(dt))
 	{
+		m_Animation->countLoopFrame = 1;
 		playerData->player->SetState(Idle);
 	}
 
@@ -57,6 +66,11 @@ void PlayerIdleAttackState::HandleInput()
 
 void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetTag() == WALL && m_Animation->countLoopFrame == 1&&m_Animation->IsEndFrame(2,dt))
+	{
+		m_Animation->SetCurrentFrame(6);
+		m_Animation->countLoopFrame++;
+	}
 }
 
 PlayerState::State PlayerIdleAttackState::GetStateName()
