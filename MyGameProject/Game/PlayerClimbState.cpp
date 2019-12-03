@@ -100,11 +100,13 @@ void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side,
 	auto player = Player::GetInstance();
 
 	if (player->status == Player::Status::Climbing
+		&& impactor->GetTag() == CHAINE
 		&& player->GetRect().bottom < impactor->GetRect().bottom)
 	{
 		player->SetState(PlayerState::Fall);
 	}
 	if (player->status == Player::Status::Climbing
+		&& impactor->GetTag() == CHAINE
 		&& player->GetRect().top > impactor->GetRect().top - 15 && player->GetVy() > 0)
 	{
 		m_Animation->countLoopFrame++;

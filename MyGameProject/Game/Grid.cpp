@@ -274,21 +274,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
-void Grid::HandleCellWithStatic(Unit* unit, float dt)
-{
-	while (unit != NULL) {
-		if (unit->entity->IsActived()) {
-			for (size_t i = 0; i < staticObjects.size(); i++)
-			{
-				if (staticObjects[i]->GetID() == 1&& unit->entity->GetType()==PlayerType)
-					printf("");
-				HandleColissionStatic(unit->entity, staticObjects[i], dt);
-			}
-		}
-		unit = unit->next;
-	}
-}
-
 void Grid::Move(Unit* unit, float x, float y)
 {
 	// old cell
@@ -355,16 +340,23 @@ void Grid::Update(float dt)
 
 void Grid::Render()
 {
+	if (KeyBoard::GetInstance()->GetKey(DIK_O))
+		isDraw = 0;
+	if (KeyBoard::GetInstance()->GetKey(DIK_P))
+		isDraw = 1;
+
 	// Draw Grid
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
 	
+	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 	// Draw Player
 	Player::GetInstance()->GetCurrentState()->Render();
 	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
-	Support::DrawRect(pos, Player::GetInstance()->GetRect());
+	if(isDraw)
+		Support::DrawRect(pos, Player::GetInstance()->GetRect());
 	
 	// Draw surface + objectRect
 	for (size_t i = 0; i < staticObjects.size(); i++)
@@ -393,10 +385,7 @@ void Grid::Render()
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Sprites* sprite = new Sprites(texture, boundbox);
-			if (KeyBoard::GetInstance()->GetKey(DIK_NUMPAD0))
-				isDraw = 0;
-			if (KeyBoard::GetInstance()->GetKey(DIK_NUMPAD1))
-				isDraw = 1;
+			
 			if (isDraw == 1)
 				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
 
@@ -426,25 +415,20 @@ void Grid::RenderUnit(Unit* unit)
 		{
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
-			BoxCollider boundbox = unit->entity->GetRect();
-			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-			Sprites* sprite = new Sprites(texture, boundbox);
-			if (isDraw == 1)
-				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
-			delete sprite;
-			unit->entity->Render();
 
-				// Draw ObjectRect
+			// Draw ObjectRect
+			if (isDraw == 1) {
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);
 			}
+
+			unit->entity->Render();
 		}
 		unit = unit->next;
 	}
-
-
 }
+
 void Grid::AddStaticObject(Entity* ent) {
 	staticObjects.push_back(ent);
 }

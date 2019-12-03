@@ -431,7 +431,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// stand on Ground
 	if (side == Entity::SideCollision::Bottom && status != Jumping&&status!=Climbing)
 	{
-		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE)) && round(playerBottom) == impactorRect.top && velocity.y < 0
+		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && round(playerBottom) == impactorRect.top && velocity.y < 0
 			&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
 		{
 			status = OnGround;
@@ -464,9 +464,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	else if (impactor->GetTag() == EXITPORT)
 		exit(0);
 	// !OnGround rớt đất
-	else if (status == OnGround && side == SideCollision::Bottom && (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && velocity.y == 0)
+	else if (status == OnGround && side == SideCollision::Bottom && (impactor->GetTag() == GROUND || (impactor->GetTag() == STONE)) && velocity.y == 0)
 	{
-		if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false)
+		if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false || !impactor->IsCollidable())
 		{
 			SetVy(-JUMP_SPEED);
 			SetState(PlayerState::Fall);
