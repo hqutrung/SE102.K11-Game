@@ -13,11 +13,6 @@ Gem::~Gem()
 {
 }
 
-void Gem::Update(float dt)
-{
-	animation->Update(dt);
-}
-
 void Gem::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
 {
 }

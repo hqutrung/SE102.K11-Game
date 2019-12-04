@@ -14,6 +14,8 @@ Item::~Item()
 
 void Item::Update(float dt)
 {
+	animation->Update(dt);
+	Entity::Update(dt);
 }
 
 void Item::Render()

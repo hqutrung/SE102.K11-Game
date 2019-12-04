@@ -139,7 +139,6 @@ Player::~Player()
 void Player::Update(float dt)
 {
 	Entity::Update(dt);
-
 	if (playerData->state)
 		playerData->state->Update(dt);
 

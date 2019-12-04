@@ -48,8 +48,8 @@
 #define DEMO_SCENE 1
 
 // GRID
-#define GRID_ROW_NUMBERS 30
-#define GRID_COLUMN_NUMBERS 60
+#define GRID_ROW_NUMBERS 15
+#define GRID_COLUMN_NUMBERS 30
 
 
 // state speed

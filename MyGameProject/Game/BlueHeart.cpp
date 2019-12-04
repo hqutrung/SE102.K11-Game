@@ -15,11 +15,6 @@ BlueHeart::~BlueHeart()
 {
 }
 
-void BlueHeart::Update(float dt)
-{
-	animation->Update(dt);
-}
-
 void BlueHeart::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
 {
 }

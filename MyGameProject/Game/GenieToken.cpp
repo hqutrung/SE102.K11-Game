@@ -20,8 +20,7 @@ void GenieToken::Update(float dt)
 		animation->SetDefaultTime(1.2f);
 	else
 		animation->SetDefaultTime(0.2f);
-	animation->Update(dt);
-	Entity::Update(dt);
+	Item::Update(dt);
 }
 
 void GenieToken::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)

@@ -80,15 +80,14 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 	RECT r;
 	r.left = (int)(Support::Clamp(camRect.left / cellWidth, 0, colNumbers));
 	r.right = (int)(Support::Clamp(camRect.right / cellWidth, 0, colNumbers));
-	r.top = (int)(Support::Clamp(camRect.top / cellWidth, 0, rowNumbers));
-	r.bottom = (int)(Support::Clamp(camRect.bottom / cellWidth, 0, rowNumbers));
+	r.top = (int)(Support::Clamp(camRect.top / cellHeight, 0, rowNumbers));
+	r.bottom = (int)(Support::Clamp(camRect.bottom / cellHeight, 0, rowNumbers));
 
 	// Check Active: it's in r => active
-
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 		{
-			if (i < r.left - 1 || i > r.right + 1 || j > r.top + 1 || j < r.bottom - 1)
+			if (i < r.left || i > r.right || j > r.top || j < r.bottom)
 			{
 				activeCells[i][j] = false;
 				if (Cells[i][j] != NULL)
@@ -252,8 +251,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 {
 	auto player = Player::GetInstance();
 
-	if (ent2->GetTag() == CHAINEDPILLAR)
-		return;
 	Entity::SideCollision side;
 	auto rectEnt1 = ent1->GetRect();
 
@@ -382,14 +379,8 @@ void Grid::Render()
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
 		else {
-			BoxCollider boundbox = staticObjects[i]->GetRect();
-			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-			Sprites* sprite = new Sprites(texture, boundbox);
-			
 			if (isDraw == 1)
-				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
-
-			delete sprite;
+				Support::DrawRect(position, boundbox);
 		}
 	}
 }

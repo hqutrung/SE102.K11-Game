@@ -14,3 +14,8 @@ ExitPort::~ExitPort()
 {
 }
 
+void ExitPort::SetSpawnBox(BoxCollider box)
+{
+	Surface::SetSpawnBox(box);
+}
+
