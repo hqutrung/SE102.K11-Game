@@ -149,9 +149,13 @@
     <ClCompile Include="DemoRunningState.cpp" />
     <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyData.cpp" />
+    <ClCompile Include="EnemyState.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ExitPort.cpp" />
     <ClCompile Include="FatGuard.cpp" />
+    <ClCompile Include="FatGuardAttackState.cpp" />
+    <ClCompile Include="FatGuardRunState.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameTime.cpp" />
@@ -222,9 +226,12 @@
     <ClInclude Include="DemoRunningState.h" />
     <ClInclude Include="DemoScene.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyData.h" />
+    <ClInclude Include="EnemyState.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitPort.h" />
     <ClInclude Include="FatGuard.h" />
+    <ClInclude Include="FatGuardAttackState.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameMap.h" />

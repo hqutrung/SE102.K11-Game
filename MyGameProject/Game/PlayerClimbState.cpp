@@ -107,7 +107,7 @@ void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side,
 	}
 	if (player->status == Player::Status::Climbing
 		&& impactor->GetTag() == CHAINE
-		&& player->GetRect().top > impactor->GetRect().top - 15 && player->GetVy() > 0)
+		&& player->GetPosition().y > impactor->GetRect().top - 87 && player->GetVy() > 0)
 	{
 		m_Animation->countLoopFrame++;
 		player->SetVy(0);
@@ -122,5 +122,5 @@ PlayerState::State PlayerClimbState::GetStateName()
 
 void PlayerClimbState::ResetState(int dummy)
 {
-	PlayerState::ResetState(dummy);
+	/*PlayerState::ResetState(dummy);*/
 }

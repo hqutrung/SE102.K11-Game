@@ -5,7 +5,6 @@
 #include "KeyBoard.h"
 #include "GameConfig.h"
 #include "Textures.h"
-#include "PlayerData.h"
 
 class PlayerState {
 public:

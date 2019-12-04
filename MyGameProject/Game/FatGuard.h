@@ -2,9 +2,14 @@
 #include "Enemy.h"
 #include "Sprites.h"
 #include "Textures.h"
+#include"EnemyData.h"
+#include"EnemyState.h"
 
 class FatGuard : public Enemy {
-	Sprites* sprite;
+
+protected:
+	EnemyState* fatguardAttackState;
+
 public:
 	FatGuard();
 	~FatGuard();

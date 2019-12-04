@@ -449,7 +449,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			&& velocity.x != 0
 			&& (bPlayer >= impactor->GetRect().bottom && bPlayer < impactor->GetRect().top))
 		{
-			if (GetCurrentState()->GetStateName() == PlayerState::State::Run)
+			if (GetCurrentState()->GetStateName() == PlayerState::State::Run|| GetCurrentState()->GetStateName() == PlayerState::State::RunAttack|| GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
 			{
 				lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
 				SetState(PlayerState::Push);
@@ -479,7 +479,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// climb
 	if (impactor->GetTag() == CHAINE)
 	{
-		if (side != Top && status == Falling && Support::IsContainedIn(position.x, impactor->GetPosition().x - 2, impactor->GetPosition().x + 2))
+		if (side != Top && status == Falling && Support::IsContainedIn(position.x, impactor->GetPosition().x - 3, impactor->GetPosition().x + 3))
 		{
 			status = Climbing;
 			SetState(PlayerState::Climb);

@@ -1,5 +1,7 @@
 #pragma once
 #include "Entity.h"
+#include "EnemyData.h"
+#include"EnemyState.h"
 #include "Animation.h"
 
 class Enemy : public Entity {
@@ -10,7 +12,10 @@ protected:
 	Entity::MoveDirection spawnDirection;
 	virtual void Spawn();
 	virtual void MakeInactive();
+
 	Animation* animation;
+	EnemyData* enemyData;
+
 public:
 	Enemy();
 	~Enemy();
