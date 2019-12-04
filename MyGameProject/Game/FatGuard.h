@@ -1,13 +1,14 @@
 #pragma once
 #include "Enemy.h"
-#include "Sprites.h"
 #include "Textures.h"
+#include "FatGuardAttackState.h"
 
 class FatGuard : public Enemy {
-	Sprites* sprite;
+
+protected:
+	EnemyState* fatguardAttackState;
 public:
 	FatGuard();
 	~FatGuard();
 	void Update(float dt) override;
-	void Render() override;
 };

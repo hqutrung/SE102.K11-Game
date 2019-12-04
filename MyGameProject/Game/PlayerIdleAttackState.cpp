@@ -49,6 +49,11 @@ void PlayerIdleAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(THROW_ARROW))
+	{
+		player->SetState(IdleThrow);
+		return;
+	}
 	if (keyboard->GetKeyDown(ATTACK_ARROW))
 	{
 		countPressKey++;

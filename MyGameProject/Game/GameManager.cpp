@@ -7,7 +7,7 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 	KeyBoard::GetInstance()->Init(hWnd);
 
-	SceneManager::GetInstance()->LoadScene(DEMO_SCENE);
+	SceneManager::GetInstance()->LoadScene(SCENE_1);
 
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;

@@ -51,12 +51,11 @@ void PlayerJumpAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
-	/*
-	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
+	if (keyboard->GetKey(THROW_ARROW))
 	{
-		player->SetVx(RUN_SPEED / 1.1f);
+		player->SetState(JumpThrow);
 		return;
-	}*/
+	}
 
 
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))

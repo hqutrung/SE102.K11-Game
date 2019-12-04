@@ -52,16 +52,20 @@ void PlayerJumpThrowState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(ATTACK_ARROW))
+	{
+		player->SetState(JumpAttack);
+		return;
+	}
+
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		player->SetVx(RUN_SPEED / 1.1f);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		player->SetVx(-RUN_SPEED / 1.1f);
 		return;
 	}

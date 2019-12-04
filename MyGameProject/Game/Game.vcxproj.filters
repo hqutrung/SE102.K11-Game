@@ -4,18 +4,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="demoEnemy.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObject.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoObjectState.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoRunningState.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
     <ClCompile Include="DemoScene.cpp">
       <Filter>Header Files\Demo</Filter>
     </ClCompile>
@@ -124,9 +112,6 @@
     <ClCompile Include="BlueHeart.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="GenieToken.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
@@ -137,9 +122,6 @@
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="ThinGuard.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="FatGuard.cpp">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
@@ -178,7 +160,6 @@
     <ClCompile Include="PlayerInjuredState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerPushState.cpp" />
     <ClCompile Include="Obstacles.cpp">
       <Filter>Header Files\Objects\Obstacles</Filter>
     </ClCompile>
@@ -206,25 +187,34 @@
     <ClCompile Include="ExitPort.cpp">
       <Filter>Header Files\Objects\Surface</Filter>
     </ClCompile>
+    <ClCompile Include="FatGuard.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardAttackState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardRunState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyState.cpp">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPushState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyData.cpp">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene1.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
       <Filter>Header Files\FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="demoEnemy.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObject.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectData.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoObjectState.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoRunningState.h">
-      <Filter>Header Files\Demo</Filter>
     </ClInclude>
     <ClInclude Include="DemoScene.h">
       <Filter>Header Files\Demo</Filter>
@@ -340,9 +330,6 @@
     <ClInclude Include="GenieToken.h">
       <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Bat.h">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClInclude>
@@ -350,9 +337,6 @@
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="ThinGuard.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="FatGuard.h">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
@@ -421,6 +405,24 @@
     <ClInclude Include="PlayerPushState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
+    <ClInclude Include="FatGuard.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="FatGuardAttackState.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyData.h">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene1.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -467,6 +469,15 @@
     </Filter>
     <Filter Include="Header Files\Objects\Surface">
       <UniqueIdentifier>{ad283311-d8cb-468b-ac0c-8f2abafa5cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\FatGuard">
+      <UniqueIdentifier>{b08e28bc-730b-4640-88d5-a9eaf38f279b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\General">
+      <UniqueIdentifier>{9ef74282-868b-43a2-9ccc-e33ddd487703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{fad778bb-7dd3-49a5-919b-da39fd1c2cc2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

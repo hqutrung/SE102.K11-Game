@@ -1,24 +1,26 @@
 #include "Enemy.h"
 
-Enemy::Enemy()
-{
+Enemy::Enemy() : Entity(){
 	SetType(EnemyType);
 	SetStatic(false);
-	SetActive(false);
-
-	animation = new Animation(0.1f);
+	enemyData = new EnemyData();
+	enemyData->enemy = this;
 }
 
 Enemy::~Enemy()
 {
+	
 }
 
 void Enemy::Update(float dt)
 {
+	Entity::Update(dt);
+	enemyData->enemyState->Update(dt);
 }
 
 void Enemy::Render()
 {
+	enemyData->enemyState->Render();
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
@@ -54,6 +56,10 @@ BoxCollider Enemy::GetSpawnBox()
 Entity::MoveDirection Enemy::GetSpawnDirection()
 {
 	return spawnDirection;
+}
+
+void Enemy::SetState(EnemyState::eState state)
+{
 }
 
 void Enemy::SetRect(BoxCollider box)

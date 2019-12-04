@@ -45,7 +45,7 @@
 
 
 // SCENE ID
-#define DEMO_SCENE 1
+#define SCENE_1 1
 
 // GRID
 #define GRID_ROW_NUMBERS 15
@@ -54,10 +54,10 @@
 
 // state speed
 #define RUN_SPEED 120
-#define JUMP_SPEED 200
+#define JUMP_SPEED 180
 #define SLIDE_SPEED 50
 //#define MAX_JUMP 90
-#define MAX_JUMP 88
+#define MAX_JUMP 78
 #define CLIMB_SPEED 130
 
 

@@ -5,9 +5,10 @@ PlayerIdleState::PlayerIdleState(PlayerData* data)
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
 	texs->Add(1000, "Resources/PlayerState/idle_after.png", D3DCOLOR_XRGB(255, 0, 255));
+	
 	m_Animation = new Animation();
-	//m_Animation->AddFrames(texs->GetTexture(1000), 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
-	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7,10, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+
 }
 
 PlayerIdleState::~PlayerIdleState()

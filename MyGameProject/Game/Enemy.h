@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
-#include "Animation.h"
+#include "EnemyData.h"
+#include"EnemyState.h"
 
 class Enemy : public Entity {
 protected:
@@ -10,10 +11,12 @@ protected:
 	Entity::MoveDirection spawnDirection;
 	virtual void Spawn();
 	virtual void MakeInactive();
-	Animation* animation;
+
+	EnemyData* enemyData;
+
 public:
 	Enemy();
-	~Enemy();
+	virtual ~Enemy();
 
 	virtual void Update(float dt);
 	virtual void Render();
@@ -21,6 +24,8 @@ public:
 	virtual BoxCollider GetRect();
 	virtual BoxCollider GetSpawnBox();
 	virtual Entity::MoveDirection GetSpawnDirection();
+
+	virtual void SetState(EnemyState::eState state);
 
 	virtual void SetRect(BoxCollider box);
 	void SetSpawnBox(BoxCollider box, int direction);

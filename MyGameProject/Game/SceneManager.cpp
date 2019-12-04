@@ -31,8 +31,8 @@ void SceneManager::CreateScene(int sceneID)
 	case 0:
 		//CurrentScene = new IntroScene();
 		break;
-	case DEMO_SCENE:
-		currentScene = new DemoScene();
+	case SCENE_1:
+		currentScene = new Scene1();
 		break;
 	}
 }

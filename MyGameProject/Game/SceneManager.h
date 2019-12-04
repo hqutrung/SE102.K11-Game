@@ -2,7 +2,7 @@
 #define __SCENE_MANAGER__
 
 #include "Scene.h"
-#include  "DemoScene.h"
+#include "Scene1.h"
 
 class SceneManager
 {

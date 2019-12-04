@@ -7,7 +7,7 @@ PlayerFallState::PlayerFallState(PlayerData* data)
 	texs->Add(1022, "Resources/PlayerState/fall2.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
 	//m_Animation->AddFrames(texs->GetTexture(1022), 1, 24, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
-	m_Animation->AddFramesA(texs->GetTexture(1022), 1, 1, 3, 4, 3, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFramesA(texs->GetTexture(1022), 1, 1, 3, 4,10, 3, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 PlayerFallState::~PlayerFallState()
@@ -23,36 +23,8 @@ void PlayerFallState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 
-	//set frame ID
-	
-	// state trc la jump or jump cross ve frame 22 (tiep dat nhe)
-	//if (player->GetPosition().y <= player->_LegY - 10
-	//	&& (player->GetPrevStateName() == Jump || player->GetPrevStateName() == JumpCross))
-	//{
-	//	m_Animation->SetCurrentFrame(22);
-	//	player->SetPosition(player->GetPosition().x, player->_LegY + 25);
-	//}
 
-	//// state trc la jump or jump cross ve frame 5 (Tiep dat manh)
-	//if ((player->GetPosition().y <= player->_LegY - 10)
-	//	&& (player->GetPrevStateName() == JumpAttack || player->GetPrevStateName() == JumpThrow))
-	//{
-	//	m_Animation->SetCurrentFrame(5);
-	//	player->SetPosition(player->GetPosition().x, player->_LegY + 25);
-	//}
-
-	
 	player->SetVy(-JUMP_SPEED);
-	// van toc
-	if (m_Animation->GetCurrentFrameID() <= 4)
-	{
-		
-	}
-	else
-	{
-		player->SetVy(0);
-	}
-
 	// set time frame
 	switch (m_Animation->GetCurrentFrameID())
 	{
@@ -60,22 +32,22 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetDefaultTime(0.2f);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.1f);
+		m_Animation->SetDefaultTime(0.2f);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.08f);
+		m_Animation->SetDefaultTime(0.2f);
 		break;
 	case 3:
-		m_Animation->SetDefaultTime(0.06f);
+		m_Animation->SetDefaultTime(0.2f);
 		break;
 	case 4:
 		m_Animation->SetDefaultTime(100.0f);
 		break;
 	case 22:
-		m_Animation->SetDefaultTime(0.07);
+		m_Animation->SetDefaultTime(0.05);
 		break;
 	case 23:
-		m_Animation->SetDefaultTime(0.07);
+		m_Animation->SetDefaultTime(0.05);
 		break;
 
 	default:
@@ -87,7 +59,6 @@ void PlayerFallState::Update(float dt)
 	if (m_Animation->IsLastFrame(dt) || m_Animation->GetCurrentFrameID() == 21 )
 	{
 		m_Animation->countLoopFrame = 1;
-		DebugOut(L"y2 = : %f\n", player->GetPosition().y);
 	}
 	PlayerState::Update(dt);
 }

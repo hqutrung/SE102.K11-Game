@@ -7,15 +7,15 @@
 #include "Debug.h"
 #include "GameMap.h"
 #include "Player.h"
-class DemoScene: public Scene
+class Scene1 : public Scene
 {
 	GameMap* map;
 	Camera* camera;
 	Player* player;
 
 public:
-	DemoScene();
-	~DemoScene();
+	Scene1();
+	~Scene1();
 	void LoadContent() override;
 	void Update(float dt) override;
 	void Render() override;

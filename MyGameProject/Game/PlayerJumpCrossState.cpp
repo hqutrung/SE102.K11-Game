@@ -23,11 +23,11 @@ void PlayerJumpCrossState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 	if(player->status == Player::Status::Jumping)
-		player->SetVy(JUMP_SPEED);
-	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
+		player->SetVy(JUMP_SPEED*0.8);
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP-3)
 	{
 		player->status = Player::Status::Falling;
-		player->SetVy(-JUMP_SPEED);
+		player->SetVy(-JUMP_SPEED*0.8);
 	}
 	// diem dung tam thoi
 	
@@ -36,19 +36,19 @@ void PlayerJumpCrossState::Update(float dt)
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 0:
-		m_Animation->SetDefaultTime(0.05);
+		m_Animation->SetDefaultTime(0.08);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.12f);
+		m_Animation->SetDefaultTime(0.15f);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.12f);
+		m_Animation->SetDefaultTime(0.15f);
 		break;
 	case 3:
-		m_Animation->SetDefaultTime(0.12f);
+		m_Animation->SetDefaultTime(0.15f);
 		break;
 	default:
-		m_Animation->SetDefaultTime(0.14f);
+		m_Animation->SetDefaultTime(0.25f);
 		break;
 	}
 
@@ -83,14 +83,14 @@ void PlayerJumpCrossState::HandleInput()
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
-		player->SetVx(RUN_SPEED*0.9);
+		player->SetVx(RUN_SPEED*1.2f);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		player->SetVx(-RUN_SPEED *0.9);
+		player->SetVx(-RUN_SPEED *1.2f);
 		return;
 	}
 	player->SetVx(0);

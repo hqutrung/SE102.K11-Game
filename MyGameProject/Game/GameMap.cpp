@@ -245,10 +245,10 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		}
 		case FATGUARD:
 		{
-			FatGuard* fatGuard = new FatGuard();
+			/*FatGuard* fatGuard = new FatGuard();
 			fatGuard->SetSpawnBox(box, direction);
 			unit = new Unit(grid, fatGuard);
-			break;
+			break;*/
 		}
 		case PEDDLER:
 		{
