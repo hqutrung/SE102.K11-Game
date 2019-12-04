@@ -11,7 +11,7 @@ protected:
 	virtual void Spawn();
 	virtual void MakeInactive();
 	Animation* animation;
-	D3DXVECTOR3 disToPlayer;
+	D3DXVECTOR3 disToPlayer, firstPos;
 
 
 public:

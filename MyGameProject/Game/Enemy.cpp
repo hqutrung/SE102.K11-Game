@@ -124,6 +124,7 @@ void Enemy::Spawn()
 {
 	isActived = true;
 	position = spawnPosition;
+	firstPos = position;
 }
 
 void Enemy::MakeInactive()

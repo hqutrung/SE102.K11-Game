@@ -21,8 +21,22 @@ void FatGuard::Update(float dt)
 
 	if (!followPlayer(disToPlayer))
 	{
+		if (abs(disToPlayer.x) < 100 && abs(disToPlayer.y) < 20)
+		{
+			//state danh
+		}
+		else if (abs(disToPlayer.y) > 20)
+		{
+			//state khieukhich
+		}
 		SetVx(0);
 	}
+	
+	if (abs(position.x - firstPos.x) > 150)
+	{
+		//state dug yen
+	}
+
 
 	Enemy::Update(dt);
 }
