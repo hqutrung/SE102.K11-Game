@@ -33,6 +33,12 @@ void PlayerClimbThrowState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
+	if (keyboard->GetKey(ATTACK_ARROW))
+	{
+		player->SetState(ClimbAttack);
+		return;
+	}
+
 	if (keyboard->GetKeyDown(UP_ARROW) || keyboard->GetKey(DOWN_ARROW))
 	{
 		player->SetState(Climb);

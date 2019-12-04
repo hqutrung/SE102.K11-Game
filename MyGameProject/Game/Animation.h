@@ -29,7 +29,7 @@ public:
 	int countLoopFrame = 1;
 	void AddFrame(LPANIMATION_FRAME frame);
 	void AddFrames(LPDIRECT3DTEXTURE9 texture, int rows, int columns, float timePerFrame = 0.1f, D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
-	void AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstColumn, int finalRow, int finalColumn, int rowNumber, int columnNumber, float timePerFrame = 0.1f, D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
+	void AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstColumn, int finalRow, int finalColumn, int columns, int rowNumber, int columnNumber, float timePerFrame = 0.1f, D3DCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
 
 
 	int GetWidthCurrentFrame();

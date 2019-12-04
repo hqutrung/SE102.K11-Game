@@ -36,15 +36,10 @@ void Animation::AddFrames(LPDIRECT3DTEXTURE9 texture, int rows, int columns, flo
 		}
 }
 
-void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstColumn, int finalRow, int finalColumn, int rowNumber, int columnNumber, float timePerFrame, D3DCOLOR colorKey)
+void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstColumn, int finalRow, int finalColumn, int columns, int rowNumber, int columnNumber, float timePerFrame, D3DCOLOR colorKey)
 {
 	defaultTime = (timePerFrame == 0) ? defaultTime : timePerFrame;
 	totalFrame = (finalRow - firstRow) * columnNumber + (finalColumn - firstColumn + 1);
-	int columns;
-	if (totalFrame >= 10)
-		columns = 10;
-	else columns = finalColumn - firstColumn;
-
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
 	float frameWidth = (float)desc.Width / columnNumber;
