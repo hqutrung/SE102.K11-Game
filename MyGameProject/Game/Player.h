@@ -102,6 +102,5 @@ protected:
 	float collisionTime;
 	SideCollision side;
 
-
 private:
 };

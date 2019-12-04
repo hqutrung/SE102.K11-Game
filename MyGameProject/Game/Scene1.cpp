@@ -1,21 +1,21 @@
-#include "DemoScene.h"
+#include "Scene1.h"
 
-DemoScene::DemoScene()
+Scene1::Scene1()
 {
 	LoadContent();
 }
 
-DemoScene::~DemoScene()
+Scene1::~Scene1()
 {
 }
 
-void DemoScene::LoadContent()
+void Scene1::LoadContent()
 {
 	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
-	 
+
 
 	camera = new Camera(width, height);
 	camera = new Camera(318, 230);
@@ -24,7 +24,7 @@ void DemoScene::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(100,65);
+	player->SetPosition(100, 65);
 	player->lastposition = player->GetPosition();
 	//player->SetPosition(32,32);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
@@ -33,10 +33,10 @@ void DemoScene::LoadContent()
 	CheckCamera();
 }
 
-void DemoScene::Update(float dt)
+void Scene1::Update(float dt)
 {
 	CheckActive();
-	ProcessInput(); 
+	ProcessInput();
 	CheckCollision(dt);
 	map->GetGrid()->Update(dt);
 	//player->Update(dt);
@@ -51,36 +51,36 @@ void DemoScene::Update(float dt)
 		player->SetPosition(16, playerPos.y);
 	if (playerPos.x > map->GetWidth() - 16)
 		player->SetPosition(map->GetWidth() - 16, playerPos.y);
-	
+
 	if (playerPos.y < 16)
 		player->SetPosition(playerPos.x, 16);
 	if (playerPos.y > map->GetHeight() - 16)
 		player->SetPosition(playerPos.x, map->GetHeight() - 16);
 	//
 
-	
-	
+
+
 }
 
-void DemoScene::Render()
+void Scene1::Render()
 {
 	map->Draw();
 
 	map->GetGrid()->Render();
 }
 
-int DemoScene::GetSceneID()
+int Scene1::GetSceneID()
 {
 	return SCENE_1;
 }
 
-void DemoScene::ProcessInput()
+void Scene1::ProcessInput()
 {
 	KeyBoard* input = KeyBoard::GetInstance();
 	player->HandleInput();
 }
 
-void DemoScene::CheckCamera()
+void Scene1::CheckCamera()
 {
 	D3DXVECTOR3 camPos = camera->GetPosition();
 	float halfWidth = (float)camera->GetWidth() / 2;
@@ -100,13 +100,13 @@ void DemoScene::CheckCamera()
 	camera->SetPosition(camPos);
 }
 
-void DemoScene::CheckActive()
+void Scene1::CheckActive()
 {
 	Entity::MoveDirection camDirection = player->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
 }
 
-void DemoScene::CheckCollision(float dt)
+void Scene1::CheckCollision(float dt)
 {
 	map->GetGrid()->HandMelee(dt);
 }

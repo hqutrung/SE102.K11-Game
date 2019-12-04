@@ -1,5 +1,6 @@
+#pragma once
+class EnemyState; 
 class Enemy;
-class EnemyState;
 
 class EnemyData
 {

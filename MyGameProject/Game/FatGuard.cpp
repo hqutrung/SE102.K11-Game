@@ -1,11 +1,9 @@
 #include "FatGuard.h"
-#include"FatGuardAttackState.h"
 
-FatGuard::FatGuard()
+FatGuard::FatGuard() : Enemy()
 {
-	Enemy();
 	SetTag(FATGUARD);
-	Textures* textures = Textures::GetInstance();
+	auto textures = Textures::GetInstance();
 	textures->Add(TEX_FATGUARD, "Resources/Enemys/fatguard.png", D3DCOLOR_XRGB(255, 255, 255));
 
 	fatguardAttackState = new FatGuardAttackState(enemyData);
@@ -18,10 +16,7 @@ FatGuard::~FatGuard()
 
 void FatGuard::Update(float dt)
 {
-	
-}
-
-void FatGuard::Render()
-{
+	//...MoveDirection
+	Enemy::Update(dt);
 	
 }

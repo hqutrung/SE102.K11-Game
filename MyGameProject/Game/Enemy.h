@@ -2,7 +2,6 @@
 #include "Entity.h"
 #include "EnemyData.h"
 #include"EnemyState.h"
-#include "Animation.h"
 
 class Enemy : public Entity {
 protected:
@@ -13,12 +12,11 @@ protected:
 	virtual void Spawn();
 	virtual void MakeInactive();
 
-	Animation* animation;
 	EnemyData* enemyData;
 
 public:
 	Enemy();
-	~Enemy();
+	virtual ~Enemy();
 
 	virtual void Update(float dt);
 	virtual void Render();
@@ -26,6 +24,8 @@ public:
 	virtual BoxCollider GetRect();
 	virtual BoxCollider GetSpawnBox();
 	virtual Entity::MoveDirection GetSpawnDirection();
+
+	virtual void SetState(EnemyState::eState state);
 
 	virtual void SetRect(BoxCollider box);
 	void SetSpawnBox(BoxCollider box, int direction);

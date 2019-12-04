@@ -1,12 +1,8 @@
 #include "Enemy.h"
-#include"EnemyData.h"
 
-Enemy::Enemy()
-{
+Enemy::Enemy() : Entity(){
 	SetType(EnemyType);
 	SetStatic(false);
-	SetActive(false);
-	animation = new Animation(0.1f);
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
 }
@@ -60,6 +56,10 @@ BoxCollider Enemy::GetSpawnBox()
 Entity::MoveDirection Enemy::GetSpawnDirection()
 {
 	return spawnDirection;
+}
+
+void Enemy::SetState(EnemyState::eState state)
+{
 }
 
 void Enemy::SetRect(BoxCollider box)

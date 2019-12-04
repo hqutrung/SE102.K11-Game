@@ -1,8 +1,7 @@
 #include "EnemyState.h"
-#include"Enemy.h"
+#include "Enemy.h"
 
-EnemyState::EnemyState(EnemyData* data)
-{
+EnemyState::EnemyState(EnemyData* data){
 	this->enemyData = data;
 }
 
@@ -20,7 +19,7 @@ void EnemyState::Render()
 }
 
 
-void EnemyState::ResetState(int dummy)
+void EnemyState::ResetState()
 {
 	e_Animation->ResetAnimation();
 }

@@ -45,7 +45,7 @@
 
 
 // SCENE ID
-#define DEMO_SCENE 1
+#define SCENE_1 1
 
 // GRID
 #define GRID_ROW_NUMBERS 30
