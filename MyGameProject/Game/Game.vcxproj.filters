@@ -139,9 +139,6 @@
     <ClCompile Include="ThinGuard.cpp">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="FatGuard.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
@@ -205,6 +202,9 @@
     </ClCompile>
     <ClCompile Include="ExitPort.cpp">
       <Filter>Header Files\Objects\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuard.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -352,9 +352,6 @@
     <ClInclude Include="ThinGuard.h">
       <Filter>Header Files\Objects\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="FatGuard.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
@@ -421,6 +418,12 @@
     <ClInclude Include="PlayerPushState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
+    <ClInclude Include="FatGuard.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
+      <Filter>Header Files\Objects\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -467,6 +470,9 @@
     </Filter>
     <Filter Include="Header Files\Objects\Surface">
       <UniqueIdentifier>{ad283311-d8cb-468b-ac0c-8f2abafa5cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\FatGuard">
+      <UniqueIdentifier>{01b3d47f-572b-42c6-aa67-5d2322a02dbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

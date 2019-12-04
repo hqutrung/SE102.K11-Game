@@ -60,6 +60,9 @@
 #define MAX_JUMP 88
 #define CLIMB_SPEED 130
 
+//FATGUARD
+
+#define FATGUARD_RUNSPEED 90
 
 //
 enum Tag {

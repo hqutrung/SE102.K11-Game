@@ -222,6 +222,7 @@
     <ClInclude Include="DemoRunningState.h" />
     <ClInclude Include="DemoScene.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyState.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitPort.h" />
     <ClInclude Include="FatGuard.h" />

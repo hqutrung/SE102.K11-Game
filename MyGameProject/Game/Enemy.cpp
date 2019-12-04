@@ -15,10 +15,13 @@ Enemy::~Enemy()
 
 void Enemy::Update(float dt)
 {
+	animation->Update(dt);
+	Entity::Update(dt);
 }
 
 void Enemy::Render()
 {
+	animation->Render(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), GetMoveDirection()==LeftToRight);
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
@@ -110,6 +113,11 @@ void Enemy::SetColliderRight(float right) {
 
 void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
 {
+}
+
+bool Enemy::followPlayer(D3DXVECTOR3 dispos)
+{
+	return false;
 }
 
 void Enemy::Spawn()

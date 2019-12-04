@@ -11,6 +11,9 @@ protected:
 	virtual void Spawn();
 	virtual void MakeInactive();
 	Animation* animation;
+	D3DXVECTOR3 disToPlayer;
+
+
 public:
 	Enemy();
 	~Enemy();
@@ -38,4 +41,6 @@ public:
 	virtual void SetColliderRight(float right);
 
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60);
+
+	virtual bool followPlayer(D3DXVECTOR3 dispos);
 };
