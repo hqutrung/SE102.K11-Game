@@ -21,7 +21,8 @@ void FatGuard::Update(float dt)
 
 	if (!followPlayer(disToPlayer))
 	{
-		if (abs(disToPlayer.x) < 100 && abs(disToPlayer.y) < 20)
+
+		if (abs(disToPlayer.x) < 80 && abs(disToPlayer.y) < 20)
 		{
 			//state danh
 		}
@@ -31,11 +32,15 @@ void FatGuard::Update(float dt)
 		}
 		SetVx(0);
 	}
-	
-	if (abs(position.x - firstPos.x) > 150)
+	else
 	{
-		//state dug yen
+		if (abs(player->GetPosition().x - firstPos.x) > 250 && abs(disToPlayer.y) < 20)
+		{
+			//Dung yen
+		}
 	}
+	
+
 
 
 	Enemy::Update(dt);
@@ -54,9 +59,11 @@ bool FatGuard::followPlayer(D3DXVECTOR3 dispos)
 		SetMoveDirection(Entity::MoveDirection::LeftToRight);
 	}
 
-	if (abs(dispos.x) < 100 || abs(dispos.y) > 20)
+	if (abs(dispos.x) < 80 || abs(dispos.y) > 20)
 	{
 		return false;
 	}
+
+
 	return true;
 }
