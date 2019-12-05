@@ -210,12 +210,15 @@ void Player::SetState(PlayerState::State state, int dummy)
 		playerData->state = jumpThrowState;
 		break;
 	case PlayerState::Climb:
+		status = Climbing;
 		playerData->state = climbState;
 		break;
 	case PlayerState::ClimbAttack:
+		status = Climbing;
 		playerData->state = climbAttackState;
 		break;
 	case PlayerState::ClimbThrow:
+		status = Climbing;
 		playerData->state = climbThrowState;
 		break;
 	case PlayerState::ClimbJump:
@@ -399,6 +402,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	float playerRight = GetRect().right + collisionTime * dt * velocity.x;
 	float playerLeft = GetRect().left + collisionTime * dt * velocity.x;
 	float playerTop = GetRect().top + collisionTime * dt * velocity.y;
+	//vitri ke tiep
+	float newPosX = position.x + collisionTime * dt * velocity.x;
+	float newPosY = position.y + collisionTime * dt * velocity.y;
 
 	//Debug
 	if (impactor->GetTag() == STONE)
@@ -464,10 +470,12 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// climb
 	if (impactor->GetTag() == CHAINE)
 	{
-		if (side != Top && status == Falling 
-			&& Support::IsContainedIn(position.x, impactor->GetPosition().x - 4, impactor->GetPosition().x + 4)
-			&& Support::IsContainedIn(playerBottom, impactorRect.bottom, impactorRect.top - 84-24))
+		if (side != Top 
+			&& status == Falling 
+			&& round(newPosX) == impactor->GetPosition().x
+			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84-24))
 		{
+			newVelocity.x *= collisionTime;
 			status = Climbing;
 			SetState(PlayerState::Climb);
 		}
