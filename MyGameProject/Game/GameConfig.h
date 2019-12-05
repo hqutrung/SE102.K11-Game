@@ -52,9 +52,9 @@
 // playerState speed
 #define RUN_SPEED 120
 #define JUMP_SPEED 200
-#define SLIDE_SPEED 50
+#define SLIDE_SPEED 50	
 #define CLIMB_SPEED 130
-#define MAX_JUMP 78
+#define MAX_JUMP 76
 
 
 // type
