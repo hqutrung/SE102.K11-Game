@@ -98,7 +98,12 @@ void PlayerJumpCrossState::HandleInput()
 
 void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	
+	auto player = playerData->player;
+	if (player->status == Player::Status::OnGround
+		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+	{
+		player->SetState(TouchGroud);
+	}
 }
 
 PlayerState::State PlayerJumpCrossState::GetStateName()

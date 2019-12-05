@@ -32,7 +32,8 @@ public:
 		ClimbJump,
 		Injured,
 		Death,
-		Push
+		Push,
+		TouchGroud
 
 	};
 	~PlayerState();
@@ -49,6 +50,7 @@ public:
 
 	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60);
 
+	bool heavy = false;
 	int countPressKey = 1;
 protected:
 	Animation* m_Animation;

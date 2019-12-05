@@ -7,6 +7,7 @@ PlayerJumpThrowState::PlayerJumpThrowState(PlayerData* data)
 	texs->Add(1036, "Resources/PlayerState/jump_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
 	m_Animation->AddFrames(texs->GetTexture(1036), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
+	heavy = true;
 
 }
 
@@ -23,6 +24,9 @@ void PlayerJumpThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 
+	//
+
+	//
 	if (player->status == Player::Status::Jumping && player->GetPosition().y < player->lastposition.y + MAX_JUMP)
 		player->SetVy(JUMP_SPEED);
 	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP)
@@ -37,7 +41,7 @@ void PlayerJumpThrowState::Update(float dt)
 
 	
 	if (player->status == Player::Status::OnGround)
-		player->SetState(Idle);
+		player->SetState(TouchGroud);
 
 	// animation update
 
@@ -74,6 +78,12 @@ void PlayerJumpThrowState::HandleInput()
 
 void PlayerJumpThrowState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	auto player = playerData->player;
+	if (player->status == Player::Status::OnGround
+		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+	{
+		player->SetState(TouchGroud);
+	}
 }
 
 PlayerState::State PlayerJumpThrowState::GetStateName()

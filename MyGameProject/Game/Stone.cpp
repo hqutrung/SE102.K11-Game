@@ -29,7 +29,7 @@ void Stone::Update(float dt)
 		return;
 	}
 	delayTime -= dt;
-	
+
 }
 
 void Stone::SetSpawnBox(BoxCollider box, int id)

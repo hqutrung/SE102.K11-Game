@@ -208,6 +208,9 @@
     <ClCompile Include="EnemyState.cpp">
       <Filter>Header Files\Objects\Enemy\General</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerTouchGroundState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -416,6 +419,9 @@
     </ClInclude>
     <ClInclude Include="EnemyState.h">
       <Filter>Header Files\Objects\Enemy\General</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerTouchGroundState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

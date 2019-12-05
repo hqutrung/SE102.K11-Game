@@ -7,6 +7,7 @@ PlayerJumpAttackState::PlayerJumpAttackState(PlayerData* data)
 	texs->Add(1029, "Resources/PlayerState/jump_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
 	m_Animation->AddFrames(texs->GetTexture(1029), 1, 7, 0.065f, D3DCOLOR_XRGB(255, 255, 255));
+	heavy = true;
 
 }
 
@@ -37,7 +38,7 @@ void PlayerJumpAttackState::Update(float dt)
 
 	// end frame
 	if (player->status==Player::Status::OnGround)
-		player->SetState(Idle);
+		player->SetState(TouchGroud);
 
 	// animation update
 
@@ -74,7 +75,12 @@ void PlayerJumpAttackState::HandleInput()
 
 void PlayerJumpAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	
+	auto player = playerData->player;
+	if (player->status == Player::Status::OnGround
+		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+	{
+		player->SetState(TouchGroud);
+	}
 }
 
 PlayerState::State PlayerJumpAttackState::GetStateName()

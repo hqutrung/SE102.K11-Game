@@ -24,6 +24,8 @@
 #include"PlayerDeathState.h"
 #include "CollisionDetector.h"
 #include"PlayerPushState.h"
+#include"PlayerTouchGroundState.h"
+
 
 
 Player* Player::instance = NULL;
@@ -67,6 +69,7 @@ Player::Player() : Entity()
 	injuredState = new PlayerInjuredState(playerData);
 	deathState = new PlayerDeathState(playerData);
 	pushState = new PlayerPushState(playerData);
+	touchGroundState = new PlayerTouchGroundState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -130,6 +133,8 @@ Player::~Player()
 	deathState = NULL;
 	delete pushState;
 	pushState = NULL;
+	delete touchGroundState;
+	touchGroundState = NULL;
 
 	delete playerData;
 	instance = NULL;
@@ -235,6 +240,9 @@ void Player::SetState(PlayerState::State state, int dummy)
 	case PlayerState::Push:
 		playerData->state = pushState;
 		break;
+	case PlayerState::TouchGroud:
+		playerData->state = touchGroundState;
+		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
 	playerData->state->ResetState(dummy);
@@ -312,6 +320,12 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return duckThrowState;
 	case PlayerState::Push:
 		return pushState;
+	case PlayerState::TouchGroud:
+		return touchGroundState;
+	case PlayerState::Fall:
+		return fallState;
+	case PlayerState::ClimbJump:
+		return climbJumpState;
 	}
 }
 
@@ -428,7 +442,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			status = OnGround;
 			newVelocity.y *= collisionTime;
 			lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
-			SetState(PlayerState::Idle);
+	
 		}
 	}
 	// va cham tuong (WALL)
@@ -473,7 +487,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		if (side != Top 
 			&& status == Falling 
 			&& round(newPosX) == impactor->GetPosition().x
-			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84-24))
+			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84-20))
 		{
 			newVelocity.x *= collisionTime;
 			status = Climbing;
