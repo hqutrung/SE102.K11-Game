@@ -96,7 +96,6 @@ void PlayerRunState::HandleInput()
 	if (m_Animation->countLoopFrame > 1)
 	{
 		player->SetState(Slide);
-		m_Animation->countLoopFrame = 1;
 	}
 	else
 		player->SetState(Idle);
@@ -113,8 +112,8 @@ PlayerState::State PlayerRunState::GetStateName()
 
 void PlayerRunState::ResetState(int dummy)
 {
+	m_Animation->countLoopFrame = 1;
 	auto player = Player::GetInstance();
-
 	if (player->GetPrevStateName() == PlayerState::RunAttack || player->GetPrevStateName() == PlayerState::RunThrow)
 		m_Animation->SetCurrentFrame(2);
 	else

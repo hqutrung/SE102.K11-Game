@@ -188,6 +188,7 @@
     <ClCompile Include="PlayerRunState.cpp" />
     <ClCompile Include="PlayerRunThrowState.cpp" />
     <ClCompile Include="PlayerSlideState.cpp" />
+    <ClCompile Include="PlayerTouchGroundState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -259,6 +260,7 @@
     <ClInclude Include="PlayerRunState.h" />
     <ClInclude Include="PlayerRunThrowState.h" />
     <ClInclude Include="PlayerSlideState.h" />
+    <ClInclude Include="PlayerTouchGroundState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="SceneManager.h" />

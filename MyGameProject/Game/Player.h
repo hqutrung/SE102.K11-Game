@@ -90,7 +90,9 @@ protected:
 		* climbJumpState,
 		* injuredState,
 		* deathState,
-		* pushState
+		* pushState,
+		* touchGroundState;
+
 		;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
