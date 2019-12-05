@@ -203,21 +203,3 @@ void Sprites::NormalDraw(D3DXVECTOR3 position)
 		D3DCOLOR_XRGB(255, 255, 255)
 	);
 }
-//
-//void ListSprites::Add(int id, BoxCollider rect, LPDIRECT3DTEXTURE9 tex)
-//{
-//	LPSPRITE s = new Sprites(id, rect, tex);
-//	lSprites[id] = s;
-//}
-//
-//LPSPRITE ListSprites::Get(int id)
-//{
-//	return lSprites[id];
-//}
-//
-//ListSprites* ListSprites::GetInstance()
-//{
-//
-//	if (instance == NULL) instance = new ListSprites();
-//	return instance;
-//}

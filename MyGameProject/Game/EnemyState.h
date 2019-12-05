@@ -11,7 +11,6 @@ public:
 		Fllow
 	};
 	EnemyState() {};
-	~EnemyState() ;
 	EnemyState(EnemyData* data);
 	virtual ~EnemyState();
 

@@ -370,13 +370,6 @@ void Grid::Render()
 	{
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
-		/*else {
-			if (isDraw == 1) {
-				BoxCollider boundbox = staticObjects[i]->GetRect();
-				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-				Support::DrawRect(position, boundbox);
-			}
-		}*/
 		if (isDraw == 1) {
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
