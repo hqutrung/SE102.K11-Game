@@ -1,2 +1,19 @@
-﻿  Spike.cpp
+﻿  Grid.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(81,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(82,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(83,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Player.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(84,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(84,65): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(319,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(324,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(329,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  PlayerClimbState.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(334,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(334,19): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(85,31): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(90,30): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(315): warning C4715: 'Player::GetState': not all control paths return a value
   Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe

@@ -220,6 +220,8 @@ void Player::SetState(PlayerState::State state, int dummy)
 		playerData->state = climbThrowState;
 		break;
 	case PlayerState::ClimbJump:
+		status = Jumping;
+		lastposition = position;
 		playerData->state = climbJumpState;
 		break;
 	case PlayerState::Injured:
@@ -479,7 +481,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// climb
 	if (impactor->GetTag() == CHAINE)
 	{
-		if (side != Top && status == Falling && Support::IsContainedIn(position.x, impactor->GetPosition().x - 3, impactor->GetPosition().x + 3))
+		if (side != Top && status == Falling 
+			&& Support::IsContainedIn(position.x, impactor->GetPosition().x - 4, impactor->GetPosition().x + 4)
+			&& Support::IsContainedIn(playerBottom, impactorRect.bottom, impactorRect.top - 84-24))
 		{
 			status = Climbing;
 			SetState(PlayerState::Climb);

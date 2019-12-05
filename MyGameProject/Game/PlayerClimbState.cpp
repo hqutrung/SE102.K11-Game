@@ -58,6 +58,11 @@ void PlayerClimbState::HandleInput()
 
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+	if (keyboard->GetKey(JUMP_ARROW))
+	{
+		player->SetState(ClimbJump);
+		return;
+	}
 	if (keyboard->GetKey(DIK_I))
 	{
 		player->SetState(Idle);
@@ -107,7 +112,7 @@ void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side,
 	}
 	if (player->status == Player::Status::Climbing
 		&& impactor->GetTag() == CHAINE
-		&& player->GetPosition().y > impactor->GetRect().top - 87 && player->GetVy() > 0)
+		&& player->GetPosition().y > impactor->GetRect().top - 84 && player->GetVy() > 0)
 	{
 		m_Animation->countLoopFrame++;
 		player->SetVy(0);

@@ -56,8 +56,7 @@
 #define RUN_SPEED 120
 #define JUMP_SPEED 200
 #define SLIDE_SPEED 50
-//#define MAX_JUMP 90
-#define MAX_JUMP 78
+#define MAX_JUMP 76
 #define CLIMB_SPEED 130
 
 

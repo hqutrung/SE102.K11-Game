@@ -121,20 +121,8 @@
     <ClCompile Include="BlueHeart.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="GenieToken.cpp">
       <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Bat.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Skeleton.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="ThinGuard.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
@@ -172,7 +160,6 @@
     <ClCompile Include="PlayerInjuredState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerPushState.cpp" />
     <ClCompile Include="Obstacles.cpp">
       <Filter>Header Files\Objects\Obstacles</Filter>
     </ClCompile>
@@ -200,18 +187,32 @@
     <ClCompile Include="ExitPort.cpp">
       <Filter>Header Files\Objects\Surface</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyState.cpp">
-      <Filter>Header Files\Objects\Enemy\EnemyState</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyData.cpp">
-      <Filter>Header Files\Objects\Enemy\EnemyData</Filter>
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="FatGuard.cpp">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClCompile>
-    <ClCompile Include="FatGuardRunState.cpp" />
     <ClCompile Include="FatGuardAttackState.cpp">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPushState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyState.cpp">
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="ThinGuard.cpp">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -344,18 +345,6 @@
     <ClInclude Include="GenieToken.h">
       <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Bat.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Skeleton.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="ThinGuard.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
@@ -423,7 +412,7 @@
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
     <ClInclude Include="EnemyData.h">
-      <Filter>Header Files\Objects\Enemy\EnemyData</Filter>
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="FatGuard.h">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
@@ -431,8 +420,20 @@
     <ClInclude Include="FatGuardAttackState.h">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="EnemyState.h">
-      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+      <Filter>Header Files\Objects\Enemy\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinGuard.h">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -481,14 +482,20 @@
     <Filter Include="Header Files\Objects\Surface">
       <UniqueIdentifier>{ad283311-d8cb-468b-ac0c-8f2abafa5cf4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Objects\Enemy\EnemyState">
-      <UniqueIdentifier>{22b72c32-d22c-490f-9507-2e5a77a7b2bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Objects\Enemy\EnemyData">
-      <UniqueIdentifier>{5132b93b-a079-43e8-a7a3-a543c1e3a82a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Objects\Enemy\FatGuard">
       <UniqueIdentifier>{b08e28bc-730b-4640-88d5-a9eaf38f279b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\Enemy">
+      <UniqueIdentifier>{5132b93b-a079-43e8-a7a3-a543c1e3a82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\Bat">
+      <UniqueIdentifier>{bdecdc09-e7b0-4b33-9465-f9673656eca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\Skeleton">
+      <UniqueIdentifier>{b2ae75d2-6e71-4d98-95d2-1c37061e7cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\ThinGuard">
+      <UniqueIdentifier>{4d771ecc-c3dc-4ed0-9a18-c0f49c11f6e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

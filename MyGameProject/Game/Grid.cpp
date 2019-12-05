@@ -117,7 +117,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 		/*if (staticObjects[i]->GetType() == StaticType)
 			continue;*/
 		BoxCollider box = staticObjects[i]->GetRect();
-		if (Camera::GetInstance()->IsCollide(box)) 
+		if (Camera::GetInstance()->IsCollide(box))
 			staticObjects[i]->SetActive(true);
 		else
 			staticObjects[i]->SetActive(false);
@@ -256,21 +256,29 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 		return;
 	Entity::SideCollision side;
 	auto rectEnt1 = ent1->GetRect();
-
+	auto impactorRect = ent2->GetRect();
 	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
 	{
 		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x + 5, player->GetBigBound().right, player->GetBigBound().bottom);
-		else 
+		else
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
 	}
+	/*if (ent1->GetTag() == PLAYER && ent2->GetTag() == CHAINE)
+	{
+		impactorRect = BoxCollider(impactorRect.top, ent2->GetPosition().x - 4, ent2->GetPosition().x + 4, impactorRect.bottom);
+		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x - 8, player->GetPosition().x, player->GetBigBound().bottom);
+		else
+			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x, player->GetPosition().x + 8, player->GetBigBound().bottom);
+	}*/
 
-	auto impactorRect = ent2->GetRect();
+
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 
 	if (groundTime == 2)
 		return;
-	
+
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
@@ -350,14 +358,14 @@ void Grid::Render()
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
-	
+
 	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 	// Draw Player
 	Player::GetInstance()->GetCurrentState()->Render();
 	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
-	if(isDraw)
+	if (isDraw)
 		Support::DrawRect(pos, Player::GetInstance()->GetRect());
-	
+
 	// Draw surface + objectRect
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
@@ -385,7 +393,7 @@ void Grid::Render()
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Sprites* sprite = new Sprites(texture, boundbox);
-			
+
 			if (isDraw == 1)
 				sprite->Draw(position, boundbox, D3DCOLOR_ARGB(150, 255, 255, 255));
 
