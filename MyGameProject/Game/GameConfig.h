@@ -18,7 +18,7 @@
 #define TEX_BALL BALL
 #define TEX_SPIKE SPIKE
 #define TEX_EXITPORT EXITPORT
-
+#define TEX_OBSTACLES 1239
 #define TEX_BAT BAT
 #define TEX_SKELETON SKELETON
 #define TEX_THINGUARD THINGUARD
@@ -51,7 +51,7 @@
 
 // playerState speed
 #define RUN_SPEED 120
-#define JUMP_SPEED 180
+#define JUMP_SPEED 200
 #define SLIDE_SPEED 50
 #define CLIMB_SPEED 130
 #define MAX_JUMP 78

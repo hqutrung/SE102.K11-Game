@@ -10,6 +10,8 @@ public:
 		Attack,
 		Fllow
 	};
+	EnemyState() {};
+	~EnemyState() ;
 	EnemyState(EnemyData* data);
 	virtual ~EnemyState();
 

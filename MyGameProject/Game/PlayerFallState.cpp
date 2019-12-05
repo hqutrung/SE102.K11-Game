@@ -32,13 +32,13 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetDefaultTime(0.2f);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.2f);
+		m_Animation->SetDefaultTime(0.1f);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.2f);
+		m_Animation->SetDefaultTime(0.1f);
 		break;
 	case 3:
-		m_Animation->SetDefaultTime(0.2f);
+		m_Animation->SetDefaultTime(0.1f);
 		break;
 	case 4:
 		m_Animation->SetDefaultTime(100.0f);
@@ -89,13 +89,13 @@ void PlayerFallState::HandleInput()
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetVx(RUN_SPEED *0.8);
+		player->SetVx(RUN_SPEED );
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
-		player->SetVx(-RUN_SPEED *0.8);
+		player->SetVx(-RUN_SPEED );
 		return;
 	}
 

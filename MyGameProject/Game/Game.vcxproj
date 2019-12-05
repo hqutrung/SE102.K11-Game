@@ -150,7 +150,6 @@
     <ClCompile Include="ExitPort.cpp" />
     <ClCompile Include="FatGuard.cpp" />
     <ClCompile Include="FatGuardAttackState.cpp" />
-    <ClCompile Include="FatGuardRunState.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameTime.cpp" />

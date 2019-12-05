@@ -1,5 +1,4 @@
 #pragma once
-class EnemyState; 
 class Enemy;
 
 class EnemyData

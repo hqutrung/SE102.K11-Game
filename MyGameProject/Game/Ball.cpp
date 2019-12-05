@@ -3,8 +3,7 @@
 Ball::Ball() : Obstacles() {
 	SetTag(BALL);
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_BALL, "Resources/Items/ball.png", D3DCOLOR_XRGB(255, 0, 255));
-	animation->AddFrames(textures->GetTexture(TEX_BALL), 1, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 1,1,1,28,28,2,28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Ball::~Ball()
