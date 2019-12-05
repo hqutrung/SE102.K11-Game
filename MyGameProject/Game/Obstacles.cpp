@@ -1,6 +1,8 @@
+#pragma once
 #include "Obstacles.h"
+#include "Grid.h"
 
-Obstacles::Obstacles()
+Obstacles::Obstacles() : Entity()
 {
 	SetStatic(true);
 	SetType(ObstaclesType);
@@ -20,43 +22,20 @@ void Obstacles::Render()
 	animation->Render(this->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
 }
 
-void Obstacles::SetColliderTop(int top)
+void Obstacles::SetSpawnBox(BoxCollider box, int id)
 {
-	collider.top = top;
-}
-
-void Obstacles::SetColliderLeft(int left)
-{
-	collider.left = left;
-}
-
-void Obstacles::SetColliderBottom(int bottom)
-{
-	collider.bottom = bottom;
-}
-
-void Obstacles::SetColliderRight(int right)
-{
-	collider.right = right;
-}
-
-void Obstacles::SetSpawnBox(BoxCollider box)
-{
+	spawnBox = box;
 	position = D3DXVECTOR3(box.getCenter());
+	this->id = id;
 	collider.top = box.top - position.y;
 	collider.left = box.left - position.x;
 	collider.bottom = box.bottom - position.y;
 	collider.right = box.right - position.x;
 }
 
-void Obstacles::SetActive(bool active)
+BoxCollider Obstacles::GetSpawnBox()
 {
-	if (isActived == active)
-		return;
-	if (active && !isDisappeared)
-		Spawn();
-	else
-		MakeInactive();
+	return spawnBox;
 }
 
 BoxCollider Obstacles::GetRect()
@@ -69,16 +48,31 @@ BoxCollider Obstacles::GetRect()
 	return r;
 }
 
+void Obstacles::SetActive(bool active)
+{
+	if (isActived == active)
+		return;
+	if (active)
+		Spawn();
+	else
+		MakeInactive();
+}
+
 void Obstacles::MakeInactive()
 {
 	isActived = false;
 }
 
-void Obstacles::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}
-
 void Obstacles::Spawn()
 {
 	isActived = true;
+}
+
+Animation* Obstacles::GetAnimation()
+{
+	return animation;
+}
+
+void Obstacles::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }

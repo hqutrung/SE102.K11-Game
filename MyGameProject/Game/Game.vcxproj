@@ -143,7 +143,6 @@
     <ClCompile Include="ChainedPillar.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Debug.cpp" />
-    <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyData.cpp" />
     <ClCompile Include="EnemyState.cpp" />
@@ -216,7 +215,6 @@
     <ClInclude Include="ChainedPillar.h" />
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Debug.h" />
-    <ClInclude Include="DemoScene.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyData.h" />
     <ClInclude Include="EnemyState.h" />

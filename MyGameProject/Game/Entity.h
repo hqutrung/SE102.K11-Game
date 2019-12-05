@@ -2,7 +2,6 @@
 #include "GameConfig.h"
 #include "BoxCollider.h"
 
-
 class Entity
 {
 public:
@@ -39,14 +38,13 @@ protected:
 	bool isCollidable;
 	int id;
 	Tag tag;
-	Layer layer;
-
 	Layer type;
 
 	D3DXVECTOR3 position;				// Vi tri tam
 	D3DXVECTOR2 velocity;				// Van toc theo huong x, y
 	float width, height;				// Kich thuoc
 	MoveDirection direction;			// Huong di chuyen
+	BoxCollider collider;
 
 	virtual void onSetPosition(D3DXVECTOR3 position);	// Set vi tri cua Entity, dung cho ke thua
 
@@ -114,6 +112,12 @@ public:
 	// Huong di chuyen
 	virtual MoveDirection GetMoveDirection();
 	virtual void SetMoveDirection(MoveDirection direction);
+
+	virtual void SetColliderTop(int top);
+	virtual void SetColliderLeft(int left);
+	virtual void SetColliderBottom(int bottom);
+	virtual void SetColliderRight(int right);
+
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = SPF);
 	//virtual EarnedData OnDestroy();
 

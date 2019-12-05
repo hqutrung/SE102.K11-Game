@@ -14,13 +14,16 @@ Enemy::~Enemy()
 
 void Enemy::Update(float dt)
 {
+	if (!isActived)
+		return;
 	Entity::Update(dt);
 	enemyData->enemyState->Update(dt);
 }
 
 void Enemy::Render()
 {
-	enemyData->enemyState->Render();
+	if (isActived)
+		enemyData->enemyState->Render();
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
@@ -98,32 +101,6 @@ void Enemy::SetActive(bool active)
 		MakeInactive();
 }
 
-void Enemy::SetColliderTop(float top) {
-	collider.top = top;
-}
-
-void Enemy::SetColliderLeft(float left) {
-	collider.left = left;
-}
-
-void Enemy::SetColliderBottom(float bottom) {
-	collider.bottom = bottom;
-}
-
-void Enemy::SetColliderRight(float right) {
-	collider.right = right;
-}
-
-void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}
-
-void Enemy::Spawn()
-{
-	isActived = true;
-	position = spawnPosition;
-}
-
 void Enemy::MakeInactive()
 {
 	isActived = false;
@@ -133,4 +110,14 @@ void Enemy::MakeInactive()
 	SetColliderBottom(-collider.top);
 	SetColliderLeft((spawnBox.left - spawnBox.right) / 2.0f);
 	SetColliderRight(-collider.right);
+}
+
+void Enemy::Spawn()
+{
+	isActived = true;
+	position = spawnPosition;
+}
+
+void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+{
 }

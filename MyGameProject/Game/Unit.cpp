@@ -8,7 +8,7 @@ Unit::Unit(Grid* grid, Entity* entity)
 	prev = NULL;
 	next = NULL;
 	grid->Add(this);
-	//active = false;
+	active = false;
 }
 
 Unit::Unit(Grid* grid, Entity* entity, int cellX, int cellY)

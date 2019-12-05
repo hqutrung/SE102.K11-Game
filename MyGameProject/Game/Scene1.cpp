@@ -11,14 +11,13 @@ Scene1::~Scene1()
 
 void Scene1::LoadContent()
 {
-	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt1.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
 
-
 	camera = new Camera(width, height);
-	camera = new Camera(318, 230);
+	//camera = new Camera(318, 230);
 
 	map->SetCamera(camera);
 
@@ -35,6 +34,7 @@ void Scene1::LoadContent()
 
 void Scene1::Update(float dt)
 {
+	gameTime += dt;
 	CheckActive();
 	ProcessInput();
 	CheckCollision(dt);
@@ -47,19 +47,14 @@ void Scene1::Update(float dt)
 	CheckCamera();
 
 	// 
-	if (playerPos.x < 16)
-		player->SetPosition(16, playerPos.y);
-	if (playerPos.x > map->GetWidth() - 16)
-		player->SetPosition(map->GetWidth() - 16, playerPos.y);
+	if (playerPos.x < 25)
+		player->SetPosition(25, playerPos.y);
+	if (playerPos.x > map->GetWidth() - 25)
+		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
-	if (playerPos.y < 16)
-		player->SetPosition(playerPos.x, 16);
-	if (playerPos.y > map->GetHeight() - 16)
-		player->SetPosition(playerPos.x, map->GetHeight() - 16);
+	if (player->GetRect().top > map->GetHeight() + 10)
+		player->SetState(PlayerState::Fall);
 	//
-
-
-
 }
 
 void Scene1::Render()

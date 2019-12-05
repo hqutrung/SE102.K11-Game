@@ -1,8 +1,6 @@
 #include "BlueVase.h"
 
-BlueVase::BlueVase()
-{
-	Obstacles();
+BlueVase::BlueVase() : Obstacles() {
 	SetTag(BLUEVASE);
 
 	Textures* textures = Textures::GetInstance();

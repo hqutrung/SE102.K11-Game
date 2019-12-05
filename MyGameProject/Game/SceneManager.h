@@ -17,8 +17,8 @@ class SceneManager
 	float timeTransition;
 
 public:
-	SceneManager();
 	static SceneManager* GetInstance();
+	SceneManager();
 	~SceneManager();
 
 	Scene* GetCurrentScene();

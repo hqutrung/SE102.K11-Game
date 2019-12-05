@@ -1,5 +1,4 @@
 #include "GameManager.h"
-#include "DemoScene.h"
 
 GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 {

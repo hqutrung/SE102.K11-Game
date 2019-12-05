@@ -5,16 +5,10 @@
 #define SCREEN_WIDTH 318
 #define SCREEN_HEIGHT 230
 
-#define INDEX_CAMERA_WIDTH 30
-#define INDEX_CAMERA_HEIGHT 20
-#define VELOCITY_CAMERA 3
-
 #define FPS 60
 #define SPF 1.0f/FPS
 
 // TEX ID
-#define TEX_DEMOOBJECT 100
-#define TEX_DEMOENEMY 200
 #define TEX_APPLE APPLE
 #define TEX_HEART BLUEHEART
 #define TEX_GEM GEM
@@ -32,8 +26,6 @@
 #define TEX_CHAINEDPILLAR CHAINEDPILLAR
 #define TEX_PILLAR CHAINEDPILLAR
 
-#define PLAYER_RUN_VELOCCITY 500
-
 // keyBoard
 #define DOWN_ARROW DIK_DOWNARROW
 #define UP_ARROW DIK_UPARROW
@@ -42,6 +34,11 @@
 #define JUMP_ARROW DIK_D
 #define ATTACK_ARROW DIK_S
 #define THROW_ARROW DIK_A
+
+// camera
+#define INDEX_CAMERA_WIDTH 30
+#define INDEX_CAMERA_HEIGHT 20
+#define VELOCITY_CAMERA 3
 
 
 // SCENE ID
@@ -52,16 +49,15 @@
 #define GRID_COLUMN_NUMBERS 30
 
 
-// state speed
+// playerState speed
 #define RUN_SPEED 120
 #define JUMP_SPEED 180
 #define SLIDE_SPEED 50
-//#define MAX_JUMP 90
-#define MAX_JUMP 78
 #define CLIMB_SPEED 130
+#define MAX_JUMP 78
 
 
-//
+// type
 enum Tag {
 	BAT,
 	SKELETON,
@@ -91,6 +87,7 @@ enum Tag {
 	NONE
 };
 
+// Type
 enum Layer {
 	PlayerType,
 	EnemyType,

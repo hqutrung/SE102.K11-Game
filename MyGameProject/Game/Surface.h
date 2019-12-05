@@ -5,16 +5,14 @@
 
 class Surface : public Entity
 {
-	BoxCollider collider;
-public:
+protected:
 	Sprites* sprite;
+	BoxCollider spawnBox;
+public:
 	Surface();
 	~Surface();
 	void Render() override;
 	virtual void SetSpawnBox(BoxCollider box);
-	virtual void SetColliderTop(int top);
-	virtual void SetColliderLeft(int left);
-	virtual void SetColliderBottom(int bottom);
-	virtual void SetColliderRight(int right);
+	virtual BoxCollider GetSpawnBox();
 	BoxCollider GetRect() override;
 };

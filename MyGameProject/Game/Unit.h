@@ -5,7 +5,7 @@ class Unit
 {
 	friend class Grid;
 
-	Unit* prev, * next;
+	Unit *prev, *next;
 	Grid *grid;
 	D3DXVECTOR2 pos;
 	Entity* entity;
@@ -15,7 +15,6 @@ public:
 
 	Unit(Grid* grid, Entity* entity);
 	Unit(Grid* grid, Entity* entity, int cellX, int cellY);
-
 	virtual ~Unit();
 
 	void Move(float x, float y);

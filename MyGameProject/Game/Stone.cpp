@@ -1,8 +1,7 @@
 #include "Stone.h"
+#include "SceneManager.h"
 
-Stone::Stone()
-{
-	Obstacles();
+Stone::Stone() : Obstacles() {
 	SetTag(STONE);
 
 	Textures* textures = Textures::GetInstance();
@@ -16,16 +15,31 @@ Stone::~Stone()
 
 void Stone::Update(float dt)
 {
-	if (animation->GetCurrentFrameID() == 0 || animation->GetCurrentFrameID() == 4)
-		animation->SetDefaultTime(1.5f);
-	else
-		animation->SetDefaultTime(0.25f);
+	if (delayTime <= 0)
+	{
+		if (animation->GetCurrentFrameID() == 0 || animation->GetCurrentFrameID() == 4)
+			animation->SetDefaultTime(1.25f);
+		else
+			animation->SetDefaultTime(0.2f);
+		int frameID = animation->GetCurrentFrameID();
+		if (frameID == 3 || frameID == 4 || frameID == 5)
+			isCollidable = true;
+		else
+			isCollidable = false;
+		animation->Update(dt);
+		return;
+	}
+	delayTime -= dt;
+	
+}
 
-	if (animation->GetCurrentFrameID() == 4)
-		isCollidable = true;
+void Stone::SetSpawnBox(BoxCollider box, int id)
+{
+	Obstacles::SetSpawnBox(box, id);
+	if (id == 1)
+		delayTime = 2.05f;
 	else
-		isCollidable = false;
-	animation->Update(dt);
+		delayTime = 0;
 }
 
 void Stone::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)

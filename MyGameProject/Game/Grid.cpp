@@ -116,10 +116,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 		/*if (staticObjects[i]->GetType() == StaticType)
 			continue;*/
 		BoxCollider box = staticObjects[i]->GetRect();
-		if (Camera::GetInstance()->IsCollide(box)) 
-			staticObjects[i]->SetActive(true);
-		else
-			staticObjects[i]->SetActive(false);
+		staticObjects[i]->SetActive(Camera::GetInstance()->IsCollide(box));
 	}
 
 }
@@ -237,8 +234,6 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 		if (unit->entity->IsActived()) {
 			for (size_t i = 0; i < staticObjects.size(); i++)
 			{
-				if (staticObjects[i]->GetID() == 1 && unit->entity->GetType() == PlayerType)
-					printf("");
 				if ((staticObjects[i]->GetType() != Surface || staticObjects[i]->GetTag() == EXITPORT) && staticObjects[i]->IsActived())
 					HandleColissionStatic(unit->entity, staticObjects[i], dt);
 			}
@@ -328,6 +323,14 @@ void Grid::Update(float dt)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				UpdateUnit(Cells[i][j], dt);
 
+	for (size_t i = 0; i < staticObjects.size(); i++)
+	{
+		/*if (staticObjects[i]->GetType() == StaticType)
+			continue;*/
+		if (staticObjects[i]->GetType() == ObstaclesType)
+			staticObjects[i]->Update(dt);
+	}
+
 	// Update Unit
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
@@ -347,8 +350,7 @@ void Grid::Render()
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				RenderUnit(Cells[i][j]);
-	
-	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
+
 	// Draw Player
 	Player::GetInstance()->GetCurrentState()->Render();
 	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
@@ -358,29 +360,19 @@ void Grid::Render()
 	// Draw surface + objectRect
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		D3DXCOLOR color = D3DCOLOR_ARGB(255, 255, 255, 255);
-		switch (staticObjects[i]->GetType()) {
-		case PlayerType:
-			break;
-		case EnemyType:
-			break;
-		case ItemType:
-			break;
-		case ObstaclesType:
-			break;
-		case StaticType:
-			break;
-		case Surface:
-			break;
-		}
-		BoxCollider boundbox = staticObjects[i]->GetRect();
-		D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
-		else {
-			if (isDraw == 1)
+		/*else {
+			if (isDraw == 1) {
+				BoxCollider boundbox = staticObjects[i]->GetRect();
+				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);
+			}
+		}*/
+		if (isDraw == 1) {
+			BoxCollider boundbox = staticObjects[i]->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+			Support::DrawRect(position, boundbox);
 		}
 	}
 }
@@ -389,7 +381,7 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 {
 	while (unit != NULL)
 	{
-		if (unit->entity->IsActived())
+		if (unit->entity->IsActived() && unit->entity->GetType() != ObstaclesType)
 		{
 			unit->entity->Update(dt);
 		}
@@ -407,6 +399,7 @@ void Grid::RenderUnit(Unit* unit)
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
 
+			unit->entity->Render();
 			// Draw ObjectRect
 			if (isDraw == 1) {
 				BoxCollider boundbox = unit->entity->GetRect();
@@ -414,10 +407,32 @@ void Grid::RenderUnit(Unit* unit)
 				Support::DrawRect(position, boundbox);
 			}
 
-			unit->entity->Render();
 		}
 		unit = unit->next;
 	}
+}
+
+Entity* Grid::findObject(Tag tag)
+{
+	BoxCollider camRect = Camera::GetInstance()->GetRect();
+	RECT r;
+	r.left = (int)(Support::Clamp(camRect.left / cellWidth, 0, colNumbers));
+	r.right = (int)(Support::Clamp(camRect.right / cellWidth, 0, colNumbers));
+	r.top = (int)(Support::Clamp(camRect.top / cellHeight, 0, rowNumbers));
+	r.bottom = (int)(Support::Clamp(camRect.bottom / cellHeight, 0, rowNumbers));
+
+	for (int i = r.bottom; i < r.top; i++)
+		for (int j = r.left; j < r.right; j++)
+		{
+			Unit* unit = Cells[i][j];
+			while (unit != NULL)
+			{
+				if (unit->entity->GetTag() == tag)
+					return unit->entity;
+				unit = unit->next;
+			}
+		}
+	return NULL;
 }
 
 void Grid::AddStaticObject(Entity* ent) {

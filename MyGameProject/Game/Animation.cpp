@@ -57,6 +57,16 @@ void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstCo
 		}
 }
 
+float Animation::GetCurrentTotalTime()
+{
+	return currentTotalTime;
+}
+
+float Animation::GetDefaultTime()
+{
+	return defaultTime;
+}
+
 int Animation::GetWidthCurrentFrame()
 {
 	return frames[currentFrame]->GetWidth();

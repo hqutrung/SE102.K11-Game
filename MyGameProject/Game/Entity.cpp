@@ -3,16 +3,10 @@
 
 int Entity::currentID = 0;
 
-void Entity::onSetPosition(D3DXVECTOR3 position)
-{
-	this->position = position;
-}
-
 Entity::Entity()
 {
 	tag = NONE;
 	id = ++currentID;
-	isStatic = false;
 	isCollidable = true;
 	isActived = false;
 }
@@ -20,6 +14,11 @@ Entity::Entity()
 Entity::~Entity()
 {
 
+}
+
+void Entity::onSetPosition(D3DXVECTOR3 position)
+{
+	this->position = position;
 }
 
 BoxCollider Entity::GetRect()
@@ -46,7 +45,8 @@ void Entity::Render()
 void Entity::SetStatic(bool flag)
 {
 	this->isStatic = flag;
-	velocity = D3DXVECTOR2(0, 0);
+	if(flag == true)
+		velocity = D3DXVECTOR2(0, 0);
 }
 
 int Entity::GetID()
@@ -66,12 +66,12 @@ void Entity::SetTag(enum Tag tag)
 
 Layer Entity::GetType()
 {
-	return layer;
+	return type;
 }
 
 void Entity::SetType(enum Layer layer)
 {
-	this->layer = layer;
+	this->type = layer;
 }
 
 void Entity::SetActive(bool active)
@@ -205,6 +205,26 @@ Entity::MoveDirection Entity::GetMoveDirection()
 void Entity::SetMoveDirection(MoveDirection direction)
 {
 	this->direction = direction;
+}
+
+void Entity::SetColliderTop(int top)
+{
+	collider.top = top;
+}
+
+void Entity::SetColliderLeft(int left)
+{
+	collider.left = left;
+}
+
+void Entity::SetColliderBottom(int bottom)
+{
+	collider.bottom = bottom;
+}
+
+void Entity::SetColliderRight(int right)
+{
+	collider.right = right;
 }
 
 void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)

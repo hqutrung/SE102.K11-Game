@@ -1,8 +1,6 @@
 #include "ExitPort.h"
 
-ExitPort::ExitPort()
-{
-	Surface();
+ExitPort::ExitPort() : Surface() {
 	SetTag(EXITPORT);
 
 	Textures* textures = Textures::GetInstance();

@@ -4,9 +4,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="DemoScene.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
     <ClCompile Include="Graphic.cpp">
       <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
@@ -115,15 +112,6 @@
     <ClCompile Include="GenieToken.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Bat.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Skeleton.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="ThinGuard.cpp">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerIdleThrowState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
@@ -211,13 +199,19 @@
     <ClCompile Include="Scene1.cpp">
       <Filter>Header Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="ThinGuard.cpp">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
       <Filter>Header Files\FrameWork</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoScene.h">
-      <Filter>Header Files\Demo</Filter>
     </ClInclude>
     <ClInclude Include="Graphic.h">
       <Filter>Header Files\FrameWork</Filter>
@@ -330,15 +324,6 @@
     <ClInclude Include="GenieToken.h">
       <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Bat.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Skeleton.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="ThinGuard.h">
-      <Filter>Header Files\Objects\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerIdleThrowState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
@@ -423,6 +408,15 @@
     <ClInclude Include="Scene1.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="ThinGuard.h">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -433,9 +427,6 @@
     </Filter>
     <Filter Include="Header Files\FrameWork">
       <UniqueIdentifier>{16381fe1-2c8f-4c7e-9588-34435a35a8af}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Demo">
-      <UniqueIdentifier>{a9f223dc-15b9-491a-ba26-bd9e0ee4f0d2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Manager">
       <UniqueIdentifier>{ff5a1244-d703-4a60-9e3f-23ded2f4d3e0}</UniqueIdentifier>
@@ -478,6 +469,15 @@
     </Filter>
     <Filter Include="Header Files\Scene">
       <UniqueIdentifier>{fad778bb-7dd3-49a5-919b-da39fd1c2cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\Bat">
+      <UniqueIdentifier>{7f7e1ab2-3750-4496-be6a-c7891ef04b4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\Skeleton">
+      <UniqueIdentifier>{bba13580-1866-4b83-a6b2-6b794aa66d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Enemy\ThinGuard">
+      <UniqueIdentifier>{9e08aa6b-9694-4ba2-bca5-22bc2e3227a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

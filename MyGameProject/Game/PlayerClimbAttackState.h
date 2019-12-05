@@ -1,4 +1,4 @@
-
+#pragma once
 #include "PlayerState.h"
 #include "Player.h"
 #include"KeyBoard.h"
@@ -6,9 +6,7 @@
 
 class PlayerClimbAttackState : public PlayerIdleState
 {
-
 public:
-
 	PlayerClimbAttackState(PlayerData* data);
 	~PlayerClimbAttackState();
 	void Render() override;

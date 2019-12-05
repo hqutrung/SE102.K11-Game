@@ -25,3 +25,8 @@ void Scene::SetBackColor(D3DCOLOR backColor)
 {
 	this->backColor = backColor;
 }
+
+float Scene::GetGameTime()
+{
+	return gameTime;
+}

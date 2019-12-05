@@ -13,58 +13,55 @@ public:
 		Climbing
 	};
 
+	// sử dụng cho State Jump
+	D3DXVECTOR3 lastposition;
+	bool isClaimWall = false;
+
+	Status status;
+	void SetStatus(Status status);
+	Player::Status GetStatus();
+
 	static Player* GetInstance();
 	Player();
 	~Player();
+
 	void Update(float dt) override;
 	void Render() override;
-	void SetState(PlayerState::State state, int dummy = 0);
 
+	void SetState(PlayerState::State state, int dummy = 0);
 	void HandleInput();
 
 	PlayerState* GetCurrentState();
 	PlayerState* GetState(PlayerState::State state);
 
 	PlayerState::State GetPrevStateName() { return prevStateName; }
-	// sử dụng cho State Jump
-	Status status;
-	D3DXVECTOR3 lastposition;
-	//
-	bool isClaimWall = false;
-	//
-
-	void SetColliderTop(int top);
-	void SetColliderLeft(int left);
-	void SetColliderBottom(int bottom);
-	void SetColliderRight(int right);
 
 	BoxCollider GetRect();
 	BoxCollider GetBody();
+	BoxCollider GetBigBound();
+
 	float GetBigWidth() override;
 	float GetBigHeight() override;
-	BoxCollider GetBigBound();
 	float GetWidth() override;
 	float GetHeight() override;
 
 	void SetActive(bool active);
 	void OnFalling();
 
-	void SetMoveDirection(Entity::MoveDirection dir) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
+	void InjuredByOther(Entity* impactor);
 
+	// Bat tu
 	//void OnImmortal();
 	//void OffImmortal();
+	//bool isImmortal;
+	//float immortalTime;
 
-	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
-	
-
-	
 	//bool checkGroundInFrame;
 	//float timeOnAir;
 
-	////bool renderPreviousFrame;
+	//bool renderPreviousFrame;
 	
-
-
 
 protected:
 	static Player* instance;
@@ -98,7 +95,6 @@ protected:
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
 
-	BoxCollider collider;
 	float collisionTime;
 	SideCollision side;
 

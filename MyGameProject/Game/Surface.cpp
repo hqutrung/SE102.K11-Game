@@ -1,6 +1,6 @@
 #include "Surface.h"
 
-Surface::Surface()
+Surface::Surface() : Entity()
 {
 	SetType(Layer::Surface);
 	SetStatic(true);
@@ -17,6 +17,7 @@ void Surface::Render()
 
 void Surface::SetSpawnBox(BoxCollider box)
 {
+	spawnBox = box;
 	position = D3DXVECTOR3(box.getCenter());
 	collider.top = box.top - position.y;
 	collider.left = box.left - position.x;
@@ -24,24 +25,9 @@ void Surface::SetSpawnBox(BoxCollider box)
 	collider.right = box.right - position.x;
 }
 
-void Surface::SetColliderTop(int top)
+BoxCollider Surface::GetSpawnBox()
 {
-	collider.top = top;
-}
-
-void Surface::SetColliderLeft(int left)
-{
-	collider.left = left;
-}
-
-void Surface::SetColliderBottom(int bottom)
-{
-	collider.bottom = bottom;
-}
-
-void Surface::SetColliderRight(int right)
-{
-	collider.right = right;
+	return spawnBox;
 }
 
 BoxCollider Surface::GetRect()

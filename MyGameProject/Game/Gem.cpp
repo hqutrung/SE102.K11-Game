@@ -1,8 +1,7 @@
 #include "Gem.h"
 
-Gem::Gem()
+Gem::Gem() : Item()
 {
-	Item();
 	SetTag(GEM);
 	Textures* textures = Textures::GetInstance();
 	textures->Add(TEX_GEM, "Resources/Items/gem.png", D3DCOLOR_XRGB(255, 0, 255));

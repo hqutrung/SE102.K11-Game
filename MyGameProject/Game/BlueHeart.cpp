@@ -1,8 +1,7 @@
 #include "BlueHeart.h"
 
-BlueHeart::BlueHeart()
+BlueHeart::BlueHeart() : Item()
 {
-	Item();
 	SetTag(BLUEHEART);
 
 	Textures* textures = Textures::GetInstance();

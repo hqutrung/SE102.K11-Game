@@ -27,14 +27,12 @@ class Grid
 public:
 	
 	static Grid* GetInstance();
-
 	Grid(BoxCollider r, int rowNumbers, int colNumbers);
 	~Grid();
 
 	void Add(Unit* unit);							// Add Unit to Grid
 	void Add(Unit* unit, int cellX, int cellY);
-
-	//void AddStaticObject(Entity* ent);
+	void AddStaticObject(Entity* ent);
 
 	// Active Unit is in camera
 	void HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection);
@@ -44,6 +42,7 @@ public:
 	// Collision
 	void HandMelee(float dt);								// partitioned the battlefield into little skirmishes
 	void HandleCell(int cellX, int cellY, float dt);			// handle this cell
+
 	void HandleUnit(Unit* unit, Unit* other, float dt);		// handle this Unit
 	void HandleCollision(Entity* ent1, Entity* ent2, float dt);	// handle collision
 
@@ -60,8 +59,5 @@ public:
 	void UpdateUnit(Unit* unit, float dt);			// Update, render 1 Unit
 	void RenderUnit(Unit* unit);
 
-	void AddStaticObject(Entity* ent);
-
-	/*void AddStaticObject(Entity* ent);
-	void HandleCellWithStatic(Unit *unit, double dt);*/
+	Entity* findObject(Tag tag);
 };

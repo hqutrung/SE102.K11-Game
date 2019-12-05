@@ -35,19 +35,21 @@ public:
 		Push
 
 	};
-	int countPressKey = 1;
 	~PlayerState();
 	PlayerState();
+
 	virtual void Update(float dt);
 	virtual void Render();
 	virtual void HandleInput();
+
+	virtual BoxCollider GetBody();
 	virtual State GetStateName();
 	virtual void ResetState(int dummy);
 	Animation* GetAnimation() { return m_Animation; }
 
-	virtual BoxCollider GetBody();
-
 	virtual void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60);
+
+	int countPressKey = 1;
 protected:
 	Animation* m_Animation;
 	PlayerState(PlayerData* data);

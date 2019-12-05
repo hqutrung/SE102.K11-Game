@@ -2,7 +2,6 @@
 
 SceneManager* SceneManager::instance = NULL;
 
-
 SceneManager::SceneManager()
 {
 	currentScene = NULL;

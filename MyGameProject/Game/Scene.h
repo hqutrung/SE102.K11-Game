@@ -6,8 +6,8 @@
 class Scene
 {
 protected:
-	D3DCOLOR                backColor;
-
+	D3DCOLOR backColor;
+	float gameTime;
 public:
 	Scene();
 	virtual ~Scene();
@@ -20,7 +20,7 @@ public:
 
 	D3DCOLOR GetBackcolor();
 	void SetBackColor(D3DCOLOR backColor);
-	
+	float GetGameTime();
 };
 
 #endif

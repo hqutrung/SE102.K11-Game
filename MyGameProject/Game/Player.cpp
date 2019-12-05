@@ -35,14 +35,13 @@ Player* Player::GetInstance()
 	return instance;
 }
 
-Player::Player()
+Player::Player() : Entity()
 {
 	instance = this;
 	Textures* textures = Textures::GetInstance();
 
 	playerData = new PlayerData();
 	playerData->player = this;
-
 
 	idleState = new PlayerIdleState(playerData);
 	runState = new PlayerRunState(playerData);
@@ -74,12 +73,13 @@ Player::Player()
 	SetState(PlayerState::Idle);
 	SetTag(PLAYER);
 	SetType(PlayerType);
-	lastposition = position;
+	SetStatic(false);
+	SetActive(true);
 	status = OnGround;
+
+	lastposition = position;
 	width = 37;
 	height = 55;
-	isStatic = false;
-	SetActive(true);
 }
 
 Player::~Player()
@@ -279,7 +279,6 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return runState;
 	case PlayerState::IdleAttack:
 		return idleAttackState;
-		break;
 	case PlayerState::RunAttack:
 		return runAttackState;
 	case PlayerState::Duck:
@@ -311,26 +310,6 @@ PlayerState* Player::GetState(PlayerState::State state)
 	}
 }
 
-void Player::SetColliderTop(int top)
-{
-	collider.top = top;
-}
-
-void Player::SetColliderLeft(int left)
-{
-	collider.left = left;
-}
-
-void Player::SetColliderBottom(int bottom)
-{
-	collider.bottom = bottom;
-}
-
-void Player::SetColliderRight(int right)
-{
-	collider.right = right;
-}
-
 BoxCollider Player::GetRect()
 {
 	BoxCollider r;
@@ -346,6 +325,12 @@ BoxCollider Player::GetRect()
 	}
 	return r;
 }
+
+BoxCollider Player::GetBody()
+{
+	return playerData->state->GetBody();
+}
+
 BoxCollider Player::GetBigBound() {
 	BoxCollider box;
 	if (GetMoveDirection() == Player::MoveDirection::LeftToRight)
@@ -353,10 +338,6 @@ BoxCollider Player::GetBigBound() {
 	else
 		box = BoxCollider(position.y + 25, position.x - 19, position.x + 16, position.y - 24);
 	return box;
-}
-BoxCollider Player::GetBody()
-{
-	return playerData->state->GetBody();
 }
 
 float Player::GetBigWidth()
@@ -390,16 +371,19 @@ void Player::SetActive(bool active)
 	//}
 }
 
+void Player::SetStatus(enum Status status)
+{
+	this->status = status;
+}
+
+Player::Status Player::GetStatus()
+{
+	return status;
+}
+
 void Player::OnFalling()
 {
 	SetState(PlayerState::Fall);
-}
-
-void Player::SetMoveDirection(Entity::MoveDirection dir)
-{
-	if (dir == direction)
-		return;
-	direction = dir;
 }
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
@@ -487,4 +471,13 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 	velocity = newVelocity;
 	playerData->state->OnCollision(impactor, side, collisionTime, dt);
+}
+
+void Player::InjuredByOther(Entity* impactor)
+{
+	// bat tu
+	/*if (isImmortal)
+		return;*/
+	SetState(PlayerState::Injured);
+	//DataManager::MinusHealth(impactor->GetTag());
 }

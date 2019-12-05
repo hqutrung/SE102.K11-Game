@@ -66,17 +66,6 @@ GameMap::~GameMap()
 	mapIDs = NULL;
 }
 
-bool GameMap::isContain(BoxCollider rect1, BoxCollider rect2)
-{
-	if (rect1.left > rect2.right || rect1.right < rect2.left || rect1.top > rect2.bottom || rect1.bottom < rect2.top)
-	{
-		return false;
-	}
-
-	return true;
-}
-
-
 int GameMap::GetWidth()
 {
 	return tileset->GetTileWidth() * columns;
@@ -207,7 +196,7 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			ent->SetTag((Tag)id);
 			ent->SetType(Layer::StaticType);
 			ent->SetStatic(true);
-			ent->SetPosition(D3DXVECTOR3(posx + wid / 2, posy - hei / 2, 0));
+			ent->SetPosition(posx + wid / 2, posy - hei / 2);
 			ent->SetWidth(wid);
 			ent->SetHeight(hei);
 			grid->AddStaticObject(ent);
@@ -224,24 +213,24 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 		case BAT:
 		{
-			Bat* bat = new Bat();
+			/*Bat* bat = new Bat();
 			bat->SetSpawnBox(box, direction);
 			unit = new Unit(grid, bat);
-			break;
+			break;*/
 		}
 		case SKELETON:
 		{
-			Skeleton* skeleton = new Skeleton();
+			/*Skeleton* skeleton = new Skeleton();
 			skeleton->SetSpawnBox(box, direction);
 			unit = new Unit(grid, skeleton);
-			break;
+			break;*/
 		}
 		case THINGUARD:
 		{
-			ThinGuard* thinGuard = new ThinGuard();
+			/*ThinGuard* thinGuard = new ThinGuard();
 			thinGuard->SetSpawnBox(box, direction);
 			unit = new Unit(grid, thinGuard);
-			break;
+			break;*/
 		}
 		case FATGUARD:
 		{
@@ -293,29 +282,33 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		case BLUEVASE:
 		{
 			BlueVase* blueVase = new BlueVase();
-			blueVase->SetSpawnBox(box);
+			blueVase->SetSpawnBox(box, direction);
 			unit = new Unit(grid, blueVase);
+			grid->AddStaticObject(blueVase);
 			break;
 		}
 		case STONE:
 		{
 			Stone* stone = new Stone();
-			stone->SetSpawnBox(box);
+			stone->SetSpawnBox(box, direction);
 			unit = new Unit(grid, stone);
+			grid->AddStaticObject(stone);
 			break;
 		}
 		case BALL:
 		{
 			Ball* ball = new Ball();
-			ball->SetSpawnBox(box);
+			ball->SetSpawnBox(box, direction);
 			unit = new Unit(grid, ball);
+			grid->AddStaticObject(ball);
 			break;
 		}
 		case SPIKE:
 		{
 			Spike* spike = new Spike();
-			spike->SetSpawnBox(box);
+			spike->SetSpawnBox(box, direction);
 			unit = new Unit(grid, spike);
+			grid->AddStaticObject(spike);
 			break;
 		}
 		case EXITPORT:

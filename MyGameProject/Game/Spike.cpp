@@ -1,8 +1,6 @@
 #include "Spike.h"
 
-Spike::Spike()
-{
-	Obstacles();
+Spike::Spike() : Obstacles() {
 	SetTag(SPIKE);
 
 	Textures* textures = Textures::GetInstance();
@@ -16,15 +14,29 @@ Spike::~Spike()
 
 void Spike::Update(float dt)
 {
-	if (animation->GetCurrentFrameID() == 0)
-		animation->SetDefaultTime(2.0f);
-	else if (animation->GetCurrentFrameID() == 5)
-		animation->SetDefaultTime(1.0f);
-	else if (animation->GetCurrentFrameID() == 6)
-		animation->SetDefaultTime(0.25f);
+	if (delayTime <= 0)
+	{
+		if (animation->GetCurrentFrameID() == 0)
+			animation->SetDefaultTime(2.5f);
+		else if(animation->GetCurrentFrameID() > 0 && animation->GetCurrentFrameID() < 5)
+			animation->SetDefaultTime(0.01f);
+		else if (animation->GetCurrentFrameID() == 5)
+			animation->SetDefaultTime(1.0f);
+		else
+			animation->SetDefaultTime(0.1f);
+		animation->Update(dt);
+		return;
+	}
+	delayTime -= dt;
+}
+
+void Spike::SetSpawnBox(BoxCollider box, int id)
+{
+	Obstacles::SetSpawnBox(box, id);
+	if (id == 1)
+		delayTime = 1.94f;
 	else
-		animation->SetDefaultTime(0.01f);
-	animation->Update(dt);
+		delayTime = 0;
 }
 
 void Spike::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)

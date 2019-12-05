@@ -52,7 +52,7 @@ void Textures::Add(int id, LPCSTR filePath, D3DCOLOR transparentColor)
 
 	textures[id] = texture;
 
-	DebugOut(L"[INFO] Texture loaded Ok: id=%d, %s \n", id, filePath);
+	DebugOut(L"[INFO] Texture loaded Ok: id=%d \n", id);
 }
 
 bool Textures::HasContained(int id)

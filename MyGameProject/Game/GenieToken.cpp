@@ -1,8 +1,7 @@
 #include "GenieToken.h"
 
-GenieToken::GenieToken()
+GenieToken::GenieToken() : Item()
 {
-	Item();
 	SetTag(GENIETOKEN);
 
 	Textures* textures = Textures::GetInstance();

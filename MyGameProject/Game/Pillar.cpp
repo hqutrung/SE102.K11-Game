@@ -1,8 +1,6 @@
 #include "Pillar.h"
 
-Pillar::Pillar(int id)
-{
-	Surface();
+Pillar::Pillar(int id) : Surface() {
 	Textures* textures = Textures::GetInstance();
 	switch (id)
 	{
