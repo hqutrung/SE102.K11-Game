@@ -4,9 +4,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="demoEnemy.cpp">
-      <Filter>Header Files\Demo</Filter>
-    </ClCompile>
     <ClCompile Include="DemoObject.cpp">
       <Filter>Header Files\Demo</Filter>
     </ClCompile>
@@ -221,9 +218,6 @@
     <ClInclude Include="Animation.h">
       <Filter>Header Files\FrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="demoEnemy.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
     <ClInclude Include="DemoObject.h">
       <Filter>Header Files\Demo</Filter>
     </ClInclude>
@@ -428,9 +422,6 @@
     <ClInclude Include="PlayerPushState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyState.h">
-      <Filter>Header Files\Objects\Enemy\EnemyState</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyData.h">
       <Filter>Header Files\Objects\Enemy\EnemyData</Filter>
     </ClInclude>
@@ -438,6 +429,9 @@
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClInclude>
     <ClInclude Include="FatGuardAttackState.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,10 +4,8 @@ Spike::Spike()
 {
 	Obstacles();
 	SetTag(SPIKE);
-
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_SPIKE, "Resources/Items/spike.png", D3DCOLOR_XRGB(255, 255, 255));
-	animation->AddFrames(textures->GetTexture(TEX_SPIKE), 1, 10, 0.2f, D3DCOLOR_XRGB(255, 255, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 2, 11, 2, 21, 28, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Spike::~Spike()

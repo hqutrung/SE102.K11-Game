@@ -5,6 +5,8 @@ Obstacles::Obstacles()
 	SetStatic(true);
 	SetType(ObstaclesType);
 	animation = new Animation(0.1f);
+	auto texs = Textures::GetInstance();
+	texs->Add(TEX_OBSTACLES, "Resources/Items/Obstacles.png", D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Obstacles::~Obstacles()

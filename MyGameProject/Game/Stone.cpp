@@ -6,8 +6,7 @@ Stone::Stone()
 	SetTag(STONE);
 
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_STONE, "Resources/Items/stone.png", D3DCOLOR_XRGB(255, 255, 255));
-	animation->AddFrames(textures->GetTexture(TEX_STONE), 1, 8, 0.25f, D3DCOLOR_XRGB(255, 255, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 2, 1, 2, 9, 28,2,28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Stone::~Stone()
