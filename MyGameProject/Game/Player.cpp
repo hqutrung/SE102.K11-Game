@@ -145,18 +145,30 @@ Player::~Player()
 void Player::Update(float dt)
 {
 
-	
+
 	Entity::Update(dt);
-	
+
 	if (playerData->state)
 		playerData->state->Update(dt);
+	timeInjured += dt;
+	countFrame++;
 	isInjured = false;
-	countInjured = 0;
+
 }
 
 void Player::Render()
 {
-	playerData->state->Render();
+	if (timeInjured > 0 && timeInjured < 0.5f)
+	{
+		if (countFrame % 6 != 0)
+		{
+			playerData->state->Render();
+		}
+	}
+	else {
+		playerData->state->Render();
+	}
+
 }
 
 void Player::SetState(PlayerState::State state, int dummy)
@@ -419,6 +431,8 @@ void Player::OnFalling()
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+
+
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();
@@ -473,7 +487,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			}
 		}
 	}
-	
+
 
 
 
@@ -482,6 +496,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	if (impactor->GetType() == ItemType)
 	{
 		impactor->SetActive(false);
+	}
+	else if (impactor->GetTag() == BLUEVASE)
+	{
+		impactor->SetIsCollidable(true);
 	}
 	else if (impactor->GetTag() == EXITPORT)
 		exit(0);
@@ -503,8 +521,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	{
 		if (side != Top
 			&& status == Falling
-			&& round(newPosX) == impactor->GetPosition().x
-			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 20))
+			//	&& round(newPosX) == impactor->GetPosition().x
+			&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)
+			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 10))
 		{
 			newVelocity.x *= collisionTime;
 			status = Climbing;
@@ -513,16 +532,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 
 
-
-	// Injured
-	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL) && impactor->IsCollidable())
-	{
+	if (impactor->GetType() == EnemyType)
 		int x = 0;
-	}
+	// Injured
 
-	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL) && impactor->IsCollidable() && collisionTime == 0)
+	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL || impactor->GetType() == EnemyType) 
+		&& impactor->IsCollidable() && IsCollidable() 
+		&& collisionTime == 0)
 	{
 		isInjured = true;
+		timeInjured = 0;
 	}
 
 	velocity = newVelocity;

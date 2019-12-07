@@ -55,6 +55,7 @@ void PlayerJumpCrossState::Update(float dt)
 	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
 		player->SetState(Fall);
 	PlayerState::Update(dt);
+
 }
 
 void PlayerJumpCrossState::HandleInput()

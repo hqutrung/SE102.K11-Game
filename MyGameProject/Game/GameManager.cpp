@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include<time.h>
 
 GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 {
@@ -11,6 +12,7 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
 	isPause = false;
+	srand(time(NULL));
 }
 
 GameManager::~GameManager()

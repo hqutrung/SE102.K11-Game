@@ -8,6 +8,7 @@ Bat::Bat() : Enemy()
 	batFollowPlayerState = new BatFollowPlayerState(enemyData);
 	batIdleState = new BatIdleState(enemyData);
 	point = 100;
+	isCollidable = true;
 }
 
 Bat::~Bat()

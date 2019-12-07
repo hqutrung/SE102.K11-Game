@@ -13,8 +13,14 @@ void FatGuardProvokeState::Update(float dt)
 	enemy->SetVx(0);
 	enemy->SetVy(0);
 	e_Animation->Update(dt);
+	enemy->SetIsCollidable(false);
 }
 
 void FatGuardProvokeState::ResetState()
 {
+	auto e = enemyData->enemy;
+	e->SetColliderLeft(-17);
+	e->SetColliderRight(29);
+	e->SetColliderTop(22);
+	e->SetColliderBottom(-26);
 }

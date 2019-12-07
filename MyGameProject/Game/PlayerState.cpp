@@ -8,6 +8,7 @@ PlayerState::~PlayerState()
 void PlayerState::Update(float dt)
 {
 	m_Animation->Update(dt);
+	
 }
 
 void PlayerState::Render()

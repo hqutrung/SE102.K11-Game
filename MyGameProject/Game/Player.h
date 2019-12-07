@@ -61,7 +61,8 @@ public:
 
 	//bool renderPreviousFrame;
 	bool isInjured = false;
-	float countInjured = 0;
+	float timeInjured = 0.5f;
+	int countFrame=0;
 
 protected:
 	static Player* instance;

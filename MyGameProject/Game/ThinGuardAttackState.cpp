@@ -14,8 +14,14 @@ void ThinGuardAttackState::Update(float dt)
 	enemy->SetVx(0);
 	enemy->SetVy(0);
 	e_Animation->Update(dt);
+	enemy->SetIsCollidable(true);
 }
 
 void ThinGuardAttackState::ResetState()
 {
+	auto e = enemyData->enemy;
+	e->SetColliderLeft(-20);
+	e->SetColliderRight(78);
+	e->SetColliderTop(48);
+	e->SetColliderBottom(-26);
 }

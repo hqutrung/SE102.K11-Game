@@ -4,6 +4,7 @@
 
 class PlayerRunState : public PlayerState
 {
+	int countLoopAfterInjured = 1;
 public:
 	PlayerRunState() {};
 	PlayerRunState(PlayerData* data);
