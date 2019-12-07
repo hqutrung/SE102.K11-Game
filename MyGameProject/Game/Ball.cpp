@@ -3,7 +3,7 @@
 Ball::Ball() : Obstacles() {
 	SetTag(BALL);
 	Textures* textures = Textures::GetInstance();
-	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 1,1,1,28,28,2,28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 1, 1, 1, 28, 28, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Ball::~Ball()
@@ -14,6 +14,13 @@ void Ball::Update(float dt)
 {
 	if (delayTime <= 0)
 	{
+		int frameID = animation->GetCurrentFrameID();
+		if (frameID == 12 || frameID == 13 || frameID == 14 || frameID == 15 || frameID == 16)
+		{
+			isCollidable = true;
+		}
+		else isCollidable = false;
+
 		animation->Update(dt);
 		return;
 	}

@@ -103,6 +103,12 @@ void PlayerRunState::HandleInput()
 
 void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+
+	/*auto player = Player::GetInstance();
+	if (impactor->GetTag() == SPIKE && player->isInjured && player->countInjured  == 1)
+	{
+		player->SetState(Idle);
+	}*/
 }
 
 PlayerState::State PlayerRunState::GetStateName()

@@ -80,6 +80,7 @@ Player::Player() : Entity()
 	SetActive(true);
 	status = OnGround;
 
+	isInjured = false;
 	lastposition = position;
 	width = 37;
 	height = 55;
@@ -143,10 +144,14 @@ Player::~Player()
 
 void Player::Update(float dt)
 {
+
+	
 	Entity::Update(dt);
+	
 	if (playerData->state)
 		playerData->state->Update(dt);
-
+	isInjured = false;
+	countInjured = 0;
 }
 
 void Player::Render()
@@ -241,6 +246,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		playerData->state = pushState;
 		break;
 	case PlayerState::TouchGroud:
+		status = OnGround;
 		playerData->state = touchGroundState;
 		break;
 	}
@@ -330,6 +336,8 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return jumpAttackState;
 	case PlayerState::JumpThrow:
 		return jumpThrowState;
+	case PlayerState::Injured:
+		return injuredState;
 	}
 }
 
@@ -438,7 +446,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	D3DXVECTOR2 newVelocity = velocity;
 
 	// stand on Ground
-	if (side == Entity::SideCollision::Bottom && status != Jumping&&status!=Climbing)
+	if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
 	{
 		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && round(playerBottom) == impactorRect.top && velocity.y < 0
 			&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
@@ -446,7 +454,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			status = OnGround;
 			newVelocity.y *= collisionTime;
 			lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
-	
+
 		}
 	}
 	// va cham tuong (WALL)
@@ -458,13 +466,18 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			&& velocity.x != 0
 			&& (bPlayer >= impactor->GetRect().bottom && bPlayer < impactor->GetRect().top))
 		{
-			if (GetCurrentState()->GetStateName() == PlayerState::State::Run|| GetCurrentState()->GetStateName() == PlayerState::State::RunAttack|| GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
+			if (GetCurrentState()->GetStateName() == PlayerState::State::Run || GetCurrentState()->GetStateName() == PlayerState::State::RunAttack || GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
 			{
 				lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
 				SetState(PlayerState::Push);
 			}
 		}
 	}
+	
+
+
+
+
 	// ItemType
 	if (impactor->GetType() == ItemType)
 	{
@@ -488,15 +501,28 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	// climb
 	if (impactor->GetTag() == CHAINE)
 	{
-		if (side != Top 
-			&& status == Falling 
+		if (side != Top
+			&& status == Falling
 			&& round(newPosX) == impactor->GetPosition().x
-			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84-20))
+			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 20))
 		{
 			newVelocity.x *= collisionTime;
 			status = Climbing;
 			SetState(PlayerState::Climb);
 		}
+	}
+
+
+
+	// Injured
+	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL) && impactor->IsCollidable())
+	{
+		int x = 0;
+	}
+
+	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL) && impactor->IsCollidable() && collisionTime == 0)
+	{
+		isInjured = true;
 	}
 
 	velocity = newVelocity;
@@ -505,9 +531,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 void Player::InjuredByOther(Entity* impactor)
 {
-	// bat tu
-	/*if (isImmortal)
-		return;*/
 	SetState(PlayerState::Injured);
 	//DataManager::MinusHealth(impactor->GetTag());
 }
