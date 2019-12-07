@@ -10,7 +10,7 @@ Entity::Entity()
 	isCollidable = true;
 	isActived = false;
 }
-
+ 
 Entity::~Entity()
 {
 

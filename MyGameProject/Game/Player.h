@@ -16,7 +16,6 @@ public:
 	// sử dụng cho State Jump
 	D3DXVECTOR3 lastposition;
 	bool isClaimWall = false;
-
 	Status status;
 	void SetStatus(Status status);
 	Player::Status GetStatus();
@@ -61,7 +60,8 @@ public:
 	//float timeOnAir;
 
 	//bool renderPreviousFrame;
-	
+	bool isInjured = false;
+	float countInjured = 0;
 
 protected:
 	static Player* instance;

@@ -80,7 +80,7 @@ void PlayerJumpThrowState::OnCollision(Entity* impactor, Entity::SideCollision s
 {
 	auto player = playerData->player;
 	if (player->status == Player::Status::OnGround
-		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+		&& (impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && player->GetPrevStateName() != TouchGroud)
 	{
 		player->SetState(TouchGroud);
 	}

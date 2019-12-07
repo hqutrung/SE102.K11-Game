@@ -234,6 +234,8 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 		if (unit->entity->IsActived()) {
 			for (size_t i = 0; i < staticObjects.size(); i++)
 			{
+				if (staticObjects[i]->GetType() == ObstaclesType)
+					continue;
 				if ((staticObjects[i]->GetType() != Surface || staticObjects[i]->GetTag() == EXITPORT) && staticObjects[i]->IsActived())
 					HandleColissionStatic(unit->entity, staticObjects[i], dt);
 			}

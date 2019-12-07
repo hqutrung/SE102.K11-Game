@@ -5,9 +5,9 @@ PlayerIdleState::PlayerIdleState(PlayerData* data)
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
 	texs->Add(1000, "Resources/PlayerState/idle_after.png", D3DCOLOR_XRGB(255, 0, 255));
-	
+
 	m_Animation = new Animation();
-	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7,10, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7, 10, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -64,18 +64,18 @@ void PlayerIdleState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKeyDown(THROW_ARROW)&&player->GetState(IdleThrow)->countPressKey==1)
+	if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(IdleThrow)->countPressKey == 1)
 	{
 		player->SetState(IdleThrow);
 		return;
 	}
-	
-	if (keyboard->GetKeyDown(JUMP_ARROW)&& player->GetState(Jump)->countPressKey == 1)
+
+	if (keyboard->GetKeyDown(JUMP_ARROW) && player->GetState(Jump)->countPressKey == 1)
 	{
 		player->SetState(Jump);
 		return;
 	}
-	
+
 	if (keyboard->GetKey(UP_ARROW))
 	{
 		player->SetState(LookUp);
@@ -93,7 +93,7 @@ void PlayerIdleState::HandleInput()
 
 	//====idle->idle_attack
 
-	if (keyboard->GetKeyDown(ATTACK_ARROW)&&player->GetState(IdleAttack)->countPressKey == 1)
+	if (keyboard->GetKeyDown(ATTACK_ARROW) && player->GetState(IdleAttack)->countPressKey == 1)
 	{
 		player->SetState(IdleAttack);
 		return;
@@ -109,7 +109,6 @@ void PlayerIdleState::HandleInput()
 
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		player->SetState(Run);
 		player->SetVy(0);
 		return;
@@ -118,7 +117,6 @@ void PlayerIdleState::HandleInput()
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
 		player->SetState(Run);
 		player->SetVy(0);
 		return;
@@ -129,6 +127,12 @@ void PlayerIdleState::HandleInput()
 
 void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	auto player = Player::GetInstance();
+	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL) && player->isInjured)
+	{
+		player->SetVx(0);
+		player->SetState(Injured);
+	}
 }
 
 PlayerState::State PlayerIdleState::GetStateName()
@@ -139,7 +143,7 @@ PlayerState::State PlayerIdleState::GetStateName()
 void PlayerIdleState::ResetState(int dummy)
 {
 	auto player = playerData->player;
-//	collider around center point, collider often smaller than player sprite
+	//	collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-16);
 	player->SetColliderRight(19);
 	player->SetColliderTop(25);

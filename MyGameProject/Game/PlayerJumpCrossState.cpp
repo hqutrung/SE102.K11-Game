@@ -23,11 +23,11 @@ void PlayerJumpCrossState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 	if(player->status == Player::Status::Jumping)
-		player->SetVy(JUMP_SPEED*0.8);
+		player->SetVy(JUMP_SPEED*0.9f);
 	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP-3)
 	{
 		player->status = Player::Status::Falling;
-		player->SetVy(-JUMP_SPEED*0.8);
+		player->SetVy(-JUMP_SPEED*0.9f);
 	}
 	// diem dung tam thoi
 	
@@ -100,7 +100,7 @@ void PlayerJumpCrossState::OnCollision(Entity* impactor, Entity::SideCollision s
 {
 	auto player = playerData->player;
 	if (player->status == Player::Status::OnGround
-		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+		&& (impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && player->GetPrevStateName() != TouchGroud)
 	{
 		player->SetState(TouchGroud);
 	}

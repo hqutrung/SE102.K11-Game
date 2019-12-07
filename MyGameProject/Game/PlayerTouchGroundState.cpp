@@ -8,7 +8,7 @@ PlayerTouchGroundState::PlayerTouchGroundState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1451, "Resources/PlayerState/fall2.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFramesA(texs->GetTexture(1451), 1, 6, 3, 4, 10, 3, 10, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFramesA(texs->GetTexture(1451), 1, 6, 3, 4, 10, 3, 10, 0.075f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 PlayerTouchGroundState::~PlayerTouchGroundState()
@@ -29,7 +29,7 @@ void PlayerTouchGroundState::Update(float dt)
 	if (m_Animation->GetCurrentFrameID() < 17)
 	{
 		m_Animation->SetDefaultTime(0.025f);
-	}else m_Animation->SetDefaultTime(0.07f);
+	}else m_Animation->SetDefaultTime(0.075f);
 	//
 
 	if (m_Animation->IsEndFrame(16, dt) || m_Animation->IsLastFrame(dt))

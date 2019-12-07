@@ -97,7 +97,7 @@ void PlayerFallState::OnCollision(Entity* impactor, Entity::SideCollision side, 
 {
 	auto player = playerData->player;
 	if (player->status == Player::Status::OnGround
-		&& (impactor->GetTag() == GROUND || impactor->GetTag() == STONE) && player->GetPrevStateName() != TouchGroud)
+		&& (impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && player->GetCurrentState()->GetStateName() != TouchGroud)
 	{
 		player->SetState(TouchGroud);
 	}
