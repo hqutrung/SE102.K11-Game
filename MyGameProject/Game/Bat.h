@@ -2,11 +2,13 @@
 #include "Enemy.h"
 #include "Textures.h"
 #include "BatFollowPlayerState.h"
+#include "BatIdleState.h"
 
 class Bat : public Enemy {
-
+	D3DXVECTOR3 startPos;
 protected:
-	EnemyState* batFollowPlayerState;
+	EnemyState  *batFollowPlayerState,
+				*batIdleState;
 public:
 	Bat();
 	~Bat();

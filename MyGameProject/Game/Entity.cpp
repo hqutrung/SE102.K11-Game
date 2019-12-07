@@ -8,7 +8,7 @@ Entity::Entity()
 	tag = NONE;
 	id = ++currentID;
 	isCollidable = true;
-	isActived = false;
+	SetActive(false);
 }
  
 Entity::~Entity()

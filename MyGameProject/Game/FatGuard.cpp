@@ -21,14 +21,14 @@ void FatGuard::Update(float dt)
 
 	//Enemy::Update(dt);
 	// SetState
-	if(dis.y < 5)
+	if(dis.y < 10)
 	{
 		if (player->GetRect().bottom < GetRect().top) {
 
-			/*if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -280) {
+			if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -275) {
 				SetState(EnemyState::Idle);
 			}
-			else*/
+			else
 				SetState(abs(dis.x) > 120 ? EnemyState::Follow : EnemyState::Attack);
 		}
 		else
@@ -36,7 +36,7 @@ void FatGuard::Update(float dt)
 		//...MoveDirection
 		SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 	}
-	if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -280) {
+	else {
 		SetState(EnemyState::Idle);
 	}
 	Enemy::Update(dt);

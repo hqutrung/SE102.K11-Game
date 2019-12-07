@@ -99,12 +99,13 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 
 						if (Cells[i][j] == NULL)
 							continue;
-						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
 			else
 			{
+				
 				activeCells[i][j] = true;
 				if (Cells[i][j] != NULL)
 					HandleActiveUnit(camRect, camDirection, Cells[i][j]);
@@ -133,6 +134,8 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 
 	while (other != NULL)
 	{
+		if (other->entity->GetTag() == BAT)
+			int x = 0;
 		other->active = true;
 
 		// Set active entity

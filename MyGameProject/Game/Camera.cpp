@@ -15,7 +15,7 @@ Camera::Camera(int width, int height)
 	instance = this;
 	isLookLeft = false;
 	isLookRight = true;
-	index = INDEX_CAMERA_WIDTH - 30;
+	index = INDEX_CAMERA_WIDTH;
 }
 
 Camera::~Camera()
@@ -93,7 +93,7 @@ void Camera::Update(float dt)
 		}
 	}
 	index = player->GetPosition().x - position.x;
-	position.x = Support::Clamp(position.x, player->GetPosition().x - (INDEX_CAMERA_WIDTH - 30), player->GetPosition().x + (INDEX_CAMERA_WIDTH - 30));
+	position.x = Support::Clamp(position.x, player->GetPosition().x - (INDEX_CAMERA_WIDTH), player->GetPosition().x + (INDEX_CAMERA_WIDTH));
 
 	
 

@@ -38,7 +38,7 @@
 #define THROW_ARROW DIK_A
 
 // camera
-#define INDEX_CAMERA_WIDTH 70
+#define INDEX_CAMERA_WIDTH 35
 #define INDEX_CAMERA_HEIGHT 20
 #define VELOCITY_CAMERA 3
 

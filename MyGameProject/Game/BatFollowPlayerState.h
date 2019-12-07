@@ -4,6 +4,8 @@
 
 class BatFollowPlayerState : public EnemyState
 {
+	float time = 0;
+	D3DXVECTOR3 startPos;
 public:
 	BatFollowPlayerState() {};
 	BatFollowPlayerState(EnemyData* data);

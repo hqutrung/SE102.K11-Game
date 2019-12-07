@@ -235,6 +235,9 @@
     <ClCompile Include="ThinGuardIdleState.cpp">
       <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClCompile>
+    <ClCompile Include="BatIdleState.cpp">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -470,6 +473,9 @@
     </ClInclude>
     <ClInclude Include="ThinGuardIdleState.h">
       <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="BatIdleState.h">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
