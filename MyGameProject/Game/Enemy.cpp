@@ -5,6 +5,8 @@ Enemy::Enemy() : Entity(){
 	SetStatic(false);
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
+	auto textures = Textures::GetInstance();
+	textures->Add(TEX_ENEMY, "Resources/Enemy/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Enemy::~Enemy()
@@ -16,8 +18,11 @@ void Enemy::Update(float dt)
 {
 	if (!isActived)
 		return;
-	Entity::Update(dt);
+
 	enemyData->enemyState->Update(dt);
+	Entity::Update(dt);
+
+	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
 void Enemy::Render()
@@ -109,13 +114,14 @@ void Enemy::MakeInactive()
 	SetColliderTop((spawnBox.top - spawnBox.bottom) / 2.0f);
 	SetColliderBottom(-collider.top);
 	SetColliderLeft((spawnBox.left - spawnBox.right) / 2.0f);
-	SetColliderRight(-collider.right);
+	SetColliderRight(-collider.left);
 }
 
 void Enemy::Spawn()
 {
 	isActived = true;
 	position = spawnPosition;
+	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
 void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)

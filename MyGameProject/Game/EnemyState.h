@@ -6,9 +6,11 @@
 class EnemyState{
 public:
 	enum eState {
+		Idle,
 		Run,
 		Attack,
-		Fllow
+		Follow,
+		Provoke
 	};
 	EnemyState() {};
 	EnemyState(EnemyData* data);

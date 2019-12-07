@@ -41,4 +41,9 @@ void Support::DrawRect(D3DXVECTOR3 pos, BoxCollider box)
 	delete sprite;
 }
 
+float Support::LengthOfVector(D3DXVECTOR2 vector)
+{
+	return sqrt(vector.x * vector.x + vector.y * vector.y);
+}
+
 

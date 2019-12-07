@@ -211,6 +211,30 @@
     <ClCompile Include="PlayerTouchGroundState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="ThinGuardAttackState.cpp">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonIdleState.cpp">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="BatFollowPlayerState.cpp">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardFollowPlayerState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardProvokeState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardIdleState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="ThinGuardFollowPlayer.cpp">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="ThinGuardIdleState.cpp">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -422,6 +446,30 @@
     </ClInclude>
     <ClInclude Include="PlayerTouchGroundState.h">
       <Filter>Header Files\Objects\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinGuardAttackState.h">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonIdleState.h">
+      <Filter>Header Files\Objects\Enemy\Skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="BatFollowPlayerState.h">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClInclude>
+    <ClInclude Include="FatGuardFollowPlayerState.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="FatGuardProvokeState.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="FatGuardIdleState.h">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinGuardFollowPlayer.h">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinGuardIdleState.h">
+      <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

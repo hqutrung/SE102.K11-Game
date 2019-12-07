@@ -25,7 +25,7 @@ void Scene1::LoadContent()
 	player = new Player();
 	player->SetPosition(100, 65);
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(1824,832);
+	player->SetPosition(1600,65);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -49,7 +49,7 @@ void Scene1::Update(float dt)
 	// 
 	if (playerPos.x < 25)
 		player->SetPosition(25, playerPos.y);
-	if (playerPos.x > map->GetWidth() - 25)
+	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
 	if (player->GetRect().top > map->GetHeight() + 10)

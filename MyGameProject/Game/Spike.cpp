@@ -3,7 +3,7 @@
 Spike::Spike() : Obstacles() {
 	SetTag(SPIKE);
 	Textures* textures = Textures::GetInstance();
-	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 2, 11, 2, 21, 28, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 2, 11, 2, 21, 21, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Spike::~Spike()
@@ -31,10 +31,7 @@ void Spike::Update(float dt)
 void Spike::SetSpawnBox(BoxCollider box, int id)
 {
 	Obstacles::SetSpawnBox(box, id);
-	if (id == 1)
-		delayTime = 1.94f;
-	else
-		delayTime = 0;
+	delayTime = (id == 1) ? 1.94f : 0;
 	collider.top = 10;
 	collider.left = -11;
 	collider.bottom = -10;

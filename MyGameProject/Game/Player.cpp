@@ -326,6 +326,10 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return fallState;
 	case PlayerState::ClimbJump:
 		return climbJumpState;
+	case PlayerState::JumpAttack:
+		return jumpAttackState;
+	case PlayerState::JumpThrow:
+		return jumpThrowState;
 	}
 }
 

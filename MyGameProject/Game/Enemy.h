@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Player.h"
 #include "EnemyData.h"
 #include"EnemyState.h"
 
@@ -9,6 +10,7 @@ protected:
 	D3DXVECTOR3 spawnPosition;
 	Entity::MoveDirection spawnDirection;
 	int point;
+	D3DXVECTOR2 disToPlayer;
 
 	// Colission
 	float collisionTime;
@@ -27,14 +29,16 @@ public:
 	virtual void Render();
 
 	virtual void SetRect(BoxCollider box);
-	void SetSpawnBox(BoxCollider box, int direction);
+	virtual void SetSpawnBox(BoxCollider box, int direction);
 
 	void SetActive(bool active) override;
 	virtual void SetState(EnemyState::eState state);
 
 	virtual BoxCollider GetRect();
 	virtual BoxCollider GetSpawnBox();
+	virtual D3DXVECTOR3 GetSpawnPosition() { return spawnPosition; }
 	virtual Entity::MoveDirection GetSpawnDirection();
+	D3DXVECTOR2 GetDisToPlayer() { return disToPlayer; }
 
 	float GetWidth() override;
 	float GetBigWidth() override;

@@ -1,6 +1,7 @@
 #include "Grid.h"
 #include "Unit.h"
 #include "Player.h"
+#include "ExitPort.h"
 
 Grid* Grid::instance = NULL;
 
@@ -116,6 +117,11 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 		/*if (staticObjects[i]->GetType() == StaticType)
 			continue;*/
 		BoxCollider box = staticObjects[i]->GetRect();
+		if (staticObjects[i]->GetTag() == EXITPORT)
+		{
+			ExitPort* exitPort = (ExitPort*)staticObjects[i];
+			box = exitPort->GetSpawnBox();
+		}
 		staticObjects[i]->SetActive(Camera::GetInstance()->IsCollide(box));
 	}
 
@@ -265,7 +271,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x +4,player->GetBigBound().right, player->GetBigBound().bottom);
 	}
 
-
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 
 	if (groundTime == 2)
@@ -327,7 +332,7 @@ void Grid::MoveActiveUnit(Unit* unit)
 
 void Grid::Update(float dt)
 {
-	// Update entity
+	// Update Unit
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
@@ -335,17 +340,28 @@ void Grid::Update(float dt)
 
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		/*if (staticObjects[i]->GetType() == StaticType)
-			continue;*/
 		if (staticObjects[i]->GetType() == ObstaclesType)
 			staticObjects[i]->Update(dt);
 	}
 
-	// Update Unit
+	// Move Unit
 	for (int i = 0; i < colNumbers; i++)
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				MoveActiveUnit(Cells[i][j]);
+}
+
+void Grid::UpdateUnit(Unit* unit, float dt)
+{
+	while (unit != NULL)
+	{
+		if (unit->entity->IsActived() && unit->entity->GetType() != ObstaclesType)
+		{
+			if (unit->entity->GetType() != ObstaclesType)
+				unit->entity->Update(dt);
+		}
+		unit = unit->next;
+	}
 }
 
 void Grid::Render()
@@ -354,6 +370,18 @@ void Grid::Render()
 		isDraw = 0;
 	if (KeyBoard::GetInstance()->GetKey(DIK_P))
 		isDraw = 1;
+
+	// Draw map
+	for (size_t i = 0; i < staticObjects.size(); i++)
+	{
+		if (staticObjects[i]->GetType() == ObstaclesType && staticObjects[i]->IsActived())
+			staticObjects[i]->Render();
+		if (isDraw == 1) {
+			BoxCollider boundbox = staticObjects[i]->GetRect();
+			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+			Support::DrawRect(position, boundbox);
+		}
+	}
 
 	// Draw Grid
 	for (int i = 0; i < colNumbers; i++)
@@ -367,9 +395,11 @@ void Grid::Render()
 	if (isDraw)
 		Support::DrawRect(pos, Player::GetInstance()->GetRect());
 
-	// Draw surface + objectRect
+	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
+		if (staticObjects[i]->GetType() == ObstaclesType)
+			continue;
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
 		if (isDraw == 1) {
@@ -377,18 +407,6 @@ void Grid::Render()
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Support::DrawRect(position, boundbox);
 		}
-	}
-}
-
-void Grid::UpdateUnit(Unit* unit, float dt)
-{
-	while (unit != NULL)
-	{
-		if (unit->entity->IsActived() && unit->entity->GetType() != ObstaclesType)
-		{
-			unit->entity->Update(dt);
-		}
-		unit = unit->next;
 	}
 }
 
@@ -401,18 +419,21 @@ void Grid::RenderUnit(Unit* unit)
 		{
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
-
-			unit->entity->Render();
+			if (unit->entity->GetType() != ObstaclesType)
+				unit->entity->Render();
 			// Draw ObjectRect
 			if (isDraw == 1) {
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);
 			}
-
 		}
 		unit = unit->next;
 	}
+}
+
+void Grid::AddStaticObject(Entity* ent) {
+	staticObjects.push_back(ent);
 }
 
 Entity* Grid::findObject(Tag tag)
@@ -436,8 +457,4 @@ Entity* Grid::findObject(Tag tag)
 			}
 		}
 	return NULL;
-}
-
-void Grid::AddStaticObject(Entity* ent) {
-	staticObjects.push_back(ent);
 }

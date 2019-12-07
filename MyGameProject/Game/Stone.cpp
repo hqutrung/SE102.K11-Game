@@ -35,10 +35,7 @@ void Stone::Update(float dt)
 void Stone::SetSpawnBox(BoxCollider box, int id)
 {
 	Obstacles::SetSpawnBox(box, id);
-	if (id == 1)
-		delayTime = 2.0f + 4.0f / 6;
-	else
-		delayTime = 0;
+	delayTime = (id == 1) ? (2.0f + 4.0f / 6) : 0;
 	collider.top = 7;
 	collider.left = -15;
 	collider.bottom = -8;

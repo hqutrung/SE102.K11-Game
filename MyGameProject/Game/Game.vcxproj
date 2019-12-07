@@ -137,6 +137,7 @@
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="BatFollowPlayerState.cpp" />
     <ClCompile Include="BlueHeart.cpp" />
     <ClCompile Include="BlueVase.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -150,6 +151,9 @@
     <ClCompile Include="ExitPort.cpp" />
     <ClCompile Include="FatGuard.cpp" />
     <ClCompile Include="FatGuardAttackState.cpp" />
+    <ClCompile Include="FatGuardFollowPlayerState.cpp" />
+    <ClCompile Include="FatGuardIdleState.cpp" />
+    <ClCompile Include="FatGuardProvokeState.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameTime.cpp" />
@@ -193,6 +197,7 @@
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="SkeletonIdleState.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -201,6 +206,9 @@
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="ThinGuard.cpp" />
+    <ClCompile Include="ThinGuardAttackState.cpp" />
+    <ClCompile Include="ThinGuardFollowPlayer.cpp" />
+    <ClCompile Include="ThinGuardIdleState.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +216,7 @@
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="BatFollowPlayerState.h" />
     <ClInclude Include="BlueHeart.h" />
     <ClInclude Include="BlueVase.h" />
     <ClInclude Include="BoxCollider.h" />
@@ -222,6 +231,9 @@
     <ClInclude Include="ExitPort.h" />
     <ClInclude Include="FatGuard.h" />
     <ClInclude Include="FatGuardAttackState.h" />
+    <ClInclude Include="FatGuardFollowPlayerState.h" />
+    <ClInclude Include="FatGuardIdleState.h" />
+    <ClInclude Include="FatGuardProvokeState.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameMap.h" />
@@ -265,6 +277,7 @@
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="SkeletonIdleState.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="PlayerState.h" />
@@ -273,6 +286,9 @@
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="ThinGuard.h" />
+    <ClInclude Include="ThinGuardAttackState.h" />
+    <ClInclude Include="ThinGuardFollowPlayer.h" />
+    <ClInclude Include="ThinGuardIdleState.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

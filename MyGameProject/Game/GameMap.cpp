@@ -213,31 +213,31 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 		case BAT:
 		{
-			/*Bat* bat = new Bat();
+			Bat* bat = new Bat();
 			bat->SetSpawnBox(box, direction);
 			unit = new Unit(grid, bat);
-			break;*/
+			break;
 		}
 		case SKELETON:
 		{
-			/*Skeleton* skeleton = new Skeleton();
+			Skeleton* skeleton = new Skeleton();
 			skeleton->SetSpawnBox(box, direction);
 			unit = new Unit(grid, skeleton);
-			break;*/
+			break;
 		}
 		case THINGUARD:
 		{
-			/*ThinGuard* thinGuard = new ThinGuard();
+			ThinGuard* thinGuard = new ThinGuard();
 			thinGuard->SetSpawnBox(box, direction);
 			unit = new Unit(grid, thinGuard);
-			break;*/
+			break;
 		}
 		case FATGUARD:
 		{
-			/*FatGuard* fatGuard = new FatGuard();
+			FatGuard* fatGuard = new FatGuard();
 			fatGuard->SetSpawnBox(box, direction);
 			unit = new Unit(grid, fatGuard);
-			break;*/
+			break;
 		}
 		case PEDDLER:
 		{

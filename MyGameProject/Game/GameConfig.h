@@ -26,6 +26,8 @@
 #define TEX_CHAINEDPILLAR CHAINEDPILLAR
 #define TEX_PILLAR CHAINEDPILLAR
 
+#define TEX_ENEMY 2603
+
 // keyBoard
 #define DOWN_ARROW DIK_DOWNARROW
 #define UP_ARROW DIK_UPARROW
@@ -36,7 +38,7 @@
 #define THROW_ARROW DIK_A
 
 // camera
-#define INDEX_CAMERA_WIDTH 30
+#define INDEX_CAMERA_WIDTH 70
 #define INDEX_CAMERA_HEIGHT 20
 #define VELOCITY_CAMERA 3
 
@@ -55,6 +57,9 @@
 #define SLIDE_SPEED 50	
 #define CLIMB_SPEED 130
 #define MAX_JUMP 76
+
+// FatGuard Speed
+#define FATGUARD_RUNSPEED 100
 
 
 // type

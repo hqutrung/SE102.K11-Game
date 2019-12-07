@@ -1,12 +1,17 @@
 #pragma once
 #include "Enemy.h"
 #include "Textures.h"
+#include "BatFollowPlayerState.h"
 
 class Bat : public Enemy {
+
 protected:
-	EnemyState* batAttackState;
+	EnemyState* batFollowPlayerState;
 public:
 	Bat();
 	~Bat();
 	void Update(float dt) override;
+	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt = 1.0 / 60);
+	void SetState(EnemyState::eState state);
+	void Spawn();
 };
