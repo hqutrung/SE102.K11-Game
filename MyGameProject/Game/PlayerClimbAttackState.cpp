@@ -30,6 +30,7 @@ void PlayerClimbAttackState::Update(float dt)
 	}
 
 	PlayerState::Update(dt);
+	
 }
 
 void PlayerClimbAttackState::HandleInput()

@@ -3,7 +3,7 @@
 BatFollowPlayerState::BatFollowPlayerState(EnemyData* data) : EnemyState(data)
 {
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_BAT, "Resources/Enemys/bat.png", D3DCOLOR_XRGB(255, 255, 255));
+	textures->Add(TEX_BAT, "Resources/Enemy/bat.png", D3DCOLOR_XRGB(255, 255, 255));
 	e_Animation = new Animation();
 	e_Animation->AddFrames(textures->GetTexture(TEX_BAT), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
 	/*e_Animation = new Animation();

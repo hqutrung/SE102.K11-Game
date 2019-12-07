@@ -17,8 +17,14 @@ void ThinGuardFollowPlayerState::Update(float dt)
 		enemy->SetVx(-FATGUARD_RUNSPEED);
 	}
 	e_Animation->Update(dt);	
+	enemy->SetIsCollidable(false);
 }
 
 void ThinGuardFollowPlayerState::ResetState()
 {
+	auto e = enemyData->enemy;
+	e->SetColliderLeft(-15);
+	e->SetColliderRight(24);
+	e->SetColliderTop(33);
+	e->SetColliderBottom(-26);
 }

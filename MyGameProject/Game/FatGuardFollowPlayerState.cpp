@@ -8,6 +8,7 @@ FatGuardFollowPlayerState::FatGuardFollowPlayerState(EnemyData* data) : EnemySta
 
 void FatGuardFollowPlayerState::Update(float dt)
 {
+
 	auto enemy = enemyData->enemy;
 	D3DXVECTOR2 dis = enemy->GetDisToPlayer();
 	if (dis.x < 0) {
@@ -17,8 +18,14 @@ void FatGuardFollowPlayerState::Update(float dt)
 		enemy->SetVx(-FATGUARD_RUNSPEED);
 	}
 	e_Animation->Update(dt);
+	enemy->SetIsCollidable(false);
 }
 
 void FatGuardFollowPlayerState::ResetState()
 {
+	auto e = enemyData->enemy;
+	e->SetColliderLeft(-17);
+	e->SetColliderRight(29);
+	e->SetColliderTop(22);
+	e->SetColliderBottom(-26);
 }

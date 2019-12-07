@@ -81,6 +81,13 @@ void PlayerInjuredState::HandleInput()
 
 void PlayerInjuredState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	auto player = playerData->player->GetInstance();
+	auto keyboard = KeyBoard::GetInstance();
+	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW) || keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
+	{
+		player->SetState(Run);
+		return;
+	}
 }
 
 PlayerState::State PlayerInjuredState::GetStateName()

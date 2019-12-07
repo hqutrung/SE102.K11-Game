@@ -5,7 +5,7 @@ Skeleton::Skeleton() : Enemy() {
 
 	skeletonIdleState = new SkeletonIdleState(enemyData);
 	point = 100;
-	
+	SetIsCollidable(false);
 }
 
 Skeleton::~Skeleton()

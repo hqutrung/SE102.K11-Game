@@ -392,7 +392,8 @@ void Grid::Render()
 				RenderUnit(Cells[i][j]);
 
 	// Draw Player
-	Player::GetInstance()->GetCurrentState()->Render();
+	if (Player::GetInstance()->IsActived())
+		Player::GetInstance()->Render();
 	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
 	if (isDraw)
 		Support::DrawRect(pos, Player::GetInstance()->GetRect());
@@ -421,7 +422,10 @@ void Grid::RenderUnit(Unit* unit)
 		{
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
-			if (unit->entity->GetType() != ObstaclesType)
+			if (unit->entity->GetType() == PlayerType) {
+				int x = 0;
+			}
+			if (unit->entity->GetType() != ObstaclesType || unit->entity->GetType() != PlayerType)
 				unit->entity->Render();
 			// Draw ObjectRect
 			if (isDraw == 1) {

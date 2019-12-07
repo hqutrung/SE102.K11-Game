@@ -12,8 +12,14 @@ void FatGuardIdleState::Update(float dt)
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);
+	enemy->SetIsCollidable(false);
 }
 
 void FatGuardIdleState::ResetState()
 {
+	auto e = enemyData->enemy;
+	e->SetColliderLeft(-17);
+	e->SetColliderRight(29);
+	e->SetColliderTop(22);
+	e->SetColliderBottom(-26);
 }

@@ -64,7 +64,7 @@ public:
 	// ID
 	virtual int GetID();
 	virtual bool IsCollidable() { return isCollidable; };
-
+	virtual void SetIsCollidable(bool x) { isCollidable = x; };
 	// Tag
 	virtual Tag GetTag();
 	virtual void SetTag(enum Tag tag);

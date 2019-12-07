@@ -50,7 +50,6 @@ void PlayerClimbState::Update(float dt)
 		m_Animation->SetDefaultTime(0.05f);
 		break;
 	}
-
 }
 
 void PlayerClimbState::HandleInput()

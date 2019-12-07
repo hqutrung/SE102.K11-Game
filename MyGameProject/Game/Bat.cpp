@@ -5,6 +5,7 @@ Bat::Bat()
 	SetTag(FATGUARD);
 	batFollowPlayerState = new BatFollowPlayerState(enemyData);
 	point = 100;
+	isCollidable = true;
 }
 
 Bat::~Bat()

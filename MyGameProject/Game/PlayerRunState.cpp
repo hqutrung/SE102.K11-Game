@@ -7,7 +7,7 @@ PlayerRunState::PlayerRunState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1001, "Resources/PlayerState/run_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.06f, D3DCOLOR_XRGB(255, 0,255));
+	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 PlayerRunState::~PlayerRunState()
@@ -16,7 +16,7 @@ PlayerRunState::~PlayerRunState()
 
 void PlayerRunState::Render()
 {
-	
+
 	PlayerState::Render();
 }
 
@@ -34,14 +34,18 @@ void PlayerRunState::Update(float dt)
 			player->SetVx(-RUN_SPEED);
 		}
 	}
-	
+
 	if (m_Animation->IsLastFrame(dt) == true)
 	{
-		m_Animation->countLoopFrame ++;
+		m_Animation->countLoopFrame++;
+		if (countLoopAfterInjured == 0)
+		{
+			countLoopAfterInjured = 1;
+		}
 		m_Animation->SetCurrentFrame(3);
 	}
 	PlayerState::Update(dt);
-	
+
 }
 
 void PlayerRunState::HandleInput()
@@ -103,12 +107,13 @@ void PlayerRunState::HandleInput()
 
 void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-
-	/*auto player = Player::GetInstance();
-	if (impactor->GetTag() == SPIKE && player->isInjured && player->countInjured  == 1)
+	auto player = Player::GetInstance();
+	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL || impactor->GetType() == EnemyType) && player->isInjured && (player->GetPrevStateName() != Injured || countLoopAfterInjured > 0))
 	{
-		player->SetState(Idle);
-	}*/
+		countLoopAfterInjured = 0;
+		player->SetVx(0);
+		player->SetState(Injured);
+	}
 }
 
 PlayerState::State PlayerRunState::GetStateName()
