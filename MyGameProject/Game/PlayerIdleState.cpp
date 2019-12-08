@@ -128,11 +128,12 @@ void PlayerIdleState::HandleInput()
 void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = Player::GetInstance();
-	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL || impactor->GetType() == EnemyType) && player->isInjured)
+	if ( player->isInjured)
 	{
 		player->SetVx(0);
-		player->SetState(Injured);
+		player->InjuredByOther(impactor);
 	}
+
 }
 
 PlayerState::State PlayerIdleState::GetStateName()

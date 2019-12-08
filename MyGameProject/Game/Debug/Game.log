@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Ball.cpp
   BlueVase.cpp
   ChainedPillar.cpp
@@ -26,3 +27,9 @@ D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(381,40): warning
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(381,40): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(354): warning C4715: 'Player::GetState': not all control paths return a value
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  Player.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(355): warning C4715: 'Player::GetState': not all control paths return a value
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung

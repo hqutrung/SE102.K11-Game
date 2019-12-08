@@ -18,7 +18,7 @@ void FatGuardFollowPlayerState::Update(float dt)
 		enemy->SetVx(-FATGUARD_RUNSPEED);
 	}
 	e_Animation->Update(dt);
-	enemy->SetIsCollidable(false);
+
 }
 
 void FatGuardFollowPlayerState::ResetState()

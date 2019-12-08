@@ -38,26 +38,6 @@ void Scene1::Update(float dt)
 	CheckActive();
 	ProcessInput();
 
-
-	auto name = player->GetCurrentState()->GetStateName();
-	switch (name)
-	{
-
-	case PlayerState::IdleAttack:
-	case PlayerState::RunAttack:
-	case PlayerState::DuckAttack:
-	case PlayerState::LookUpAttack:
-	case PlayerState::JumpAttack:
-	case PlayerState::ClimbAttack:
-	case PlayerState::Injured:
-	case PlayerState::Death:
-		player->SetIsCollidable(false);
-		break;
-	default:
-		player->SetIsCollidable(true);
-		break;
-	}
-
 	CheckCollision(dt);
 	map->GetGrid()->Update(dt);
 	//player->Update(dt);

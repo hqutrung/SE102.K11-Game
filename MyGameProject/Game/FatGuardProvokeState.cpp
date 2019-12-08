@@ -13,7 +13,6 @@ void FatGuardProvokeState::Update(float dt)
 	enemy->SetVx(0);
 	enemy->SetVy(0);
 	e_Animation->Update(dt);
-	enemy->SetIsCollidable(false);
 }
 
 void FatGuardProvokeState::ResetState()
