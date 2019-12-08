@@ -13,7 +13,3 @@ BlueHeart::BlueHeart() : Item()
 BlueHeart::~BlueHeart()
 {
 }
-
-void BlueHeart::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

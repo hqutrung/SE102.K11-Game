@@ -41,7 +41,3 @@ void Ball::SetSpawnBox(BoxCollider box, int id)
 	collider.bottom = -40;
 	collider.right = 27;
 }
-
-void Ball::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

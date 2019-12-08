@@ -23,7 +23,3 @@ void BlueVase::Update(float dt)
 		animation->Update(dt);
 	}
 }
-
-void BlueVase::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

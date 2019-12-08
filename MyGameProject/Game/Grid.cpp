@@ -99,7 +99,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 
 						if (Cells[i][j] == NULL)
 							continue;
-						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -115,8 +115,6 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 	// Handle Active staticObjects
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		/*if (staticObjects[i]->GetType() == StaticType)
-			continue;*/
 		BoxCollider box = staticObjects[i]->GetRect();
 		if (staticObjects[i]->GetTag() == EXITPORT)
 		{
@@ -134,10 +132,7 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 
 	while (other != NULL)
 	{
-		if (other->entity->GetTag() == BAT)
-			int x = 0;
 		other->active = true;
-
 		// Set active entity
 		other->entity->SetActive(true);
 
@@ -150,11 +145,11 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	Unit* other = unit;
 	while (other != NULL) {
 		unit = other;
-		other = unit->next;
 		unit->active = false;
-		if (unit->entity->GetTag() != Tag::PLAYER)
+		//if (unit->entity->GetTag() != Tag::PLAYER)
 			//maybe unit value of this unit pointer delete
 			unit->entity->SetActive(false);
+		other = unit->next;
 	}
 }
 
@@ -221,14 +216,15 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 
 	float collisionTime = 2;
 
-	if (ent1->GetTag() == Tag::PLAYER)
+	// ent1 collide with ent2
 	{
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
 	}
-	if (ent2->GetTag() == Tag::PLAYER)
+
+	// ent2 collide with ent1
 	{
 		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
 		if (collisionTime == 2)
@@ -243,9 +239,7 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 		if (unit->entity->IsActived()) {
 			for (size_t i = 0; i < staticObjects.size(); i++)
 			{
-				if (staticObjects[i]->GetType() == ObstaclesType)
-					continue;
-				if ((staticObjects[i]->GetType() != Surface || staticObjects[i]->GetTag() == EXITPORT) && staticObjects[i]->IsActived())
+				if (staticObjects[i]->IsActived())
 					HandleColissionStatic(unit->entity, staticObjects[i], dt);
 			}
 		}
@@ -280,8 +274,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 
 	if (groundTime == 2)
 		return;
-	if (ent1->GetTag() == PLAYER && ent2->GetTag() == CHAINE)
-		int x = 0;
 
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
@@ -345,7 +337,7 @@ void Grid::Update(float dt)
 
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == ObstaclesType)
+		if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType))
 			staticObjects[i]->Update(dt);
 	}
 
@@ -362,8 +354,7 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 	{
 		if (unit->entity->IsActived() && unit->entity->GetType() != ObstaclesType)
 		{
-			if (unit->entity->GetType() != ObstaclesType)
-				unit->entity->Update(dt);
+			unit->entity->Update(dt);
 		}
 		unit = unit->next;
 	}
@@ -376,10 +367,10 @@ void Grid::Render()
 	if (KeyBoard::GetInstance()->GetKey(DIK_P))
 		isDraw = 1;
 
-	// Draw map
+	// Draw items + obstacles
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == ObstaclesType && staticObjects[i]->IsActived())
+		if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
 		if (isDraw == 1) {
 			BoxCollider boundbox = staticObjects[i]->GetRect();
@@ -404,8 +395,6 @@ void Grid::Render()
 	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == ObstaclesType)
-			continue;
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
 			staticObjects[i]->Render();
 		if (isDraw == 1) {
@@ -425,10 +414,7 @@ void Grid::RenderUnit(Unit* unit)
 		{
 			Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
-			if (unit->entity->GetType() == PlayerType) {
-				int x = 0;
-			}
-			if (unit->entity->GetType() != ObstaclesType || unit->entity->GetType() != PlayerType)
+			if (unit->entity->GetType() != PlayerType)
 				unit->entity->Render();
 			// Draw ObjectRect
 			if (isDraw == 1) {

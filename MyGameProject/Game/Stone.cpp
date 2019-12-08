@@ -41,7 +41,3 @@ void Stone::SetSpawnBox(BoxCollider box, int id)
 	collider.bottom = -8;
 	collider.right = 22;
 }
-
-void Stone::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

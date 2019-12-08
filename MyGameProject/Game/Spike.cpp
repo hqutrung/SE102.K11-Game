@@ -41,11 +41,7 @@ void Spike::SetSpawnBox(BoxCollider box, int id)
 	Obstacles::SetSpawnBox(box, id);
 	delayTime = (id == 1) ? 1.94f : 0;
 	collider.top = 10;
-	collider.left = -11;
+	collider.left = -0;
 	collider.bottom = -10;
 	collider.right = 38;
-}
-
-void Spike::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
 }

@@ -431,8 +431,6 @@ void Player::OnFalling()
 
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-
-
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorTag = impactor->GetTag();

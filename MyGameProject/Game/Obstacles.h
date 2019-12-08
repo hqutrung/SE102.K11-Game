@@ -6,7 +6,7 @@ class Obstacles : public Entity {
 protected:
 	BoxCollider spawnBox;
 	Animation* animation;
-	int id;	// 0: chan	1: le
+	int id;	// Xu ly trat tu Obstacles
 	float delayTime;
 public:
 	Obstacles();
@@ -24,6 +24,4 @@ public:
 	void Spawn();
 
 	Animation* GetAnimation();
-
-	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60);
 };

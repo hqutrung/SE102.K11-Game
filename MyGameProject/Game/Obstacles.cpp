@@ -74,7 +74,3 @@ Animation* Obstacles::GetAnimation()
 {
 	return animation;
 }
-
-void Obstacles::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

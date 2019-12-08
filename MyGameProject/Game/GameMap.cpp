@@ -255,35 +255,34 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
-			unit = new Unit(grid, apple);
+			grid->AddStaticObject(apple);
 			break;
 		}
 		case BLUEHEART:
 		{
 			BlueHeart* blueheart = new BlueHeart();
 			blueheart->SetSpawnBox(box);
-			unit = new Unit(grid, blueheart);
+			grid->AddStaticObject(blueheart);
 			break;
 		}
 		case GEM:
 		{
 			Gem* gem = new Gem();
 			gem->SetSpawnBox(box);
-			unit = new Unit(grid, gem);
+			grid->AddStaticObject(gem);
 			break;
 		}
 		case GENIETOKEN:
 		{
 			GenieToken* genieToken = new GenieToken();
 			genieToken->SetSpawnBox(box);
-			unit = new Unit(grid, genieToken);
+			grid->AddStaticObject(genieToken);
 			break;
 		}
 		case BLUEVASE:
 		{
 			BlueVase* blueVase = new BlueVase();
 			blueVase->SetSpawnBox(box, direction);
-			unit = new Unit(grid, blueVase);
 			grid->AddStaticObject(blueVase);
 			break;
 		}
@@ -291,7 +290,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Stone* stone = new Stone();
 			stone->SetSpawnBox(box, direction);
-			unit = new Unit(grid, stone);
 			grid->AddStaticObject(stone);
 			break;
 		}
@@ -299,7 +297,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Ball* ball = new Ball();
 			ball->SetSpawnBox(box, direction);
-			unit = new Unit(grid, ball);
 			grid->AddStaticObject(ball);
 			break;
 		}
@@ -307,7 +304,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Spike* spike = new Spike();
 			spike->SetSpawnBox(box, direction);
-			unit = new Unit(grid, spike);
 			grid->AddStaticObject(spike);
 			break;
 		}

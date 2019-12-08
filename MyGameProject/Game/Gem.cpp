@@ -11,7 +11,3 @@ Gem::Gem() : Item()
 Gem::~Gem()
 {
 }
-
-void Gem::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

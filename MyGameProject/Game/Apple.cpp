@@ -16,7 +16,3 @@ Apple::~Apple()
 void Apple::Update(float dt)
 {
 }
-
-void Apple::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}

@@ -68,10 +68,6 @@ void Item::Spawn()
 	isActived = true;
 }
 
-void Item::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
-{
-}
-
 
 
 
