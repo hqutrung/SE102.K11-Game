@@ -1,4 +1,5 @@
-﻿#include "Player.h"
+﻿
+#include "Player.h"
 #include"PlayerIdleState.h"
 #include"PlayerRunState.h"
 #include"PlayerIdleAttackState.h"
@@ -446,102 +447,170 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	float newPosX = position.x + collisionTime * dt * velocity.x;
 	float newPosY = position.y + collisionTime * dt * velocity.y;
 
-	//Debug
-	if (impactor->GetTag() == STONE)
-		position.x = position.x;
-
 	// Rect tiep theo cua body
 	float rPlayer = GetBigBound().right + collisionTime * dt * velocity.x;
 	float lPlayer = GetBigBound().left + collisionTime * dt * velocity.x;
 	float tPlayer = GetBigBound().top + collisionTime * dt * velocity.y;
 	float bPlayer = GetBigBound().bottom + collisionTime * dt * velocity.y;
 
-
 	D3DXVECTOR2 newVelocity = velocity;
 
-	// stand on Ground
-	if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
-	{
-		if ((impactor->GetTag() == GROUND || (impactor->GetTag() == STONE && impactor->IsCollidable())) && round(playerBottom) == impactorRect.top && velocity.y < 0
-			&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
-		{
-			status = OnGround;
-			newVelocity.y *= collisionTime;
-			lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
+	auto impactorType = impactor->GetType();
 
-		}
-	}
-	// va cham tuong (WALL)
-	if (impactor->GetTag() == WALL)
+	switch (impactorType)
 	{
-		newVelocity.x *= collisionTime;
+	case StaticType:
+	{
+		// GROUND
+		// stand on Ground
 
-		if ((side == Right && round(rPlayer) == impactorRect.left || side == Left && round(lPlayer) == impactorRect.right)
-			&& velocity.x != 0
-			&& (bPlayer >= impactor->GetRect().bottom && bPlayer < impactor->GetRect().top))
-		{
-			if (GetCurrentState()->GetStateName() == PlayerState::State::Run || GetCurrentState()->GetStateName() == PlayerState::State::RunAttack || GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
+		if (impactorTag == GROUND)
+		{		
+			//stand
+			if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
 			{
-				lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
-				SetState(PlayerState::Push);
+				if (round(playerBottom) == impactorRect.top
+					&& velocity.y < 0
+					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
+				{
+					status = OnGround;
+					newVelocity.y *= collisionTime;
+					lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
+
+				}
 			}
+
+			//fall
+			if (status == OnGround && side == SideCollision::Bottom && velocity.y == 0)
+			{
+				if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false)
+				{
+					SetVy(-JUMP_SPEED);
+					SetState(PlayerState::Fall);
+					status = Falling;
+				}
+			}
+
 		}
-	}
 
 
 
 
 
-	// ItemType
-	if (impactor->GetType() == ItemType)
-	{
-		impactor->SetActive(false);
-	}
-	else if (impactor->GetTag() == BLUEVASE)
-	{
-		impactor->SetIsCollidable(true);
-	}
-	else if (impactor->GetTag() == EXITPORT)
-		exit(0);
-	// !OnGround rớt đất
-	else if (status == OnGround && side == SideCollision::Bottom && (impactor->GetTag() == GROUND || (impactor->GetTag() == STONE)) && velocity.y == 0)
-	{
-		if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false || !impactor->IsCollidable())
-		{
-			SetVy(-JUMP_SPEED);
-			SetState(PlayerState::Fall);
-			status = Falling;
-		}
-	}
-	if (impactor->GetTag() == CHAINE)
-		int x = 0;
 
-	// climb
-	if (impactor->GetTag() == CHAINE)
-	{
-		if (side != Top
-			&& status == Falling
-			//	&& round(newPosX) == impactor->GetPosition().x
-			&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)
-			&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 10))
+
+
+		// WALL
+		if (impactor->GetTag() == WALL)
 		{
 			newVelocity.x *= collisionTime;
-			status = Climbing;
-			SetState(PlayerState::Climb);
+			// cham tuong khi dang di chuyen
+			if ((side == Right && round(rPlayer) == impactorRect.left || side == Left && round(lPlayer) == impactorRect.right)
+				&& velocity.x != 0
+				&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top))
+			{
+				// Run->push
+				if (GetCurrentState()->GetStateName() == PlayerState::State::Run || GetCurrentState()->GetStateName() == PlayerState::State::RunAttack || GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
+				{
+					lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
+					SetState(PlayerState::Push);
+				}
+			}
 		}
+
+		//CHAINE
+
+		if (impactor->GetTag() == CHAINE)
+		{
+			if (side != Top
+				&& status == Falling
+				//	&& round(newPosX) == impactor->GetPosition().x
+				&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)
+				&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 10))
+			{
+				newVelocity.x *= collisionTime;
+				status = Climbing;
+				SetState(PlayerState::Climb);
+			}
+		}
+
+		break;
 	}
-
-
-	if (impactor->GetType() == EnemyType)
-		int x = 0;
-	// Injured
-
-	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL || impactor->GetType() == EnemyType) 
-		&& impactor->IsCollidable() && IsCollidable() 
-		&& collisionTime == 0)
+	case Surface:
 	{
-		isInjured = true;
-		timeInjured = 0;
+		if (impactor->GetTag() == EXITPORT)
+			exit(0);
+		break;
+	}
+	case ObstaclesType:
+	{
+
+
+		if (impactorTag == STONE)
+		{
+			//stand
+			if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
+			{
+				if (impactor->IsCollidable()
+					&& round(playerBottom) == impactorRect.top
+					&& velocity.y < 0
+					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
+				{
+					status = OnGround;
+					newVelocity.y *= collisionTime;
+					lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
+
+				}
+			}
+			// fall
+			if (status == OnGround && side == SideCollision::Bottom && velocity.y == 0)
+			{
+				if (Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4) == false || !impactor->IsCollidable())
+				{
+					SetVy(-JUMP_SPEED);
+					SetState(PlayerState::Fall);
+					status = Falling;
+				}
+			}
+
+
+		}
+
+
+		if (impactor->GetTag() == BLUEVASE)
+		{
+			impactor->SetIsCollidable(true);
+		}
+
+
+		// Injured
+		if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL)
+			&& impactor->IsCollidable()
+			&& collisionTime == 0)
+		{
+			isInjured = true;
+			timeInjured = 0;
+		}
+
+		break;
+	}
+	case ItemType:
+	{
+		impactor->SetActive(false);
+		break;
+	}
+	case EnemyType:
+	{
+		// Injured
+		if (impactorTag != SKELETON)
+		{
+			isInjured = true;
+			timeInjured = 0;
+		}
+		break;
+	}
+	default:
+		break;
 	}
 
 	velocity = newVelocity;

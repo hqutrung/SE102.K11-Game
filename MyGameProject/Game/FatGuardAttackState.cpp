@@ -28,7 +28,6 @@ void FatGuardAttackState::Update(float dt)
 		e_Animation->countLoopFrame++;
 	}
 	e_Animation->Update(dt);
-	enemy->SetIsCollidable(true);
 }
 
 

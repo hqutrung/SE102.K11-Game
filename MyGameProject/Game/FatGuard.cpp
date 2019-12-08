@@ -39,6 +39,7 @@ void FatGuard::Update(float dt)
 	else {
 		SetState(EnemyState::Idle);
 	}
+
 	Enemy::Update(dt);
 }
 

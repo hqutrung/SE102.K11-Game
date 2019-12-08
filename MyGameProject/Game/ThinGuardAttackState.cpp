@@ -14,7 +14,7 @@ void ThinGuardAttackState::Update(float dt)
 	enemy->SetVx(0);
 	enemy->SetVy(0);
 	e_Animation->Update(dt);
-	enemy->SetIsCollidable(true);
+	
 }
 
 void ThinGuardAttackState::ResetState()

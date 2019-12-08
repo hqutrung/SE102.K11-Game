@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-﻿  BatFollowPlayerState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(32,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(35,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(38,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(41,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(44,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(47,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(50,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(53,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(56,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
-=======
 ﻿  Player.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Scene1.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\Scene1.cpp(74,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(354): warning C4715: 'Player::GetState': not all control paths return a value
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(355): warning C4715: 'Player::GetState': not all control paths return a value
   Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
->>>>>>> Tung

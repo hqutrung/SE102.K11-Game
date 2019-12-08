@@ -5,8 +5,6 @@ BatFollowPlayerState::BatFollowPlayerState(EnemyData* data) : EnemyState(data)
 	Textures* textures = Textures::GetInstance();
 	e_Animation = new Animation();
 	e_Animation->AddFrames(textures->GetTexture(TEX_BAT), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
-	/*e_Animation = new Animation();
-	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 1, 1, 2, 1, 10, 8, 10, 0.08, D3DCOLOR_XRGB(255, 0, 255));*/
 	auto enemy = enemyData->enemy;
 }
 

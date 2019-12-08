@@ -108,11 +108,14 @@ void PlayerRunState::HandleInput()
 void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = Player::GetInstance();
-	if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL || impactor->GetType() == EnemyType) && player->isInjured && (player->GetPrevStateName() != Injured || countLoopAfterInjured > 0))
+	if (player->isInjured)
 	{
-		countLoopAfterInjured = 0;
-		player->SetVx(0);
-		player->SetState(Injured);
+		if (player->GetPrevStateName() != Injured || countLoopAfterInjured > 0)
+		{
+			countLoopAfterInjured = 0;
+			player->SetVx(0);
+			player->InjuredByOther(impactor);
+		}
 	}
 }
 

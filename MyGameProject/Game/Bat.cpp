@@ -4,7 +4,7 @@ Bat::Bat() : Enemy()
 {
 	SetTag(BAT);
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_BAT, "Resources/Enemys/bat.png", D3DCOLOR_XRGB(255, 255, 255));
+	textures->Add(TEX_BAT, "Resources/Enemy/bat.png", D3DCOLOR_XRGB(255, 255, 255));
 	batFollowPlayerState = new BatFollowPlayerState(enemyData);
 	batIdleState = new BatIdleState(enemyData);
 	point = 100;

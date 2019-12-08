@@ -12,7 +12,7 @@ void ThinGuardIdleState::Update(float dt)
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);
-	enemy->SetIsCollidable(false);
+
 }
 
 void ThinGuardIdleState::ResetState()
