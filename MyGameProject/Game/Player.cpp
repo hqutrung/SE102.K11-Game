@@ -151,17 +151,29 @@ void Player::Update(float dt)
 
 	if (playerData->state)
 		playerData->state->Update(dt);
-	timeInjured += dt;
+
+
+	// dem time IMMORTAL
+	if (isImmortal)
+		timeImmortal += dt;
+	//reset 
+	if (timeImmortal > TIME_IMMORTAL)
+	{
+		timeImmortal = 0;
+		isImmortal = false;
+	}
+
 	countFrame++;
-	isInjured = false;
+	if (countFrame > 2000)
+		countFrame = 0;
 
 }
 
 void Player::Render()
 {
-	if (timeInjured > 0 && timeInjured < 0.5f)
+	if (isImmortal)
 	{
-		if (countFrame % 6 != 0)
+		if (countFrame % 3 != 0)
 		{
 			playerData->state->Render();
 		}
@@ -463,7 +475,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		// stand on Ground
 
 		if (impactorTag == GROUND)
-		{		
+		{
 			//stand
 			if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
 			{
@@ -580,15 +592,18 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			impactor->SetIsCollidable(true);
 		}
 
-
-		// Injured
-		if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL)
-			&& impactor->IsCollidable()
-			&& collisionTime == 0)
-		{
-			isInjured = true;
-			timeInjured = 0;
+		if (!isImmortal)
+		{// Injured
+			if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL)
+				&& impactor->IsCollidable())
+			{
+				isInjured = true;
+				isImmortal = true;
+			}
 		}
+		else isInjured = false;
+
+
 
 		break;
 	}
@@ -600,11 +615,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	case EnemyType:
 	{
 		// Injured
-		if (impactorTag != SKELETON)
-		{
-			isInjured = true;
-			timeInjured = 0;
+		if (!isImmortal)
+		{// Injured
+			if (impactorTag != SKELETON)
+			{
+				isInjured = true;
+				isImmortal = true;
+			}
 		}
+		else isInjured = false;
+
 		break;
 	}
 	default:

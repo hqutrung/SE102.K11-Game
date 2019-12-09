@@ -1,17 +1,20 @@
 #include "Enemy.h"
 
-Enemy::Enemy() : Entity(){
+Enemy::Enemy() : Entity() {
 	SetType(EnemyType);
 	SetStatic(false);
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
 	textures->Add(TEX_ENEMY, "Resources/Enemy/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(2894, "Resources/Enemy/explosiveEnemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	eExplosive = new Animation();
+	eExplosive->AddFrames(textures->GetTexture(2894), 1, 10, 0.05, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Enemy::~Enemy()
 {
-	
+
 }
 
 void Enemy::Update(float dt)
@@ -27,8 +30,13 @@ void Enemy::Update(float dt)
 
 void Enemy::Render()
 {
-	if (isActived)
-		enemyData->enemyState->Render();
+	if (Hp > 0)
+	{
+		if (isActived)
+			enemyData->enemyState->Render();
+	}
+	else eExplosive->Render(GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), 1);
+
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
@@ -124,6 +132,6 @@ void Enemy::Spawn()
 	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
-void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 }

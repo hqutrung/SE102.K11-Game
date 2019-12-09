@@ -7,6 +7,8 @@
 
 #define FPS 60
 #define SPF 1.0f/FPS
+//
+#define TIME_IMMORTAL 2.0f
 
 // TEX ID
 #define TEX_APPLE APPLE

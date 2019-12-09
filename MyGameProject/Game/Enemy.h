@@ -11,6 +11,8 @@ protected:
 	Entity::MoveDirection spawnDirection;
 	int point;
 	D3DXVECTOR2 disToPlayer;
+	//
+	int Hp=1;
 
 	// Colission
 	float collisionTime;
@@ -20,6 +22,7 @@ protected:
 
 	virtual void Spawn();
 	virtual void MakeInactive();
+	Animation* eExplosive;
 
 public:
 	Enemy();
@@ -45,5 +48,5 @@ public:
 	float GetHeight() override;
 	float GetBigHeight() override;
 
-	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt = 1.0 / 60);
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0 / 60);
 };

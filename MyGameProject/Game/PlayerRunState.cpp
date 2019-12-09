@@ -110,9 +110,8 @@ void PlayerRunState::OnCollision(Entity* impactor, Entity::SideCollision side, f
 	auto player = Player::GetInstance();
 	if (player->isInjured)
 	{
-		if (player->GetPrevStateName() != Injured || countLoopAfterInjured > 0)
+		if (player->GetPrevStateName() != Injured)
 		{
-			countLoopAfterInjured = 0;
 			player->SetVx(0);
 			player->InjuredByOther(impactor);
 		}
