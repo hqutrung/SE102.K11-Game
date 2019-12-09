@@ -225,6 +225,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
 
+
 	// ent2 collide with ent1
 	/*{
 		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
@@ -255,6 +256,7 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	Entity::SideCollision side;
 	auto rectEnt1 = ent1->GetRect();
 	auto impactorRect = ent2->GetRect();
+
 	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
 	{
 		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)

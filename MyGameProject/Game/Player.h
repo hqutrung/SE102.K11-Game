@@ -62,8 +62,9 @@ public:
 
 	//bool renderPreviousFrame;
 	bool isInjured = false;
-	float timeInjured = 0.5f;
-	int countFrame=0;
+	float timeImmortal = 0;
+	int countFrame = 0;
+	bool  isImmortal = false;
 
 protected:
 	static Player* instance;
@@ -95,7 +96,7 @@ protected:
 		* pushState,
 		* touchGroundState;
 
-		;
+	;
 	PlayerState::State currentStateName;
 	PlayerState::State prevStateName;
 

@@ -11,6 +11,8 @@ protected:
 	Entity::MoveDirection spawnDirection;
 	int point;
 	D3DXVECTOR2 disToPlayer;
+	//
+	int Hp=1;
 
 	// Colission
 	float collisionTime;
@@ -20,6 +22,7 @@ protected:
 
 	virtual void Spawn();
 	virtual void MakeInactive();
+	Animation* eExplosive;
 
 public:
 	Enemy();

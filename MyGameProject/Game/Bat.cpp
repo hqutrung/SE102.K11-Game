@@ -9,6 +9,7 @@ Bat::Bat() : Enemy()
 	batIdleState = new BatIdleState(enemyData);
 	point = 100;
 	isCollidable = true;
+	Hp = 1;
 	isAttack = true;
 }
 
@@ -29,8 +30,14 @@ void Bat::Update(float dt)
 	//Enemy::Update(dt);
 }
 
+void Bat::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 void Bat::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetType() == PLAYER)
+	{
+		auto player = (Player*)impactor;
+		Hp--;
+	}
 
 }
 
