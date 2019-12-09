@@ -10,7 +10,8 @@ public:
 		Run,
 		Attack,
 		Follow,
-		Provoke
+		Provoke,
+		Injured
 	};
 	EnemyState() {};
 	EnemyState(EnemyData* data);

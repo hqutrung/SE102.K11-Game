@@ -154,6 +154,7 @@
     <ClCompile Include="FatGuardAttackState.cpp" />
     <ClCompile Include="FatGuardFollowPlayerState.cpp" />
     <ClCompile Include="FatGuardIdleState.cpp" />
+    <ClCompile Include="FatGuardInjuredState.cpp" />
     <ClCompile Include="FatGuardProvokeState.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameMap.cpp" />
@@ -210,6 +211,7 @@
     <ClCompile Include="ThinGuardAttackState.cpp" />
     <ClCompile Include="ThinGuardFollowPlayer.cpp" />
     <ClCompile Include="ThinGuardIdleState.cpp" />
+    <ClCompile Include="ThinGuardInjuredState.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +237,7 @@
     <ClInclude Include="FatGuardAttackState.h" />
     <ClInclude Include="FatGuardFollowPlayerState.h" />
     <ClInclude Include="FatGuardIdleState.h" />
+    <ClInclude Include="FatGuardInjuredState.h" />
     <ClInclude Include="FatGuardProvokeState.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
@@ -291,6 +294,7 @@
     <ClInclude Include="ThinGuardAttackState.h" />
     <ClInclude Include="ThinGuardFollowPlayer.h" />
     <ClInclude Include="ThinGuardIdleState.h" />
+    <ClInclude Include="ThinGuardInjuredState.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

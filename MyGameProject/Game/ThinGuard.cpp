@@ -6,6 +6,7 @@ ThinGuard::ThinGuard() : Enemy()
 	thinGuardAttackState = new ThinGuardAttackState(enemyData);
 	thinGuardFollowPlayerState = new ThinGuardFollowPlayerState(enemyData);
 	thinGuardIdlePlayerState = new ThinGuardIdleState(enemyData);
+	thinGuardInjuredState = new ThinGuardInjuredState(enemyData);
 	point = 100;
 
 }
@@ -21,33 +22,43 @@ void ThinGuard::Update(float dt)
 
 	//Enemy::Update(dt);
 	// SetState
-	if (abs(dis.y) < 200)
-	{
-		if ((player->GetPosition().x - spawnPosition.x) > 160 || (player->GetPosition().x - spawnPosition.x) < -118) {
-			SetState(EnemyState::Idle);
-		}
-		else
+	if (!isInjured) {
+		if (abs(dis.y) < 200)
 		{
-			if (abs(dis.x) > 100)
-				SetState(EnemyState::Follow);
-			else if(abs(dis.x) > 70)
+			if ((player->GetPosition().x - spawnPosition.x) > 160 || (player->GetPosition().x - spawnPosition.x) < -118) {
 				SetState(EnemyState::Idle);
+			}
 			else
-				SetState(EnemyState::Attack);
-			//SetState(abs(dis.x) > 100 ? EnemyState::Follow : EnemyState::Idle);
+			{
+				if (abs(dis.x) > 100)
+					SetState(EnemyState::Follow);
+				else if (abs(dis.x) > 70)
+					SetState(EnemyState::Idle);
+				else
+					SetState(EnemyState::Attack);
+				//SetState(abs(dis.x) > 100 ? EnemyState::Follow : EnemyState::Idle);
+			}
+
+			SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 		}
-			
-		SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 	}
 	Enemy::Update(dt);
 }
 
-void ThinGuard::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void ThinGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetType() == PlayerType)
+	{
+		auto player = (Player*)impactor;
+		if (player->isAttack)
+			SetState(EnemyState::Injured);
+	}
 }
 
 void ThinGuard::SetState(EnemyState::eState state)
 {
+	isInjured = false;
+	isAttack = false;
 	switch (state)
 	{
 	case EnemyState::Idle:
@@ -57,11 +68,16 @@ void ThinGuard::SetState(EnemyState::eState state)
 		break;
 	case EnemyState::Attack:
 		enemyData->enemyState = thinGuardAttackState;
+		isAttack = true;
 		break;
 	case EnemyState::Follow:
 		enemyData->enemyState = thinGuardFollowPlayerState;
 		break;
 	case EnemyState::Provoke:
+		break;
+	case EnemyState::Injured:
+		enemyData->enemyState = thinGuardInjuredState;
+		isInjured = true;
 		break;
 	default:
 		break;

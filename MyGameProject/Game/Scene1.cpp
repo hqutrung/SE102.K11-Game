@@ -39,12 +39,12 @@ void Scene1::Update(float dt)
 	ProcessInput();
 
 	CheckCollision(dt);
+	camera->Update(dt);
 	map->GetGrid()->Update(dt);
 	//player->Update(dt);
 
 	// Camera follow player
 	D3DXVECTOR3 playerPos = player->GetPosition();
-	camera->Update(dt);
 	CheckCamera();
 
 	// 

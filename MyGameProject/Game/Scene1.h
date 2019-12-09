@@ -24,5 +24,6 @@ public:
 	void CheckCamera();
 	void CheckActive();
 	void CheckCollision(float dt = SPF);
+	GameMap* GetGameMap() override { return map; };
 };
 

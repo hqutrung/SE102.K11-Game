@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "Player.h"
+#include "SceneManager.h"
 Camera* Camera::instance = NULL;
 
 
@@ -57,6 +58,7 @@ void Camera::Update(float dt)
 	auto player = Player::GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 	PlayerState::State currentStateName = player->GetCurrentState()->GetStateName();
+	D3DXVECTOR3 oldPos = GetPosition();
 	
 	// Camera.X
 	if (!keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
@@ -92,9 +94,13 @@ void Camera::Update(float dt)
 				position.x += (VELOCITY_CAMERA);
 		}
 	}
-	index = player->GetPosition().x - position.x;
+	
 	position.x = Support::Clamp(position.x, player->GetPosition().x - (INDEX_CAMERA_WIDTH), player->GetPosition().x + (INDEX_CAMERA_WIDTH));
 
+	if (oldPos.x <= GetWidth() / 2 || oldPos.x >= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - GetWidth() / 2)
+		velocity.x = 0;
+	else
+		velocity.x = (position.x - oldPos.x) / dt;
 	
 
 	// Camera.Y
@@ -155,6 +161,8 @@ void Camera::Update(float dt)
 		break;
 	}
 	}
+	velocity.y = (oldPos.y - position.y) / dt;
+	DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
 }
 
 bool Camera::IsCollide(BoxCollider r)

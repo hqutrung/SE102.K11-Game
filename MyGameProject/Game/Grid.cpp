@@ -222,15 +222,16 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		if (collisionTime == 2)
 			return;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
+		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
 
 	// ent2 collide with ent1
-	{
+	/*{
 		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
 		if (collisionTime == 2)
 			return;
 		ent2->OnCollision(ent1, side, collisionTime, dt);
-	}
+	}*/
 }
 
 void Grid::HandleCellWithStatic(Unit* unit, float dt)
@@ -337,7 +338,9 @@ void Grid::Update(float dt)
 
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType))
+		if (staticObjects[i]->GetTag() == CHAINEDPILLAR)
+			int x = 0;
+		if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
 			staticObjects[i]->Update(dt);
 	}
 
@@ -352,7 +355,7 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 {
 	while (unit != NULL)
 	{
-		if (unit->entity->IsActived() && unit->entity->GetType() != ObstaclesType)
+		if (unit->entity->IsActived())
 		{
 			unit->entity->Update(dt);
 		}
@@ -363,19 +366,20 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 void Grid::Render()
 {
 	if (KeyBoard::GetInstance()->GetKey(DIK_O))
-		isDraw = 0;
+		isDrawRect = false;
 	if (KeyBoard::GetInstance()->GetKey(DIK_P))
-		isDraw = 1;
+		isDrawRect = true;
 
 	// Draw items + obstacles
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived())
+		if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {
 			staticObjects[i]->Render();
-		if (isDraw == 1) {
-			BoxCollider boundbox = staticObjects[i]->GetRect();
-			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
-			Support::DrawRect(position, boundbox);
+			if (isDrawRect) {
+				BoxCollider boundbox = staticObjects[i]->GetRect();
+				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
+				Support::DrawRect(position, boundbox);
+			}
 		}
 	}
 
@@ -389,15 +393,18 @@ void Grid::Render()
 	if (Player::GetInstance()->IsActived())
 		Player::GetInstance()->Render();
 	D3DXVECTOR3 pos = (D3DXVECTOR3)Player::GetInstance()->GetRect().getCenter();
-	if (isDraw)
+	if (isDrawRect)
 		Support::DrawRect(pos, Player::GetInstance()->GetRect());
 
 	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived())
+		if (staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType)
+			continue;
+		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived() || (staticObjects[i]->GetTag() == CHAINEDPILLAR)) {
 			staticObjects[i]->Render();
-		if (isDraw == 1) {
+		}
+		if (isDrawRect && staticObjects[i]->IsActived() && staticObjects[i]->GetTag() != CHAINEDPILLAR) {
 			BoxCollider boundbox = staticObjects[i]->GetRect();
 			D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 			Support::DrawRect(position, boundbox);
@@ -412,12 +419,12 @@ void Grid::RenderUnit(Unit* unit)
 		LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 		if (unit->entity->IsActived())
 		{
-			Camera* cam = Camera::GetInstance();
+			//Camera* cam = Camera::GetInstance();
 			//if(cam->IsCollide(unit->entity->GetRect()))
 			if (unit->entity->GetType() != PlayerType)
 				unit->entity->Render();
 			// Draw ObjectRect
-			if (isDraw == 1) {
+			if (isDrawRect) {
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);

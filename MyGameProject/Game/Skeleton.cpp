@@ -17,7 +17,7 @@ void Skeleton::Update(float dt)
 	Enemy::Update(dt);
 }
 
-void Skeleton::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void Skeleton::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 }
 

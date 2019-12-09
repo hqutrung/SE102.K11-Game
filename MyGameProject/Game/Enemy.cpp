@@ -124,6 +124,6 @@ void Enemy::Spawn()
 	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
-void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 }

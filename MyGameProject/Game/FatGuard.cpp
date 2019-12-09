@@ -7,6 +7,7 @@ FatGuard::FatGuard() : Enemy()
 	fatGuardFollowPlayerState = new FatGuardFollowPlayerState(enemyData);
 	fatGuardProvokeState = new FatGuardProvokeState(enemyData);
 	fatGuardIdleState = new FatGuardIdleState(enemyData);
+	fatGuardInjuredState = new FatGuardInjuredState(enemyData);
 	point = 100;
 }
 
@@ -21,34 +22,43 @@ void FatGuard::Update(float dt)
 
 	//Enemy::Update(dt);
 	// SetState
-	if(dis.y < 10)
-	{
-		if (player->GetRect().bottom < GetRect().top) {
+	if (!isInjured) {
+		if (dis.y < 10)
+		{
+			if (player->GetRect().bottom < GetRect().top) {
 
-			if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -275) {
-				SetState(EnemyState::Idle);
+				if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -275) {
+					SetState(EnemyState::Idle);
+				}
+				else
+					SetState(abs(dis.x) > 120 ? EnemyState::Follow : EnemyState::Attack);
 			}
 			else
-				SetState(abs(dis.x) > 120 ? EnemyState::Follow : EnemyState::Attack);
+				SetState(EnemyState::Provoke);
+			//...MoveDirection
+			SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 		}
-		else
-			SetState(EnemyState::Provoke);
-		//...MoveDirection
-		SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
+		else {
+			SetState(EnemyState::Idle);
+		}
 	}
-	else {
-		SetState(EnemyState::Idle);
-	}
-
 	Enemy::Update(dt);
 }
 
-void FatGuard::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, double dt)
+void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetType() == PlayerType)
+	{
+		auto player = (Player*)impactor;
+		if (player->isAttack)
+			SetState(EnemyState::Injured);
+	}
 }
 
 void FatGuard::SetState(EnemyState::eState state)
 {
+	isInjured = false;
+	isAttack = false;
 	switch (state)
 	{
 	case EnemyState::Idle:
@@ -58,12 +68,17 @@ void FatGuard::SetState(EnemyState::eState state)
 		break;
 	case EnemyState::Attack:
 		enemyData->enemyState = fatguardAttackState;
+		isAttack = true;
 		break;
 	case EnemyState::Follow:
 		enemyData->enemyState = fatGuardFollowPlayerState;
 		break;
 	case EnemyState::Provoke:
 		enemyData->enemyState = fatGuardProvokeState;
+		break;
+	case EnemyState::Injured:
+		enemyData->enemyState = fatGuardInjuredState;
+		isInjured = true;
 		break;
 	default:
 		break;

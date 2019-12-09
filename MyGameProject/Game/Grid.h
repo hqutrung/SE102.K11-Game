@@ -23,7 +23,7 @@ class Grid
 	RECT activeRect;
 
 	std::vector<Entity*> staticObjects;
-	int isDraw = 0;
+	bool isDrawRect = false;
 public:
 	
 	static Grid* GetInstance();

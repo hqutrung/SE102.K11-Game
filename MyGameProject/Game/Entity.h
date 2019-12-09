@@ -118,7 +118,7 @@ public:
 	virtual void SetColliderBottom(int bottom);
 	virtual void SetColliderRight(int right);
 
-	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = SPF);
+	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60);
 	//virtual EarnedData OnDestroy();
 
 };

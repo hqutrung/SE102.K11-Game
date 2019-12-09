@@ -2,6 +2,7 @@
 #define __SCENE__
 #include <d3dx9.h>
 #include <d3d9.h>
+#include "GameMap.h"
 
 class Scene
 {
@@ -21,6 +22,7 @@ public:
 	D3DCOLOR GetBackcolor();
 	void SetBackColor(D3DCOLOR backColor);
 	float GetGameTime();
+	virtual GameMap* GetGameMap() { return NULL; }
 };
 
 #endif

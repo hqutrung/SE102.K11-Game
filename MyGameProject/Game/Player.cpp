@@ -1,4 +1,4 @@
-﻿
+﻿#include "Enemy.h";
 #include "Player.h"
 #include"PlayerIdleState.h"
 #include"PlayerRunState.h"
@@ -174,6 +174,7 @@ void Player::Render()
 
 void Player::SetState(PlayerState::State state, int dummy)
 {
+	isAttack = false;
 	if (playerData->state != NULL)
 		prevStateName = currentStateName;
 
@@ -186,15 +187,18 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
+		isAttack = true;
 		break;
 	case PlayerState::RunAttack:
 		playerData->state = runAttackState;
+		isAttack = true;
 		break;
 	case PlayerState::Duck:
 		playerData->state = duckState;
 		break;
 	case PlayerState::DuckAttack:
 		playerData->state = duckAttackState;
+		isAttack = true;
 		break;
 	case PlayerState::Slide:
 		playerData->state = slideState;
@@ -204,6 +208,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::LookUpAttack:
 		playerData->state = lookUpAttackState;
+		isAttack = true;
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
@@ -218,6 +223,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		status = Jumping;
 		break;
 	case PlayerState::JumpAttack:
+		isAttack = true;
 		playerData->state = jumpAttackState;
 		break;
 	case PlayerState::IdleThrow:
@@ -237,6 +243,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		playerData->state = climbState;
 		break;
 	case PlayerState::ClimbAttack:
+		isAttack = true;
 		status = Climbing;
 		playerData->state = climbAttackState;
 		break;
@@ -434,6 +441,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 {
 	auto impactorRect = impactor->GetRect();
 	auto impactorDir = impactor->GetMoveDirection();
+	auto impactorType = impactor->GetType();
 	auto impactorTag = impactor->GetTag();
 
 	// Rect tiep theo cua state hien tai
@@ -441,6 +449,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	float playerRight = GetRect().right + collisionTime * dt * velocity.x;
 	float playerLeft = GetRect().left + collisionTime * dt * velocity.x;
 	float playerTop = GetRect().top + collisionTime * dt * velocity.y;
+
 	//vitri ke tiep
 	float newPosX = position.x + collisionTime * dt * velocity.x;
 	float newPosY = position.y + collisionTime * dt * velocity.y;
@@ -453,15 +462,11 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 	D3DXVECTOR2 newVelocity = velocity;
 
-	auto impactorType = impactor->GetType();
-
 	switch (impactorType)
 	{
 	case StaticType:
 	{
 		// GROUND
-		// stand on Ground
-
 		if (impactorTag == GROUND)
 		{		
 			//stand
@@ -491,13 +496,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 		}
 
-
-
-
-
-
-
-
 		// WALL
 		if (impactor->GetTag() == WALL)
 		{
@@ -517,33 +515,33 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 
 		//CHAINE
-
 		if (impactor->GetTag() == CHAINE)
 		{
 			if (side != Top
 				&& status == Falling
 				//	&& round(newPosX) == impactor->GetPosition().x
 				&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)
-				&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top - 84 - 10))
+				&& Support::IsContainedIn(bPlayer, impactorRect.bottom - 5, impactorRect.top - 84 - 10))
 			{
 				newVelocity.x *= collisionTime;
 				status = Climbing;
 				SetState(PlayerState::Climb);
 			}
 		}
-
 		break;
 	}
 	case Surface:
 	{
+		//EXITPORT
 		if (impactor->GetTag() == EXITPORT)
 			exit(0);
 		break;
+
+		// ChaniedPillar, Pillar no collide
 	}
 	case ObstaclesType:
 	{
-
-
+		// STONE
 		if (impactorTag == STONE)
 		{
 			//stand
@@ -574,12 +572,11 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 		}
 
-
+		// BLUEVASE
 		if (impactor->GetTag() == BLUEVASE)
 		{
 			impactor->SetIsCollidable(true);
 		}
-
 
 		// Injured
 		if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL)
@@ -599,8 +596,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 	case EnemyType:
 	{
+		
+		auto enemy = (Enemy*)impactor;
 		// Injured
-		if (impactorTag != SKELETON)
+		if (impactorTag != SKELETON && enemy->isAttack)
 		{
 			isInjured = true;
 			timeInjured = 0;

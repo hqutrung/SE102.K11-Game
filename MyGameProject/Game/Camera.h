@@ -12,6 +12,7 @@ class Camera
 	float width;
 	float height;
 	static Camera* instance;
+	D3DXVECTOR2 velocity;
 	bool isLookLeft, isLookRight;
 	int index;
 public:
@@ -23,6 +24,7 @@ public:
 	D3DXVECTOR3 GetPosition();
 	int GetWidth();
 	int GetHeight();
+	D3DXVECTOR2 GetVelocity() { return velocity; }
 
 	BoxCollider GetRect();
 

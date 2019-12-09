@@ -16,6 +16,7 @@ public:
 	// sử dụng cho State Jump
 	D3DXVECTOR3 lastposition;
 	bool isClaimWall = false;
+	bool isAttack = false;
 	Status status;
 	void SetStatus(Status status);
 	Player::Status GetStatus();
