@@ -105,7 +105,6 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 			}
 			else
 			{
-				
 				activeCells[i][j] = true;
 				if (Cells[i][j] != NULL)
 					HandleActiveUnit(camRect, camDirection, Cells[i][j]);
@@ -132,6 +131,9 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 
 	while (other != NULL)
 	{
+		if (other->entity->GetTag() == BAT)
+			int x = 0;
+
 		other->active = true;
 		// Set active entity
 		other->entity->SetActive(true);
@@ -221,6 +223,8 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
+		if (ent1->GetTag() == BAT || ent2->GetTag() == BAT)
+			int x = 0;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
@@ -239,6 +243,8 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 {
 	while (unit != NULL) {
 		if (unit->entity->IsActived()) {
+			if (unit->entity->GetTag() == BAT)
+				int x = 0;
 			for (size_t i = 0; i < staticObjects.size(); i++)
 			{
 				if (staticObjects[i]->IsActived())

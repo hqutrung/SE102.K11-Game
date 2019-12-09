@@ -30,10 +30,9 @@ void Bat::Update(float dt)
 	//Enemy::Update(dt);
 }
 
-void Bat::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 void Bat::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetType() == PLAYER)
+	if (impactor->GetType() == PlayerType)
 	{
 		auto player = (Player*)impactor;
 		Hp--;

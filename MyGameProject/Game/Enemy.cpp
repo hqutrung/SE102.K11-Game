@@ -22,10 +22,17 @@ void Enemy::Update(float dt)
 	if (!isActived)
 		return;
 
-	enemyData->enemyState->Update(dt);
-	Entity::Update(dt);
-
-	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
+	
+	if (Hp > 0) {
+		enemyData->enemyState->Update(dt);
+		Entity::Update(dt);
+		disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
+	}
+	else {
+		velocity = D3DXVECTOR2(0, 0);
+		eExplosive->Update(dt);
+	}
+		
 }
 
 void Enemy::Render()
@@ -35,8 +42,11 @@ void Enemy::Render()
 		if (isActived)
 			enemyData->enemyState->Render();
 	}
-	else eExplosive->Render(GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), 1);
-
+	else{
+		eExplosive->Render(GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255));
+	}
+		
+	
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
