@@ -1,4 +1,5 @@
 #include "BlueVase.h"
+#include "Player.h"
 
 BlueVase::BlueVase() : Obstacles() {
 	SetTag(BLUEVASE);
@@ -26,4 +27,16 @@ void BlueVase::Update(float dt)
 			animation->SetDefaultTime(0.085f);
 		animation->Update(dt);
 	}
+}
+
+void BlueVase::Render()
+{
+	auto player = Player::GetInstance();
+	if (player->isReviving == true)
+	{
+		animation->ResetAnimation();
+		isCollidable = true;
+		return;
+	}
+	animation->Render(this->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
 }

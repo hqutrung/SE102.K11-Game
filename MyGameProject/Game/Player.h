@@ -65,6 +65,13 @@ public:
 	float timeImmortal = 0;
 	int countFrame = 0;
 	bool  isImmortal = false;
+	//
+
+
+
+	// new life
+	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);
+	bool isReviving = false;
 
 protected:
 	static Player* instance;
@@ -102,6 +109,7 @@ protected:
 
 	float collisionTime;
 	SideCollision side;
+	int Hp=10;
 
 private:
 };

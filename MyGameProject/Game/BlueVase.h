@@ -9,4 +9,5 @@ public:
 	BlueVase();
 	~BlueVase();
 	void Update(float dt) override;
+	void Render()override;
 };

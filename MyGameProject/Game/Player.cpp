@@ -26,6 +26,7 @@
 #include "CollisionDetector.h"
 #include"PlayerPushState.h"
 #include"PlayerTouchGroundState.h"
+#include "BlueVase.h"
 
 
 
@@ -81,6 +82,7 @@ Player::Player() : Entity()
 	SetActive(true);
 	status = OnGround;
 
+	Hp = 10;
 	isInjured = false;
 	lastposition = position;
 	width = 37;
@@ -146,23 +148,37 @@ Player::~Player()
 void Player::Update(float dt)
 {
 
+	//hoi sinh
+	if (Hp <= 0)
+	{
+		isReviving = true;
+		SetVelocity(D3DXVECTOR2(0, 0));
+		position = posRevival;
+		if (posRevival != D3DXVECTOR3(100, 65, 0))
+			SetState(PlayerState::Death);
+		else {
+			isImmortal = false;
+			isInjured = false;
+			SetState(PlayerState::Fall);
+		}
+		Hp = 10;
+	}
 
 	Entity::Update(dt);
-
 	if (playerData->state)
 		playerData->state->Update(dt);
+
+
 
 
 	// dem time IMMORTAL
 	if (isImmortal)
 		timeImmortal += dt;
-	//reset 
 	if (timeImmortal > TIME_IMMORTAL)
 	{
 		timeImmortal = 0;
 		isImmortal = false;
 	}
-
 	countFrame++;
 	if (countFrame > 2000)
 		countFrame = 0;
@@ -587,7 +603,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		// BLUEVASE
 		if (impactor->GetTag() == BLUEVASE)
 		{
+			auto b = (BlueVase*)impactor;
 			impactor->SetIsCollidable(true);
+			if (b->GetAnimation()->GetCurrentFrameID() == 0)
+				posRevival = impactor->GetPosition();
 		}
 
 		if (!isImmortal)
@@ -597,6 +616,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			{
 				isInjured = true;
 				isImmortal = true;
+				Hp -= 1;
 			}
 		}
 		else isInjured = false;
@@ -621,6 +641,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			{
 				isInjured = true;
 				isImmortal = true;
+				Hp -= 1;
 			}
 		}
 		else isInjured = false;

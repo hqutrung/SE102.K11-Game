@@ -4,9 +4,9 @@ PlayerDeathState::PlayerDeathState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1271, "Resources/PlayerState/death_after.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(1271, "Resources/PlayerState/reviving.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFramesA(texs->GetTexture(1271), 1,1, 3,8,10, 3,10,0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1271), 1, 14, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 void PlayerDeathState::Render()
@@ -16,11 +16,14 @@ void PlayerDeathState::Render()
 
 void PlayerDeathState::Update(float dt)
 {
+
 	auto player = Player::GetInstance();
+
 	if (m_Animation->IsLastFrame(dt))
 	{
-		player->SetPosition(100, 65);
-		player->SetState(Idle);
+		player->isReviving = false;
+		player->SetPosition(D3DXVECTOR3(player->GetPosition().x, player->GetPosition().y + 9, 0));
+		player->SetState(Fall);
 	}
 	PlayerState::Update(dt);
 }
