@@ -5,9 +5,9 @@ Unit::Unit(Grid* grid, Entity* entity)
 	this->grid = grid;
 	this->entity = entity;
 	this->pos = D3DXVECTOR2(entity->GetPosition());
-	prev = NULL;
-	next = NULL;
-	grid->Add(this);
+	pPrev = NULL;
+	pNext = NULL;
+	grid->AddUnit(this);
 	active = false;
 }
 
@@ -16,9 +16,9 @@ Unit::Unit(Grid* grid, Entity* entity, int cellX, int cellY)
 	this->grid = grid;
 	this->entity = entity;
 	this->pos = D3DXVECTOR2(entity->GetPosition());
-	prev = NULL;
-	next = NULL;
-	grid->Add(this, cellX, cellY);
+	pPrev = NULL;
+	pNext = NULL;
+	grid->AddUnit(this, cellX, cellY);
 	//active = false;
 }
 

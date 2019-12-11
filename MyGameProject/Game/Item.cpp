@@ -20,7 +20,7 @@ void Item::Update(float dt)
 
 void Item::Render()
 {
-	animation->Render(this->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
+	animation->Render(this->GetPosition());
 }
 
 void Item::SetSpawnBox(BoxCollider box)

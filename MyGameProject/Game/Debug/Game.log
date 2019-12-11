@@ -1,8 +1,6 @@
-﻿  Enemy.cpp
+﻿  Skeleton.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(12,91): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(132,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(133,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(134,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(135,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  ThinGuard.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

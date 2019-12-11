@@ -25,6 +25,7 @@ Grid::Grid(BoxCollider r, int rowNumbers, int colNumbers)
 			Cells[i][j] = NULL;
 			activeCells[i][j] = false;
 		}
+	effects = NULL;
 	instance = this;
 }
 
@@ -36,7 +37,7 @@ Grid::~Grid()
 				Unit* unit = Cells[x][y];
 				Unit* other;
 				while (unit != NULL) {
-					other = unit->next;
+					other = unit->pNext;
 					delete unit;
 					unit = other;
 				}
@@ -48,29 +49,94 @@ Grid::~Grid()
 	}
 }
 
-void Grid::Add(Unit* unit)
+void Grid::AddUnit(Unit* unit)
 {
 	// Determine which cell it's in
 	int cellX = (int)(unit->pos.x / this->cellWidth);
 	int cellY = (int)(unit->pos.y / this->cellHeight);
 
 	// Add Unit to the front of list at the cell it's in
-	unit->prev = NULL;
-	unit->next = Cells[cellX][cellY];
+	unit->pPrev = NULL;
+	unit->pNext = Cells[cellX][cellY];
 	Cells[cellX][cellY] = unit;
 
-	if (unit->next != NULL)
-		unit->next->prev = unit;
+	if (unit->pNext != NULL)
+		unit->pNext->pPrev = unit;
 }
-void Grid::Add(Unit* unit, int cellX, int cellY)
+void Grid::AddUnit(Unit* unit, int cellX, int cellY)
 {
 	// Add Unit to the front of list at the cell it's in
-	unit->prev = NULL;
-	unit->next = Cells[cellX][cellY];
+	unit->pPrev = NULL;
+	unit->pNext = Cells[cellX][cellY];
 	Cells[cellX][cellY] = unit;
 
-	if (unit->next != NULL)
-		unit->next->prev = unit;
+	if (unit->pNext != NULL)
+		unit->pNext->pPrev = unit;
+}
+
+void Grid::RemoveUnit(Unit* unit)
+{
+	int cellX = (int)(unit->pos.x / cellWidth);
+	int cellY = (int)(unit->pos.y / cellHeight);
+
+	if (unit->pPrev != NULL)
+		unit->pPrev->pNext = unit->pNext;
+	if (unit->pNext != NULL)
+		unit->pNext->pPrev = unit->pPrev;
+
+	// If it's the head of a list, remove it.
+	if (Cells[cellX][cellY] == unit)
+		Cells[cellX][cellY] = unit->pNext;
+}
+
+void Grid::Move(Unit* unit, float x, float y)
+{
+	// old cell
+	int oldCellX = (int)(unit->pos.x / cellWidth);
+	int oldCellY = (int)(unit->pos.y / cellHeight);
+
+	// new cell
+	int cellX = (int)(x / cellWidth);
+	int cellY = (int)(y / cellHeight);
+
+	//Out of screen
+	if (cellX >= colNumbers || cellX < 0 || cellY >= rowNumbers || cellY < 0) {
+		unit->entity->SetActive(false);
+		return;
+	}
+
+	// update unit's position
+	unit->pos.x = x;
+	unit->pos.y = y;
+
+	// if didn't change cell
+	if (cellX == oldCellX && cellY == oldCellY)
+		return;
+
+	// Unlink it from the list of its old cell.
+
+	if (unit->pPrev != NULL)
+		unit->pPrev->pNext = unit->pNext;
+	if (unit->pNext != NULL)
+		unit->pNext->pPrev = unit->pPrev;
+
+	// If it's the head of a list, remove it.
+	if (Cells[oldCellX][oldCellY] == unit)
+		Cells[oldCellX][oldCellY] = unit->pNext;
+
+	// Add it to the grid at new cell.
+	AddUnit(unit);
+}
+
+void Grid::MoveActiveUnit(Unit* unit)
+{
+	Unit* other = unit;
+	while (other != NULL)
+	{
+		unit = other;
+		unit->Move(unit->entity->GetPosition());
+		other = other->pNext;
+	}
 }
 
 // Active/InActive
@@ -99,7 +165,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 
 						if (Cells[i][j] == NULL)
 							continue;
-						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -138,7 +204,7 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 		// Set active entity
 		other->entity->SetActive(true);
 
-		other = other->next;
+		other = other->pNext;
 	}
 }
 
@@ -151,7 +217,7 @@ void Grid::HandleInActiveUnit(Unit* unit)
 		//if (unit->entity->GetTag() != Tag::PLAYER)
 			//maybe unit value of this unit pointer delete
 			unit->entity->SetActive(false);
-		other = unit->next;
+		other = unit->pNext;
 	}
 }
 
@@ -184,7 +250,7 @@ void Grid::HandleCell(int cellX, int cellY, float dt)
 		if (unit->entity->IsActived())
 		{
 			// Handle other units in this cell
-			HandleUnit(unit, unit->next, dt);
+			HandleUnit(unit, unit->pNext, dt);
 
 			// Handle the neighbor cells
 			if (cellX > 0 && cellY > 0)
@@ -196,7 +262,7 @@ void Grid::HandleCell(int cellX, int cellY, float dt)
 			if (cellX > 0 && cellY < cellHeight)
 				HandleUnit(unit, Cells[cellX - 1][cellY + 1], dt);
 		}
-		unit = unit->next;
+		unit = unit->pNext;
 	}
 }
 
@@ -208,7 +274,7 @@ void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
 		{
 			HandleCollision(unit->entity, other->entity, dt);
 		}
-		other = other->next;
+		other = other->pNext;
 	}
 }
 
@@ -251,7 +317,7 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 					HandleColissionStatic(unit->entity, staticObjects[i], dt);
 			}
 		}
-		unit = unit->next;
+		unit = unit->pNext;
 	}
 }
 
@@ -287,55 +353,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	ent1->OnCollision(ent2, side, groundTime, dt);
 }
 
-void Grid::Move(Unit* unit, float x, float y)
-{
-	// old cell
-	int oldCellX = (int)(unit->pos.x / cellWidth);
-	int oldCellY = (int)(unit->pos.y / cellHeight);
-
-	// new cell
-	int cellX = (int)(x / cellWidth);
-	int cellY = (int)(y / cellHeight);
-
-	//Out of screen
-	if (cellX >= colNumbers || cellX < 0 || cellY >= rowNumbers || cellY < 0) {
-		unit->entity->SetActive(false);
-		return;
-	}
-
-	// update unit's position
-	unit->pos.x = x;
-	unit->pos.y = y;
-
-	// if didn't change cell
-	if (cellX == oldCellX && cellY == oldCellY)
-		return;
-
-	// Unlink it from the list of its old cell.
-	if (unit->prev != NULL)
-		unit->prev->next = unit->next;
-	if (unit->next != NULL)
-		unit->next->prev = unit->prev;
-
-	// If it's the head of a list, remove it.
-	if (Cells[oldCellX][oldCellY] == unit)
-		Cells[oldCellX][oldCellY] = unit->next;
-
-	// Add it to the grid at new cell.
-	Add(unit);
-}
-
-void Grid::MoveActiveUnit(Unit* unit)
-{
-	Unit* other = unit;
-	while (other != NULL)
-	{
-		unit = other;
-		unit->Move(unit->entity->GetPosition());
-		other = other->next;
-	}
-}
-
 void Grid::Update(float dt)
 {
 	// Update Unit
@@ -343,6 +360,8 @@ void Grid::Update(float dt)
 		for (int j = 0; j < rowNumbers; j++)
 			if ((Cells[i][j] != NULL && activeCells[i][j] == true))
 				UpdateUnit(Cells[i][j], dt);
+
+	UpdateEffect(dt);
 
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
@@ -359,6 +378,7 @@ void Grid::Update(float dt)
 				MoveActiveUnit(Cells[i][j]);
 }
 
+#include "Enemy.h"
 void Grid::UpdateUnit(Unit* unit, float dt)
 {
 	while (unit != NULL)
@@ -366,8 +386,15 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 		if (unit->entity->IsActived())
 		{
 			unit->entity->Update(dt);
+			if (unit->entity->GetType() == EnemyType)
+			{
+				auto enemy = (Enemy*)unit->entity;
+				if (enemy->GetHp() <= 0) {
+					RemoveUnit(unit);
+				}
+			}
 		}
-		unit = unit->next;
+		unit = unit->pNext;
 	}
 }
 
@@ -418,6 +445,8 @@ void Grid::Render()
 			Support::DrawRect(position, boundbox);
 		}
 	}
+
+	RenderEffect();
 }
 
 void Grid::RenderUnit(Unit* unit)
@@ -438,12 +467,53 @@ void Grid::RenderUnit(Unit* unit)
 				Support::DrawRect(position, boundbox);
 			}
 		}
-		unit = unit->next;
+		unit = unit->pNext;
 	}
 }
 
 void Grid::AddStaticObject(Entity* ent) {
 	staticObjects.push_back(ent);
+}
+
+// Effects
+void Grid::AddEffect(EffectChain* chain)
+{
+	chain->pPrev = NULL;
+	chain->pNext = effects;
+	effects = chain;
+	if (chain->pNext != NULL)
+		chain->pNext->pPrev = chain;
+}
+
+void Grid::RemoveEffect(EffectChain* chain)
+{
+	if (chain->pPrev != NULL)
+		chain->pPrev->pNext = chain->pNext;
+	if (chain->pNext != NULL)
+		chain->pNext->pPrev = chain->pPrev;
+	// If it's the head of a list, remove it.
+	if (effects == chain)
+		effects = chain->pNext;
+	chain = effects;
+}
+
+void Grid::UpdateEffect(double dt)
+{
+	auto chain = effects;
+	while (chain != NULL){
+		if ((!chain->data->Update(dt)))
+			RemoveEffect(chain);
+		chain = chain->pNext;
+	}
+}
+
+void Grid::RenderEffect()
+{
+	auto chain = effects;
+	while (chain != NULL) {
+		chain->data->Render();
+		chain = chain->pNext;
+	}
 }
 
 Entity* Grid::findObject(Tag tag)
@@ -463,7 +533,7 @@ Entity* Grid::findObject(Tag tag)
 			{
 				if (unit->entity->GetTag() == tag)
 					return unit->entity;
-				unit = unit->next;
+				unit = unit->pNext;
 			}
 		}
 	return NULL;

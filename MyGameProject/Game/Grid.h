@@ -2,6 +2,7 @@
 #include "GameConfig.h"
 #include "Entity.h"
 #include "Sprites.h"
+#include "Effect.h"
 #include "Support.h"
 #include "Camera.h"
 #include "CollisionDetector.h"
@@ -23,6 +24,7 @@ class Grid
 	RECT activeRect;
 
 	std::vector<Entity*> staticObjects;
+	EffectChain* effects;
 	bool isDrawRect = false;
 public:
 	
@@ -30,8 +32,12 @@ public:
 	Grid(BoxCollider r, int rowNumbers, int colNumbers);
 	~Grid();
 
-	void Add(Unit* unit);							// Add Unit to Grid
-	void Add(Unit* unit, int cellX, int cellY);
+	void AddUnit(Unit* unit);							// Add Unit to Grid
+	void AddUnit(Unit* unit, int cellX, int cellY);     // Add Unit to Grid
+	void RemoveUnit(Unit* unit);
+	void Move(Unit* unit, float x, float y);		// Move Unit
+	void MoveActiveUnit(Unit* unit);				// Move active Unit after update
+
 	void AddStaticObject(Entity* ent);
 
 	// Active Unit is in camera
@@ -49,15 +55,16 @@ public:
 	void HandleCellWithStatic(Unit* unit, float dt);
 	void HandleColissionStatic(Entity* ent1, Entity* ent2, float dt);
 
-
-	void Move(Unit* unit, float x, float y);		// Move Unit
-	void MoveActiveUnit(Unit* unit);				// Move active Unit after update
-
 	void Update(float dt);							// Update, render Grid
 	void Render();
 
 	void UpdateUnit(Unit* unit, float dt);			// Update, render 1 Unit
 	void RenderUnit(Unit* unit);
+
+	void AddEffect(EffectChain* chain);
+	void RemoveEffect(EffectChain* chain);
+	void UpdateEffect(double dt);
+	void RenderEffect();
 
 	Entity* findObject(Tag tag);
 };

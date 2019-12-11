@@ -32,20 +32,19 @@ void Bat::Update(float dt)
 
 void Bat::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetType() == PlayerType)
-	{
-		auto player = (Player*)impactor;
-		Hp--;
-	}
-
+	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void Bat::SetState(EnemyState::eState state)
 {
-	if ((state == EnemyState::Follow))
+	if ((state == EnemyState::Follow)) {
 		enemyData->enemyState = batFollowPlayerState;
-	else if ((state == EnemyState::Idle))
+		currentStateName = EnemyState::Follow;
+	}
+	else if ((state == EnemyState::Idle)) {
 		enemyData->enemyState = batIdleState;
+		currentStateName = EnemyState::Idle;
+	}
 	enemyData->enemyState->ResetState();
 }
 

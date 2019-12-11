@@ -9,6 +9,7 @@ FatGuard::FatGuard() : Enemy()
 	fatGuardIdleState = new FatGuardIdleState(enemyData);
 	fatGuardInjuredState = new FatGuardInjuredState(enemyData);
 	point = 100;
+	Hp = 2;
 }
 
 FatGuard::~FatGuard()
@@ -47,12 +48,13 @@ void FatGuard::Update(float dt)
 
 void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetType() == PlayerType)
+	Enemy::OnCollision(impactor, side, collisionTime, dt);
+	/*if (impactor->GetType() == PlayerType)
 	{
 		auto player = (Player*)impactor;
 		if (player->isAttack)
 			SetState(EnemyState::Injured);
-	}
+	}*/
 }
 
 void FatGuard::SetState(EnemyState::eState state)
@@ -63,20 +65,26 @@ void FatGuard::SetState(EnemyState::eState state)
 	{
 	case EnemyState::Idle:
 		enemyData->enemyState = fatGuardIdleState;
+		currentStateName = EnemyState::Idle;
 		break;
 	case EnemyState::Run:
+		currentStateName = EnemyState::Run;
 		break;
 	case EnemyState::Attack:
+		currentStateName = EnemyState::Attack;
 		enemyData->enemyState = fatguardAttackState;
 		isAttack = true;
 		break;
 	case EnemyState::Follow:
+		currentStateName = EnemyState::Follow;
 		enemyData->enemyState = fatGuardFollowPlayerState;
 		break;
 	case EnemyState::Provoke:
+		currentStateName = EnemyState::Provoke;
 		enemyData->enemyState = fatGuardProvokeState;
 		break;
 	case EnemyState::Injured:
+		currentStateName = EnemyState::Injured;
 		enemyData->enemyState = fatGuardInjuredState;
 		isInjured = true;
 		break;

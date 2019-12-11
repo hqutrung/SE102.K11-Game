@@ -244,6 +244,18 @@
     <ClCompile Include="ThinGuardInjuredState.cpp">
       <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Header Files\Objects\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="BossExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -489,6 +501,18 @@
     <ClInclude Include="ThinGuardInjuredState.h">
       <Filter>Header Files\Objects\Enemy\ThinGuard</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Header Files\Objects\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="BossExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -550,6 +574,12 @@
     </Filter>
     <Filter Include="Header Files\Objects\Enemy\General">
       <UniqueIdentifier>{91845032-e321-4a44-83c7-dae2bc6849d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Effect">
+      <UniqueIdentifier>{36dc0a5d-071e-4c94-aa14-d134615c0411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Effect\Explosion">
+      <UniqueIdentifier>{8d834218-c328-4df2-9e28-8f7cd88fbf93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

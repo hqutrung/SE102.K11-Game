@@ -21,7 +21,7 @@ void Obstacles::Update(float dt)
 
 void Obstacles::Render()
 {
-	animation->Render(this->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
+	animation->Render(this->GetPosition());
 }
 
 void Obstacles::SetSpawnBox(BoxCollider box, int id)

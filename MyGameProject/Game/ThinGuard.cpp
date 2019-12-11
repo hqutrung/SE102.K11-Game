@@ -8,7 +8,7 @@ ThinGuard::ThinGuard() : Enemy()
 	thinGuardIdlePlayerState = new ThinGuardIdleState(enemyData);
 	thinGuardInjuredState = new ThinGuardInjuredState(enemyData);
 	point = 100;
-
+	Hp = 3;
 }
 
 ThinGuard::~ThinGuard()
@@ -47,12 +47,7 @@ void ThinGuard::Update(float dt)
 
 void ThinGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetType() == PlayerType)
-	{
-		auto player = (Player*)impactor;
-		if (player->isAttack)
-			SetState(EnemyState::Injured);
-	}
+	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void ThinGuard::SetState(EnemyState::eState state)
@@ -62,20 +57,20 @@ void ThinGuard::SetState(EnemyState::eState state)
 	switch (state)
 	{
 	case EnemyState::Idle:
+		currentStateName = EnemyState::Idle;
 		enemyData->enemyState = thinGuardIdlePlayerState;
 		break;
-	case EnemyState::Run:
-		break;
 	case EnemyState::Attack:
+		currentStateName = EnemyState::Attack;
 		enemyData->enemyState = thinGuardAttackState;
 		isAttack = true;
 		break;
 	case EnemyState::Follow:
+		currentStateName = EnemyState::Follow;
 		enemyData->enemyState = thinGuardFollowPlayerState;
 		break;
-	case EnemyState::Provoke:
-		break;
 	case EnemyState::Injured:
+		currentStateName = EnemyState::Injured;
 		enemyData->enemyState = thinGuardInjuredState;
 		isInjured = true;
 		break;

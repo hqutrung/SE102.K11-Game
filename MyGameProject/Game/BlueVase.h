@@ -4,6 +4,7 @@
 #include "Animation.h"
 
 class BlueVase : public Obstacles {
+
 public:
 	BlueVase();
 	~BlueVase();

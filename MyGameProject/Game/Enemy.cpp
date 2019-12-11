@@ -7,9 +7,7 @@ Enemy::Enemy() : Entity() {
 	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
 	textures->Add(TEX_ENEMY, "Resources/Enemy/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(2894, "Resources/Enemy/explosiveEnemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	eExplosive = new Animation();
-	eExplosive->AddFrames(textures->GetTexture(2894), 1, 10, 0.05, D3DCOLOR_XRGB(255, 0, 255));
+	currentStateName = EnemyState::Idle;
 }
 
 Enemy::~Enemy()
@@ -21,32 +19,15 @@ void Enemy::Update(float dt)
 {
 	if (!isActived)
 		return;
-
-	
-	if (Hp > 0) {
-		enemyData->enemyState->Update(dt);
-		Entity::Update(dt);
-		disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
-	}
-	else {
-		velocity = D3DXVECTOR2(0, 0);
-		eExplosive->Update(dt);
-	}
-		
+	enemyData->enemyState->Update(dt);
+	Entity::Update(dt);
+	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
 void Enemy::Render()
 {
-	if (Hp > 0)
-	{
-		if (isActived)
-			enemyData->enemyState->Render();
-	}
-	else{
-		eExplosive->Render(GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255));
-	}
-		
-	
+	if (isActived)
+		enemyData->enemyState->Render();
 }
 
 void Enemy::SetSpawnBox(BoxCollider box, int direction)
@@ -142,6 +123,24 @@ void Enemy::Spawn()
 	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
 
+void Enemy::OnDestroy()
+{
+	effect = new EffectChain(new EnemyExplosion(position));
+	Grid::GetInstance()->AddEffect(effect);
+	SetActive(false);
+	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
+	//return EarnedData(point);
+}
+
 void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetType() == PlayerType && Player::GetInstance()->isAttack)
+	{
+		if(GetCurrentStateName() != EnemyState::Injured)
+			Hp--;
+		if (Hp <= 0)
+			OnDestroy();
+		else
+			SetState(EnemyState::Injured);
+	}
 }

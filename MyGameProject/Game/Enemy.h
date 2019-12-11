@@ -3,6 +3,9 @@
 #include "Player.h"
 #include "EnemyData.h"
 #include"EnemyState.h"
+#include "Effect.h"
+#include "EnemyExplosion.h"
+#include "Grid.h"
 
 class Enemy : public Entity {
 protected:
@@ -19,10 +22,11 @@ protected:
 	SideCollision side;
 
 	EnemyData* enemyData;
+	EnemyState::eState currentStateName;
+	EffectChain* effect;
 
 	virtual void Spawn();
 	virtual void MakeInactive();
-	Animation* eExplosive;
 
 public:
 	Enemy();
@@ -34,6 +38,9 @@ public:
 	virtual void SetRect(BoxCollider box);
 	virtual void SetSpawnBox(BoxCollider box, int direction);
 
+
+	EnemyState::eState GetCurrentStateName() { return currentStateName; }
+	int GetHp() { return Hp; }
 	void SetActive(bool active) override;
 	virtual void SetState(EnemyState::eState state);
 
@@ -49,5 +56,6 @@ public:
 	float GetBigHeight() override;
 	bool isInjured = false;
 	bool isAttack = false;
+	virtual void OnDestroy();
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60);
 };

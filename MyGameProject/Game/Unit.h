@@ -5,7 +5,7 @@ class Unit
 {
 	friend class Grid;
 
-	Unit *prev, *next;
+	Unit *pPrev, *pNext;
 	Grid *grid;
 	D3DXVECTOR2 pos;
 	Entity* entity;

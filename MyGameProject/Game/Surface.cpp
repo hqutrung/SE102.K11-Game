@@ -12,7 +12,7 @@ Surface::~Surface()
 
 void Surface::Render()
 {
-	sprite->Draw(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), false);
+	sprite->Draw(position);
 }
 
 void Surface::SetSpawnBox(BoxCollider box)

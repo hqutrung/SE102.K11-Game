@@ -6,6 +6,7 @@ Skeleton::Skeleton() : Enemy() {
 	skeletonIdleState = new SkeletonIdleState(enemyData);
 	point = 100;
 	SetIsCollidable(false);
+	Hp = 1;
 }
 
 Skeleton::~Skeleton()
@@ -19,12 +20,15 @@ void Skeleton::Update(float dt)
 
 void Skeleton::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void Skeleton::SetState(EnemyState::eState state)
 {
-	if ((state == EnemyState::Idle))
+	if ((state == EnemyState::Idle)) {
 		enemyData->enemyState = skeletonIdleState;
+		currentStateName = EnemyState::Idle;
+	}
 	enemyData->enemyState->ResetState();
 }
 

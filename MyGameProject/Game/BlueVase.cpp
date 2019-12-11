@@ -17,7 +17,11 @@ void BlueVase::Update(float dt)
 {
 	if (IsCollidable()) {
 		if (animation->GetCurrentFrameID() == 16)
+		{
+			//Player::GetInstance()->SetLastPos(this->GetPosition());
+			isCollidable = false;
 			return;
+		}
 		else
 			animation->SetDefaultTime(0.085f);
 		animation->Update(dt);
