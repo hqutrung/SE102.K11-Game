@@ -151,15 +151,16 @@ void Player::Update(float dt)
 	//hoi sinh
 	if (Hp <= 0)
 	{
+		lastposition = posRevival;
 		isReviving = true;
 		SetVelocity(D3DXVECTOR2(0, 0));
 		position = posRevival;
-		if (posRevival != D3DXVECTOR3(100, 65, 0))
+		if (position != D3DXVECTOR3(100, 65, 0))
 			SetState(PlayerState::Death);
 		else {
 			isImmortal = false;
 			isInjured = false;
-			SetState(PlayerState::Fall);
+			SetState(PlayerState::Idle);
 		}
 		Hp = 10;
 	}

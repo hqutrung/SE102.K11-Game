@@ -22,8 +22,8 @@ void PlayerDeathState::Update(float dt)
 	if (m_Animation->IsLastFrame(dt))
 	{
 		player->isReviving = false;
-		player->SetPosition(D3DXVECTOR3(player->GetPosition().x, player->GetPosition().y + 9, 0));
-		player->SetState(Fall);
+		player->SetPosition(D3DXVECTOR3(player->GetPosition().x, player->GetPosition().y + 10, 0));
+		player->SetState(Idle);
 	}
 	PlayerState::Update(dt);
 }
