@@ -7,9 +7,7 @@ Enemy::Enemy() : Entity() {
 	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
 	textures->Add(TEX_ENEMY, "Resources/Enemy/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(2894, "Resources/Enemy/explosiveEnemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	eExplosive = new Animation();
-	eExplosive->AddFrames(textures->GetTexture(2894), 1, 10, 0.05, D3DCOLOR_XRGB(255, 0, 255));
+	
 }
 
 Enemy::~Enemy()
