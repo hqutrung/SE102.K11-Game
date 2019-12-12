@@ -47,7 +47,7 @@ public:
 
 	void SetActive(bool active);
 	void OnFalling();
-
+	int GetHp() { return Hp; }
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	void InjuredByOther(Entity* impactor);
 
@@ -72,6 +72,8 @@ public:
 	// new life
 	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);
 	bool isReviving = false;
+
+
 
 protected:
 	static Player* instance;
@@ -109,7 +111,7 @@ protected:
 
 	float collisionTime;
 	SideCollision side;
-	int Hp=10;
+	int Hp=1;
 	int life = 3;
 	int score = 0;
 	int apple = 0;

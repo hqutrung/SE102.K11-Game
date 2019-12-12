@@ -5,6 +5,10 @@
 #define SCREEN_WIDTH 318
 #define SCREEN_HEIGHT 230
 
+// id scene
+
+//
+
 #define FPS 60
 #define SPF 1.0f/FPS
 //
@@ -51,6 +55,7 @@
 
 // SCENE ID
 #define SCENE_1 1
+#define ID_RIVIVING_SCENE 2
 
 // GRID
 #define GRID_ROW_NUMBERS 15

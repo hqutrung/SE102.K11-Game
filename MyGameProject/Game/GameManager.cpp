@@ -30,7 +30,23 @@ void GameManager::Update(float dt)
 	if (isPause)
 		return;
 	KeyBoard::GetInstance()->KeySnapShot(dt);
-	SceneManager::GetInstance()->GetCurrentScene()->Update(dt);
+	auto sceneM = SceneManager::GetInstance();
+	//chuyen Scene
+
+	if (sceneM->GetSceneID() == SCENE_1 && sceneM->GetPlayScene()->IsTransition())
+	{
+		sceneM->LoadScene(ID_RIVIVING_SCENE);
+		sceneM->GetPlayScene()->SetIsTransition(false);
+	}
+
+	if (sceneM->GetCurrentScene()->IsEndScene())
+	{
+		sceneM->LoadScene(SCENE_1);
+	}
+
+	//
+	sceneM->GetCurrentScene()->Update(dt);
+
 }
 
 void GameManager::Render()
@@ -39,7 +55,7 @@ void GameManager::Render()
 	auto spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
 	auto scene = SceneManager::GetInstance()->GetCurrentScene();
 
-	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(200, 200, 255), 0.0f, 0);
+	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 0.0f, 0);
 
 	{
 		device->BeginScene();

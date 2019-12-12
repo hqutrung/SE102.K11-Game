@@ -50,12 +50,6 @@ void FatGuard::Update(float dt)
 void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 	Enemy::OnCollision(impactor, side, collisionTime, dt);
-	/*if (impactor->GetType() == PlayerType)
-	{
-		auto player = (Player*)impactor;
-		if (player->isAttack)
-			SetState(EnemyState::Injured);
-	}*/
 }
 
 void FatGuard::SetState(EnemyState::eState state)

@@ -48,7 +48,7 @@ void PlayerIdleAttackState::Update(float dt)
 
 
 		// isAttack
-		if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 3, 4))
+		if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 4))
 		{
 			player->isAttack = true;
 		}

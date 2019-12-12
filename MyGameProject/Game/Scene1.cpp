@@ -34,14 +34,20 @@ void Scene1::LoadContent()
 
 void Scene1::Update(float dt)
 {
+
 	gameTime += dt;
 	CheckActive();
 	ProcessInput();
-
 	CheckCollision(dt);
+
+	//chuyen scene
+	if (player->GetHp() <= 0)
+	{
+		isTransition = true;
+	}
+	//
 	camera->Update(dt);
 	map->GetGrid()->Update(dt);
-	//player->Update(dt);
 
 	// Camera follow player
 	D3DXVECTOR3 playerPos = player->GetPosition();
@@ -55,7 +61,7 @@ void Scene1::Update(float dt)
 
 	if (player->GetRect().top > map->GetHeight() + 10)
 		player->SetState(PlayerState::Fall);
-	//
+	
 }
 
 void Scene1::Render()

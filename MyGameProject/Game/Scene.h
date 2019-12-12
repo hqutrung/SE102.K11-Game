@@ -9,6 +9,8 @@ class Scene
 protected:
 	D3DCOLOR backColor;
 	float gameTime;
+	bool isEndScene = false;
+	bool isTransition = false;
 public:
 	Scene();
 	virtual ~Scene();
@@ -18,6 +20,9 @@ public:
 	virtual void Render() = 0;
 	virtual int GetSceneID() = 0;
 
+	bool IsEndScene() { return isEndScene; }
+	bool IsTransition() { return isTransition; }
+	void SetIsTransition(bool x) { isTransition = x; }
 
 	D3DCOLOR GetBackcolor();
 	void SetBackColor(D3DCOLOR backColor);
