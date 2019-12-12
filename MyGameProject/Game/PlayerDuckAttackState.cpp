@@ -29,7 +29,13 @@ void PlayerDuckAttackState::Update(float dt)
 		playerData->state->GetAnimation()->SetCurrentFrame(4);
 	}
 
+
 	PlayerState::Update(dt);
+
+	//isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 4))
+		playerData->player->isAttack = true;
+	else playerData->player->isAttack = false;
 }
 
 void PlayerDuckAttackState::HandleInput()

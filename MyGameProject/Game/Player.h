@@ -66,7 +66,7 @@ public:
 	int countFrame = 0;
 	bool  isImmortal = false;
 	//
-
+	void AddScore(int x) { score += x; }
 
 
 	// new life
@@ -110,6 +110,8 @@ protected:
 	float collisionTime;
 	SideCollision side;
 	int Hp=10;
-
+	int life = 3;
+	int score = 0;
+	int apple = 0;
 private:
 };

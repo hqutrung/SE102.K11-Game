@@ -99,5 +99,10 @@ PlayerState::State PlayerSlideState::GetStateName()
 void PlayerSlideState::ResetState(int dummy)
 {
 
-	m_Animation->ResetAnimation();
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState(dummy);
 }

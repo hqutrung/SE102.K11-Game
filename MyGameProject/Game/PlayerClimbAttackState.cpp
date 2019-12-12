@@ -30,6 +30,11 @@ void PlayerClimbAttackState::Update(float dt)
 	}
 
 	PlayerState::Update(dt);
+
+	//isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 5))
+		playerData->player->isAttack = true;
+	else playerData->player->isAttack = false;
 	
 }
 
@@ -69,5 +74,11 @@ PlayerState::State PlayerClimbAttackState::GetStateName()
 
 void PlayerClimbAttackState::ResetState(int dummy)
 {
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-33);
+	player->SetColliderRight(41);
+	player->SetColliderTop(56);
+	player->SetColliderBottom(-40);
 	PlayerState::ResetState(dummy);
+
 }

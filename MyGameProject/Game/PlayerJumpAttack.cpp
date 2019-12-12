@@ -44,7 +44,16 @@ void PlayerJumpAttackState::Update(float dt)
 
 	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
 		player->SetState(Fall);
+
+
+	
 	PlayerState::Update(dt);
+
+	//isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 4, 5))
+		playerData->player->isAttack = true;
+	else playerData->player->isAttack = false;
+
 }
 
 void PlayerJumpAttackState::HandleInput()
@@ -93,8 +102,8 @@ void PlayerJumpAttackState::ResetState(int dummy)
 	auto player = playerData->player;
 //collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-22);
-	player->SetColliderRight(63);
-	player->SetColliderTop(50);
+	player->SetColliderRight(60);
+	player->SetColliderTop(46);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

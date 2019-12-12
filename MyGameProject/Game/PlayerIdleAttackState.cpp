@@ -21,8 +21,9 @@ void PlayerIdleAttackState::Render()
 
 void PlayerIdleAttackState::Update(float dt)
 {
-	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 
+	auto player = Player::GetInstance();
+	player->SetVelocity(D3DXVECTOR2(0, 0));
 	//set default time
 
 	if (m_Animation->GetCurrentFrameID() == 6)
@@ -30,7 +31,7 @@ void PlayerIdleAttackState::Update(float dt)
 	else m_Animation->SetDefaultTime(0.04f);
 
 	// chuyen state
-	if (m_Animation->IsEndFrame(5,dt))
+	if (m_Animation->IsEndFrame(5, dt))
 	{
 		m_Animation->countLoopFrame = 1;
 		playerData->player->SetState(Idle);
@@ -40,8 +41,19 @@ void PlayerIdleAttackState::Update(float dt)
 		m_Animation->countLoopFrame = 1;
 		playerData->player->SetState(Idle);
 	}
+	
 
-	PlayerState::Update(dt);
+
+		PlayerState::Update(dt);
+
+
+		// isAttack
+		if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 3, 4))
+		{
+			player->isAttack = true;
+		}
+		else player->isAttack = false;
+
 }
 
 void PlayerIdleAttackState::HandleInput()
@@ -71,7 +83,7 @@ void PlayerIdleAttackState::HandleInput()
 
 void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetTag() == WALL && m_Animation->countLoopFrame == 1&&m_Animation->IsEndFrame(2,dt))
+	if (impactor->GetTag() == WALL && m_Animation->countLoopFrame == 1 && m_Animation->IsEndFrame(2, dt))
 	{
 		m_Animation->SetCurrentFrame(6);
 		m_Animation->countLoopFrame++;
@@ -87,9 +99,9 @@ void PlayerIdleAttackState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(-18);
-	player->SetColliderRight(64);
-	player->SetColliderTop(44);
+	player->SetColliderLeft(0);
+	player->SetColliderRight(58);
+	player->SetColliderTop(40);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

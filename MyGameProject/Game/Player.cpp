@@ -145,7 +145,6 @@ Player::~Player()
 	instance = NULL;
 
 }
-
 void Player::Update(float dt)
 {
 
@@ -163,8 +162,15 @@ void Player::Update(float dt)
 			isInjured = false;
 			SetState(PlayerState::Idle);
 		}
+		life -= 1;
 		Hp = 10;
 	}
+	// death
+	if (life <= 0)
+	{
+		//...
+	}
+
 
 	Entity::Update(dt);
 	if (playerData->state)
@@ -173,7 +179,7 @@ void Player::Update(float dt)
 
 
 
-	// dem time IMMORTAL
+	// immortal
 	if (isImmortal)
 		timeImmortal += dt;
 	if (timeImmortal > TIME_IMMORTAL)
@@ -184,6 +190,10 @@ void Player::Update(float dt)
 	countFrame++;
 	if (countFrame > 2000)
 		countFrame = 0;
+
+	DebugOut(L"Hp: %d\n", Hp);
+	DebugOut(L"Life: %d\n", life);
+	DebugOut(L"Score: %d\n", score);
 
 }
 
@@ -217,18 +227,15 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
-		isAttack = true;
 		break;
 	case PlayerState::RunAttack:
 		playerData->state = runAttackState;
-		isAttack = true;
 		break;
 	case PlayerState::Duck:
 		playerData->state = duckState;
 		break;
 	case PlayerState::DuckAttack:
 		playerData->state = duckAttackState;
-		isAttack = true;
 		break;
 	case PlayerState::Slide:
 		playerData->state = slideState;
@@ -238,7 +245,6 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::LookUpAttack:
 		playerData->state = lookUpAttackState;
-		isAttack = true;
 		break;
 	case PlayerState::Jump:
 		playerData->state = jumpState;
@@ -253,7 +259,6 @@ void Player::SetState(PlayerState::State state, int dummy)
 		status = Jumping;
 		break;
 	case PlayerState::JumpAttack:
-		isAttack = true;
 		playerData->state = jumpAttackState;
 		break;
 	case PlayerState::IdleThrow:
@@ -273,7 +278,6 @@ void Player::SetState(PlayerState::State state, int dummy)
 		playerData->state = climbState;
 		break;
 	case PlayerState::ClimbAttack:
-		isAttack = true;
 		status = Climbing;
 		playerData->state = climbAttackState;
 		break;
@@ -598,8 +602,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 					status = Falling;
 				}
 			}
-
-
 		}
 
 		// BLUEVASE
@@ -613,8 +615,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 		if (!isImmortal)
 		{// Injured
+			bool a = CollisionDetector::IsCollide(GetBigBound(), impactorRect);
+
 			if ((impactor->GetTag() == SPIKE || impactor->GetTag() == BALL)
-				&& impactor->IsCollidable())
+				&& impactor->IsCollidable() && a == true)
 			{
 				isInjured = true;
 				isImmortal = true;
@@ -629,18 +633,54 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 	case ItemType:
 	{
+		bool check = false;
+		SideCollision side1 = NotKnow;
+		CollisionDetector::IsCollide(GetBigBound(), impactorRect);
+
+		switch (playerData->state->GetStateName())
+		{
+		case PlayerState::IdleAttack:
+		case PlayerState::RunAttack:
+		case PlayerState::LookUpAttack:
+		case PlayerState::ClimbAttack:
+		case PlayerState::JumpAttack:
+		case PlayerState::DuckAttack:
+			if (isAttack)
+				check = true;
+			break;
+		default:
+			check = true;
+			break;
+		}
+		if (check == true) // check=true => xet va cham
+		{
+			// Blue Heart
+			if (impactorTag == BLUEHEART)
+				life += 1;
+			// apple
+			if (impactorTag == APPLE)
+			{
+				apple += 1;
+			}
+
+
+			impactor->SetActive(false);
+		}
+
 		Item* item = (Item*)impactor;
 		item->OnDestroy();
 		break;
 	}
 	case EnemyType:
 	{
-		
+
 		auto enemy = (Enemy*)impactor;
+		bool a = CollisionDetector::IsCollide(GetBigBound(), impactorRect);
+
 		// Injured
 		if (!isImmortal)
 		{// Injured
-			if (impactorTag != SKELETON)
+			if (impactorTag != SKELETON && enemy->isAttack == true && a == true)
 			{
 				isInjured = true;
 				isImmortal = true;
@@ -648,6 +688,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			}
 		}
 		else isInjured = false;
+
+		//score
 
 		break;
 	}

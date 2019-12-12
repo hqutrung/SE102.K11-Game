@@ -83,10 +83,12 @@ void PlayerLookUpState::ResetState(int dummy)
 	auto player = playerData->player;
 
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(-25);
-	player->SetColliderRight(24);
-	player->SetColliderTop(33);
-	player->SetColliderBottom(-25);
+
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState(dummy);
 
 	if (player->GetPrevStateName() == IdleThrow)
 		m_Animation->SetCurrentFrame(3);
