@@ -24,6 +24,7 @@ void GenieToken::Update(float dt)
 
 void GenieToken::OnDestroy()
 {
+	isDisappeared = true;
 	effect = new EffectChain(new BigItemExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);

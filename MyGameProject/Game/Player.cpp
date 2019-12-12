@@ -662,13 +662,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			{
 				apple += 1;
 			}
-
-
-			impactor->SetActive(false);
+			Item* item = (Item*)impactor;
+			item->OnDestroy();
 		}
-
-		Item* item = (Item*)impactor;
-		item->OnDestroy();
 		break;
 	}
 	case EnemyType:

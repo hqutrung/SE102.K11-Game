@@ -3,7 +3,7 @@
 BigItemExplosion::BigItemExplosion(D3DXVECTOR3 pos) : Effect(pos)
 {
 	Textures* texs = Textures::GetInstance();
-	texs->Add(TEX_ENEMY_EXPLOSION, "Resources/Explosive/explosiveEnemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	texs->Add(TEX_BIGITEM_EXPLOSION, "Resources/Explosive/explosiveBigItem.png", D3DCOLOR_XRGB(255, 0, 255));
 	animation = new Animation();
-	animation->AddFrames(texs->GetTexture(TEX_ENEMY_EXPLOSION), 1, 10, 0.1f);
+	animation->AddFramesA(texs->GetTexture(TEX_BIGITEM_EXPLOSION), 1, 1, 2, 8, 10, 2, 10, 0.06f);
 }
