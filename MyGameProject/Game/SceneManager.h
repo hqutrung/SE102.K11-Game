@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "Scene1.h"
+#include "RevivingScene.h"
 
 class SceneManager
 {
@@ -10,6 +11,7 @@ class SceneManager
 
 	static SceneManager* instance;
 	Scene* currentScene;
+	Scene* playScene;
 	float destSceneID;
 
 	bool isTransitioning;
@@ -20,7 +22,7 @@ public:
 	static SceneManager* GetInstance();
 	SceneManager();
 	~SceneManager();
-
+	Scene* GetPlayScene();
 	Scene* GetCurrentScene();
 
 	void LoadScene(int sceneID);

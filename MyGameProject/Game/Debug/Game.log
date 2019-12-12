@@ -1,0 +1,17 @@
+﻿  PlayerDuckAttackState.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerIdleAttackState.cpp
+E:\SE102.K11-Game\MyGameProject\Game\PlayerDuckAttackState.cpp(36,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\PlayerDuckAttackState.cpp(36,59): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerJumpAttack.cpp
+E:\SE102.K11-Game\MyGameProject\Game\PlayerIdleAttackState.cpp(51,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\PlayerIdleAttackState.cpp(51,60): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerRunAttackState.cpp
+E:\SE102.K11-Game\MyGameProject\Game\PlayerJumpAttack.cpp(53,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\PlayerJumpAttack.cpp(53,59): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerTouchGroundState.cpp
+  Generating Code...
+E:\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(69,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(69,59): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe

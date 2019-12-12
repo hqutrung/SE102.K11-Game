@@ -7,10 +7,16 @@ SceneManager::SceneManager()
 	currentScene = NULL;
 	timeTransition = 0;
 	firstTime = true;
+	playScene = new Scene1();
 }
 
 SceneManager::~SceneManager()
 {
+}
+
+Scene* SceneManager::GetPlayScene()
+{
+	return playScene;
 }
 
 SceneManager* SceneManager::GetInstance()
@@ -22,28 +28,32 @@ SceneManager* SceneManager::GetInstance()
 
 void SceneManager::CreateScene(int sceneID)
 {
-	if (currentScene != NULL)
+	if (currentScene != NULL && currentScene->GetSceneID() != SCENE_1)
+	{
 		delete currentScene;
-	currentScene = NULL;
+		currentScene = NULL;
+	}
 
 	switch (sceneID) {
 	case 0:
 		//CurrentScene = new IntroScene();
 		break;
 	case SCENE_1:
-		currentScene = new Scene1();
+		if (playScene != NULL)
+			currentScene = playScene;
+		break;
+	case ID_RIVIVING_SCENE:
+		currentScene = new RevivingScene();
 		break;
 	}
 }
 void SceneManager::LoadScene(int sceneID)
 {
 	destSceneID = sceneID;
-	if (firstTime) {
-		CreateScene(sceneID);
-		firstTime = false;
-	}
-	else
-		isTransitioning = true;
+
+	CreateScene(sceneID);
+
+
 }
 
 Scene* SceneManager::GetCurrentScene()

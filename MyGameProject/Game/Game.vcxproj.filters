@@ -274,6 +274,9 @@
     <ClCompile Include="SkeletonWeapon.cpp">
       <Filter>Header Files\Objects\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="RevivingScene.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -539,6 +542,9 @@
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="RevivingScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="ObjectPooling.h">
       <Filter>Header Files\Manager\ObjectPooling</Filter>
