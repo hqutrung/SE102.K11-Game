@@ -32,7 +32,9 @@
 #define TEX_ENEMY_EXPLOSION 2604
 #define TEX_SMALLITEM_EXPLOSION 2605
 #define TEX_BIGITEM_EXPLOSION 2606
-#define TEX_APPLE_WEAPON 2607
+#define TEX_APPLE_WEAPON_EXPLOSION 2607
+#define TEX_APPLE_WEAPON 2609
+#define TEX_SKELETON_WEAPON 2610
 
 // keyBoard
 #define DOWN_ARROW DIK_DOWNARROW
@@ -67,6 +69,13 @@
 // FatGuard Speed
 #define FATGUARD_RUNSPEED 100
 
+// Weapon Speed
+#define PLAYER_WEAPON_SPEED 200
+#define ENEMY_WEAPON_SPEED 10
+
+// Weapon index
+#define APPLE_WEAPON_INDEX 1
+#define SKELETON_WEAPON_INDEX 2
 
 // type
 enum Tag {
@@ -95,7 +104,7 @@ enum Tag {
 	PILLAR3,
 	PILLAR4,
 	PLAYER,
-	ENEMYWEAPONE,
+	SKELETONWEAPON,
 	PLAYERWEAPON,
 	NONE
 };
@@ -108,7 +117,8 @@ enum Layer {
 	ObstaclesType,	// Chuong ngai vat
 	StaticType,
 	Surface,
-	Weapon,
+	pWeapon,
+	eWeapon,
 	NoneType
 };
 

@@ -136,6 +136,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="AppleWeapon.cpp" />
+    <ClCompile Include="AppleWeaponExplosion.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BatFollowPlayerState.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ObjectPooling.cpp" />
     <ClCompile Include="Obstacles.cpp" />
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -225,6 +227,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Apple.h" />
     <ClInclude Include="AppleWeapon.h" />
+    <ClInclude Include="AppleWeaponExplosion.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BatFollowPlayerState.h" />
@@ -261,6 +264,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyBoard.h" />
+    <ClInclude Include="ObjectPooling.h" />
     <ClInclude Include="Obstacles.h" />
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Player.h" />

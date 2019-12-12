@@ -660,10 +660,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			// apple
 			if (impactorTag == APPLE)
 			{
-				apple += 1;
+				NumbersOfApple += 1;
 			}
-			Item* item = (Item*)impactor;
-			item->OnDestroy();
+			impactor->OnDestroy();
 		}
 		break;
 	}
@@ -701,4 +700,16 @@ void Player::InjuredByOther(Entity* impactor)
 {
 	SetState(PlayerState::Injured);
 	//DataManager::MinusHealth(impactor->GetTag());
+}
+
+void Player::ThrowApple(D3DXVECTOR3 posApple)
+{
+	if (NumbersOfApple <= 0)
+		return;
+
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+
+	if (ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple)) {
+		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
+	}
 }

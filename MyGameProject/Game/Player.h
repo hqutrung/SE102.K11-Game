@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "PlayerData.h"
 #include "PlayerState.h"
+#include "ObjectPooling.h"
 
 class Player : public Entity {
 public:
@@ -50,6 +51,7 @@ public:
 
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	void InjuredByOther(Entity* impactor);
+	void ThrowApple(D3DXVECTOR3 posApple);
 
 	// Bat tu
 	//void OnImmortal();
@@ -112,6 +114,6 @@ protected:
 	int Hp=10;
 	int life = 3;
 	int score = 0;
-	int apple = 0;
+	int NumbersOfApple = 5;
 private:
 };

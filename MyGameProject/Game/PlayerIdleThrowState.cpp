@@ -23,6 +23,7 @@ void PlayerIdleThrowState::Render()
 void PlayerIdleThrowState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
+
 	if (m_Animation->IsLastFrame(dt))
 	{
 		if(playerData->player->GetPrevStateName()==LookUp)
@@ -30,8 +31,16 @@ void PlayerIdleThrowState::Update(float dt)
 		else
 			playerData->player->SetState(Idle);
 	}
-
+	auto posApple = playerData->player->GetPosition();
+	if (playerData->player->GetMoveDirection() == Player::LeftToRight)
+		posApple.x += 36;
+	else
+		posApple.x += -36;
+	posApple.y += 27;
+	if (m_Animation->GetCurrentFrameID() == 4)
+		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
+	
 }
 
 void PlayerIdleThrowState::HandleInput()

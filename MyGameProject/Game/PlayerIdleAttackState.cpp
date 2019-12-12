@@ -41,18 +41,18 @@ void PlayerIdleAttackState::Update(float dt)
 		m_Animation->countLoopFrame = 1;
 		playerData->player->SetState(Idle);
 	}
-	
 
 
-		PlayerState::Update(dt);
+
+	PlayerState::Update(dt);
 
 
-		// isAttack
-		if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 3, 4))
-		{
-			player->isAttack = true;
-		}
-		else player->isAttack = false;
+	// isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 4))
+	{
+		player->isAttack = true;
+	}
+	else player->isAttack = false;
 
 }
 

@@ -197,13 +197,13 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 
 	while (other != NULL)
 	{
-		if (other->entity->GetTag() == BAT)
-			int x = 0;
-
 		other->active = true;
-		// Set active entity
-		other->entity->SetActive(true);
-
+		if (unit->entity->GetType() != pWeapon && unit->entity->GetType() != eWeapon) {
+			if (other->entity->GetTag() == BAT)
+				int x = 0;
+			// Set active entity
+			other->entity->SetActive(true);
+		}
 		other = other->pNext;
 	}
 }
@@ -295,7 +295,8 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 
 	}*/
-
+	if ((ent1->GetTag() == PLAYERWEAPON && ent2->GetTag() == FATGUARD) || (ent2->GetTag() == PLAYERWEAPON && ent1->GetTag() == FATGUARD))
+		int x = 0;
 	if (!ent1->isStatic) {
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
@@ -447,6 +448,8 @@ void Grid::Render()
 	if (isDrawRect)
 		Support::DrawRect(pos, Player::GetInstance()->GetRect());
 
+	RenderEffect();
+
 	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
@@ -464,7 +467,6 @@ void Grid::Render()
 		}
 	}
 
-	RenderEffect();
 }
 
 void Grid::RenderUnit(Unit* unit)
@@ -480,6 +482,8 @@ void Grid::RenderUnit(Unit* unit)
 				unit->entity->Render();
 			// Draw ObjectRect
 			if (isDrawRect) {
+				if (unit->entity->GetType() == pWeapon)
+					int x = 0;
 				BoxCollider boundbox = unit->entity->GetRect();
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);

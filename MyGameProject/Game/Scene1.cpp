@@ -30,6 +30,9 @@ void Scene1::LoadContent()
 
 	camera->SetPosition(player->GetPosition());
 	CheckCamera();
+
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+	pool->AddApple();
 }
 
 void Scene1::Update(float dt)

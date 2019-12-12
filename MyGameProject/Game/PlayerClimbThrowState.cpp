@@ -25,6 +25,14 @@ void PlayerClimbThrowState::Update(float dt)
 		playerData->player->SetState(Climb);
 	}
 
+	auto posApple = playerData->player->GetPosition();
+	if (playerData->player->GetMoveDirection() == Player::LeftToRight)
+		posApple.x += 30;
+	else
+		posApple.x += -30;
+	posApple.y += 9;
+	if (m_Animation->GetCurrentFrameID() == 4)
+		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
 }
 

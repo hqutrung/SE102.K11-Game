@@ -30,7 +30,14 @@ void PlayerDuckThrowState::Update(float dt)
 		player->SetState(Duck);
 		playerData->state->GetAnimation()->SetCurrentFrame(4);
 	}
-
+	auto posApple = playerData->player->GetPosition();
+	if (playerData->player->GetMoveDirection() == Player::LeftToRight)
+		posApple.x = player->GetRect().right;
+	else
+		posApple.x = player->GetRect().left;
+	posApple.y += 0;
+	if (m_Animation->GetCurrentFrameID() == 4)
+		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
 }
 

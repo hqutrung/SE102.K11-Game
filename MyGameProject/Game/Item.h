@@ -26,5 +26,5 @@ public:
 	void SetActive(bool active) override;
 	void MakeInactive();
 	void Spawn();
-	virtual void OnDestroy();
+	void OnDestroy() override;
 };

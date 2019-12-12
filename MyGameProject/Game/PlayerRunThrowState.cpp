@@ -39,6 +39,14 @@ void PlayerRunThrowState::Update(float dt)
 		player->SetState(Run);
 	}
 
+	auto posApple = playerData->player->GetPosition();
+	if (playerData->player->GetMoveDirection() == Player::LeftToRight)
+		posApple.x += 41;
+	else
+		posApple.x += -41;
+	posApple.y += 33;
+	if (m_Animation->GetCurrentFrameID() == 3)
+		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
 }
 

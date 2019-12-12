@@ -134,7 +134,7 @@ void Enemy::OnDestroy()
 
 void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
-	if (impactor->GetType() == PlayerType && Player::GetInstance()->isAttack)
+	if ((impactor->GetType() == PlayerType && Player::GetInstance()->isAttack) || impactor->GetType() == pWeapon)
 	{
 		if(GetCurrentStateName() != EnemyState::Injured)
 			Hp--;

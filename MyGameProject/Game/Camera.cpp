@@ -60,6 +60,11 @@ void Camera::Update(float dt)
 	PlayerState::State currentStateName = player->GetCurrentState()->GetStateName();
 	D3DXVECTOR3 oldPos = GetPosition();
 	
+	if (isLookLeft)
+		index = -30;
+	else
+		index = 30;
+
 	// Camera.X
 	if (!keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 	{

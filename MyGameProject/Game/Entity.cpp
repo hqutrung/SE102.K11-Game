@@ -16,15 +16,6 @@ Entity::~Entity()
 
 }
 
-void Entity::onDestroy()
-{
-}
-
-void Entity::onSetPosition(D3DXVECTOR3 position)
-{
-	this->position = position;
-}
-
 BoxCollider Entity::GetRect()
 {
 	BoxCollider r;
@@ -229,6 +220,15 @@ void Entity::SetColliderBottom(int bottom)
 void Entity::SetColliderRight(int right)
 {
 	collider.right = right;
+}
+
+void Entity::OnDestroy()
+{
+}
+
+void Entity::OnSetPosition(D3DXVECTOR3 position)
+{
+	this->position = position;
 }
 
 void Entity::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)

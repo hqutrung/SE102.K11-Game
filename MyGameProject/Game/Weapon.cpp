@@ -1,8 +1,11 @@
 #include "Weapon.h"
 
-Weapon::Weapon()
+Weapon::Weapon() : Entity()
 {
-	SetType(Layer::Weapon);
+	SetType(Layer::pWeapon);
+	animation = new Animation();
+	SetStatic(false);
+	isDissapeared = false;
 }
 
 Weapon::~Weapon()
@@ -11,13 +14,13 @@ Weapon::~Weapon()
 
 void Weapon::Update(float dt)
 {
-	anim->Update(dt);
+	animation->Update(dt);
 	Entity::Update(dt);
 }
 
 void Weapon::Render()
 {
-	anim->Render(position);
+	animation->Render(position);
 }
 
 BoxCollider Weapon::GetRect()
@@ -39,7 +42,9 @@ BoxCollider Weapon::GetRect()
 
 void Weapon::SetActive(bool active)
 {
-	if (active)
+	if (isActived == active)
+		return;
+	if (active && !isDissapeared)
 		//IS A BUG, INSTANTIATE WITH POSITION INSTEAD, BRO
 		Spawn();
 	else
@@ -66,7 +71,7 @@ float Weapon::GetBigHeight()
 	return height;
 }
 
-void Weapon::OnCollision(Entity* impactor, SideCollision side, float collisionTime, double dt)
+void Weapon::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 }
 
@@ -91,6 +96,6 @@ void Weapon::MakeInactive()
 
 void Weapon::Spawn()
 {
-	anim->ResetAnimation();
+	animation->ResetAnimation();
 	isActived = true;
 }

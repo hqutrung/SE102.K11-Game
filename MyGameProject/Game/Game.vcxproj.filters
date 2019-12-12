@@ -265,6 +265,12 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Header Files\Objects\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectPooling.cpp">
+      <Filter>Header Files\Manager\ObjectPooling</Filter>
+    </ClCompile>
+    <ClCompile Include="AppleWeaponExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -531,6 +537,12 @@
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Objects\Weapon</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectPooling.h">
+      <Filter>Header Files\Manager\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="AppleWeaponExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -601,6 +613,9 @@
     </Filter>
     <Filter Include="Header Files\Objects\Weapon">
       <UniqueIdentifier>{134f3c6d-3524-4163-8b2a-328c71aedbf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Manager\ObjectPooling">
+      <UniqueIdentifier>{25276cc9-fda7-4592-a0de-6026e7cbba26}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

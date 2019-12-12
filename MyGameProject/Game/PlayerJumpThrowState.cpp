@@ -47,8 +47,15 @@ void PlayerJumpThrowState::Update(float dt)
 
 	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
 		player->SetState(Fall);
+	auto posApple = playerData->player->GetPosition();
+	if (playerData->player->GetMoveDirection() == Player::LeftToRight)
+		posApple.x += 36;
+	else
+		posApple.x += -36;
+	posApple.y += 30;
+	if (m_Animation->GetCurrentFrameID() == 3)
+		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
-
 }
 
 void PlayerJumpThrowState::HandleInput()

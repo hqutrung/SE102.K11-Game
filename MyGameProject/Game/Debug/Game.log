@@ -1,2 +1,12 @@
-﻿  BigItemExplosion.cpp
+﻿  Grid.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(148,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(149,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(150,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(151,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(526,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(545,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(546,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(547,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(548,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
