@@ -83,7 +83,7 @@ void PlayerDuckThrowState::ResetState(int dummy)
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
 	player->SetColliderLeft(-17);
-	player->SetColliderRight(54);
+	player->SetColliderRight(30);
 	player->SetColliderTop(7);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);

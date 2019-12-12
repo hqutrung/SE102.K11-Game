@@ -101,5 +101,10 @@ PlayerState::State PlayerClimbJumpState::GetStateName()
 
 void PlayerClimbJumpState::ResetState(int dummy)
 {
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-15);
+	player->SetColliderRight(15);
+	player->SetColliderTop(37);
+	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

@@ -116,9 +116,9 @@ void PlayerJumpCrossState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(-17);
-	player->SetColliderRight(23);
-	player->SetColliderTop(37);
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

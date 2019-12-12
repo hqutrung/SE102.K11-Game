@@ -97,5 +97,10 @@ PlayerState::State PlayerInjuredState::GetStateName()
 
 void PlayerInjuredState::ResetState(int dummy)
 {
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

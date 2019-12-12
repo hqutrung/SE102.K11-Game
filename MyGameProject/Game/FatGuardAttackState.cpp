@@ -13,9 +13,9 @@ FatGuardAttackState::FatGuardAttackState(EnemyData* data) : EnemyState(data)
 void FatGuardAttackState::Update(float dt)
 {
 	//....
-	auto enemy = enemyData->enemy;
-	enemy->SetVx(0);
-	enemy->SetVy(0);
+	auto e = enemyData->enemy;
+	e->SetVx(0);
+	e->SetVy(0);
 	int frameID = e_Animation->GetCurrentFrameID();
 	int rd = rand() % 3 + 3;
 
@@ -27,6 +27,20 @@ void FatGuardAttackState::Update(float dt)
 		}
 		e_Animation->countLoopFrame++;
 	}
+
+
+	if (e_Animation->GetCurrentFrameID() >= 5)
+	{
+
+		e->SetColliderLeft(-28);
+		e->SetColliderRight(80);
+		e->SetColliderTop(26);
+	}
+	else {
+		e->SetColliderLeft(-16);
+		e->SetColliderRight(43);
+		e->SetColliderTop(20);
+	}
 	e_Animation->Update(dt);
 }
 
@@ -34,9 +48,10 @@ void FatGuardAttackState::Update(float dt)
 void FatGuardAttackState::ResetState()
 {
 	auto e = enemyData->enemy;
-	e->SetColliderLeft(-37);
-	e->SetColliderRight(82);
-	e->SetColliderTop(47);
+	e->SetColliderLeft(-28);
+	e->SetColliderRight(80);
+	e->SetColliderTop(26);
 	e->SetColliderBottom(-26);
-	
+
+
 }

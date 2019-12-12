@@ -61,7 +61,15 @@ void PlayerRunAttackState::Update(float dt)
 		player->SetState(Run);
 	}
 
+
 	PlayerState::Update(dt);
+
+
+	//isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 4, 5))
+		playerData->player->isAttack = true;
+	else playerData->player->isAttack = false;
+
 }
 
 void PlayerRunAttackState::HandleInput()

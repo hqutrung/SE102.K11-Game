@@ -93,4 +93,10 @@ PlayerState::State PlayerJumpThrowState::GetStateName()
 
 void PlayerJumpThrowState::ResetState(int dummy)
 {
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState(dummy);
 }

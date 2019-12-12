@@ -4,9 +4,9 @@ PlayerLookUpAttackState::PlayerLookUpAttackState(PlayerData* data)
 {
 	this->playerData = data;
 	auto texs = Textures::GetInstance();
-	texs->Add(1020, "Resources/PlayerState/look_up_attack_after.png", D3DCOLOR_XRGB(255	,	0, 255));
+	texs->Add(1020, "Resources/PlayerState/look_up_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1020), 1, 12, 0.1f, D3DCOLOR_XRGB(255 , 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1020), 1, 12, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -23,9 +23,9 @@ void PlayerLookUpAttackState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
-	
-	
-	if (m_Animation->countLoopFrame >= 3 && m_Animation->GetCurrentFrameID() == 4 )
+
+
+	if (m_Animation->countLoopFrame >= 3 && m_Animation->GetCurrentFrameID() == 4)
 		m_Animation->SetCurrentFrame(10);
 
 	if (m_Animation->GetCurrentFrameID() == 9)
@@ -40,7 +40,15 @@ void PlayerLookUpAttackState::Update(float dt)
 		m_Animation->countLoopFrame = 1;
 	}
 
+	
+
 	PlayerState::Update(dt);
+
+	//isAttack
+	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 3) || Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 6, 7))
+		playerData->player->isAttack = true;
+	else playerData->player->isAttack = false;
+
 }
 
 void PlayerLookUpAttackState::HandleInput()
@@ -80,11 +88,18 @@ void PlayerLookUpAttackState::OnCollision(Entity* impactor, Entity::SideCollisio
 {
 }
 
-PlayerState:: State PlayerLookUpAttackState::GetStateName()
+PlayerState::State PlayerLookUpAttackState::GetStateName()
 {
 	return LookUpAttack;
 }
 
 void PlayerLookUpAttackState::ResetState(int dummy)
 {
+	auto player = playerData->player;
+	//collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-45);
+	player->SetColliderRight(52);
+	player->SetColliderTop(40);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState(dummy);
 }
