@@ -39,7 +39,7 @@ void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)
 	SetColliderTop(4);
 	SetColliderBottom(-4);
 
-	Weapon::Instantiate(position);
+	Weapon::Spawn();
 }
 
 void SkeletonWeapon::OnDestroy()

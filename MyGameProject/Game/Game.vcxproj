@@ -207,6 +207,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SkeletonIdleState.cpp" />
+    <ClCompile Include="SkeletonWeapon.cpp" />
     <ClCompile Include="SmallItemExplosion.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
@@ -299,6 +300,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SkeletonIdleState.h" />
+    <ClInclude Include="SkeletonWeapon.h" />
     <ClInclude Include="SmallItemExplosion.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />

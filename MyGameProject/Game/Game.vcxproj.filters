@@ -271,6 +271,9 @@
     <ClCompile Include="AppleWeaponExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
+    <ClCompile Include="SkeletonWeapon.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -542,6 +545,9 @@
     </ClInclude>
     <ClInclude Include="AppleWeaponExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonWeapon.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
