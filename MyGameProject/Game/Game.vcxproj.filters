@@ -247,14 +247,23 @@
     <ClCompile Include="Effect.cpp">
       <Filter>Header Files\Objects\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="ItemExplosion.cpp">
-      <Filter>Header Files\Objects\Effect\Explosion</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
     <ClCompile Include="BossExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="SmallItemExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="BigItemExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="AppleWeapon.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -504,14 +513,23 @@
     <ClInclude Include="Effect.h">
       <Filter>Header Files\Objects\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="ItemExplosion.h">
-      <Filter>Header Files\Objects\Effect\Explosion</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClInclude>
     <ClInclude Include="BossExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallItemExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="BigItemExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="AppleWeapon.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -580,6 +598,9 @@
     </Filter>
     <Filter Include="Header Files\Objects\Effect\Explosion">
       <UniqueIdentifier>{8d834218-c328-4df2-9e28-8f7cd88fbf93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Weapon">
+      <UniqueIdentifier>{134f3c6d-3524-4163-8b2a-328c71aedbf0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

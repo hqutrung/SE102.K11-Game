@@ -1,12 +1,16 @@
 #pragma once
 #include "Entity.h"
 #include "Animation.h"
+#include "Effect.h"
+#include "SmallItemExplosion.h"
+#include "Grid.h"
 
 class Item : public Entity {
 protected:
 	bool isDisappeared;
 	BoxCollider spawnBox;
 	Animation* animation;
+	EffectChain* effect;
 
 public:
 	Item();
@@ -22,5 +26,5 @@ public:
 	void SetActive(bool active) override;
 	void MakeInactive();
 	void Spawn();
-
+	virtual void OnDestroy();
 };

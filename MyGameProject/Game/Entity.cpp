@@ -16,6 +16,10 @@ Entity::~Entity()
 
 }
 
+void Entity::onDestroy()
+{
+}
+
 void Entity::onSetPosition(D3DXVECTOR3 position)
 {
 	this->position = position;

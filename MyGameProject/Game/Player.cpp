@@ -27,6 +27,7 @@
 #include"PlayerPushState.h"
 #include"PlayerTouchGroundState.h"
 #include "BlueVase.h"
+#include "Item.h"
 
 
 
@@ -628,7 +629,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 	case ItemType:
 	{
-		impactor->SetActive(false);
+		Item* item = (Item*)impactor;
+		item->OnDestroy();
 		break;
 	}
 	case EnemyType:

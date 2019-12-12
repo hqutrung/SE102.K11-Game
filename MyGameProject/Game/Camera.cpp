@@ -162,7 +162,7 @@ void Camera::Update(float dt)
 	}
 	}
 	velocity.y = (oldPos.y - position.y) / dt;
-	DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
+	//DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
 }
 
 bool Camera::IsCollide(BoxCollider r)

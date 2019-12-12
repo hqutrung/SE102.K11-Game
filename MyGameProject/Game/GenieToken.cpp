@@ -21,3 +21,12 @@ void GenieToken::Update(float dt)
 		animation->SetDefaultTime(0.2f);
 	Item::Update(dt);
 }
+
+void GenieToken::OnDestroy()
+{
+	effect = new EffectChain(new BigItemExplosion(position));
+	Grid::GetInstance()->AddEffect(effect);
+	SetActive(false);
+	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
+	//return EarnedData(point);
+}

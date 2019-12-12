@@ -2,6 +2,7 @@
 
 Item::Item() : Entity()
 {
+	effect = NULL;
 	isDisappeared = false;
 	SetStatic(true);
 	SetType(ItemType);
@@ -14,8 +15,10 @@ Item::~Item()
 
 void Item::Update(float dt)
 {
-	animation->Update(dt);
-	Entity::Update(dt);
+	if (isActived) {
+		animation->Update(dt);
+		Entity::Update(dt);
+	}
 }
 
 void Item::Render()
@@ -66,6 +69,16 @@ void Item::MakeInactive()
 void Item::Spawn()
 {
 	isActived = true;
+}
+
+void Item::OnDestroy()
+{
+	isDisappeared = true;
+	effect = new EffectChain(new SmallItemExplosion(position));
+	Grid::GetInstance()->AddEffect(effect);
+	SetActive(false);
+	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
+	//return EarnedData(point);
 }
 
 

@@ -135,10 +135,12 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="AppleWeapon.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BatFollowPlayerState.cpp" />
     <ClCompile Include="BatIdleState.cpp" />
+    <ClCompile Include="BigItemExplosion.cpp" />
     <ClCompile Include="BlueHeart.cpp" />
     <ClCompile Include="BlueVase.cpp" />
     <ClCompile Include="BossExplosion.cpp" />
@@ -167,7 +169,6 @@
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemExplosion.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Obstacles.cpp" />
@@ -204,6 +205,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SkeletonIdleState.cpp" />
+    <ClCompile Include="SmallItemExplosion.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -217,14 +219,17 @@
     <ClCompile Include="ThinGuardIdleState.cpp" />
     <ClCompile Include="ThinGuardInjuredState.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Apple.h" />
+    <ClInclude Include="AppleWeapon.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BatFollowPlayerState.h" />
     <ClInclude Include="BatIdleState.h" />
+    <ClInclude Include="BigItemExplosion.h" />
     <ClInclude Include="BlueHeart.h" />
     <ClInclude Include="BlueVase.h" />
     <ClInclude Include="BossExplosion.h" />
@@ -255,7 +260,6 @@
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemExplosion.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="Obstacles.h" />
     <ClInclude Include="Pillar.h" />
@@ -291,6 +295,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SkeletonIdleState.h" />
+    <ClInclude Include="SmallItemExplosion.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="PlayerState.h" />
@@ -304,6 +309,7 @@
     <ClInclude Include="ThinGuardIdleState.h" />
     <ClInclude Include="ThinGuardInjuredState.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -38,5 +38,4 @@ void FatGuardAttackState::ResetState()
 	e->SetColliderRight(82);
 	e->SetColliderTop(47);
 	e->SetColliderBottom(-26);
-	
 }

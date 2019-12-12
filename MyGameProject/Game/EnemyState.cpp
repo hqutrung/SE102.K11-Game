@@ -3,6 +3,7 @@
 
 EnemyState::EnemyState(EnemyData* data){
 	this->enemyData = data;
+	enemyData->enemy->currentStateName = Follow;
 }
 
 EnemyState::~EnemyState()

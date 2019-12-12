@@ -31,12 +31,13 @@ void FatGuard::Update(float dt)
 				if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -275) {
 					SetState(EnemyState::Idle);
 				}
-				else
+				else {
 					SetState(abs(dis.x) > 120 ? EnemyState::Follow : EnemyState::Attack);
+				}
 			}
-			else
+			else {
 				SetState(EnemyState::Provoke);
-			//...MoveDirection
+			}//...MoveDirection
 			SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 		}
 		else {
@@ -59,6 +60,8 @@ void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collision
 
 void FatGuard::SetState(EnemyState::eState state)
 {
+	/*if (currentStateName == state)
+		return;*/
 	isInjured = false;
 	isAttack = false;
 	switch (state)
@@ -70,7 +73,7 @@ void FatGuard::SetState(EnemyState::eState state)
 	case EnemyState::Run:
 		currentStateName = EnemyState::Run;
 		break;
-	case EnemyState::Attack:
+	case EnemyState::Attack: 
 		currentStateName = EnemyState::Attack;
 		enemyData->enemyState = fatguardAttackState;
 		isAttack = true;

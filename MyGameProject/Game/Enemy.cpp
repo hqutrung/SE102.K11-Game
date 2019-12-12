@@ -138,7 +138,7 @@ void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 	{
 		if(GetCurrentStateName() != EnemyState::Injured)
 			Hp--;
-		if (Hp <= 0)
+		if (Hp == 0)
 			OnDestroy();
 		else
 			SetState(EnemyState::Injured);

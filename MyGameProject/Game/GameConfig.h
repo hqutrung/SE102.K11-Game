@@ -30,6 +30,7 @@
 
 #define TEX_ENEMY 2603
 #define TEX_ENEMY_EXPLOSION 2604
+#define TEX_SMALLITEM_EXPLOSION 2605
 
 // keyBoard
 #define DOWN_ARROW DIK_DOWNARROW
@@ -92,6 +93,8 @@ enum Tag {
 	PILLAR3,
 	PILLAR4,
 	PLAYER,
+	ENEMYWEAPONE,
+	PLAYERWEAPON,
 	NONE
 };
 
@@ -103,6 +106,7 @@ enum Layer {
 	ObstaclesType,	// Chuong ngai vat
 	StaticType,
 	Surface,
+	Weapon,
 	NoneType
 };
 

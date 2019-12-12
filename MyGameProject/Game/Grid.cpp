@@ -165,7 +165,7 @@ void Grid::HandleActive(BoxCollider camRect, Entity::MoveDirection camDirection)
 
 						if (Cells[i][j] == NULL)
 							continue;
-						//Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
+						Cells[i][j]->Move(Cells[i][j]->entity->GetPosition());
 					}
 				}
 			}
@@ -216,7 +216,7 @@ void Grid::HandleInActiveUnit(Unit* unit)
 		unit->active = false;
 		//if (unit->entity->GetTag() != Tag::PLAYER)
 			//maybe unit value of this unit pointer delete
-			unit->entity->SetActive(false);
+		unit->entity->SetActive(false);
 		other = unit->pNext;
 	}
 }
@@ -285,7 +285,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	float collisionTime = 2;
 
 	// ent1 collide with ent2
-	{
+	/*{
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
@@ -293,8 +293,21 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 			int x = 0;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
 		ent2->OnCollision(ent1, side, collisionTime, dt);
-	}
 
+	}*/
+
+	if (!ent1->isStatic) {
+		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
+		if (collisionTime == 2)
+			return;
+		ent1->OnCollision(ent2, side, collisionTime, dt);
+	}
+	if (!ent2->isStatic) {
+		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
+		if (collisionTime == 2)
+			return;
+		ent2->OnCollision(ent1, side, collisionTime, dt);
+	}
 
 	// ent2 collide with ent1
 	/*{
@@ -367,7 +380,9 @@ void Grid::Update(float dt)
 	{
 		if (staticObjects[i]->GetTag() == CHAINEDPILLAR)
 			int x = 0;
-		if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
+		/*if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
+			staticObjects[i]->Update(dt);*/
+		if ((staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
 			staticObjects[i]->Update(dt);
 	}
 
@@ -408,7 +423,8 @@ void Grid::Render()
 	// Draw items + obstacles
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {
+		/*if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {*/
+		if ((staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {
 			staticObjects[i]->Render();
 			if (isDrawRect) {
 				BoxCollider boundbox = staticObjects[i]->GetRect();
@@ -434,7 +450,9 @@ void Grid::Render()
 	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		if (staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType)
+		/*if (staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType)
+			continue;*/
+		if (staticObjects[i]->GetType() == ObstaclesType)
 			continue;
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived() || (staticObjects[i]->GetTag() == CHAINEDPILLAR)) {
 			staticObjects[i]->Render();

@@ -46,6 +46,7 @@ protected:
 	MoveDirection direction;			// Huong di chuyen
 	BoxCollider collider;
 
+	virtual void onDestroy();
 	virtual void onSetPosition(D3DXVECTOR3 position);	// Set vi tri cua Entity, dung cho ke thua
 
 public:

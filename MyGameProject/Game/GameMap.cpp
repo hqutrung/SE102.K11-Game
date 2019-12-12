@@ -215,28 +215,28 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Bat* bat = new Bat();
 			bat->SetSpawnBox(box, direction);
-			unit = new Unit(grid, bat);
+			unit = new Unit(grid, bat, cellX, cellY);
 			break;
 		}
 		case SKELETON:
 		{
 			Skeleton* skeleton = new Skeleton();
 			skeleton->SetSpawnBox(box, direction);
-			unit = new Unit(grid, skeleton);
+			unit = new Unit(grid, skeleton, cellX, cellY);
 			break;
 		}
 		case THINGUARD:
 		{
 			ThinGuard* thinGuard = new ThinGuard();
 			thinGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, thinGuard);
+			unit = new Unit(grid, thinGuard, cellX, cellY);
 			break;
 		}
 		case FATGUARD:
 		{
 			FatGuard* fatGuard = new FatGuard();
 			fatGuard->SetSpawnBox(box, direction);
-			unit = new Unit(grid, fatGuard);
+			unit = new Unit(grid, fatGuard, cellX, cellY);
 			break;
 		}
 		case PEDDLER:
@@ -255,28 +255,32 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		{
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
-			grid->AddStaticObject(apple);
+			unit = new Unit(grid, apple, cellX, cellY);
+			//grid->AddStaticObject(apple);
 			break;
 		}
 		case BLUEHEART:
 		{
 			BlueHeart* blueheart = new BlueHeart();
 			blueheart->SetSpawnBox(box);
-			grid->AddStaticObject(blueheart);
+			unit = new Unit(grid, blueheart, cellX, cellY);
+			//grid->AddStaticObject(blueheart);
 			break;
 		}
 		case GEM:
 		{
 			Gem* gem = new Gem();
 			gem->SetSpawnBox(box);
-			grid->AddStaticObject(gem);
+			unit = new Unit(grid, gem, cellX, cellY);
+			//grid->AddStaticObject(gem);
 			break;
 		}
 		case GENIETOKEN:
 		{
 			GenieToken* genieToken = new GenieToken();
 			genieToken->SetSpawnBox(box);
-			grid->AddStaticObject(genieToken);
+			unit = new Unit(grid, genieToken, cellX, cellY);
+			//grid->AddStaticObject(genieToken);
 			break;
 		}
 		case BLUEVASE:

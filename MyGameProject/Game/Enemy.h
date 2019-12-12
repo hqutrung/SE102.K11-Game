@@ -22,13 +22,14 @@ protected:
 	SideCollision side;
 
 	EnemyData* enemyData;
-	EnemyState::eState currentStateName;
 	EffectChain* effect;
 
 	virtual void Spawn();
 	virtual void MakeInactive();
 
 public:
+	EnemyState::eState currentStateName;
+	float delaytime;
 	Enemy();
 	virtual ~Enemy();
 
