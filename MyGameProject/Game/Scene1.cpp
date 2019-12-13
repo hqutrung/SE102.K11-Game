@@ -11,6 +11,7 @@ Scene1::~Scene1()
 
 void Scene1::LoadContent()
 {
+	auto texs = Textures::GetInstance();
 	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
@@ -33,6 +34,9 @@ void Scene1::LoadContent()
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	pool->AddApple();
+
+	data = new Data();
+
 	pool->AddSkeleton(16);
 	srand(time(NULL));
 }
@@ -66,14 +70,16 @@ void Scene1::Update(float dt)
 
 	if (player->GetRect().top > map->GetHeight() + 10)
 		player->SetState(PlayerState::Fall);
+
 	
+	data->Update(dt);
 }
 
 void Scene1::Render()
 {
 	map->Draw();
-
 	map->GetGrid()->Render();
+	data->Render();
 }
 
 int Scene1::GetSceneID()
@@ -116,4 +122,9 @@ void Scene1::CheckActive()
 void Scene1::CheckCollision(float dt)
 {
 	map->GetGrid()->HandMelee(dt);
+}
+
+void Scene1::RenderPlayerData()
+{
+
 }

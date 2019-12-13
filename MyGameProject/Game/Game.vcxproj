@@ -148,6 +148,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ChainedPillar.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="Data.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChainedPillar.h" />
     <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="Data.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Enemy.h" />

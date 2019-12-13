@@ -277,6 +277,7 @@
     <ClCompile Include="RevivingScene.cpp">
       <Filter>Header Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Data.cpp" />
     <ClCompile Include="SkeletonWeaponExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
@@ -557,6 +558,9 @@
     </ClInclude>
     <ClInclude Include="SkeletonWeapon.h">
       <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Header Files\Objects\Surface</Filter>
     </ClInclude>
     <ClInclude Include="SkeletonWeaponExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>

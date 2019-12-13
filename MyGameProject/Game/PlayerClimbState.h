@@ -4,8 +4,10 @@
 #include"KeyBoard.h"
 class PlayerClimbState : public PlayerState
 {
+	
 
 public:
+	float maxTop = 1000;
 	PlayerClimbState () {};
 	PlayerClimbState(PlayerData* data);
 	~PlayerClimbState();

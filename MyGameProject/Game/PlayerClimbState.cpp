@@ -30,9 +30,11 @@ void PlayerClimbState::Update(float dt)
 
 	if (keyboard->GetKey(UP_ARROW))
 	{
-		if (m_Animation->countLoopFrame == 1)
+		if (player->GetPosition().y <= maxTop-84)
+		{
 			m_Animation->Update(dt);
-		player->SetVy(CLIMB_SPEED);
+			player->SetVy(CLIMB_SPEED);
+		}
 	}
 	else if (keyboard->GetKey(DOWN_ARROW))
 	{
@@ -102,21 +104,15 @@ void PlayerClimbState::HandleInput()
 void PlayerClimbState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = Player::GetInstance();
-
-	if (player->status == Player::Status::Climbing
-		&& impactor->GetTag() == CHAINE
-		&& player->GetRect().bottom < impactor->GetRect().bottom)
+	if (impactor->GetTag() == CHAINE) 
 	{
-		player->SetState(PlayerState::Fall);
+		if (player->status == Player::Status::Climbing
+			&& player->GetRect().bottom < impactor->GetRect().bottom)
+		{
+			player->SetState(PlayerState::Fall);
+		}
+		maxTop = impactor->GetRect().top;
 	}
-	if (player->status == Player::Status::Climbing
-		&& impactor->GetTag() == CHAINE
-		&& player->GetPosition().y > impactor->GetRect().top - 84 && player->GetVy() > 0)
-	{
-		m_Animation->countLoopFrame++;
-		player->SetVy(0);
-	}
-	else m_Animation->countLoopFrame = 1;
 }
 
 PlayerState::State PlayerClimbState::GetStateName()
