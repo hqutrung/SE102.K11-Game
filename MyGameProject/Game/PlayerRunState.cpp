@@ -127,6 +127,11 @@ void PlayerRunState::ResetState(int dummy)
 {
 	m_Animation->countLoopFrame = 1;
 	auto player = Player::GetInstance();
+	//	collider around center point, collider often smaller than player sprite
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(19);
+	player->SetColliderTop(25);
+	player->SetColliderBottom(-24);
 	if (player->GetPrevStateName() == PlayerState::RunAttack || player->GetPrevStateName() == PlayerState::RunThrow)
 		m_Animation->SetCurrentFrame(2);
 	else

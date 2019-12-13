@@ -425,6 +425,13 @@ BoxCollider Player::GetBigBound() {
 	return box;
 }
 
+BoxCollider Player::GetSlimBody()
+{
+	if (GetMoveDirection() == LeftToRight)
+		return BoxCollider(position.y + 25, position.x - 1, position.x + 1, position.y - 24);
+	else return BoxCollider(position.y + 25, position.x - 1, position.x + 1, position.y - 24);
+}
+
 float Player::GetBigWidth()
 {
 	return Entity::GetWidth();
@@ -517,6 +524,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				}
 			}
 
+
 			//fall
 			if (status == OnGround && side == SideCollision::Bottom && velocity.y == 0)
 			{
@@ -551,11 +559,12 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		//CHAINE
 		if (impactor->GetTag() == CHAINE)
 		{
+			bool isCol = CollisionDetector::IsCollide(GetSlimBody(), impactor->GetRect());
 			if (side != Top
 				&& status == Falling
-				//	&& round(newPosX) == impactor->GetPosition().x
-				&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)
+				&& isCol == true
 				&& Support::IsContainedIn(bPlayer, impactorRect.bottom - 5, impactorRect.top - 84 - 10))
+				/*&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)*/
 			{
 				newVelocity.x *= collisionTime;
 				status = Climbing;
@@ -613,6 +622,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				posRevival = impactor->GetPosition();
 		}
 
+
 		if (!isImmortal)
 		{// Injured
 			bool a = CollisionDetector::IsCollide(GetBigBound(), impactorRect);
@@ -667,12 +677,17 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	{
 
 		auto enemy = (Enemy*)impactor;
-		bool a = CollisionDetector::IsCollide(GetBigBound(), impactorRect);
 
 		// Injured
 		if (!isImmortal)
-		{// Injured
-			if (impactorTag != SKELETON && enemy->isAttack == true && a == true)
+		{
+			//ktra rectAttack cua enemy va Body cua Player co va cham?
+			bool isCol = CollisionDetector::IsCollide(this->GetBigBound(), impactorRect);
+
+			//enemy trong trang thai Attack && va cham vs RectBody cua player
+			bool x = enemy->isAttack && isCol == true;
+
+			if (x)
 			{
 				isInjured = true;
 				isImmortal = true;

@@ -14,7 +14,7 @@ void ThinGuardAttackState::Update(float dt)
 	enemy->SetVx(0);
 	enemy->SetVy(0);
 	e_Animation->Update(dt);
-	
+
 }
 
 void ThinGuardAttackState::ResetState()
@@ -24,4 +24,6 @@ void ThinGuardAttackState::ResetState()
 	e->SetColliderRight(78);
 	e->SetColliderTop(48);
 	e->SetColliderBottom(-26);
+	e->SetBodyBox(33, -12, 54, -26);
+
 }

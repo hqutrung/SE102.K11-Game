@@ -10,6 +10,7 @@ FatGuard::FatGuard() : Enemy()
 	fatGuardInjuredState = new FatGuardInjuredState(enemyData);
 	point = 100;
 	Hp = 2;
+
 }
 
 FatGuard::~FatGuard()
@@ -26,7 +27,7 @@ void FatGuard::Update(float dt)
 	if (!isInjured) {
 		if (dis.y < 10)
 		{
-			if (player->GetRect().bottom < GetRect().top) {
+			if (player->GetRect().bottom < GetRect().bottom + 10) {
 
 				if (player->GetPosition().x - spawnPosition.x > 175 || player->GetPosition().x - spawnPosition.x < -275) {
 					SetState(EnemyState::Idle);
@@ -67,7 +68,7 @@ void FatGuard::SetState(EnemyState::eState state)
 	case EnemyState::Run:
 		currentStateName = EnemyState::Run;
 		break;
-	case EnemyState::Attack: 
+	case EnemyState::Attack:
 		currentStateName = EnemyState::Attack;
 		enemyData->enemyState = fatguardAttackState;
 		isAttack = true;
@@ -95,4 +96,14 @@ void FatGuard::Spawn()
 {
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
+
 }
+
+void FatGuard::SetSpawnBox(BoxCollider box, int direction)
+{
+	Enemy::SetSpawnBox(box, direction);
+	
+	SetBodyBox(22, -19, 36, -26);
+
+}
+

@@ -16,4 +16,5 @@ public:
 	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60) override;
 	void SetState(EnemyState::eState state);
 	void Spawn();
+
 };

@@ -22,4 +22,7 @@ void FatGuardProvokeState::ResetState()
 	e->SetColliderRight(29);
 	e->SetColliderTop(22);
 	e->SetColliderBottom(-26);
+
+
+	enemyData->enemy->SetBodyBox(22, -19, 47, -26);
 }

@@ -113,4 +113,10 @@ PlayerState::State PlayerRunAttackState::GetStateName()
 
 void PlayerRunAttackState::ResetState(int dummy)
 {
+	auto player = Player::GetInstance();
+	player->SetColliderLeft(-0);
+	player->SetColliderRight(62);
+	player->SetColliderTop(37);
+	player->SetColliderBottom(-24);
+	PlayerState::ResetState(dummy);
 }

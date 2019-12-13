@@ -19,9 +19,11 @@ void FatGuardInjuredState::Update(float dt)
 
 void FatGuardInjuredState::ResetState()
 {
-	/*auto e = enemyData->enemy;
+	auto e = enemyData->enemy;
 	e->SetColliderLeft(-17);
 	e->SetColliderRight(29);
 	e->SetColliderTop(22);
-	e->SetColliderBottom(-26);*/
+	e->SetColliderBottom(-26);
+
+	enemyData->enemy->SetBodyBox(22, -19, 36, -26);
 }

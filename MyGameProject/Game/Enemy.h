@@ -14,6 +14,7 @@ protected:
 	Entity::MoveDirection spawnDirection;
 	int point;
 	D3DXVECTOR2 disToPlayer;
+	BoxCollider bodyBox;
 	//
 	int Hp=1;
 
@@ -38,7 +39,7 @@ public:
 
 	virtual void SetRect(BoxCollider box);
 	virtual void SetSpawnBox(BoxCollider box, int direction);
-
+	virtual void SetBodyBox(float t, float l, float r, float b);
 
 	EnemyState::eState GetCurrentStateName() { return currentStateName; }
 	int GetHp() { return Hp; }
@@ -50,6 +51,7 @@ public:
 	virtual D3DXVECTOR3 GetSpawnPosition() { return spawnPosition; }
 	virtual Entity::MoveDirection GetSpawnDirection();
 	D3DXVECTOR2 GetDisToPlayer() { return disToPlayer; }
+	virtual BoxCollider GetBody();
 
 	float GetWidth() override;
 	float GetBigWidth() override;

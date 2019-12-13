@@ -27,4 +27,5 @@ void ThinGuardFollowPlayerState::ResetState()
 	e->SetColliderRight(24);
 	e->SetColliderTop(33);
 	e->SetColliderBottom(-26);
+	e->SetBodyBox(32, -15, 26, -26);
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Grid.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(148,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -12,3 +13,10 @@ D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(552,66): warning C4
   Item.cpp
   Generating Code...
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  Player.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(396): warning C4715: 'Player::GetState': not all control paths return a value
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung
