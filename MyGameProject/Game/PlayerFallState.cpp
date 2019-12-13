@@ -34,7 +34,7 @@ void PlayerFallState::Update(float dt)
 		heavy = true;
 	else heavy = false;
 
-	DebugOut(L"couLoopFame: %d\n", m_Animation->countLoopFrame);
+	//DebugOut(L"couLoopFame: %d\n", m_Animation->countLoopFrame);
 
 	// set time frame
 	switch (m_Animation->GetCurrentFrameID())

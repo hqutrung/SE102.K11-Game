@@ -20,6 +20,7 @@ void PlayerJumpThrowState::Render()
 	PlayerState::Render();
 }
 
+static bool isThrowed = false;
 void PlayerJumpThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
@@ -53,8 +54,14 @@ void PlayerJumpThrowState::Update(float dt)
 	else
 		posApple.x += -36;
 	posApple.y += 30;
-	if (m_Animation->GetCurrentFrameID() == 3)
-		playerData->player->ThrowApple(posApple);
+	if (m_Animation->GetCurrentFrameID() == 3) {
+		if (!isThrowed) {
+			playerData->player->ThrowApple(posApple);
+			isThrowed = true;
+		}
+	}
+	else
+		isThrowed = false;
 	PlayerState::Update(dt);
 }
 

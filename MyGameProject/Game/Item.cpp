@@ -7,6 +7,8 @@ Item::Item() : Entity()
 	SetStatic(true);
 	SetType(ItemType);
 	animation = new Animation(0.1f);
+	SetVx(0);
+	SetVy(0);
 }
 
 Item::~Item()

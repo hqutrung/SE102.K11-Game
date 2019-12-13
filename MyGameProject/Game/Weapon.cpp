@@ -4,7 +4,7 @@ Weapon::Weapon() : Entity()
 {
 	SetType(Layer::pWeapon);
 	animation = new Animation();
-	SetStatic(false);
+	isActived = false;
 	isDissapeared = false;
 }
 
@@ -44,6 +44,7 @@ BoxCollider Weapon::GetRect()
 
 void Weapon::SetActive(bool active)
 {
+	DebugOut(L"[SETACTIVE]   appleWeapon->isActived: %d\n", active);
 	if (isActived == active)
 		return;
 	if (active && !isDissapeared)
@@ -94,7 +95,6 @@ void Weapon::OnDestroy()
 void Weapon::MakeInactive()
 {
 	isActived = false;
-	isDissapeared = true;
 }
 
 void Weapon::Spawn()
@@ -102,4 +102,6 @@ void Weapon::Spawn()
 	//animation->ResetAnimation();
 	isActived = true;
 	isDissapeared = false;
+
+	DebugOut(L"[SPAWN]   appleWeapon->isActived: %d\n", isActived);
 }

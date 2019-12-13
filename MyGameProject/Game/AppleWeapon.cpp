@@ -44,7 +44,7 @@ void AppleWeapon::Instantiate(D3DXVECTOR3 position)
 		else
 			SetVx(-300);
 	}
-	SetVy(-9.8f);
+	SetVy(0);
 	SetVelocity(velocity);
 
 	SetColliderLeft(-4);
@@ -57,7 +57,9 @@ void AppleWeapon::Instantiate(D3DXVECTOR3 position)
 
 void AppleWeapon::OnDestroy()
 {
+	DebugOut(L"[ONDESTROY]\n");
 	EffectChain* effect = new EffectChain(new AppleWeaponExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
+	isDissapeared = true;
 }

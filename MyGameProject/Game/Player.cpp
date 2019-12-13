@@ -191,9 +191,9 @@ void Player::Update(float dt)
 	if (countFrame > 2000)
 		countFrame = 0;
 
-	DebugOut(L"Hp: %d\n", Hp);
+	/*DebugOut(L"Hp: %d\n", Hp);
 	DebugOut(L"Life: %d\n", life);
-	DebugOut(L"Score: %d\n", score);
+	DebugOut(L"Score: %d\n", score);*/
 
 }
 
@@ -626,9 +626,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			}
 		}
 		else isInjured = false;
-
-
-
 		break;
 	}
 	case ItemType:

@@ -19,6 +19,7 @@ void PlayerRunThrowState::Render()
 	PlayerState::Render();
 }
 
+static bool isThrowed = false;
 void PlayerRunThrowState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
@@ -45,8 +46,14 @@ void PlayerRunThrowState::Update(float dt)
 	else
 		posApple.x += -41;
 	posApple.y += 33;
-	if (m_Animation->GetCurrentFrameID() == 3)
-		playerData->player->ThrowApple(posApple);
+	if (m_Animation->GetCurrentFrameID() == 3) {
+		if (!isThrowed) {
+			playerData->player->ThrowApple(posApple);
+			isThrowed = true;
+		}
+	}
+	else
+		isThrowed = false;
 	PlayerState::Update(dt);
 }
 

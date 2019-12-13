@@ -19,9 +19,9 @@ void PlayerDuckThrowState::Render()
 	PlayerState::Render();
 }
 
+static bool isThrowed = false;
 void PlayerDuckThrowState::Update(float dt)
 {
-
 	auto player = playerData->player->GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
 
@@ -36,8 +36,14 @@ void PlayerDuckThrowState::Update(float dt)
 	else
 		posApple.x = player->GetRect().left;
 	posApple.y += 0;
-	if (m_Animation->GetCurrentFrameID() == 3)
-		playerData->player->ThrowApple(posApple);
+	if (m_Animation->GetCurrentFrameID() == 3) {
+		if (!isThrowed) {
+			playerData->player->ThrowApple(posApple);
+			isThrowed = true;
+		}
+	}
+	else
+		isThrowed = false;
 	PlayerState::Update(dt);
 }
 

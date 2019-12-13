@@ -198,7 +198,7 @@ void Grid::HandleActiveUnit(BoxCollider camRect, Entity::MoveDirection camDirect
 	while (other != NULL)
 	{
 		other->active = true;
-		if (unit->entity->GetType() != pWeapon && unit->entity->GetType() != eWeapon) {
+		if (other->entity->GetType() != pWeapon && other->entity->GetType() != eWeapon) {
 			if (other->entity->GetTag() == BAT)
 				int x = 0;
 			// Set active entity
@@ -214,9 +214,11 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	while (other != NULL) {
 		unit = other;
 		unit->active = false;
-		//if (unit->entity->GetTag() != Tag::PLAYER)
-			//maybe unit value of this unit pointer delete
-		unit->entity->SetActive(false);
+		if (other->entity->GetType() != pWeapon && other->entity->GetType() != eWeapon) {
+			//if (unit->entity->GetTag() != Tag::PLAYER)
+				//maybe unit value of this unit pointer delete
+			unit->entity->SetActive(false);
+		}
 		other = unit->pNext;
 	}
 }
@@ -247,8 +249,11 @@ void Grid::HandleCell(int cellX, int cellY, float dt)
 
 	while (unit != NULL)
 	{
+		if (unit->entity->GetType() == pWeapon && unit->entity->IsActived() )
+			int x = 0;
 		if (unit->entity->IsActived())
 		{
+
 			// Handle other units in this cell
 			HandleUnit(unit, unit->pNext, dt);
 
@@ -270,7 +275,7 @@ void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
 {
 	while (other != NULL)
 	{
-		if (other->entity->IsActived())
+		if (unit->entity->IsActived() && other->entity->IsActived())
 		{
 			HandleCollision(unit->entity, other->entity, dt);
 		}
@@ -297,14 +302,13 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	}*/
 	if ((ent1->GetTag() == PLAYERWEAPON && ent2->GetTag() == FATGUARD) || (ent2->GetTag() == PLAYERWEAPON && ent1->GetTag() == FATGUARD))
 		int x = 0;
+	collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 	if (!ent1->isStatic) {
-		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
 	}
 	if (!ent2->isStatic) {
-		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
 		if (collisionTime == 2)
 			return;
 		ent2->OnCollision(ent1, side, collisionTime, dt);

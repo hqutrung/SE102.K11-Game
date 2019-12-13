@@ -20,6 +20,7 @@ void PlayerIdleThrowState::Render()
 
 }
 
+static bool isThrowed = false;
 void PlayerIdleThrowState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
@@ -37,8 +38,14 @@ void PlayerIdleThrowState::Update(float dt)
 	else
 		posApple.x += -36;
 	posApple.y += 27;
-	if (m_Animation->GetCurrentFrameID() == 3)
-		playerData->player->ThrowApple(posApple);
+	if (m_Animation->GetCurrentFrameID() == 3) {
+		if (!isThrowed) {
+			playerData->player->ThrowApple(posApple);
+			isThrowed = true;
+		}
+	}
+	else
+		isThrowed = false;
 	PlayerState::Update(dt);
 	
 }

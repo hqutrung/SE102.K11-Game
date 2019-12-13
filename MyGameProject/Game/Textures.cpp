@@ -21,7 +21,7 @@ void Textures::Add(int id, LPCSTR filePath, D3DCOLOR transparentColor)
 
 	if (result != D3D_OK)
 	{
-		DebugOut(L"[ERROR] GetImageInfoFromFile Failed: %s\n", filePath);
+		//DebugOut(L"[ERROR] GetImageInfoFromFile Failed: %s\n", filePath);
 		return;
 	}
 
@@ -46,13 +46,13 @@ void Textures::Add(int id, LPCSTR filePath, D3DCOLOR transparentColor)
 
 	if (result != D3D_OK)
 	{
-		OutputDebugString(L"[ERROR] CreateTextureFromFile failed\n");
+		//OutputDebugString(L"[ERROR] CreateTextureFromFile failed\n");
 		return;
 	}
 
 	textures[id] = texture;
 
-	DebugOut(L"[INFO] Texture loaded Ok: id=%d \n", id);
+	//DebugOut(L"[INFO] Texture loaded Ok: id=%d \n", id);
 }
 
 bool Textures::HasContained(int id)
