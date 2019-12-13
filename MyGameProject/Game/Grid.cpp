@@ -214,11 +214,9 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	while (other != NULL) {
 		unit = other;
 		unit->active = false;
-		if (other->entity->GetType() != pWeapon && other->entity->GetType() != eWeapon) {
 			//if (unit->entity->GetTag() != Tag::PLAYER)
 				//maybe unit value of this unit pointer delete
 			unit->entity->SetActive(false);
-		}
 		other = unit->pNext;
 	}
 }
