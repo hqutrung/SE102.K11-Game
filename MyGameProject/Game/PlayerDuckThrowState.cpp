@@ -6,7 +6,7 @@ PlayerDuckThrowState::PlayerDuckThrowState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1051, "Resources/PlayerState/duck_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1051), 1, 7, 0.065f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1051), 1, 6, 0.065f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
@@ -36,7 +36,7 @@ void PlayerDuckThrowState::Update(float dt)
 	else
 		posApple.x = player->GetRect().left;
 	posApple.y += 0;
-	if (m_Animation->GetCurrentFrameID() == 4)
+	if (m_Animation->GetCurrentFrameID() == 3)
 		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
 }

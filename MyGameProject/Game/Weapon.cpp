@@ -14,8 +14,10 @@ Weapon::~Weapon()
 
 void Weapon::Update(float dt)
 {
-	animation->Update(dt);
-	Entity::Update(dt);
+	if (isActived) {
+		animation->Update(dt);
+		Entity::Update(dt);
+	}
 }
 
 void Weapon::Render()
@@ -92,10 +94,12 @@ void Weapon::OnDestroy()
 void Weapon::MakeInactive()
 {
 	isActived = false;
+	isDissapeared = true;
 }
 
 void Weapon::Spawn()
 {
-	animation->ResetAnimation();
+	//animation->ResetAnimation();
 	isActived = true;
+	isDissapeared = false;
 }

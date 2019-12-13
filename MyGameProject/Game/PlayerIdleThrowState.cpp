@@ -6,7 +6,7 @@ PlayerIdleThrowState::PlayerIdleThrowState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1030, "Resources/PlayerState/idle_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1030), 1, 8, 0.05f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1030), 1, 7, 0.05f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
 
@@ -37,7 +37,7 @@ void PlayerIdleThrowState::Update(float dt)
 	else
 		posApple.x += -36;
 	posApple.y += 27;
-	if (m_Animation->GetCurrentFrameID() == 4)
+	if (m_Animation->GetCurrentFrameID() == 3)
 		playerData->player->ThrowApple(posApple);
 	PlayerState::Update(dt);
 	
