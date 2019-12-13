@@ -13,6 +13,6 @@ public:
 	void ResetState() override;
 private:
 	bool isExplosive;
-	float delayTime;
+	bool flag = false;
 };
 

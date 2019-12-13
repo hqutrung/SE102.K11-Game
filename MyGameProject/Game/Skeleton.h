@@ -15,5 +15,5 @@ public:
 	void SetState(EnemyState::eState state);
 	void SetSpawnBox(BoxCollider box, int direction) override;
 	void Spawn();
-	
+	void Explosive();
 };

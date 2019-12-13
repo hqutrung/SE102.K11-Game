@@ -1,9 +1,11 @@
 #pragma once
 #include "Weapon.h"
+#include "SkeletonWeaponExplosion.h"
 #include "Player.h"
 
 class SkeletonWeapon : public Weapon {
 	D3DXVECTOR2 accelery;
+	bool isCollideWithWall = false;
 public:
 	SkeletonWeapon();
 	void Update(float dt) override;

@@ -51,3 +51,14 @@ void Skeleton::Spawn()
 	collider = bodyBox;
 }
 
+void Skeleton::Explosive()
+{
+	auto pos = GetPosition();
+
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+
+	if (ObjectPooling::GetInstance()->Instantiate(SKELETON_WEAPON_INDEX, pos)) {
+		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
+	}
+}
+

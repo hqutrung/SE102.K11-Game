@@ -3,6 +3,7 @@
 Enemy::Enemy() : Entity() {
 	SetType(EnemyType);
 	SetStatic(false);
+	isDied = false;
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
@@ -138,6 +139,7 @@ void Enemy::Spawn()
 
 void Enemy::OnDestroy()
 {
+	isDied = true;
 	effect = new EffectChain(new EnemyExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
@@ -171,7 +173,7 @@ void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 	if (impactor->GetType() == pWeapon)
 	{
 		//ktra Body cua enemy && rectApple   co va cham?
-		float isCol = CollisionDetector::SweptAABB(impactor->GetRect(), impactor->GetVelocity(), GetBody(), velocity, side1, dt);
+		bool isCol = CollisionDetector::IsCollide(impactor->GetRect(),GetBody());
 		if (isCol)
 		{
 			if (GetCurrentStateName() != EnemyState::Injured)

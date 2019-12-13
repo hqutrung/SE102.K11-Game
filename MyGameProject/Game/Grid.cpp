@@ -306,9 +306,27 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 			return;
 		ent1->OnCollision(ent2, side, collisionTime, dt);
 	}
+
 	if (!ent2->isStatic) {
 		if (collisionTime == 2)
 			return;
+		switch (side)
+		{
+		case Entity::Left:
+			side = Entity::Right;
+			break;
+		case Entity::Right:
+			side = Entity::Left;
+			break;
+		case Entity::Top:
+			side = Entity::Bottom;
+			break;
+		case Entity::Bottom:
+			side = Entity::Top;
+			break;
+		default:
+			break;
+		}
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 	}
 
@@ -408,7 +426,7 @@ void Grid::UpdateUnit(Unit* unit, float dt)
 			if (unit->entity->GetType() == EnemyType)
 			{
 				auto enemy = (Enemy*)unit->entity;
-				if (enemy->GetHp() <= 0) {
+				if (enemy->isDied) {
 					RemoveUnit(unit);
 				}
 			}

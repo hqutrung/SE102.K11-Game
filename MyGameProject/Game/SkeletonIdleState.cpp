@@ -3,30 +3,38 @@
 SkeletonIdleState::SkeletonIdleState(EnemyData* data) : EnemyState(data)
 {
 	isExplosive = false;
-	delayTime = 2.0f;
 	e_Animation = new Animation();
-	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 7, 1, 8, 10, 10, 8, 10, 0.08, D3DCOLOR_XRGB(255, 0, 255));
+	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 7, 1, 8, 10, 10, 8, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 void SkeletonIdleState::Update(float dt)
 {
-	if (delayTime <= 0) {
-		if (e_Animation->GetCurrentFrameID() == 19)
+	auto skeleton = (Skeleton*)enemyData->enemy;
+	auto disToPlayer = skeleton->GetDisToPlayer();
+	if (!enemyData->enemy->isDied) {
+		if(e_Animation->GetCurrentFrameID() == 19)
+			e_Animation->SetDefaultTime(0.5f);
+		if (e_Animation->IsLastFrame(dt))
 		{
-			isExplosive = true;
-			e_Animation->SetCurrentFrame(6);
-			e_Animation->SetDefaultTime(0.04);
+			flag = true;
+			e_Animation->SetCurrentFrame(4);
+			e_Animation->SetDefaultTime(0.033f);
 		}
-		if (isExplosive) {
-			if (e_Animation->GetCurrentFrameID() == 0)
-				return;
+		if (flag) {
 			e_Animation->Update1(dt);
+			if(e_Animation->GetCurrentFrameID() == 3)
+				skeleton->Explosive();
+			if (e_Animation->GetCurrentFrameID() == 0)
+				skeleton->isDied = true;
 		}
 		else
-			e_Animation->Update(dt);
-		return;
+		{
+			if (Support::LengthOfVector(disToPlayer) <= 160)
+				e_Animation->Update(dt);
+			else
+				e_Animation->SetCurrentFrame(0);
+		}
 	}
-	delayTime -= dt;
 }
 
 void SkeletonIdleState::Render()
@@ -37,3 +45,4 @@ void SkeletonIdleState::Render()
 void SkeletonIdleState::ResetState()
 {
 }
+

@@ -27,6 +27,17 @@ void ObjectPooling::AddApple(int number)
 	}
 }
 
+void ObjectPooling::AddSkeleton(int number)
+{
+	Unit* unit;
+	pool[SKELETON_WEAPON_INDEX].clear();
+	for (int i = 0; i < number; i++) {
+		SkeletonWeapon* skeletonWeapon = new SkeletonWeapon();
+		unit = new Unit(Grid::GetInstance(), skeletonWeapon);
+		pool[SKELETON_WEAPON_INDEX].push_back(unit);
+	}
+}
+
 bool ObjectPooling::Instantiate(int index, D3DXVECTOR3 position)
 {
 	auto weapons = pool[index];
@@ -35,7 +46,6 @@ bool ObjectPooling::Instantiate(int index, D3DXVECTOR3 position)
 		if (!weapon->IsActived()) {
 			weapon->Instantiate(position);
 			weapons[i]->Move(weapon->GetPosition());
-			return true;
 		}
 	}
 	return false;

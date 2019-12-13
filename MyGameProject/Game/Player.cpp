@@ -524,7 +524,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				}
 			}
 
-
 			//fall
 			if (status == OnGround && side == SideCollision::Bottom && velocity.y == 0)
 			{
@@ -535,7 +534,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 					status = Falling;
 				}
 			}
-
 		}
 
 		// WALL

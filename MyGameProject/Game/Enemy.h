@@ -31,6 +31,7 @@ protected:
 public:
 	EnemyState::eState currentStateName;
 	float delaytime;
+	bool isDied;
 	Enemy();
 	virtual ~Enemy();
 

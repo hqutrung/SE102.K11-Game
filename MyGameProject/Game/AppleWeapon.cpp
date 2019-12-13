@@ -12,7 +12,6 @@ AppleWeapon::AppleWeapon() : Weapon()
 void AppleWeapon::Update(float dt)
 {
 	Weapon::Update(dt);
-
 	accelery.y -= 50 * dt;
 	AddVelocity(accelery);
 }
@@ -22,8 +21,7 @@ void AppleWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, floa
 	if (!isDissapeared) {
 		auto impactorTag = impactor->GetTag();
 		auto impactorType = impactor->GetType();
-		if (impactorType == Layer::EnemyType || impactorTag == SKELETONWEAPON
-			|| impactorTag == GROUND || impactorTag == WALL) {
+		if (impactorType == Layer::EnemyType || impactorTag == GROUND || impactorTag == WALL) {
 			OnDestroy();
 		}
 	}
@@ -32,24 +30,18 @@ void AppleWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, floa
 void AppleWeapon::Instantiate(D3DXVECTOR3 position)
 {
 	accelery = D3DXVECTOR2(0, 0);
-	if(Player::GetInstance()->GetCurrentState()->GetStateName() == PlayerState::RunThrow || Player::GetInstance()->GetPrevStateName() == PlayerState::JumpCross)
-		SetVx(400);
-	else
-		SetVx(300);
+	auto playerState = Player::GetInstance()->GetCurrentState()->GetStateName();
+	auto playerPos = Player::GetInstance()->GetPosition();
 
-	if (Player::GetInstance()->GetPosition().x > position.x)
-	{
-		if (Player::GetInstance()->GetCurrentState()->GetStateName() == PlayerState::RunThrow || Player::GetInstance()->GetPrevStateName() == PlayerState::JumpCross)
-			SetVx(-400);
-		else
-			SetVx(-300);
-	}
+	SetVx((playerState == PlayerState::RunThrow || playerState == PlayerState::JumpCross) ? 400 : 300);
+	
+	if (playerPos.x > position.x)
+		SetVx(-velocity.x);
 	SetVy(0);
-	SetVelocity(velocity);
 
 	SetColliderLeft(-4);
-	SetColliderRight(4);
-	SetColliderTop(4);
+	SetColliderRight(5);
+	SetColliderTop(5);
 	SetColliderBottom(-4);
 
 	Weapon::Instantiate(position);

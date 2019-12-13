@@ -33,6 +33,8 @@ void Scene1::LoadContent()
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	pool->AddApple();
+	pool->AddSkeleton(16);
+	srand(time(NULL));
 }
 
 void Scene1::Update(float dt)
