@@ -83,7 +83,7 @@ Player::Player() : Entity()
 	SetActive(true);
 	status = OnGround;
 
-	Hp = 10;
+	Hp = 9;
 	isInjured = false;
 	lastposition = position;
 	width = 37;
@@ -163,7 +163,7 @@ void Player::Update(float dt)
 			SetState(PlayerState::Idle);
 		}
 		life -= 1;
-		Hp = 10;
+		Hp = 9;
 	}
 	// death
 	if (life <= 0)
@@ -564,11 +564,13 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				&& status == Falling
 				&& isCol == true
 				&& Support::IsContainedIn(bPlayer, impactorRect.bottom - 5, impactorRect.top - 84 - 10))
-				/*&& Support::IsContainedIn(round(newPosX), impactor->GetPosition().x - 2, impactor->GetPosition().x + 2)*/
 			{
 				newVelocity.x *= collisionTime;
+				position.x = impactor->GetPosition().x;
 				status = Climbing;
 				SetState(PlayerState::Climb);
+				
+				
 			}
 		}
 		break;

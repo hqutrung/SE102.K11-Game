@@ -114,7 +114,7 @@ protected:
 
 	float collisionTime;
 	SideCollision side;
-	int Hp=1;
+	int Hp;
 	int life = 3;
 	int score = 0;
 	int NumbersOfApple = 5;

@@ -7,15 +7,22 @@
 #include "Debug.h"
 #include "GameMap.h"
 #include "Player.h"
+#include "Data.h"
 class Scene1 : public Scene
 {
 	GameMap* map;
 	Camera* camera;
 	Player* player;
 
+	Data* data;
+
+//	Animation* _Hp;
+
+
 public:
 	Scene1();
 	~Scene1();
+
 	void LoadContent() override;
 	void Update(float dt) override;
 	void Render() override;
@@ -25,5 +32,7 @@ public:
 	void CheckActive();
 	void CheckCollision(float dt = SPF);
 	GameMap* GetGameMap() override { return map; };
+
+	void RenderPlayerData();
 };
 

@@ -1,5 +1,3 @@
-﻿  Player.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(396): warning C4715: 'Player::GetState': not all control paths return a value
+﻿  Data.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
