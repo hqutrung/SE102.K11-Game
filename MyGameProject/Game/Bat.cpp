@@ -24,7 +24,7 @@ void Bat::Update(float dt)
 	D3DXVECTOR2 accelerate = D3DXVECTOR2(0, 0);
 	//SetMoveDirection(Camera::GetInstance()->GetPosition().x < position.x ? Entity::RightToLeft : Entity::LeftToRight);
 	Enemy::Update(dt);
-	
+
 	//AddVelocity(accelerate);
 
 	//Enemy::Update(dt);
@@ -52,4 +52,8 @@ void Bat::Spawn()
 {
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
+
+	enemyData->enemy->SetBodyBox(13, -13, 13, -13);
+	collider = bodyBox;
 }
+

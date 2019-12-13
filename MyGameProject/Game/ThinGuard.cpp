@@ -9,6 +9,7 @@ ThinGuard::ThinGuard() : Enemy()
 	thinGuardInjuredState = new ThinGuardInjuredState(enemyData);
 	point = 100;
 	Hp = 3;
+	
 }
 
 ThinGuard::~ThinGuard()
@@ -84,4 +85,14 @@ void ThinGuard::Spawn()
 {
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
+
+	SetBodyBox(22, -19, 36, -26);
+
+}
+
+void ThinGuard::SetSpawnBox(BoxCollider box, int direction)
+{
+	Enemy::SetSpawnBox(box, direction);
+
+	SetBodyBox(32, -15, 26, -26);
 }

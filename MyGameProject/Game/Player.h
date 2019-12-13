@@ -40,6 +40,7 @@ public:
 	BoxCollider GetRect();
 	BoxCollider GetBody();
 	BoxCollider GetBigBound();
+	BoxCollider GetSlimBody();
 
 	float GetBigWidth() override;
 	float GetBigHeight() override;

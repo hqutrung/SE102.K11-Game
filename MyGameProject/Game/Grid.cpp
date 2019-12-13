@@ -295,9 +295,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		ent2->OnCollision(ent1, side, collisionTime, dt);
 
 	}*/
-	if ((ent1->GetTag() == PLAYERWEAPON && ent2->GetTag() == FATGUARD) || (ent2->GetTag() == PLAYERWEAPON && ent1->GetTag() == FATGUARD))
-		int x = 0;
-	if (!ent1->isStatic) {
+if (!ent1->isStatic) {
 		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
 		if (collisionTime == 2)
 			return;
@@ -343,6 +341,7 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 	auto rectEnt1 = ent1->GetRect();
 	auto impactorRect = ent2->GetRect();
 
+
 	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
 	{
 		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
@@ -350,14 +349,14 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 		else
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
 	}
-	if (ent1->GetTag() == PLAYER && ent2->GetTag() == CHAINE)
-	{
-		impactorRect = BoxCollider(impactorRect.top, ent2->GetPosition().x - 4, ent2->GetPosition().x + 4, impactorRect.bottom);
-		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
-			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x-4, player->GetBigBound().bottom);
-		else
-			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x +4,player->GetBigBound().right, player->GetBigBound().bottom);
-	}
+	//if (ent1->GetTag() == PLAYER && ent2->GetTag() == CHAINE)
+	//{
+	//	impactorRect = BoxCollider(impactorRect.top, ent2->GetPosition().x - 4, ent2->GetPosition().x + 4, impactorRect.bottom);
+	//	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+	//		rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x-4, player->GetBigBound().bottom);
+	//	else
+	//		rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x +4,player->GetBigBound().right, player->GetBigBound().bottom);
+	//}
 
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 

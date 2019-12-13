@@ -7,6 +7,7 @@ Skeleton::Skeleton() : Enemy() {
 	point = 100;
 	SetIsCollidable(false);
 	Hp = 1;
+	isAttack = false;
 }
 
 Skeleton::~Skeleton()
@@ -45,4 +46,8 @@ void Skeleton::Spawn()
 {
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
+
+	enemyData->enemy->SetBodyBox(51, -18,34, -25);
+	collider = bodyBox;
 }
+

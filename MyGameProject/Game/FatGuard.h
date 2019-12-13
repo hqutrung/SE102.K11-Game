@@ -23,4 +23,6 @@ public:
 	void SetState(EnemyState::eState state);
 	void Spawn();
 	void SetDelayTime(float dt);
+	void SetSpawnBox(BoxCollider box, int direction)override;
+
 };

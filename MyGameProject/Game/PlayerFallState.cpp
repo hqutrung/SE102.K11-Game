@@ -74,8 +74,16 @@ void PlayerFallState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-
-
+	if (keyboard->GetKey(THROW_ARROW))
+	{
+		player->SetState(JumpThrow);
+		return;
+	}
+	if (keyboard->GetKey(ATTACK_ARROW))
+	{
+		player->SetState(JumpAttack);
+		return;
+	}
 	// Nếu ấn right-arrow thì chạy qua phai
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
