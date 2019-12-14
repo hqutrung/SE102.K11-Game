@@ -36,8 +36,8 @@ void Ball::SetSpawnBox(BoxCollider box, int id)
 		delayTime = animation->GetDefaultTime() * 7;
 	else
 		delayTime = 0;
-	collider.top = 22;
-	collider.left = -6;
-	collider.bottom = -40;
+	collider.top = -4;
+	collider.left = -1;
+	collider.bottom = -31;
 	collider.right = 27;
 }

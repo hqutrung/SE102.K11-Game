@@ -86,6 +86,7 @@ void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision 
 	if (impactor->GetTag() == WALL && m_Animation->countLoopFrame == 1 && m_Animation->IsEndFrame(2, dt))
 	{
 		m_Animation->SetCurrentFrame(6);
+		Player::GetInstance()->isAttack = false;
 		m_Animation->countLoopFrame++;
 	}
 }
@@ -99,8 +100,8 @@ void PlayerIdleAttackState::ResetState(int dummy)
 {
 	auto player = playerData->player;
 	//collider around center point, collider often smaller than player sprite
-	player->SetColliderLeft(0);
-	player->SetColliderRight(58);
+	player->SetColliderLeft(-16);
+	player->SetColliderRight(62);
 	player->SetColliderTop(40);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);

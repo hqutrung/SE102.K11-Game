@@ -2,6 +2,7 @@
 #include "Unit.h"
 #include "Player.h"
 #include "ExitPort.h"
+#include"Enemy.h"
 
 Grid* Grid::instance = NULL;
 
@@ -214,9 +215,9 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	while (other != NULL) {
 		unit = other;
 		unit->active = false;
-			//if (unit->entity->GetTag() != Tag::PLAYER)
-				//maybe unit value of this unit pointer delete
-			unit->entity->SetActive(false);
+		//if (unit->entity->GetTag() != Tag::PLAYER)
+			//maybe unit value of this unit pointer delete
+		unit->entity->SetActive(false);
 		other = unit->pNext;
 	}
 }
@@ -247,7 +248,7 @@ void Grid::HandleCell(int cellX, int cellY, float dt)
 
 	while (unit != NULL)
 	{
-		if (unit->entity->GetType() == pWeapon && unit->entity->IsActived() )
+		if (unit->entity->GetType() == pWeapon && unit->entity->IsActived())
 			int x = 0;
 		if (unit->entity->IsActived())
 		{
@@ -283,32 +284,36 @@ void Grid::HandleUnit(Unit* unit, Unit* other, float dt)
 
 void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 {
-	Entity::SideCollision side;
 
-	float collisionTime = 2;
+	float colTime = 2;
+	Entity::SideCollision  side;
+	auto rectEnt1 = ent1->GetRect();
+	auto rectEnt2 = ent2->GetRect();
 
-	// ent1 collide with ent2
-	/*{
-		collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
-		if (collisionTime == 2)
-			return;
-		if (ent1->GetTag() == BAT || ent2->GetTag() == BAT)
-			int x = 0;
-		ent1->OnCollision(ent2, side, collisionTime, dt);
-		ent2->OnCollision(ent1, side, collisionTime, dt);
+	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
+	{
+		auto e = (Enemy*)ent2;
+		rectEnt2 = e->GetBody();
+	}
+	else if (ent2->GetType() == pWeapon && ent1->GetType() == EnemyType)
+	{
+		auto e1 = (Enemy*)ent1;
+		rectEnt1 = e1->GetBody();
+	}
 
-	}*/
-	if ((ent1->GetTag() == PLAYERWEAPON && ent2->GetTag() == FATGUARD) || (ent2->GetTag() == PLAYERWEAPON && ent1->GetTag() == FATGUARD))
-		int x = 0;
-	collisionTime = CollisionDetector::SweptAABB(ent1, ent2, side, dt);
+	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), rectEnt2, ent2->GetVelocity(), side, dt);
+
+
+	//=======================
+
 	if (!ent1->isStatic) {
-		if (collisionTime == 2)
+		if (colTime == 2)
 			return;
-		ent1->OnCollision(ent2, side, collisionTime, dt);
+		ent1->OnCollision(ent2, side, colTime, dt);
 	}
 
 	if (!ent2->isStatic) {
-		if (collisionTime == 2)
+		if (colTime == 2)
 			return;
 		switch (side)
 		{
@@ -327,16 +332,9 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		default:
 			break;
 		}
-		ent2->OnCollision(ent1, side, collisionTime, dt);
+		ent2->OnCollision(ent1, side, colTime, dt);
 	}
 
-	// ent2 collide with ent1
-	/*{
-		collisionTime = CollisionDetector::SweptAABB(ent2, ent1, side, dt);
-		if (collisionTime == 2)
-			return;
-		ent2->OnCollision(ent1, side, collisionTime, dt);
-	}*/
 }
 
 void Grid::HandleCellWithStatic(Unit* unit, float dt)
@@ -371,14 +369,6 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 		else
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
 	}
-	//if (ent1->GetTag() == PLAYER && ent2->GetTag() == CHAINE)
-	//{
-	//	impactorRect = BoxCollider(impactorRect.top, ent2->GetPosition().x - 4, ent2->GetPosition().x + 4, impactorRect.bottom);
-	//	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
-	//		rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x-4, player->GetBigBound().bottom);
-	//	else
-	//		rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x +4,player->GetBigBound().right, player->GetBigBound().bottom);
-	//}
 
 	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 
@@ -543,7 +533,7 @@ void Grid::RemoveEffect(EffectChain* chain)
 void Grid::UpdateEffect(double dt)
 {
 	auto chain = effects;
-	while (chain != NULL){
+	while (chain != NULL) {
 		if ((!chain->data->Update(dt)))
 			RemoveEffect(chain);
 		chain = chain->pNext;

@@ -31,7 +31,7 @@ void PlayerState::ResetState(int dummy)
 
 BoxCollider PlayerState::GetBody()
 {
-	return playerData->player->GetRect();
+	return playerData->player->GetBigBound();
 }
 
 void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
