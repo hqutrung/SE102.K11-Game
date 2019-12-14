@@ -83,6 +83,10 @@
 #define APPLE_WEAPON_INDEX 1
 #define SKELETON_WEAPON_INDEX 2
 
+//GenieToken speed
+#define GENIETOKEN_SPEED 15
+#define GENIETOKEN_MAX_Y 7
+
 // type
 enum Tag {
 	BAT,

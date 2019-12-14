@@ -10,7 +10,7 @@ FatGuard::FatGuard() : Enemy()
 	fatGuardInjuredState = new FatGuardInjuredState(enemyData);
 	point = 100;
 	Hp = 2;
-
+	isAttack = false;
 }
 
 FatGuard::~FatGuard()

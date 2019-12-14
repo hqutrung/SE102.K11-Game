@@ -16,6 +16,10 @@ Data::Data()
 	texs->Add(6002, "Resources/PlayerData/apple.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Apple = new Sprites(texs->GetTexture(6002), BoxCollider());
 	posApple = D3DXVECTOR3(268.5, 196, 0);
+	//_gem // ,232
+	texs->Add(6003, "Resources/PlayerData/gem.png", D3DCOLOR_XRGB(255, 0, 255));
+	_Gem = new Sprites(texs->GetTexture(6003), BoxCollider());
+	posGem = D3DXVECTOR3(232, 196, 0);
 
 }
 
@@ -48,4 +52,5 @@ void Data::Render()
 	_Hp->NormalRender(posHp);
 	_Life->NormalDraw(posLife);
 	_Apple->NormalDraw(posApple);
+	_Gem->NormalDraw(posGem);
 }

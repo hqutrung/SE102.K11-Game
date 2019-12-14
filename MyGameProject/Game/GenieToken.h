@@ -4,6 +4,7 @@
 #include "BigItemExplosion.h"
 
 class GenieToken : public Item {
+	float startPosY;
 public:
 	GenieToken();
 	~GenieToken();

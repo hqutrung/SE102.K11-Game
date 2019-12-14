@@ -79,7 +79,7 @@ BoxCollider Enemy::GetBody()
 {
 	if (GetMoveDirection() == LeftToRight)
 		return BoxCollider(position.y + bodyBox.top, position.x + bodyBox.left, position.x + bodyBox.right, position.y + bodyBox.bottom);
-	else	
+	else
 		return BoxCollider(position.y + bodyBox.top, position.x - bodyBox.right, position.x - bodyBox.left, position.y + bodyBox.bottom);
 }
 
@@ -172,17 +172,12 @@ void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 
 	if (impactor->GetType() == pWeapon)
 	{
-		//ktra Body cua enemy && rectApple   co va cham?
-		bool isCol = CollisionDetector::IsCollide(impactor->GetRect(),GetBody());
-		if (isCol)
-		{
-			if (GetCurrentStateName() != EnemyState::Injured)
-				Hp--;
-			if (Hp == 0)
-				OnDestroy();
-			else
-				SetState(EnemyState::Injured);
-		}
+		if (GetCurrentStateName() != EnemyState::Injured)
+			Hp--;
+		if (Hp == 0)
+			OnDestroy();
+		else
+			SetState(EnemyState::Injured);
 	}
 
 }

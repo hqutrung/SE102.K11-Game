@@ -46,43 +46,80 @@ void PlayerSlideState::HandleInput()
 {
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
+	// test
+	if (keyboard->GetKey(DIK_L))
+	{
+		player->SetState(Death);
+		return;
+	}
+	if (keyboard->GetKey(DIK_J))
+	{
+		player->SetState(Climb);
+		return;
+	}
+
+	if (keyboard->GetKey(DIK_K))
+	{
+		player->SetState(Injured);
+		return;
+	}
+	//=====================
+
+	if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(IdleThrow)->countPressKey == 1)
+	{
+		player->SetState(IdleThrow);
+		return;
+	}
+
+	if (keyboard->GetKeyDown(JUMP_ARROW) && player->GetState(Jump)->countPressKey == 1)
+	{
+		player->SetState(Jump);
+		return;
+	}
 
 	if (keyboard->GetKey(UP_ARROW))
 	{
 		player->SetState(LookUp);
 		return;
 	}
+
+	// Nếu nhấn down-arrow thì duck
 	if (keyboard->GetKey(DOWN_ARROW))
 	{
 		player->SetState(Duck);
 		return;
 	}
-	if (keyboard->GetKey(ATTACK_ARROW))
+
+
+
+	//====idle->idle_attack
+
+	if (keyboard->GetKeyDown(ATTACK_ARROW) && player->GetState(IdleAttack)->countPressKey == 1)
 	{
 		player->SetState(IdleAttack);
 		return;
 	}
-	if (keyboard->GetKey(THROW_ARROW))
+
+	//=== idle->run 
+
+	if (keyboard->GetKey(LEFT_ARROW) && keyboard->GetKey(RIGHT_ARROW))
 	{
-		player->SetState(IdleThrow);
 		return;
 	}
-	if (keyboard->GetKey(JUMP_ARROW))
-	{
-		player->SetState(Jump);
-		return;
-	}
+	// Nếu ấn right-arrow thì chạy qua phải
 
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
-		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
 		player->SetState(Run);
+		player->SetVy(0);
 		return;
 	}
+
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW) || keyboard->GetKeyDown(LEFT_ARROW))
 	{
 		player->SetState(Run);
+		player->SetVy(0);
 		return;
 	}
 }
