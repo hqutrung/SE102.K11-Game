@@ -166,8 +166,12 @@ void Camera::Update(float dt)
 		break;
 	}
 	}
-	velocity.y = (oldPos.y - position.y) / dt;
-	//DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
+
+	if (oldPos.y <= GetHeight() / 2 || oldPos.y >= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight() / 2)
+		velocity.y = 0;
+	else
+		velocity.y = (position.y - oldPos.y) / dt;
+	DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
 }
 
 bool Camera::IsCollide(BoxCollider r)

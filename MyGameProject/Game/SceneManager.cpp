@@ -45,6 +45,9 @@ void SceneManager::CreateScene(int sceneID)
 	case ID_RIVIVING_SCENE:
 		currentScene = new RevivingScene();
 		break;
+	case JAFAR_PALACE:
+		currentScene = new JafarPalace();
+		break;
 	}
 }
 void SceneManager::LoadScene(int sceneID)
@@ -52,8 +55,6 @@ void SceneManager::LoadScene(int sceneID)
 	destSceneID = sceneID;
 
 	CreateScene(sceneID);
-
-
 }
 
 Scene* SceneManager::GetCurrentScene()

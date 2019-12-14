@@ -19,7 +19,7 @@ void ChainedPillar::Update(float dt)
 	auto player = Player::GetInstance();
 	auto camVeloc = Camera::GetInstance()->GetVelocity();	
 	if (cam->GetPosition().x >= cam->GetWidth()/2 || cam->GetPosition().x <= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - cam->GetWidth() / 2)
-		SetVx(-(camVeloc.x));
+		SetVx(-(camVeloc.x/10 * 8));
 	else
 		SetVx(0);
 	Entity::Update(dt);

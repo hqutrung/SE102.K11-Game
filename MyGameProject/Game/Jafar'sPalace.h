@@ -8,7 +8,8 @@
 #include "GameMap.h"
 #include "Player.h"
 #include "Data.h"
-class Scene1 : public Scene
+
+class JafarPalace : public Scene
 {
 	GameMap* map;
 	Camera* camera;
@@ -17,8 +18,8 @@ class Scene1 : public Scene
 	Data* data;
 
 public:
-	Scene1();
-	~Scene1();
+	JafarPalace();
+	~JafarPalace();
 
 	void LoadContent() override;
 	void Update(float dt) override;

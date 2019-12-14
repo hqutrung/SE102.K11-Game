@@ -171,6 +171,7 @@
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Jafar%27sPalace.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectPooling.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="SkeletonWeapon.cpp" />
     <ClCompile Include="SkeletonWeaponExplosion.cpp" />
     <ClCompile Include="SmallItemExplosion.cpp" />
+    <ClCompile Include="SnakePillar.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -268,6 +270,7 @@
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Jafar%27sPalace.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="ObjectPooling.h" />
     <ClInclude Include="Obstacles.h" />
@@ -308,6 +311,7 @@
     <ClInclude Include="SkeletonWeapon.h" />
     <ClInclude Include="SkeletonWeaponExplosion.h" />
     <ClInclude Include="SmallItemExplosion.h" />
+    <ClInclude Include="SnakePillar.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="PlayerState.h" />

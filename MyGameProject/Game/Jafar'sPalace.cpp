@@ -1,18 +1,18 @@
-#include "Scene1.h"
+#include "Jafar'sPalace.h"
 
-Scene1::Scene1()
+JafarPalace::JafarPalace()
 {
 	LoadContent();
 }
 
-Scene1::~Scene1()
+JafarPalace::~JafarPalace()
 {
 }
 
-void Scene1::LoadContent()
+void JafarPalace::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(SCENE_1 ,(char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap(JAFAR_PALACE ,(char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -24,26 +24,24 @@ void Scene1::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(100, 65);
+	player->SetPosition(100, 101);
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(2000,65);
+	//player->SetPosition(2000, 65);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
 	CheckCamera();
 
-	ObjectPooling* pool = ObjectPooling::GetInstance();
-	pool->AddApple();
-
 	data = new Data();
 
-	pool->AddSkeleton(16);
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+	pool->AddApple();
+	//pool->AddSkeleton(16);
 	srand(time(NULL));
 }
 
-void Scene1::Update(float dt)
+void JafarPalace::Update(float dt)
 {
-
 	gameTime += dt;
 	CheckActive();
 	ProcessInput();
@@ -71,29 +69,31 @@ void Scene1::Update(float dt)
 	//if (player->GetRect().top > map->GetHeight() + 10)
 	//	player->SetState(PlayerState::Fall);
 
-	
+
 	data->Update(dt);
 }
 
-void Scene1::Render()
+void JafarPalace::Render()
 {
+
+	map->GetGrid()->RenderBackGround();
 	map->Draw();
 	map->GetGrid()->Render();
 	data->Render();
 }
 
-int Scene1::GetSceneID()
+int JafarPalace::GetSceneID()
 {
-	return SCENE_1;
+	return JAFAR_PALACE;
 }
 
-void Scene1::ProcessInput()
+void JafarPalace::ProcessInput()
 {
 	KeyBoard* input = KeyBoard::GetInstance();
 	player->HandleInput();
 }
 
-void Scene1::CheckCamera()
+void JafarPalace::CheckCamera()
 {
 	D3DXVECTOR3 camPos = camera->GetPosition();
 	float halfWidth = (float)camera->GetWidth() / 2;
@@ -113,14 +113,13 @@ void Scene1::CheckCamera()
 	camera->SetPosition(camPos);
 }
 
-void Scene1::CheckActive()
+void JafarPalace::CheckActive()
 {
 	Entity::MoveDirection camDirection = player->GetVelocity().x > 0 ? Entity::LeftToRight : Entity::RightToLeft;
 	map->GetGrid()->HandleActive(camera->GetRect(), camDirection);
 }
 
-void Scene1::CheckCollision(float dt)
+void JafarPalace::CheckCollision(float dt)
 {
 	map->GetGrid()->HandMelee(dt);
 }
-

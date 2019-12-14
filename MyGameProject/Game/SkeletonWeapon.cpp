@@ -20,6 +20,7 @@ void SkeletonWeapon::Update(float dt)
 
 void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	isCollideWithWall = false;
 	auto impactorTag = impactor->GetTag();
 	auto impactorType = impactor->GetType();
 	D3DXVECTOR2 newVelocity = velocity;
@@ -32,12 +33,11 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 			SetVy(-velocity.y);
 		if (side == Right || side == Left)
 			SetVx(-velocity.x);*/
-		isCollideWithWall = true;
+		if (collisionTime > 0) {
+			velocity = newVelocity;
+			isCollideWithWall = true;
+		}
 	}
-	else
-		isCollideWithWall = false;
-	if(collisionTime > 0)
-		velocity = newVelocity;
 }
 
 void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)

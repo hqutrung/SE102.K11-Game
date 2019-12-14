@@ -28,6 +28,7 @@
 #include"PlayerTouchGroundState.h"
 #include "BlueVase.h"
 #include "Item.h"
+#include "SceneManager.h"
 
 
 
@@ -577,7 +578,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	{
 		//EXITPORT
 		if (impactor->GetTag() == EXITPORT)
-			exit(0);
+			SceneManager::GetInstance()->LoadScene(JAFAR_PALACE);
 		break;
 
 		// ChaniedPillar, Pillar no collide

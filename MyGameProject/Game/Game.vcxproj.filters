@@ -281,6 +281,12 @@
     <ClCompile Include="SkeletonWeaponExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
+    <ClCompile Include="Jafar%27sPalace.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakePillar.cpp">
+      <Filter>Header Files\Objects\Surface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -564,6 +570,12 @@
     </ClInclude>
     <ClInclude Include="SkeletonWeaponExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="Jafar%27sPalace.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakePillar.h">
+      <Filter>Header Files\Objects\Surface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

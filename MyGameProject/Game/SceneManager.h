@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Scene1.h"
 #include "RevivingScene.h"
+#include "Jafar'sPalace.h"
 
 class SceneManager
 {

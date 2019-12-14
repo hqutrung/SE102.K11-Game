@@ -66,5 +66,7 @@ public:
 	void UpdateEffect(double dt);
 	void RenderEffect();
 
+	void RenderBackGround();
+
 	Entity* findObject(Tag tag);
 };

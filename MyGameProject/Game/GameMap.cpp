@@ -14,6 +14,8 @@
 #include "ThinGuard.h"
 #include "FatGuard.h"
 #include "ChainedPillar.h"
+#include "SnakePillar.h"
+#include "SceneManager.h"
 
 Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
 	this->rows = rows;
@@ -46,9 +48,9 @@ LPSPRITE Tileset::GetSprite(int id) {
 	return tiles[id];
 }
 
-GameMap::GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight , int tileWidth)
+GameMap::GameMap(int ID, char* tilesetPath, char* mapPath, char* gridPath, int tileHeight , int tileWidth)
 {
-	LoadTileset(tilesetPath, tileWidth, tileHeight);
+	LoadTileset(tilesetPath, tileWidth, tileHeight, ID);
 	SetMap(mapPath, gridPath);
 }
 
@@ -105,11 +107,11 @@ Grid* GameMap::GetGrid()
 	return grid;
 }
 
-void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight) {
+void GameMap::LoadTileset(char* filePath, int tileWidth, int tileHeight, int IDMap) {
 	//Parse map tu file 
 	Textures::GetInstance()->Add(2911, (char*)"Resources/khung.png", D3DCOLOR_XRGB(255, 0, 255));
-	Textures::GetInstance()->Add(234, filePath, D3DCOLOR_XRGB(255, 0, 255));
-	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(234);
+	Textures::GetInstance()->Add(IDMap, filePath, D3DCOLOR_XRGB(255, 0, 255));
+	LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(IDMap);
 	D3DSURFACE_DESC desc;
 	texture->GetLevelDesc(0, &desc);
 	auto width = desc.Width;
@@ -351,6 +353,13 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			Pillar* pillar = new Pillar(4);
 			pillar->SetSpawnBox(box);
 			grid->AddStaticObject(pillar);
+			break;
+		}
+		case SNAKEPILLAR:
+		{
+			SnakePillar* snakePillar = new SnakePillar();
+			snakePillar->SetSpawnBox(box);
+			grid->AddStaticObject(snakePillar);
 			break;
 		}
 		default:

@@ -301,6 +301,8 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		rectEnt1 = e1->GetBody();
 	}
 
+	if ((ent1->GetTag() == PLAYER && ent2->GetTag() == APPLE) || (ent2->GetTag() == PLAYER && ent1->GetTag() == APPLE))
+		int x = 0;
 	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), rectEnt2, ent2->GetVelocity(), side, dt);
 
 
@@ -355,12 +357,15 @@ void Grid::HandleCellWithStatic(Unit* unit, float dt)
 
 void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 {
+	float colTime = 2;
 	auto player = Player::GetInstance();
-
 	Entity::SideCollision side;
+
+	if (ent2->GetType() == Surface && ent2->GetTag() != EXITPORT)
+		return;
+
 	auto rectEnt1 = ent1->GetRect();
 	auto impactorRect = ent2->GetRect();
-
 
 	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
 	{
@@ -370,12 +375,14 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
 	}
 
-	float groundTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
+	if (ent1->GetTag() == SKELETONWEAPON && (ent2->GetTag() == GROUND || ent2->GetTag() == WALL))
+		int x = 0;
+	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
 
-	if (groundTime == 2)
+	if (colTime == 2)
 		return;
 
-	ent1->OnCollision(ent2, side, groundTime, dt);
+	ent1->OnCollision(ent2, side, colTime, dt);
 }
 
 void Grid::Update(float dt)
@@ -394,7 +401,7 @@ void Grid::Update(float dt)
 			int x = 0;
 		/*if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
 			staticObjects[i]->Update(dt);*/
-		if ((staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
+		if ((staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR || staticObjects[i]->GetTag() == SNAKEPILLAR)
 			staticObjects[i]->Update(dt);
 	}
 
@@ -436,6 +443,8 @@ void Grid::Render()
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
 		/*if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {*/
+		if ((staticObjects[i]->GetTag() == SNAKEPILLAR))
+			continue;
 		if ((staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {
 			staticObjects[i]->Render();
 			if (isDrawRect) {
@@ -466,7 +475,7 @@ void Grid::Render()
 	{
 		/*if (staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType)
 			continue;*/
-		if (staticObjects[i]->GetType() == ObstaclesType)
+		if (staticObjects[i]->GetType() == ObstaclesType || staticObjects[i]->GetTag() == SNAKEPILLAR)
 			continue;
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived() || (staticObjects[i]->GetTag() == CHAINEDPILLAR)) {
 			staticObjects[i]->Render();
@@ -546,6 +555,15 @@ void Grid::RenderEffect()
 	while (chain != NULL) {
 		chain->data->Render();
 		chain = chain->pNext;
+	}
+}
+
+void Grid::RenderBackGround()
+{
+	for (size_t i = 0; i < staticObjects.size(); i++)
+	{
+		if (staticObjects[i]->IsActived() || (staticObjects[i]->GetTag() == SNAKEPILLAR))
+			staticObjects[i]->Render();
 	}
 }
 

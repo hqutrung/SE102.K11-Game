@@ -13,11 +13,12 @@ BatIdleState::BatIdleState(EnemyData* data) : EnemyState(data)
 void BatIdleState::Update(float dt)
 {
 	auto enemy = enemyData->enemy;
+	auto disToPlayer = enemy->GetDisToPlayer();
 	enemy->SetVx(0);
 	enemy->SetVy(0);
-	if (delayTime < 0)
+	if (1)
 	{
-		if(enemy->IsActived())
+		if(Support::LengthOfVector(disToPlayer) <= 120)
 			enemy->SetState(EnemyState::Follow);
 		return;
 	}

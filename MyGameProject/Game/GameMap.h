@@ -37,10 +37,10 @@ private:
 	int mapObjects;
 	int** mapIDs;
 public:
-	GameMap(char* tilesetPath, char* mapPath, char* gridPath, int tileHeight = 16, int tileWidth = 16);
+	GameMap(int ID, char* tilesetPath, char* mapPath, char* gridPath, int tileHeight = 16, int tileWidth = 16);
 	~GameMap();
 
-	void LoadTileset(char* filePath, int tileWidth, int tileHeight);
+	void LoadTileset(char* filePath, int tileWidth, int tileHeight, int IDMap);
 	void SetMap(char* mapPath, char* gridPath);
 	void SetGridBuilt(char* gridBuiltPath);
 
