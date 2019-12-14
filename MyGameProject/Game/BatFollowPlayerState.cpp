@@ -27,36 +27,42 @@ void BatFollowPlayerState::Update(float dt)
 	switch (flag)
 	{
 	case 1:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -63, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(22 * dir, -31, 0);
 		break;
 	case 2:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -94, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -63, 0);
 		break;
 	case 3:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(10 * dir, -122, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -94, 0);
 		break;
 	case 4:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-30 * dir, -120, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(10 * dir, -122, 0);
 		break;
 	case 5:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-24 * dir, -56, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-30 * dir, -120, 0);
 		break;
 	case 6:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-105 * dir, -100, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-24 * dir, -56, 0);
 		break;
 	case 7:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-130 * dir, -32, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-65 * dir, -78, 0);
 		break;
 	case 8:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-85 * dir, -16, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-105 * dir, -100, 0);
 		break;
 	case 9:
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-130 * dir, -32, 0);
+		break;
+	case 10:
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-85 * dir, -16, 0);
+		break;
+	case 11:
 		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-32 * dir, -74, 0);
 		break;
 		//case 10:
 		//	target = GetSpawnPosition() + D3DXVECTOR3(-14, -65, 0);
 		//	break;
-	case 10:
+	case 12:
 		target = enemy->GetSpawnPosition();
 		break;
 	default:
@@ -69,7 +75,7 @@ void BatFollowPlayerState::Update(float dt)
 		flag++;
 		startPos = target;
 	}
-	if (flag > 10) {
+	if (flag > 12) {
 		flag = 1;
 		enemy->SetState(EnemyState::Idle);
 	}

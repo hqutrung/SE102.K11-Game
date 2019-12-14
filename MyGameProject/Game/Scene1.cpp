@@ -12,7 +12,7 @@ Scene1::~Scene1()
 void Scene1::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap((char*)"Resources/tilesetnew.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap((char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -68,8 +68,8 @@ void Scene1::Update(float dt)
 	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
-	if (player->GetRect().top > map->GetHeight() + 10)
-		player->SetState(PlayerState::Fall);
+	//if (player->GetRect().top > map->GetHeight() + 10)
+	//	player->SetState(PlayerState::Fall);
 
 	
 	data->Update(dt);
