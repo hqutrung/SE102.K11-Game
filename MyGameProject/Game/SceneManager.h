@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Scene1.h"
 #include "RevivingScene.h"
+#include"IntroScene.h"
 #include "Jafar'sPalace.h"
 
 class SceneManager
@@ -14,10 +15,13 @@ class SceneManager
 	Scene* currentScene;
 	Scene* playScene;
 	float destSceneID;
+	int sceneLv = 1;
+
 
 	bool isTransitioning;
 	bool firstTime;
 	float timeTransition;
+
 
 public:
 	static SceneManager* GetInstance();
@@ -26,6 +30,8 @@ public:
 	Scene* GetPlayScene();
 	Scene* GetCurrentScene();
 
+	void SetSceneLv(int lv) { sceneLv = lv; }
+	int GetSceneLv() { return sceneLv; }
 	void LoadScene(int sceneID);
 
 	//void UpdateTransition(double dt);

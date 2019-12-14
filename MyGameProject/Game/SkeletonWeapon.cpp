@@ -13,7 +13,7 @@ SkeletonWeapon::SkeletonWeapon() : Weapon()
 void SkeletonWeapon::Update(float dt)
 {
 	Weapon::Update(dt);
-	if(isCollideWithWall)
+	if (isCollideWithWall)
 		velocity = -velocity;
 	AddVelocity(D3DXVECTOR2(0, -3.0f));
 }
@@ -24,9 +24,25 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 	auto impactorTag = impactor->GetTag();
 	auto impactorType = impactor->GetType();
 	D3DXVECTOR2 newVelocity = velocity;
-	if (impactorTag == GROUND || impactorTag == WALL) {
-		if(side == Right || side == Left)
-			newVelocity.x *= collisionTime;
+	//if (impactorTag == GROUND || impactorTag == WALL) 
+	//{
+	//	if(side == Right || side == Left)
+	//		newVelocity.x *= collisionTime;
+	//	if (side == Bottom)
+	//		newVelocity.y *= collisionTime;
+	//	/*if (side == Bottom)
+	//		SetVy(-velocity.y);
+	//	if (side == Right || side == Left)
+	//		SetVx(-velocity.x);*/
+	//	isCollideWithWall = true;
+	//}
+	//else
+	//	isCollideWithWall = false;
+	//if(collisionTime > 0)
+	//	velocity = newVelocity;
+
+	/*if (impactorTag == GROUND)
+	{
 		if (side == Bottom)
 			newVelocity.y *= collisionTime;
 		/*if (side == Bottom)
@@ -38,8 +54,17 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 			isCollideWithWall = true;
 		}
 	}
-}
+	else if (impactorTag == WALL)
+	{
 
+	}*/
+
+	if (impactorType == PlayerType)
+	{
+		this->OnDestroy();
+	}
+
+}
 void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)
 {
 	accelery = D3DXVECTOR2(0, 0);

@@ -289,7 +289,8 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	Entity::SideCollision  side;
 	auto rectEnt1 = ent1->GetRect();
 	auto rectEnt2 = ent2->GetRect();
-
+	
+	// tao vs enemy
 	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
 	{
 		auto e = (Enemy*)ent2;

@@ -35,8 +35,8 @@ void SceneManager::CreateScene(int sceneID)
 	}
 
 	switch (sceneID) {
-	case 0:
-		//CurrentScene = new IntroScene();
+	case ID_INTRO_SCENE:
+		currentScene = new IntroScene();
 		break;
 	case SCENE_1:
 		if (playScene != NULL)

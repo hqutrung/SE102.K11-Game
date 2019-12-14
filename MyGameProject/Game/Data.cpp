@@ -10,12 +10,12 @@ Data::Data()
 	posHp = D3DXVECTOR3(2, -20, 0);
 	// life 190,17
 	texs->Add(6001, "Resources/PlayerData/life.png", D3DCOLOR_XRGB(255, 0, 255));
-	_Life = new Sprites(texs->GetTexture(6001),BoxCollider());
+	_Life = new Sprites(texs->GetTexture(6001), BoxCollider());
 	posLife = D3DXVECTOR3(17, 190, 0);
 	//apple 268.5, 196 // ,232
 	texs->Add(6002, "Resources/PlayerData/apple.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Apple = new Sprites(texs->GetTexture(6002), BoxCollider());
-	posApple = D3DXVECTOR3(268.5, 196, 0);
+	posApple = D3DXVECTOR3(275, 200, 0);
 	//_gem // ,232
 	texs->Add(6003, "Resources/PlayerData/gem.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Gem = new Sprites(texs->GetTexture(6003), BoxCollider());
@@ -39,9 +39,10 @@ void Data::Update(float dt)
 
 	if (_Hp->IsEndFrame(firstFrame + 3, dt))
 		_Hp->SetCurrentFrame(firstFrame);
-	if (player->GetHp() == 1)
-		if (_Hp->IsLastFrame(dt))
-			_Hp->SetCurrentFrame(_Hp->GetCurrentFrameID() - 1);
+	else
+		if (player->GetHp() == 1)
+			if (_Hp->IsLastFrame(dt))
+				_Hp->SetCurrentFrame(_Hp->GetCurrentFrameID() - 1);
 
 	_Hp->Update(dt);
 
