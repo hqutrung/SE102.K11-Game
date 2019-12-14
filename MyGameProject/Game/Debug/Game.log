@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-﻿  Grid.cpp
+﻿  SkeletonWeapon.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(149,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(150,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(151,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(152,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(546,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(574,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(575,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(576,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(577,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
-=======
-﻿  LevelComplete.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
->>>>>>> Tung
