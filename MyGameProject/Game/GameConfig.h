@@ -49,7 +49,7 @@
 #define JUMP_ARROW DIK_D
 #define ATTACK_ARROW DIK_S
 #define THROW_ARROW DIK_A
-
+#define PRESS_KEY DIK_RETURN
 // camera
 #define INDEX_CAMERA_WIDTH 35
 #define INDEX_CAMERA_HEIGHT 20
@@ -59,7 +59,7 @@
 // SCENE ID
 #define SCENE_1 1
 #define ID_RIVIVING_SCENE 2
-
+#define ID_INTRO_SCENE 3
 // GRID
 #define GRID_ROW_NUMBERS 15
 #define GRID_COLUMN_NUMBERS 30

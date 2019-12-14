@@ -7,7 +7,7 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 	KeyBoard::GetInstance()->Init(hWnd);
 
-	SceneManager::GetInstance()->LoadScene(SCENE_1);
+	SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
 
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
@@ -53,9 +53,13 @@ void GameManager::Render()
 {
 	auto device = Graphic::GetInstance()->GetCurrentDirect3DDevice();
 	auto spriteHandler = Graphic::GetInstance()->GetCurrentSpriteHandler();
-	auto scene = SceneManager::GetInstance()->GetCurrentScene();
+	auto sceneM = SceneManager::GetInstance();
+	auto scene = sceneM->GetCurrentScene();
 
-	device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 0.0f, 0);
+	if (sceneM->GetSceneID() == ID_INTRO_SCENE)
+		device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(102, 0, 0), 0.0f, 0);
+	else 
+		device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 0.0f, 0);
 
 	{
 		device->BeginScene();

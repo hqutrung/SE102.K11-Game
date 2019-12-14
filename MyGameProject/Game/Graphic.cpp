@@ -46,6 +46,13 @@ void Graphic::Init(HWND hWnd)
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 
 	OutputDebugString(L"Init Device Successful;\n");
+
+	InitFont();
+}
+
+void Graphic::InitFont()
+{
+
 }
 
 Graphic::~Graphic()

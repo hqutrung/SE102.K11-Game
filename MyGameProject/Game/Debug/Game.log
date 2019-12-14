@@ -1,34 +1,3 @@
-﻿  Animation.cpp
-  EnemyState.cpp
+﻿  LevelComplete.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Entity.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(175,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(184,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(207,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(212,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(217,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(222,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Pillar.cpp
-  Player.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  PlayerClimbAttackState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbAttackState.cpp(35,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  PlayerClimbJumpState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  PlayerClimbState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(86,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(91,30): warning C4305: 'argument': truncation from 'double' to 'float'
-  PlayerPushState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  PlayerRunAttackState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(69,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Surface.cpp
-  Weapon.cpp
-  Generating Code...
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(396): warning C4715: 'Player::GetState': not all control paths return a value
-  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe

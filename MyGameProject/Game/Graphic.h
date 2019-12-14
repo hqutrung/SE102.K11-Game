@@ -22,6 +22,7 @@ public:
 
 	static Graphic* GetInstance();
 	void Init(HWND hWnd);
+	void InitFont();
 	~Graphic();
 
 	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture);

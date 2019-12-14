@@ -46,7 +46,8 @@ void Animation::AddFramesA(LPDIRECT3DTEXTURE9 texture, int firstRow, int firstCo
 	float frameHeight = (float)desc.Height / rowNumber;
 	BoxCollider r = BoxCollider(0, 0, frameHeight, frameWidth);
 	for (int i = firstRow - 1; i < finalRow; i++)
-		for (int j = 0; j < columns; j++) {
+		for (int j = 0; j < columns; j++) 
+		{
 			if ((i == firstRow - 1 && j < firstColumn - 1) || (i == finalRow - 1 && j > finalColumn - 1))
 				continue;
 			r.left = j * frameWidth;
