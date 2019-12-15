@@ -44,6 +44,7 @@ public:
 
 	EnemyState::eState GetCurrentStateName() { return currentStateName; }
 	int GetHp() { return Hp; }
+	int GetPoint() { return point; }
 	void SetActive(bool active) override;
 	virtual void SetState(EnemyState::eState state);
 

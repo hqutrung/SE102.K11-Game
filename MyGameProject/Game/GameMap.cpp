@@ -15,6 +15,7 @@
 #include "FatGuard.h"
 #include "ChainedPillar.h"
 #include "SnakePillar.h"
+#include "Peddler.h"
 #include "SceneManager.h"
 
 Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
@@ -243,6 +244,9 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		}
 		case PEDDLER:
 		{
+			Peddler* peddler = new Peddler();
+			peddler->SetSpawnBox(box);
+			unit = new Unit(grid, peddler, cellX, cellY);
 			break;
 		}
 		case CARPET:

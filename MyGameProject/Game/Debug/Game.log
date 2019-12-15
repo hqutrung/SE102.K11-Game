@@ -1,4 +1,3 @@
-﻿  GameManager.cpp
+﻿  Peddler.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameManager.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

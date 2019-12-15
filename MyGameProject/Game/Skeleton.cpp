@@ -4,7 +4,7 @@ Skeleton::Skeleton() : Enemy() {
 	SetTag(SKELETON);
 
 	skeletonIdleState = new SkeletonIdleState(enemyData);
-	point = 100;
+	point = 0;
 	SetIsCollidable(false);
 	Hp = 1;
 	isAttack = false;

@@ -35,8 +35,6 @@ void GameManager::Update(float dt)
 
 	sceneM->GetCurrentScene()->Update(dt);
 
-
-
 }
 
 void GameManager::Render()

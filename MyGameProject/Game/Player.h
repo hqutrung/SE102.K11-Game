@@ -58,11 +58,11 @@ public:
 	int GetApples() { return apples; }
 	int GetGems() { return gems; }
 	int GetHp() { return Hp; }
-	void SetLifes(int _lifes) { lifes = _lifes; }
-	void SetScores(int _scores) { scores = _scores; }
-	void SetApples(int _apples) { apples = _apples; }
-	void SetGems(int _gems) { gems = _gems; }
-	void SetHp(int _hp) { Hp = _hp; }
+	void AddLifes() { lifes += 1; }
+	void AddScores(int _scores) { scores += _scores; }
+	void AddApples() { apples += 1; }
+	void AddGems() { gems += 1; }
+	void AddHp() { Hp += 1; }
 
 
 
@@ -79,9 +79,7 @@ public:
 	bool isInjured = false;
 	float timeImmortal = 0;
 	int countFrame = 0;
-	bool  isImmortal = false;
-	//
-	void AddScore(int x) { scores += x; }
+	bool isImmortal = false;
 
 	// new life
 	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);

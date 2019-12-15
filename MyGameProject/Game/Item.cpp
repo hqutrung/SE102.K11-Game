@@ -66,6 +66,7 @@ void Item::SetActive(bool active)
 void Item::MakeInactive()
 {
 	isActived = false;
+	animation->ResetAnimation();
 }
 
 void Item::Spawn()

@@ -295,6 +295,12 @@
     <ClCompile Include="SnakePillar.cpp">
       <Filter>Header Files\Objects\Surface</Filter>
     </ClCompile>
+    <ClCompile Include="BatRotateState.cpp">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClCompile>
+    <ClCompile Include="Peddler.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -590,6 +596,12 @@
     </ClInclude>
     <ClInclude Include="SnakePillar.h">
       <Filter>Header Files\Objects\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="BatRotateState.h">
+      <Filter>Header Files\Objects\Enemy\Bat</Filter>
+    </ClInclude>
+    <ClInclude Include="Peddler.h">
+      <Filter>Header Files\Objects\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

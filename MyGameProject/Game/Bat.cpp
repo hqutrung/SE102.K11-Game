@@ -4,10 +4,11 @@ Bat::Bat() : Enemy()
 {
 	SetTag(BAT);
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_BAT, "Resources/Enemy/bat.png", D3DCOLOR_XRGB(255, 255, 255));
+	textures->Add(TEX_BAT, "Resources/Enemys/bat.png", D3DCOLOR_XRGB(255, 0, 255));
 	batFollowPlayerState = new BatFollowPlayerState(enemyData);
 	batIdleState = new BatIdleState(enemyData);
-	point = 100;
+	batRotateState = new BatRotateState(enemyData);
+	point = 200;
 	isCollidable = true;
 	Hp = 1;
 	isAttack = true;
@@ -44,6 +45,10 @@ void Bat::SetState(EnemyState::eState state)
 	else if ((state == EnemyState::Idle)) {
 		enemyData->enemyState = batIdleState;
 		currentStateName = EnemyState::Idle;
+	}
+	else if ((state == EnemyState::Rotate)) {
+		enemyData->enemyState = batRotateState;
+		currentStateName = EnemyState::Rotate;
 	}
 	enemyData->enemyState->ResetState();
 }

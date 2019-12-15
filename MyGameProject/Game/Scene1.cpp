@@ -28,7 +28,7 @@ void Scene1::LoadContent()
 	player = new Player();
 	player->SetPosition(100, 100);
 	player->lastposition = player->GetPosition();
-	/*player->SetPosition(2000, 65);*/
+	//player->SetPosition(2000, 65);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());

@@ -7,7 +7,7 @@ Enemy::Enemy() : Entity() {
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
-	textures->Add(TEX_ENEMY, "Resources/Enemy/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(TEX_ENEMY, "Resources/Enemys/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
 	currentStateName = EnemyState::Idle;
 }
 
@@ -143,6 +143,7 @@ void Enemy::OnDestroy()
 	effect = new EffectChain(new EnemyExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
+	Player::GetInstance()->AddScores(GetPoint());
 	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
 	//return EarnedData(point);
 }

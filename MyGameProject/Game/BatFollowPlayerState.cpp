@@ -4,12 +4,13 @@ BatFollowPlayerState::BatFollowPlayerState(EnemyData* data) : EnemyState(data)
 {
 	Textures* textures = Textures::GetInstance();
 	e_Animation = new Animation();
-	e_Animation->AddFrames(textures->GetTexture(TEX_BAT), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 255, 255));
+	e_Animation->AddFramesA(textures->GetTexture(TEX_BAT), 1, 5, 1, 11, 11, 1, 11, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 	auto enemy = enemyData->enemy;
+
+	flag = 1;
+	direction = 1;
 }
 
-int flag = 1;
-int dir = 1;
 
 void BatFollowPlayerState::Update(float dt)
 {
@@ -17,47 +18,44 @@ void BatFollowPlayerState::Update(float dt)
 	D3DXVECTOR2 dis = enemy->GetDisToPlayer();
 	//....
 	if (flag == 1) {
-		if (dis.x <= 0)
-			dir = -1;
-		else
-			dir = 1;
+		direction = dis.x <= 0 ? -1 : 1;
 	}
 	D3DXVECTOR3 target;
 
 	switch (flag)
 	{
 	case 1:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(22 * dir, -31, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(22 * direction, -31, 0);
 		break;
 	case 2:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -63, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * direction, -63, 0);
 		break;
 	case 3:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * dir, -94, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(44 * direction, -94, 0);
 		break;
 	case 4:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(10 * dir, -122, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(10 * direction, -122, 0);
 		break;
 	case 5:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-30 * dir, -120, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-30 * direction, -120, 0);
 		break;
 	case 6:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-24 * dir, -56, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-24 * direction, -56, 0);
 		break;
 	case 7:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-65 * dir, -78, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-65 * direction, -78, 0);
 		break;
 	case 8:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-105 * dir, -100, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-105 * direction, -100, 0);
 		break;
 	case 9:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-130 * dir, -32, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-130 * direction, -32, 0);
 		break;
 	case 10:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-85 * dir, -16, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-85 * direction, -16, 0);
 		break;
 	case 11:
-		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-32 * dir, -74, 0);
+		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-32 * direction, -74, 0);
 		break;
 		//case 10:
 		//	target = GetSpawnPosition() + D3DXVECTOR3(-14, -65, 0);

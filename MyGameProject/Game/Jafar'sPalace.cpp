@@ -24,7 +24,7 @@ void JafarPalace::LoadContent()
 
 	// Player
 	player = new Player();
-	player->SetPosition(710, 350);
+	player->SetPosition(710, 310);
 	player->lastposition = player->GetPosition();
 
 	(new Unit(map->GetGrid(), player))->SetActive(true);

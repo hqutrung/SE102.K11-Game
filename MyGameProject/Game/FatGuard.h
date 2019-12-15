@@ -24,5 +24,4 @@ public:
 	void Spawn();
 	void SetDelayTime(float dt);
 	void SetSpawnBox(BoxCollider box, int direction)override;
-
 };

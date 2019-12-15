@@ -11,7 +11,8 @@ public:
 		Attack,
 		Follow,
 		Provoke,
-		Injured
+		Injured,
+		Rotate
 	};
 	EnemyState() {};
 	EnemyState(EnemyData* data);

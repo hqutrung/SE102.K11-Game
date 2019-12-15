@@ -669,17 +669,24 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 		if (check == true) // check=true => xet va cham
 		{
-			// Blue Heart
-			if (impactorTag == BLUEHEART && Hp < 9)
-				Hp++;
-			// apple
-			else if (impactorTag == APPLE)
+			switch (impactorTag)
 			{
-				apples++;
-			}
-			else if (impactorTag == GEM)
-			{
-				gems++;
+			case APPLE:
+				AddApples();
+				break;
+			case BLUEHEART:
+				AddHp();
+				break;
+			case GEM:
+				AddGems();
+				break;
+			case GENIETOKEN:
+				AddScores(250);
+				break;
+			case PEDDLER:
+				return;
+			default:
+				break;
 			}
 			impactor->OnDestroy();
 		}
