@@ -191,9 +191,17 @@ void Player::Update(float dt)
 		timeImmortal = 0;
 		isImmortal = false;
 	}
+
+
 	countFrame++;
-	if (countFrame > 2000)
+	if (countFrame % 4 == 0)
+		x++;
+
+	if (countFrame > 20000)
+	{
 		countFrame = 0;
+		x = 0;
+	}
 
 	DebugOut(L"Hp: %d\n", Hp);
 	/*DebugOut(L"Life: %d\n", life);
@@ -205,7 +213,7 @@ void Player::Render()
 {
 	if (isImmortal)
 	{
-		if (countFrame % 3 != 0)
+		if (x % 2 == 0)
 		{
 			playerData->state->Render();
 		}
@@ -506,7 +514,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	float bPlayer = GetBigBound().bottom + collisionTime * dt * velocity.y;
 
 	D3DXVECTOR2 newVelocity = velocity;
+
 	isBonusHp = false;
+	isInjured = false;
 	switch (impactorType)
 	{
 	case StaticType:
@@ -545,14 +555,17 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		{
 			newVelocity.x *= collisionTime;
 			// cham tuong khi dang di chuyen
-			if ((side == Right && round(rPlayer) == impactorRect.left || side == Left && round(lPlayer) == impactorRect.right)
+			if ((side == Right && rPlayer == impactorRect.left || side == Left && lPlayer == impactorRect.right)
 				&& velocity.x != 0
 				&& Support::IsContainedIn(bPlayer, impactorRect.bottom, impactorRect.top))
 			{
 				// Run->push
-				if (GetCurrentState()->GetStateName() == PlayerState::State::Run || GetCurrentState()->GetStateName() == PlayerState::State::RunAttack || GetCurrentState()->GetStateName() == PlayerState::State::RunThrow)
+				auto stateName = GetCurrentState()->GetStateName();
+				if (stateName == PlayerState::Run
+					|| stateName == PlayerState::RunAttack
+					|| stateName == PlayerState::RunThrow)
 				{
-					lastposition = D3DXVECTOR3(position.x + newVelocity.x * dt, position.y, 0);
+					lastposition = D3DXVECTOR3(newPosX, position.y, 0);
 					SetState(PlayerState::Push);
 				}
 			}
@@ -571,8 +584,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				position.x = impactor->GetPosition().x;
 				status = Climbing;
 				SetState(PlayerState::Climb);
-
-
 			}
 		}
 		break;
@@ -644,7 +655,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				Hp -= 1;
 			}
 		}
-		else isInjured = false;
+
 		break;
 	}
 	case ItemType:
@@ -674,6 +685,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				break;
 			case BLUEHEART:
 				AddHp();
+				isBonusHp = true;
 				break;
 			case GEM:
 				AddGems();
@@ -711,7 +723,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				Hp -= 1;
 			}
 		}
-		else isInjured = false;
+
 
 		//score
 
@@ -732,7 +744,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				isImmortal = true;
 				Hp -= 1;
 			}
-			else isInjured = false;
+
 		}
 	}
 	default:
