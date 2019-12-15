@@ -61,7 +61,7 @@ void PlayerJumpAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
-	if (keyboard->GetKey(THROW_ARROW))
+	if (keyboard->GetKey(THROW_ARROW) && player->GetApples() > 0)
 	{
 		player->SetState(JumpThrow);
 		return;

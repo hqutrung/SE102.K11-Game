@@ -75,7 +75,7 @@ void PlayerIdleAttackState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
-	if (keyboard->GetKey(THROW_ARROW))
+	if (keyboard->GetKey(THROW_ARROW) && player->GetApples() > 0)
 	{
 		player->SetState(IdleThrow);
 		return;
@@ -117,6 +117,6 @@ void PlayerIdleAttackState::ResetState(int dummy)
 	player->SetColliderLeft(-16);
 	player->SetColliderRight(62);
 	player->SetColliderTop(40);
-	player->SetColliderBottom(-24);
+	player->SetColliderBottom(-25);
 	PlayerState::ResetState(dummy);
 }

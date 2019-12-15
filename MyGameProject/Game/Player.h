@@ -65,23 +65,12 @@ public:
 	void SetHp(int _hp) { Hp = _hp; }
 
 
-
-	// Bat tu
-	//void OnImmortal();
-	//void OffImmortal();
-	//bool isImmortal;
-	//float immortalTime;
-
-	//bool checkGroundInFrame;
-	//float timeOnAir;
-
-	//bool renderPreviousFrame;
+	// immortal & injured
 	bool isInjured = false;
+	bool isBonusHp = false;
 	float timeImmortal = 0;
 	int countFrame = 0;
 	bool  isImmortal = false;
-	//
-	void AddScore(int x) { scores += x; }
 
 	// new life
 	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);

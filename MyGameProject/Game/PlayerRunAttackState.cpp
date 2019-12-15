@@ -73,7 +73,7 @@ void PlayerRunAttackState::HandleInput()
 		countPressKey++;
 		return;
 	}
-	if (keyboard->GetKey(THROW_ARROW) || keyboard->GetKeyDown(THROW_ARROW))
+	if ((keyboard->GetKey(THROW_ARROW) || keyboard->GetKeyDown(THROW_ARROW)) && player->GetApples() > 0)
 	{
 		player->SetState(RunThrow);
 		return;
@@ -105,9 +105,9 @@ PlayerState::State PlayerRunAttackState::GetStateName()
 void PlayerRunAttackState::ResetState(int dummy)
 {
 	auto player = Player::GetInstance();
-	player->SetColliderLeft(-0);
+	player->SetColliderLeft(-10);
 	player->SetColliderRight(62);
-	player->SetColliderTop(37);
+	player->SetColliderTop(40);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }

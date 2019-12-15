@@ -35,11 +35,17 @@ Data::~Data()
 void Data::Update(float dt)
 {
 	auto player = Player::GetInstance();
+
+	scores = player->GetScores();
+	lifes = player->GetLifes();
+	apples = player->GetApples();
+	gems = player->GetGems();
+
 	// _Hp Update
 	auto IDframe = _Hp->GetCurrentFrameID();
 	int firstFrame = (9 - player->GetHp()) * 4;
 	//update lai frame dau tien
-	if (player->isInjured)
+	if (player->isInjured || player->isBonusHp == true)
 		_Hp->SetCurrentFrame(firstFrame);
 
 	if (_Hp->IsEndFrame(firstFrame + 3, dt))
@@ -51,10 +57,7 @@ void Data::Update(float dt)
 
 	_Hp->Update(dt);
 
-	scores = player->GetScores();
-	lifes = player->GetLifes();
-	apples = player->GetApples();
-	gems = player->GetGems();
+
 }
 
 void Data::Render()
@@ -66,10 +69,10 @@ void Data::Render()
 
 	_Life->NormalDraw(posLife);
 	graphic->DrawString(std::to_string(lifes), posLife + D3DXVECTOR3(26, 16, 0), TEX_FONT1);
-	
+
 	_Apple->NormalDraw(posApple);
 	graphic->DrawString(std::to_string(apples), posApple + D3DXVECTOR3(18, 8, 0), TEX_FONT1);
-	
+
 	_Gem->NormalDraw(posGem);
 	graphic->DrawString(std::to_string(gems), posGem + D3DXVECTOR3(19, 8, 0), TEX_FONT1);
 

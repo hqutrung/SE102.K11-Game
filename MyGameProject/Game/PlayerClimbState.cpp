@@ -75,7 +75,7 @@ void PlayerClimbState::HandleInput()
 		player->SetState(ClimbAttack);
 		return;
 	}
-	if (keyboard->GetKey(THROW_ARROW) && player->GetState(ClimbThrow)->countPressKey == 1)
+	if (keyboard->GetKey(THROW_ARROW) && player->GetState(ClimbThrow)->countPressKey == 1 && player->GetApples() > 0)
 	{
 		player->SetState(ClimbThrow);
 		return;

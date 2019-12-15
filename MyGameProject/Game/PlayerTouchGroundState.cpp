@@ -18,6 +18,7 @@ PlayerTouchGroundState::~PlayerTouchGroundState()
 void PlayerTouchGroundState::Update(float dt)
 {
 	auto player = Player::GetInstance();
+	player->SetVx(0);
 	if (player->GetState(player->GetPrevStateName())->heavy == false && m_Animation->countLoopFrame == 1)
 	{
 		m_Animation->countLoopFrame++;

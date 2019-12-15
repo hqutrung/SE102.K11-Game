@@ -43,7 +43,7 @@ void PlayerDuckState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKey(THROW_ARROW)&&player->GetState(DuckThrow)->countPressKey==1)
+	if (keyboard->GetKey(THROW_ARROW)&&player->GetState(DuckThrow)->countPressKey==1 && player->GetApples() > 0)
 	{
 		player->SetState(DuckThrow);
 		return;
