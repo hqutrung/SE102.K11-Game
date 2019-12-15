@@ -19,7 +19,6 @@ void PlayerTouchGroundState::Update(float dt)
 {
 	auto player = Player::GetInstance();
 	if (player->GetState(player->GetPrevStateName())->heavy == false && m_Animation->countLoopFrame == 1)
-		/*|| player->GetState(Fall)->GetAnimation()->countLoopFrame > 1)*/
 	{
 		m_Animation->countLoopFrame++;
 		m_Animation->SetCurrentFrame(17);

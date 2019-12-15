@@ -31,21 +31,10 @@ void GameManager::Update(float dt)
 		return;
 	KeyBoard::GetInstance()->KeySnapShot(dt);
 	auto sceneM = SceneManager::GetInstance();
-	//chuyen Scene
 
-	if (sceneM->GetSceneID() == SCENE_1 && sceneM->GetPlayScene()->IsTransition())
-	{
-		sceneM->LoadScene(ID_RIVIVING_SCENE);
-		sceneM->GetPlayScene()->SetIsTransition(false);
-	}
-
-	if (sceneM->GetCurrentScene()->IsEndScene())
-	{
-		sceneM->LoadScene(SCENE_1);
-	}
-
-	//
 	sceneM->GetCurrentScene()->Update(dt);
+
+
 
 }
 

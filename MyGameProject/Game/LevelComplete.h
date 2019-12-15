@@ -2,10 +2,7 @@
 #include "Scene.h"
 #include "Textures.h"
 #include "Animation.h"
-#include "GameMap.h"
-#include "Camera.h"
 #include "Debug.h"
-#include "GameMap.h"
 #include "Player.h"
 
 class LevelComplele : public Scene

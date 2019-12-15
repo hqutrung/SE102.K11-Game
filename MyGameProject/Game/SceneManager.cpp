@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include"LevelComplete.h"
 
 SceneManager* SceneManager::instance = NULL;
 
@@ -7,7 +8,8 @@ SceneManager::SceneManager()
 	currentScene = NULL;
 	timeTransition = 0;
 	firstTime = true;
-	playScene = new Scene1();
+	sultanDungeon = new Scene1();
+	//jafarPalace = new JafarPalace();
 }
 
 SceneManager::~SceneManager()
@@ -16,7 +18,10 @@ SceneManager::~SceneManager()
 
 Scene* SceneManager::GetPlayScene()
 {
-	return playScene;
+	if (sceneLv == 1)
+		return sultanDungeon;
+	if (sceneLv == 2)
+		return jafarPalace;
 }
 
 SceneManager* SceneManager::GetInstance()
@@ -28,26 +33,38 @@ SceneManager* SceneManager::GetInstance()
 
 void SceneManager::CreateScene(int sceneID)
 {
-	if (currentScene != NULL && currentScene->GetSceneID() != SCENE_1)
+	if (currentScene != NULL && currentScene != sultanDungeon && currentScene != jafarPalace)
 	{
 		delete currentScene;
 		currentScene = NULL;
 	}
+	if (isEndScene1 == true)
+	{
+		sceneLv = 2;
+		jafarPalace = new JafarPalace();
+		delete sultanDungeon;
+		sultanDungeon = NULL;
+	}
 
-	switch (sceneID) {
+	switch (sceneID)
+	{
 	case ID_INTRO_SCENE:
 		currentScene = new IntroScene();
 		break;
 	case SCENE_1:
-		if (playScene != NULL)
-			currentScene = playScene;
+		currentScene = sultanDungeon;
 		break;
 	case ID_RIVIVING_SCENE:
+		sceneLv = 1;
 		currentScene = new RevivingScene();
 		break;
 	case JAFAR_PALACE:
-		currentScene = new JafarPalace();
+		currentScene = jafarPalace;
 		break;
+	case ID_COMPLETE_SCENE:
+		currentScene = new LevelComplele();
+		break;
+
 	}
 }
 void SceneManager::LoadScene(int sceneID)

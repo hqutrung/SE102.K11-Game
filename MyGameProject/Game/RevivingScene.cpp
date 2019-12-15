@@ -1,8 +1,11 @@
 
 #include "RevivingScene.h"
+#include "SceneManager.h"
 
 RevivingScene::RevivingScene()
 {
+	SceneManager::GetInstance()->GetPlayScene()->SetIsTransition(false);
+
 	LoadContent();
 }
 
@@ -32,9 +35,9 @@ void RevivingScene::Update(float dt)
 
 	if (player->IsLastFrame(dt))
 	{
-		isEndScene = true;
-		player->ResetAnimation();
-		monkey->ResetAnimation();
+		auto sceneM = SceneManager::GetInstance();
+		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
+		return;
 	}
 	player->Update(dt);
 	monkey->Update(dt);

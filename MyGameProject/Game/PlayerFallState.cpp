@@ -52,7 +52,7 @@ void PlayerFallState::Update(float dt)
 		m_Animation->SetDefaultTime(0.08f);
 		break;
 	case 4:
-		m_Animation->SetDefaultTime(0.5f);
+		m_Animation->SetDefaultTime(0.2f);
 		break;
 
 	default:

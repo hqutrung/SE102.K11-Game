@@ -13,7 +13,6 @@ class Scene1 : public Scene
 	GameMap* map;
 	Camera* camera;
 	Player* player;
-
 	Data* data;
 
 public:

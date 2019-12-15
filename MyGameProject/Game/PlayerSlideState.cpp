@@ -10,7 +10,7 @@ PlayerSlideState::PlayerSlideState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1012, "Resources/PlayerState/slide_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1012), 1, 12, 0.08f, D3DCOLOR_XRGB(255, 255, 255));
+	m_Animation->AddFrames(texs->GetTexture(1012), 1, 12, 0.06f, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 PlayerSlideState::~PlayerSlideState()

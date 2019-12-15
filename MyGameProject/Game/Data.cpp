@@ -11,15 +11,15 @@ Data::Data()
 	// life 190,17
 	texs->Add(6001, "Resources/PlayerData/life.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Life = new Sprites(texs->GetTexture(6001), BoxCollider());
-	posLife = D3DXVECTOR3(17, 190, 0);
+	posLife = D3DXVECTOR3(17, 192, 0);
 	//apple 268.5, 196 // ,232
 	texs->Add(6002, "Resources/PlayerData/apple.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Apple = new Sprites(texs->GetTexture(6002), BoxCollider());
-	posApple = D3DXVECTOR3(275, 200, 0);
+	posApple = D3DXVECTOR3(270, 200, 0);
 	//_gem // ,232
 	texs->Add(6003, "Resources/PlayerData/gem.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Gem = new Sprites(texs->GetTexture(6003), BoxCollider());
-	posGem = D3DXVECTOR3(232, 196, 0);
+	posGem = D3DXVECTOR3(234, 200, 0);
 
 }
 
