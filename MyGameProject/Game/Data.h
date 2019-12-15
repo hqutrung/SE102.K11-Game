@@ -13,8 +13,7 @@ class Data
 	D3DXVECTOR3 posApple;
 	Sprites* _Gem;
 	D3DXVECTOR3 posGem;
-
-
+	int scores, lifes, gems, apples;
 
 public:
 	Data();

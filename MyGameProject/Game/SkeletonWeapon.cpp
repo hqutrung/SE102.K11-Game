@@ -15,7 +15,7 @@ void SkeletonWeapon::Update(float dt)
 	Weapon::Update(dt);
 	if (isCollideWithWall)
 		velocity = -velocity;
-	AddVelocity(D3DXVECTOR2(0, -3.0f));
+	AddVelocity(D3DXVECTOR2(0, -4.0f));
 }
 
 void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
@@ -51,7 +51,7 @@ void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)
 
 
 	int dau = rand() & 1 ? -1 : 1;
-	velocity.x = (float)(rand() % (200 - 100 + 1)) + 100 * dau;
+	velocity.x = (float)(rand() % (240 - 120 + 1)) + 120 * dau;
 	velocity.y = (float)(rand() % (450 - 50 + 1)) + 50;
 
 	int botPos = (int)position.y - 35;
@@ -74,3 +74,4 @@ void SkeletonWeapon::OnDestroy()
 	SetActive(false);
 	isDissapeared = true;
 }
+

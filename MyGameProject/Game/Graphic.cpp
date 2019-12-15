@@ -1,4 +1,7 @@
 #include "Graphic.h"
+#include "Textures.h"
+#include "Sprites.h"
+#include "BoxCollider.h"
 
 Graphic* Graphic::instance = NULL;
 
@@ -52,7 +55,9 @@ void Graphic::Init(HWND hWnd)
 
 void Graphic::InitFont()
 {
-
+	auto tex = Textures::GetInstance();
+	tex->Add(TEX_FONT1, "Resources/Font/font1.png", D3DCOLOR_XRGB(255, 0, 255));
+	tex->Add(TEX_FONT2, "Resources/Font/font2.png", D3DCOLOR_XRGB(255, 0, 255));
 }
 
 Graphic::~Graphic()
@@ -72,17 +77,23 @@ Graphic::~Graphic()
 	}
 }
 
-void Graphic::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture)
+void Graphic::DrawString(const std::string& text, D3DXVECTOR3 pos, int font)
 {
-	auto position = D3DXVECTOR3(x, y, 0);
-
-	spriteHandler->Draw(
-		texture, 
-		NULL,
-		NULL, 
-		&position,
-		D3DCOLOR_ARGB(255, 255, 255, 255)
-	);
+	BoxCollider box;
+	auto textures = Textures::GetInstance();
+	D3DSURFACE_DESC desc;
+	Textures::GetInstance()->GetTexture(font)->GetLevelDesc(0, &desc);
+	int width = desc.Width / 10;
+	
+	int i = 0;
+	for (auto c:text) {
+		box = Support::TextToRect(c, font);
+		auto position = pos;
+		position.x += i++ * width;
+		auto sprite = new Sprites(textures->GetTexture(font), box);
+		//sprite->Draw(position, box, D3DCOLOR_XRGB(255, 255, 255));
+		sprite->NormalDraw(position);
+	}
 }
 
 HWND Graphic::GetCurrentHWND()

@@ -163,11 +163,11 @@ void Player::Update(float dt)
 			isInjured = false;
 			SetState(PlayerState::Idle);
 		}
-		life -= 1;
+		lifes -= 1;
 		Hp = 9;
 	}
 	// death
-	if (life <= 0)
+	if (lifes <= 0)
 	{
 		//...
 	}
@@ -663,12 +663,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		if (check == true) // check=true => xet va cham
 		{
 			// Blue Heart
-			if (impactorTag == BLUEHEART)
-				life += 1;
+			if (impactorTag == BLUEHEART && Hp < 9)
+				Hp++;
 			// apple
-			if (impactorTag == APPLE)
+			else if (impactorTag == APPLE)
 			{
-				NumbersOfApple += 1;
+				apples++;
+			}
+			else if (impactorTag == GEM)
+			{
+				gems++;
 			}
 			impactor->OnDestroy();
 		}
@@ -735,7 +739,7 @@ void Player::InjuredByOther(Entity* impactor)
 
 void Player::ThrowApple(D3DXVECTOR3 posApple)
 {
-	if (NumbersOfApple <= 0)
+	if (apples <= 0)
 		return;
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
@@ -743,4 +747,5 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 	if (ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple)) {
 		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
 	}
+	apples--;
 }

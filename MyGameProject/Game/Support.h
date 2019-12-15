@@ -16,4 +16,5 @@ public:
 	static bool IsContainedIn(float x, float a, float b);
 	static void DrawRect(D3DXVECTOR3 pos, BoxCollider box);
 	static float LengthOfVector(D3DXVECTOR2 vector);
+	static BoxCollider TextToRect(char text, int font);
 };

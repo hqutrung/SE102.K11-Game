@@ -1,7 +1,7 @@
 #pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
-
+#include <string>
 #include "GameConfig.h"
 
 class Graphic {
@@ -25,7 +25,7 @@ public:
 	void InitFont();
 	~Graphic();
 
-	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture);
+	void DrawString(const std::string& text, D3DXVECTOR3 pos, int font);
 
 	HWND GetCurrentHWND();
 	void SetCurrentHWND(HWND hWnd);
@@ -41,5 +41,8 @@ public:
 
 	int GetBackBufferWidth() { return SCREEN_WIDTH; }
 	int GetBackBufferHeight() { return SCREEN_HEIGHT; }
+
+	// Draw String
+
 
 };

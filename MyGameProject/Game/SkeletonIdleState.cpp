@@ -29,7 +29,7 @@ void SkeletonIdleState::Update(float dt)
 		}
 		else
 		{
-			if (Support::LengthOfVector(disToPlayer) <= 160)
+			if (Support::LengthOfVector(disToPlayer) <= 155 && enemyData->enemy->IsActived())
 				e_Animation->Update(dt);
 			else
 				e_Animation->SetCurrentFrame(0);

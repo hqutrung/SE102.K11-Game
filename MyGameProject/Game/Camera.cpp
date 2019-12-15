@@ -102,7 +102,7 @@ void Camera::Update(float dt)
 	
 	position.x = Support::Clamp(position.x, player->GetPosition().x - (INDEX_CAMERA_WIDTH), player->GetPosition().x + (INDEX_CAMERA_WIDTH));
 
-	if (oldPos.x <= GetWidth() / 2 || oldPos.x >= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - GetWidth() / 2)
+	if (oldPos.x <= (float)(GetWidth()) / 2 || (float)(oldPos.x >= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - GetWidth()) / 2)
 		velocity.x = 0;
 	else
 		velocity.x = (position.x - oldPos.x) / dt;
@@ -167,7 +167,7 @@ void Camera::Update(float dt)
 	}
 	}
 
-	if (oldPos.y <= GetHeight() / 2 || oldPos.y >= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight() / 2)
+	if (oldPos.y <= (float)(GetHeight()) / 2 || oldPos.y >= (float)(SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight()) / 2)
 		velocity.y = 0;
 	else
 		velocity.y = (position.y - oldPos.y) / dt;

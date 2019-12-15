@@ -21,6 +21,11 @@ Data::Data()
 	_Gem = new Sprites(texs->GetTexture(6003), BoxCollider());
 	posGem = D3DXVECTOR3(232, 196, 0);
 
+	auto player = Player::GetInstance();
+	scores = player->GetScores();
+	lifes = player->GetLifes();
+	apples = player->GetApples();
+	gems = player->GetGems();
 }
 
 Data::~Data()
@@ -46,12 +51,26 @@ void Data::Update(float dt)
 
 	_Hp->Update(dt);
 
+	scores = player->GetScores();
+	lifes = player->GetLifes();
+	apples = player->GetApples();
+	gems = player->GetGems();
 }
 
 void Data::Render()
 {
+	auto graphic = Graphic::GetInstance();
+
 	_Hp->NormalRender(posHp);
+	graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
+
 	_Life->NormalDraw(posLife);
+	graphic->DrawString(std::to_string(lifes), posLife + D3DXVECTOR3(26, 16, 0), TEX_FONT1);
+	
 	_Apple->NormalDraw(posApple);
+	graphic->DrawString(std::to_string(apples), posApple + D3DXVECTOR3(18, 8, 0), TEX_FONT1);
+	
 	_Gem->NormalDraw(posGem);
+	graphic->DrawString(std::to_string(gems), posGem + D3DXVECTOR3(19, 8, 0), TEX_FONT1);
+
 }

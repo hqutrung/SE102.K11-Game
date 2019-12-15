@@ -49,10 +49,22 @@ public:
 
 	void SetActive(bool active);
 	void OnFalling();
-	int GetHp() { return Hp; }
 	void OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt = 1.0 / 60) override;
 	void InjuredByOther(Entity* impactor);
 	void ThrowApple(D3DXVECTOR3 posApple);
+
+	int GetLifes() { return lifes; }
+	int GetScores() { return scores; }
+	int GetApples() { return apples; }
+	int GetGems() { return gems; }
+	int GetHp() { return Hp; }
+	void SetLifes(int _lifes) { lifes = _lifes; }
+	void SetScores(int _scores) { scores = _scores; }
+	void SetApples(int _apples) { apples = _apples; }
+	void SetGems(int _gems) { gems = _gems; }
+	void SetHp(int _hp) { Hp = _hp; }
+
+
 
 	// Bat tu
 	//void OnImmortal();
@@ -69,7 +81,7 @@ public:
 	int countFrame = 0;
 	bool  isImmortal = false;
 	//
-	void AddScore(int x) { score += x; }
+	void AddScore(int x) { scores += x; }
 
 
 	// new life
@@ -114,9 +126,10 @@ protected:
 
 	float collisionTime;
 	SideCollision side;
-	int Hp;
-	int life = 3;
-	int score = 0;
-	int NumbersOfApple = 5;
 private:
+	int Hp;
+	int lifes = 2;
+	int scores = 1340;
+	int apples = 0;
+	int gems = 0;
 };

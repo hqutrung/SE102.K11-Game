@@ -46,4 +46,20 @@ float Support::LengthOfVector(D3DXVECTOR2 vector)
 	return sqrt(vector.x * vector.x + vector.y * vector.y);
 }
 
+BoxCollider Support::TextToRect(char text, int font)
+{
+	D3DSURFACE_DESC desc;
+	Textures::GetInstance()->GetTexture(font)->GetLevelDesc(0, &desc);
+	int width = desc.Width / 10;
+	int height = desc.Height;
+
+	int a = (int)text - 48;
+	BoxCollider box;
+	box.top = height;
+	box.bottom = 0;
+	box.left = a * width;
+	box.right = (a + 1) * width;
+	return box;
+}
+
 

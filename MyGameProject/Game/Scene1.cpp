@@ -37,7 +37,7 @@ void Scene1::LoadContent()
 
 	data = new Data();
 
-	pool->AddSkeleton(16);
+	pool->AddSkeleton(20);
 	srand(time(NULL));
 }
 

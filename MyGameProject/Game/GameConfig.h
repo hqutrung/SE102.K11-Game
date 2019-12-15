@@ -1,13 +1,13 @@
 #pragma once
 
-//#define SCREEN_WIDTH 2256
-//#define SCREEN_HEIGHT 1136
+// #define SCREEN_WIDTH 2256
+// #define SCREEN_HEIGHT 1136
 
-#define SCREEN_WIDTH 318
-#define SCREEN_HEIGHT 230
+#define SCREEN_WIDTH 320
+#define SCREEN_HEIGHT 223
 
-//#define SCREEN_WIDTH 832
-//#define SCREEN_HEIGHT 449
+// #define SCREEN_WIDTH 832
+// #define SCREEN_HEIGHT 449
 
 // id scene
 
@@ -19,6 +19,10 @@
 #define TIME_IMMORTAL 1.3f
 
 // TEX ID
+#define TEX_FONT1 260301
+#define TEX_FONT2 260302
+
+
 #define TEX_APPLE APPLE
 #define TEX_HEART BLUEHEART
 #define TEX_GEM GEM
