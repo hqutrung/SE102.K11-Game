@@ -7,9 +7,9 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 	KeyBoard::GetInstance()->Init(hWnd);
 
-	//SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
+	SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
 	//SceneManager::GetInstance()->LoadScene(JAFAR_PALACE);
-	SceneManager::GetInstance()->LoadScene(SCENE_1);
+	//SceneManager::GetInstance()->LoadScene(SCENE_1);
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
 	isPause = false;
