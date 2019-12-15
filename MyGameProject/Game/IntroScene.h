@@ -9,15 +9,11 @@
 #include "Player.h"
 class IntroScene : public Scene
 {
+	Animation* intro;
+	Animation* introJafar;
 
-	Sprites* title;
-	Sprites* a;
-
-
-	D3DXVECTOR3 posTitle;
-	D3DXVECTOR3 posA;
-
-	float time ;
+	Sprites* titleJafar;
+	D3DXVECTOR3	posTitleJafarPalace;
 
 public:
 	IntroScene();

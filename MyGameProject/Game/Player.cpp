@@ -77,12 +77,12 @@ Player::Player() : Entity()
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
-	SetState(PlayerState::Idle);
+	SetState(PlayerState::Fall);
 	SetTag(PLAYER);
 	SetType(PlayerType);
 	SetStatic(false);
 	SetActive(true);
-	status = OnGround;
+	status = Falling;
 
 	Hp = 9;
 	isInjured = false;
@@ -152,6 +152,9 @@ void Player::Update(float dt)
 	//hoi sinh
 	if (Hp <= 0)
 	{
+		// chuyen scene Reviving
+		SceneManager::GetInstance()->GetPlayScene()->SetIsTransition(true);
+
 		lastposition = posRevival;
 		isReviving = true;
 		SetVelocity(D3DXVECTOR2(0, 0));
@@ -401,7 +404,8 @@ BoxCollider Player::GetRect()
 	BoxCollider r;
 	r.top = position.y + collider.top;
 	r.bottom = position.y + collider.bottom;
-	if (direction == LeftToRight) {
+	if (direction == LeftToRight)
+	{
 		r.left = position.x + collider.left;
 		r.right = position.x + collider.right;
 	}
@@ -578,7 +582,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	{
 		//EXITPORT
 		if (impactor->GetTag() == EXITPORT)
-			SceneManager::GetInstance()->LoadScene(JAFAR_PALACE);
+		{
+			SceneManager::GetInstance()->isEndScene1 = true;
+			return;
+		}
 		break;
 
 		// ChaniedPillar, Pillar no collide

@@ -13,7 +13,9 @@ class SceneManager
 
 	static SceneManager* instance;
 	Scene* currentScene;
-	Scene* playScene;
+	Scene* sultanDungeon;
+	Scene* jafarPalace;
+
 	float destSceneID;
 	int sceneLv = 1;
 
@@ -24,6 +26,7 @@ class SceneManager
 
 
 public:
+	bool isEndScene1 = false;
 	static SceneManager* GetInstance();
 	SceneManager();
 	~SceneManager();

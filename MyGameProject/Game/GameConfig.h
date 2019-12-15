@@ -4,7 +4,7 @@
 // #define SCREEN_HEIGHT 1136
 
 #define SCREEN_WIDTH 320
-#define SCREEN_HEIGHT 223
+#define SCREEN_HEIGHT 240
 
 // #define SCREEN_WIDTH 832
 // #define SCREEN_HEIGHT 449
@@ -69,6 +69,7 @@
 #define SCENE_1 1
 #define ID_RIVIVING_SCENE 2
 #define ID_INTRO_SCENE 3
+#define ID_COMPLETE_SCENE 4
 #define JAFAR_PALACE 8003
 
 // GRID

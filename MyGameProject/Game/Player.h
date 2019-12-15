@@ -83,7 +83,6 @@ public:
 	//
 	void AddScore(int x) { scores += x; }
 
-
 	// new life
 	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);
 	bool isReviving = false;

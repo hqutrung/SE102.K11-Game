@@ -24,11 +24,25 @@ void PlayerIdleAttackState::Update(float dt)
 
 	auto player = Player::GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
-	//set default time
 
-	if (m_Animation->GetCurrentFrameID() == 6)
+
+	//set default time
+	auto frameID = m_Animation->GetCurrentFrameID();
+	switch (frameID)
+	{
+	case 0:
+	case 1:
+		m_Animation->SetDefaultTime(0.02f);
+		break;
+	case 2:
+	case 3:
+	case 4:
+		m_Animation->SetDefaultTime(0.04f);
+		break;
+	default:
 		m_Animation->SetDefaultTime(0.06f);
-	else m_Animation->SetDefaultTime(0.04f);
+		break;
+	}
 
 	// chuyen state
 	if (m_Animation->IsEndFrame(5, dt))

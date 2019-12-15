@@ -1,4 +1,5 @@
 #include "Scene1.h"
+#include "SceneManager.h"
 
 Scene1::Scene1()
 {
@@ -12,7 +13,7 @@ Scene1::~Scene1()
 void Scene1::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(SCENE_1 ,(char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap(SCENE_1, (char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -23,10 +24,11 @@ void Scene1::LoadContent()
 	map->SetCamera(camera);
 
 	// Player
+
 	player = new Player();
-	player->SetPosition(100, 65);
+	player->SetPosition(100, 100);
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(2000,65);
+	/*player->SetPosition(2000, 65);*/
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -48,13 +50,6 @@ void Scene1::Update(float dt)
 	CheckActive();
 	ProcessInput();
 	CheckCollision(dt);
-
-	//chuyen scene
-	if (player->GetHp() <= 0)
-	{
-		isTransition = true;
-	}
-	//
 	camera->Update(dt);
 	map->GetGrid()->Update(dt);
 
@@ -62,21 +57,35 @@ void Scene1::Update(float dt)
 	D3DXVECTOR3 playerPos = player->GetPosition();
 	CheckCamera();
 
-	// 
+
 	if (playerPos.x < 25)
 		player->SetPosition(25, playerPos.y);
 	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
-	//if (player->GetRect().top > map->GetHeight() + 10)
-	//	player->SetState(PlayerState::Fall);
-
-	
+	// suface Data
 	data->Update(dt);
+
+	// chuyen scene Rviving
+	if (isTransition == true)
+	{
+		SceneManager::GetInstance()->LoadScene(ID_RIVIVING_SCENE);
+		return;
+	}
+
+	// chuyen Scene
+	if (SceneManager::GetInstance()->isEndScene1 == true)
+	{
+		SceneManager::GetInstance()->SetSceneLv(2);
+		SceneManager::GetInstance()->LoadScene(ID_COMPLETE_SCENE);
+		return;
+	}
 }
 
 void Scene1::Render()
 {
+	if (SceneManager::GetInstance()->isEndScene1 == true)
+		return;
 	map->Draw();
 	map->GetGrid()->Render();
 	data->Render();
