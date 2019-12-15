@@ -1,11 +1,3 @@
-<<<<<<< HEAD
 ﻿  Peddler.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
-=======
-﻿  Scene1.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Scene1.cpp(43,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Scene1.cpp(64,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
->>>>>>> Tung

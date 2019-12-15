@@ -4,8 +4,8 @@
 Peddler::Peddler() : Item()
 {
 	Textures* textures = Textures::GetInstance();
-	textures->Add(TEX_PEDDLER, "Resources/Enemys/enemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	animation->AddFramesA(textures->GetTexture(TEX_PEDDLER), 1, 1, 2, 10, 10, 8, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(TEX_PEDDLER, "Resources/Items/peddler.png", D3DCOLOR_XRGB(255, 0, 255));
+	animation->AddFramesA(textures->GetTexture(TEX_PEDDLER), 1, 1, 4, 7, 10, 4, 10, 0.08f, D3DCOLOR_XRGB(255, 0, 255));
 	SetTag(PEDDLER);
 	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
 }
@@ -22,11 +22,13 @@ void Peddler::Update(float dt)
 	//Enemy::Update(dt);
 	// SetState
 
-	if (Support::LengthOfVector(dis) <= 155)
+	if (Support::LengthOfVector(dis) <= 120)
 	{
+		if (animation->IsLastFrame(dt))
+			return;
 		Item::Update(dt);
 	}
-	else {
+	else if(Support::LengthOfVector(dis) <= 160) {
 		if (!animation->IsEndFrame(6, dt))
 			Item::Update(dt);
 	}
