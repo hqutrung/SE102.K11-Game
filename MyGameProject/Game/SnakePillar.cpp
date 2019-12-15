@@ -19,13 +19,8 @@ void SnakePillar::Update(float dt)
 	auto cam = Camera::GetInstance();
 	auto player = Player::GetInstance();
 	auto camVeloc = Camera::GetInstance()->GetVelocity();
-	if (cam->GetPosition().x >= cam->GetWidth() / 2 || cam->GetPosition().x <= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - cam->GetWidth() / 2)
-		SetVx(-(camVeloc.x/7));
-	else
-		SetVx(0);
-	if (cam->GetPosition().y >= cam->GetHeight() / 2 || cam->GetPosition().y <= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - cam->GetHeight() / 2)
-		SetVy((camVeloc.y/2));
-	else
-		SetVy(0);
+	SetVx(-(camVeloc.x / 7));
+	SetVy((camVeloc.y / 4 * 3));
+
 	Entity::Update(dt);
 }

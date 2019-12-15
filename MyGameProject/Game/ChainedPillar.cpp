@@ -18,9 +18,10 @@ void ChainedPillar::Update(float dt)
 	auto cam = Camera::GetInstance();
 	auto player = Player::GetInstance();
 	auto camVeloc = Camera::GetInstance()->GetVelocity();	
-	if (cam->GetPosition().x >= cam->GetWidth()/2 || cam->GetPosition().x <= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - cam->GetWidth() / 2)
+	/*if (cam->GetPosition().x >= cam->GetWidth()/2 || cam->GetPosition().x <= SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetWidth() - cam->GetWidth() / 2)
 		SetVx(-(camVeloc.x/10 * 8));
 	else
-		SetVx(0);
+		SetVx(0);*/
+	SetVx(-(camVeloc.x / 10 * 8));
 	Entity::Update(dt);
 }

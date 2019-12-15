@@ -106,7 +106,6 @@ void Camera::Update(float dt)
 		velocity.x = 0;
 	else
 		velocity.x = (position.x - oldPos.x) / dt;
-	
 
 	// Camera.Y
 
@@ -167,10 +166,14 @@ void Camera::Update(float dt)
 	}
 	}
 
-	if (oldPos.y <= (float)(GetHeight()) / 2 || oldPos.y >= (float)(SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight()) / 2)
+	/*if (oldPos.y <= (float)(GetHeight()) / 2 || oldPos.y >= (float)(SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight()) / 2)
 		velocity.y = 0;
-	else
-		velocity.y = (position.y - oldPos.y) / dt;
+	else*/
+	if (position.y < 120)
+		position.y = 120;
+	if (SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - position.y < 120)
+		position.y = SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - 120;
+	velocity.y = (position.y - oldPos.y) / dt;
 	DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
 }
 
