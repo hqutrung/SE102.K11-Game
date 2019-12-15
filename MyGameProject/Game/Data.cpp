@@ -35,11 +35,17 @@ Data::~Data()
 void Data::Update(float dt)
 {
 	auto player = Player::GetInstance();
+
+	scores = player->GetScores();
+	lifes = player->GetLifes();
+	apples = player->GetApples();
+	gems = player->GetGems();
+
 	// _Hp Update
 	auto IDframe = _Hp->GetCurrentFrameID();
 	int firstFrame = (9 - player->GetHp()) * 4;
 	//update lai frame dau tien
-	if (player->isInjured)
+	if (player->isInjured || player->isBonusHp == true)
 		_Hp->SetCurrentFrame(firstFrame);
 
 	if (_Hp->IsEndFrame(firstFrame + 3, dt))
@@ -51,10 +57,7 @@ void Data::Update(float dt)
 
 	_Hp->Update(dt);
 
-	scores = player->GetScores();
-	lifes = player->GetLifes();
-	apples = player->GetApples();
-	gems = player->GetGems();
+
 }
 
 void Data::Render()

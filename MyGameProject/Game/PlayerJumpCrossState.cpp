@@ -68,7 +68,7 @@ void PlayerJumpCrossState::HandleInput()
 		countPressKey++;
 	}
 
-	if (keyboard->GetKey(THROW_ARROW))
+	if (keyboard->GetKey(THROW_ARROW) && player->GetApples() > 0)
 	{
 		player->SetState(JumpThrow);
 		return;

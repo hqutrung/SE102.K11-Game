@@ -65,18 +65,9 @@ public:
 	void AddHp() { Hp += 1; }
 
 
-
-	// Bat tu
-	//void OnImmortal();
-	//void OffImmortal();
-	//bool isImmortal;
-	//float immortalTime;
-
-	//bool checkGroundInFrame;
-	//float timeOnAir;
-
-	//bool renderPreviousFrame;
+	// immortal & injured
 	bool isInjured = false;
+	bool isBonusHp = false;
 	float timeImmortal = 0;
 	int countFrame = 0;
 	bool isImmortal = false;

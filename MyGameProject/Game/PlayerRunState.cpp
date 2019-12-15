@@ -53,7 +53,7 @@ void PlayerRunState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 
-	if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(RunThrow)->countPressKey == 1)
+	if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(RunThrow)->countPressKey == 1 && player->GetApples() > 0)
 	{
 		player->SetState(RunThrow);
 		return;

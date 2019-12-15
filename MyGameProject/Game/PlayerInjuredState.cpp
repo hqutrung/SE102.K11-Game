@@ -28,7 +28,7 @@ void PlayerInjuredState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 	if (m_Animation->GetCurrentFrameID() > 0) {
-		if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(IdleThrow)->countPressKey == 1)
+		if (keyboard->GetKeyDown(THROW_ARROW) && player->GetState(IdleThrow)->countPressKey == 1 && player->GetApples() > 0)
 		{
 			player->SetState(IdleThrow);
 			return;

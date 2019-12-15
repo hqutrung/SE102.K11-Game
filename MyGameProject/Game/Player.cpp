@@ -486,7 +486,6 @@ void Player::OnFalling()
 void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto impactorRect = impactor->GetRect();
-	auto impactorDir = impactor->GetMoveDirection();
 	auto impactorType = impactor->GetType();
 	auto impactorTag = impactor->GetTag();
 
@@ -507,7 +506,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	float bPlayer = GetBigBound().bottom + collisionTime * dt * velocity.y;
 
 	D3DXVECTOR2 newVelocity = velocity;
-
+	isBonusHp = false;
 	switch (impactorType)
 	{
 	case StaticType:
@@ -519,7 +518,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			if (side == Entity::SideCollision::Bottom && status != Jumping && status != Climbing)
 			{
 				if (round(playerBottom) == impactorRect.top
-					&& velocity.y < 0
+					&& velocity.y <= 0
 					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
 				{
 					status = OnGround;
@@ -542,7 +541,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 
 		// WALL
-		if (impactor->GetTag() == WALL)
+		if (impactorTag == WALL)
 		{
 			newVelocity.x *= collisionTime;
 			// cham tuong khi dang di chuyen
@@ -560,7 +559,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 
 		//CHAINE
-		if (impactor->GetTag() == CHAINE)
+		if (impactorTag == CHAINE)
 		{
 			bool isCol = CollisionDetector::IsCollide(GetSlimBody(), impactor->GetRect());
 			if (side != Top
@@ -581,7 +580,9 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	case Surface:
 	{
 		//EXITPORT
-		if (impactor->GetTag() == EXITPORT)
+		bool isCol = CollisionDetector::IsCollide(this->GetSlimBody(), impactorRect);
+
+		if (impactorTag == EXITPORT && isCol)
 		{
 			SceneManager::GetInstance()->isEndScene1 = true;
 			return;
@@ -622,7 +623,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 
 		// BLUEVASE
-		if (impactor->GetTag() == BLUEVASE)
+		if (impactorTag == BLUEVASE)
 		{
 			auto b = (BlueVase*)impactor;
 			impactor->SetIsCollidable(true);
@@ -649,9 +650,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	case ItemType:
 	{
 		bool check = false;
-		SideCollision side1 = NotKnow;
-		CollisionDetector::IsCollide(GetBigBound(), impactorRect);
-
 		switch (playerData->state->GetStateName())
 		{
 		case PlayerState::IdleAttack:
@@ -701,7 +699,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		if (!isImmortal)
 		{
 			//ktra rectAttack cua enemy va Body cua Player co va cham?
-			bool isCol = CollisionDetector::IsCollide(this->GetBigBound(), impactorRect);
+			bool isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
 
 			//enemy trong trang thai Attack && va cham vs RectBody cua player
 			bool x = enemy->isAttack && isCol == true;
