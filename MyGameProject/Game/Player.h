@@ -70,6 +70,7 @@ public:
 	bool isBonusHp = false;
 	float timeImmortal = 0;
 	int countFrame = 0;
+	int x = 0;
 	bool isImmortal = false;
 
 	// new life

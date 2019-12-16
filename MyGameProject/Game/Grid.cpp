@@ -289,7 +289,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	Entity::SideCollision  side;
 	auto rectEnt1 = ent1->GetRect();
 	auto rectEnt2 = ent2->GetRect();
-	
+
 	// tao vs enemy
 	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
 	{
@@ -370,16 +370,10 @@ void Grid::HandleColissionStatic(Entity* ent1, Entity* ent2, float dt)
 
 	if (ent1->GetTag() == PLAYER && ent2->GetTag() == WALL)
 	{
-		if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
-			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetPosition().x + 5, player->GetBigBound().right, player->GetBigBound().bottom);
-		else
-			rectEnt1 = BoxCollider(player->GetBigBound().top, player->GetBigBound().left, player->GetPosition().x - 5, player->GetBigBound().bottom);
+		rectEnt1 = player->GetBody();
 	}
-
-	if (ent1->GetTag() == SKELETONWEAPON && (ent2->GetTag() == GROUND || ent2->GetTag() == WALL))
-		int x = 0;
+	
 	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), impactorRect, D3DXVECTOR2(0, 0), side, dt);
-
 	if (colTime == 2)
 		return;
 

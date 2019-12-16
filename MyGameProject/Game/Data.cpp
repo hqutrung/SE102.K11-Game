@@ -57,22 +57,35 @@ void Data::Update(float dt)
 
 	_Hp->Update(dt);
 
+	countFrame++;
+	if (countFrame % 10 == 0)
+		x++;
 
 }
 
 void Data::Render()
 {
+	auto player = Player::GetInstance();
 	auto graphic = Graphic::GetInstance();
-
-	_Hp->NormalRender(posHp);
+	if (player->GetHp() <= 3)
+	{
+		if (x % 2 == 0)
+			_Hp->NormalRender(posHp);
+	}
+	else _Hp->NormalRender(posHp);
 	graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
 
 	_Life->NormalDraw(posLife);
 	graphic->DrawString(std::to_string(lifes), posLife + D3DXVECTOR3(26, 24, 0), TEX_FONT1);
-	
-	_Apple->NormalDraw(posApple);
+
+	if (player->GetApples() <= 5)
+	{
+		if (x % 2 == 0)
+			_Apple->NormalDraw(posApple);
+	}
+	else _Apple->NormalDraw(posApple);
 	graphic->DrawString(std::to_string(apples), posApple + D3DXVECTOR3(18, 16, 0), TEX_FONT1);
-	
+
 	_Gem->NormalDraw(posGem);
 	graphic->DrawString(std::to_string(gems), posGem + D3DXVECTOR3(19, 16, 0), TEX_FONT1);
 
