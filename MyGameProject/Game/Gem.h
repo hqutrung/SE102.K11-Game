@@ -6,4 +6,5 @@ class Gem : public Item {
 public:
 	Gem();
 	~Gem();
+	void OnDestroy() override;
 };

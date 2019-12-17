@@ -11,3 +11,10 @@ Gem::Gem() : Item()
 Gem::~Gem()
 {
 }
+
+void Gem::OnDestroy()
+{
+	Item::OnDestroy();
+	Sound::GetInstance()->PlayFX(GEM_COLLECT);
+	Player::GetInstance()->AddGems();
+}

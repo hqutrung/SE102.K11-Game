@@ -35,6 +35,6 @@ void GenieToken::OnDestroy()
 	effect = new EffectChain(new BigItemExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
-	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
-	//return EarnedData(point);
+	Sound::GetInstance()->PlayFX(WOW);
+	Sound::GetInstance()->PlayFX(GENIE_EXPLOSIVE);
 }

@@ -7,6 +7,8 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 	KeyBoard::GetInstance()->Init(hWnd);
 
+	Sound::GetInstance()->LoadSound(hWnd);
+
 	SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
 	//SceneManager::GetInstance()->LoadScene(JAFAR_PALACE);
 	//SceneManager::GetInstance()->LoadScene(SCENE_1);

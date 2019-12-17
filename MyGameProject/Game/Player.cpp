@@ -1,31 +1,31 @@
 ﻿#include "Enemy.h";
 #include "Player.h"
-#include"PlayerIdleState.h"
-#include"PlayerRunState.h"
-#include"PlayerIdleAttackState.h"
-#include"PlayerRunAttackState.h"
-#include"PlayerDuckState.h"
-#include"PlayerDuckAttackState.h"
-#include"PlayerSlideState.h"
-#include"PLayerLookUpState.h"
-#include"PlayerLookUpAttackState.h"
-#include"PlayerJumpState.h"
-#include"PlayerFallState.h"
-#include"PlayerJumpCrossState.h"
-#include"PlayerJumpAttack.h"
-#include"PlayerIdleThrowState.h"
-#include"PlayerDuckThrowState.h"
-#include"PlayerRunThrowState.h"
-#include"PlayerJumpThrowState.h"
-#include"PlayerClimbState.h"
-#include"PlayerClimbAttackState.h"
-#include"PlayerClimbThrowState.h"
-#include"PlayerInjuredState.h"
-#include"PlayerClimbJumpState.h"
-#include"PlayerDeathState.h"
+#include "PlayerIdleState.h"
+#include "PlayerRunState.h"
+#include "PlayerIdleAttackState.h"
+#include "PlayerRunAttackState.h"
+#include "PlayerDuckState.h"
+#include "PlayerDuckAttackState.h"
+#include "PlayerSlideState.h"
+#include "PLayerLookUpState.h"
+#include "PlayerLookUpAttackState.h"
+#include "PlayerJumpState.h"
+#include "PlayerFallState.h"
+#include "PlayerJumpCrossState.h"
+#include "PlayerJumpAttack.h"
+#include "PlayerIdleThrowState.h"
+#include "PlayerDuckThrowState.h"
+#include "PlayerRunThrowState.h"
+#include "PlayerJumpThrowState.h"
+#include "PlayerClimbState.h"
+#include "PlayerClimbAttackState.h"
+#include "PlayerClimbThrowState.h"
+#include "PlayerInjuredState.h"
+#include "PlayerClimbJumpState.h"
+#include "PlayerDeathState.h"
 #include "CollisionDetector.h"
-#include"PlayerPushState.h"
-#include"PlayerTouchGroundState.h"
+#include "PlayerPushState.h"
+#include "PlayerTouchGroundState.h"
 #include "BlueVase.h"
 #include "Item.h"
 #include "SceneManager.h"
@@ -304,6 +304,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::Injured:
 		playerData->state = injuredState;
+		Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 		break;
 	case PlayerState::Death:
 		playerData->state = deathState;
@@ -637,9 +638,12 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		if (impactorTag == BLUEVASE)
 		{
 			auto b = (BlueVase*)impactor;
-			impactor->SetIsCollidable(true);
-			if (b->GetAnimation()->GetCurrentFrameID() == 0)
+			if (b->GetAnimation()->GetCurrentFrameID() == 0) {
+				impactor->SetIsCollidable(true);
+				if(!isReviving)
+					Sound::GetInstance()->PlayFX(CONTINUE_POINT);
 				posRevival = impactor->GetPosition();
+			}
 		}
 
 
@@ -678,33 +682,13 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 		if (check == true) // check=true => xet va cham
 		{
-			switch (impactorTag)
-			{
-			case APPLE:
-				AddApples();
-				break;
-			case BLUEHEART:
-				AddHp();
-				isBonusHp = true;
-				break;
-			case GEM:
-				AddGems();
-				break;
-			case GENIETOKEN:
-				AddScores(250);
-				break;
-			case PEDDLER:
-				return;
-			default:
-				break;
-			}
-			impactor->OnDestroy();
+			if(impactorTag != PEDDLER)
+				impactor->OnDestroy();
 		}
 		break;
 	}
 	case EnemyType:
 	{
-
 		auto enemy = (Enemy*)impactor;
 
 		// Injured
@@ -768,8 +752,7 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 
-	if (ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple)) {
-		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
-	}
+	ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple);
+	Sound::GetInstance()->PlayFX(ALADDIN_THROW_APPLE);
 	apples--;
 }

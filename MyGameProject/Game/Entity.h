@@ -1,6 +1,7 @@
 #pragma once
 #include "GameConfig.h"
 #include "BoxCollider.h"
+#include "Sound.h"
 
 class Entity
 {

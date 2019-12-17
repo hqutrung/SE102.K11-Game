@@ -37,6 +37,7 @@ void RevivingScene::Update(float dt)
 	{
 		auto sceneM = SceneManager::GetInstance();
 		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
+		Sound::GetInstance()->PlayFX(COMING_OUT);
 		return;
 	}
 	player->Update(dt);

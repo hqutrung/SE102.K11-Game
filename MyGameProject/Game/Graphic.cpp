@@ -40,7 +40,7 @@ void Graphic::Init(HWND hWnd)
 	);
 	if (d3ddv == NULL)
 	{
-		OutputDebugString(L"[ERROR] Create Device failed\n");
+		OutputDebugString("[ERROR] Create Device failed\n");
 		return;
 	}
 
@@ -48,7 +48,7 @@ void Graphic::Init(HWND hWnd)
 	
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 
-	OutputDebugString(L"Init Device Successful;\n");
+	OutputDebugString("Init Device Successful;\n");
 
 	InitFont();
 }

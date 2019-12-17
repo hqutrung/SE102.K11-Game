@@ -119,6 +119,6 @@ private:
 	int Hp;
 	int lifes = 2;
 	int scores = 1340;
-	int apples = 0;
+	int apples = 10;
 	int gems = 0;
 };

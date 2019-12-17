@@ -17,9 +17,8 @@ BlueVase::~BlueVase()
 void BlueVase::Update(float dt)
 {
 	if (IsCollidable()) {
-		if (animation->GetCurrentFrameID() == 16)
+		if (animation->IsLastFrame(dt))
 		{
-			//Player::GetInstance()->SetLastPos(this->GetPosition());
 			isCollidable = false;
 			return;
 		}

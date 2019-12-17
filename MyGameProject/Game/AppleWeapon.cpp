@@ -50,6 +50,7 @@ void AppleWeapon::Instantiate(D3DXVECTOR3 position)
 void AppleWeapon::OnDestroy()
 {
 	DebugOut(L"[ONDESTROY]\n");
+	Sound::GetInstance()->PlayFX(APPLE_EXPLOSIVE);
 	EffectChain* effect = new EffectChain(new AppleWeaponExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);

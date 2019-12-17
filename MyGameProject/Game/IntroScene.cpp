@@ -64,7 +64,7 @@ void IntroScene::Update(float dt)
 		}
 		else if (sceneM->GetSceneLv() == 2)
 		{
-			sceneM->LoadScene(JAFAR_PALACE);
+			sceneM->LoadScene(SCENE_JAFAR_PALACE);
 			return;
 		}
 	}

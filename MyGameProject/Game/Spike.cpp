@@ -13,6 +13,8 @@ Spike::~Spike()
 
 void Spike::Update(float dt)
 {
+	if (animation->GetCurrentFrameID() == 1 && isActived)
+		Sound::GetInstance()->PlayFX(SPIKES);
 	if (delayTime <= 0)
 	{
 		if (animation->GetCurrentFrameID() == 0)

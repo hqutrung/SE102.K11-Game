@@ -6,8 +6,8 @@
 #include "GameConfig.h"
 #include "GameManager.h"
 
-#define WINDOW_CLASS_NAME L"GameProject"
-#define MAIN_WINDOW_TITLE L"Aladdin"
+#define WINDOW_CLASS_NAME "GameProject"
+#define MAIN_WINDOW_TITLE "Aladdin"
 
 #define FPS 60
 #define SPF 1.0f/FPS
@@ -54,8 +54,8 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 			CW_USEDEFAULT,
 			//y position
 			CW_USEDEFAULT,
-			ScreenWidth * 2,
-			ScreenHeight * 2,
+			ScreenWidth * 2.5,
+			ScreenHeight * 2.5,
 			//parents window
 			NULL,
 			NULL,
@@ -64,13 +64,13 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 	
 	if (!hWnd)
 	{
-		OutputDebugString(L"[ERROR] Create Window failed");
+		OutputDebugString("[ERROR] Create Window failed");
 		DWORD ErrCode = GetLastError();
 		return FALSE;
 	}
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
-	OutputDebugString(L"Create Window Successful");
+	OutputDebugString("Create Window Successful");
 	return hWnd;
 }
 

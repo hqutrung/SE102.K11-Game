@@ -13,3 +13,11 @@ BlueHeart::BlueHeart() : Item()
 BlueHeart::~BlueHeart()
 {
 }
+
+void BlueHeart::OnDestroy()
+{
+	Item::OnDestroy();
+	Sound::GetInstance()->PlayFX(HEART_COLLECT);
+	Player::GetInstance()->AddHp();
+	Player::GetInstance()->isBonusHp = true;
+}

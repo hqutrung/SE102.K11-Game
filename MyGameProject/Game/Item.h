@@ -4,6 +4,7 @@
 #include "Effect.h"
 #include "SmallItemExplosion.h"
 #include "Grid.h"
+#include "Player.h"
 
 class Item : public Entity {
 protected:

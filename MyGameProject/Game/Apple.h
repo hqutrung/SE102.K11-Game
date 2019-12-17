@@ -7,4 +7,5 @@ public:
 	Apple();
 	~Apple();
 	void Update(float dt) override;
+	void OnDestroy() override;
 };

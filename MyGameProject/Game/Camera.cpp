@@ -69,9 +69,9 @@ void Camera::Update(float dt)
 	if (!keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 	{
 		if (isLookLeft)
-			position.x -= (VELOCITY_CAMERA);
+			position.x -= (VELOCITY_CAMERA_X);
 		else
-			position.x += (VELOCITY_CAMERA);
+			position.x += (VELOCITY_CAMERA_X);
 	}
 	else if (keyboard->GetKey(LEFT_ARROW) && !keyboard->GetKey(RIGHT_ARROW))
 	{
@@ -83,7 +83,7 @@ void Camera::Update(float dt)
 			/*if (keyboard->GetKeyUp(LEFT_ARROW))
 				position.x = player->GetPosition().x;
 			else*/
-				position.x -= (VELOCITY_CAMERA);
+				position.x -= (VELOCITY_CAMERA_X);
 		}
 	}
 	else
@@ -96,7 +96,7 @@ void Camera::Update(float dt)
 			/*if (keyboard->GetKeyUp(RIGHT_ARROW))
 				position.x = player->GetPosition().x;
 			else*/
-				position.x += (VELOCITY_CAMERA);
+				position.x += (VELOCITY_CAMERA_X);
 		}
 	}
 	
@@ -107,6 +107,7 @@ void Camera::Update(float dt)
 	else
 		velocity.x = (position.x - oldPos.x) / dt;
 
+
 	// Camera.Y
 
 	switch (currentStateName)
@@ -116,7 +117,7 @@ void Camera::Update(float dt)
 		if (player->GetCurrentState()->GetAnimation()->GetCurrentFrameID() == 3)
 		{
 			if (player->GetRect().bottom - 10 > position.y - height / 2)
-				position.y += 10;
+				position.y += VELOCITY_CAMERA_Y;
 			position.y = Support::Clamp(position.y, player->GetPosition().y, player->GetRect().bottom - 10 + height / 2);
 		}
 		break;
@@ -126,7 +127,7 @@ void Camera::Update(float dt)
 		if (player->GetCurrentState()->GetAnimation()->GetCurrentFrameID() == 4)
 		{
 			if (player->GetRect().top + 15 < position.y + height / 2)
-				position.y -= 10;
+				position.y -= VELOCITY_CAMERA_Y;
 			position.y = Support::Clamp(position.y, player->GetRect().top + 15 - height / 2, player->GetPosition().y);
 		}
 		break;
@@ -154,12 +155,12 @@ void Camera::Update(float dt)
 	default:
 	{
 		if (position.y > player->GetPosition().y) {
-			position.y = (position.y - 10);
+			position.y = (position.y - VELOCITY_CAMERA_Y);
 			position.y = Support::Clamp(position.y, player->GetPosition().y, player->GetRect().bottom + height / 2);
 		}
 		else if (position.y < player->GetPosition().y)
 		{
-			position.y = (position.y + 10);
+			position.y = (position.y + VELOCITY_CAMERA_Y);
 			position.y = Support::Clamp(position.y, player->GetRect().top - height / 2, player->GetPosition().y);
 		}
 		break;

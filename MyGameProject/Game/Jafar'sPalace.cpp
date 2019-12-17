@@ -12,7 +12,7 @@ JafarPalace::~JafarPalace()
 void JafarPalace::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(JAFAR_PALACE ,(char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
+	map = new GameMap(SCENE_JAFAR_PALACE ,(char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -84,7 +84,7 @@ void JafarPalace::Render()
 
 int JafarPalace::GetSceneID()
 {
-	return JAFAR_PALACE;
+	return SCENE_JAFAR_PALACE;
 }
 
 void JafarPalace::ProcessInput()

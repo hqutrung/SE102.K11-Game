@@ -50,19 +50,23 @@ void SceneManager::CreateScene(int sceneID)
 	{
 	case ID_INTRO_SCENE:
 		currentScene = new IntroScene();
+		Sound::GetInstance()->PlayMusic(INTRO);
 		break;
 	case SCENE_1:
 		currentScene = sultanDungeon;
+		Sound::GetInstance()->PlayMusic(SULTAN_DUNGEON);
 		break;
 	case ID_RIVIVING_SCENE:
 		sceneLv = 1;
 		currentScene = new RevivingScene();
 		break;
-	case JAFAR_PALACE:
+	case SCENE_JAFAR_PALACE:
 		currentScene = jafarPalace;
+		Sound::GetInstance()->PlayMusic(JAFAR_PALACE);
 		break;
 	case ID_COMPLETE_SCENE:
 		currentScene = new LevelComplele();
+		Sound::GetInstance()->PlayMusic(LEVEL_COMPLETE);
 		break;
 
 	}

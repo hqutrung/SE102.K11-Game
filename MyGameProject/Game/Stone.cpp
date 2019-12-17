@@ -14,6 +14,8 @@ Stone::~Stone()
 
 void Stone::Update(float dt)
 {
+	if (animation->GetCurrentFrameID() == 1 && isActived)
+		Sound::GetInstance()->PlayFX(STONE_RUMBLE);
 	if (delayTime <= 0)
 	{
 		if (animation->GetCurrentFrameID() == 0 || animation->GetCurrentFrameID() == 4)

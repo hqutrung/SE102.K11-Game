@@ -16,3 +16,10 @@ Apple::~Apple()
 void Apple::Update(float dt)
 {
 }
+
+void Apple::OnDestroy()
+{
+	Item::OnDestroy();
+	Sound::GetInstance()->PlayFX(APPLE_COLLECT);
+	Player::GetInstance()->AddApples();
+}

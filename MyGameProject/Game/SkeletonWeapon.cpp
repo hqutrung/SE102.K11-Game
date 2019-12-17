@@ -36,6 +36,7 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 		if (collisionTime > 0) {
 			velocity = newVelocity;
 			isCollideWithWall = true;
+			Sound::GetInstance()->PlayFX(SKELETON_COLIISION);
 		}
 	}
 

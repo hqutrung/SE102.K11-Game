@@ -16,6 +16,7 @@
 #include "ChainedPillar.h"
 #include "SnakePillar.h"
 #include "Peddler.h"
+#include "Jafar.h"
 #include "SceneManager.h"
 
 Tileset::Tileset(int rows, int columns, int tileWidth, int tileHeight) {
@@ -255,6 +256,9 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 		}
 		case JAFAR:
 		{
+			Jafar* jafar = new Jafar();
+			jafar->SetSpawnBox(box, direction);
+			unit = new Unit(grid, jafar, cellX, cellY);
 			break;
 		}
 		case APPLE:

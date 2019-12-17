@@ -55,8 +55,8 @@ void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collision
 
 void FatGuard::SetState(EnemyState::eState state)
 {
-	/*if (currentStateName == state)
-		return;*/
+	if (currentStateName == state)
+		return;
 	isInjured = false;
 	isAttack = false;
 	switch (state)
@@ -80,10 +80,14 @@ void FatGuard::SetState(EnemyState::eState state)
 	case EnemyState::Provoke:
 		currentStateName = EnemyState::Provoke;
 		enemyData->enemyState = fatGuardProvokeState;
+		if (!Player::GetInstance()->isReviving)
+			Sound::GetInstance()->PlayFX(COME_ON);
 		break;
 	case EnemyState::Injured:
 		currentStateName = EnemyState::Injured;
 		enemyData->enemyState = fatGuardInjuredState;
+		if(!isDied)
+			Sound::GetInstance()->PlayFX(GUARD_INJURED);
 		isInjured = true;
 		break;
 	default:
@@ -102,7 +106,7 @@ void FatGuard::Spawn()
 void FatGuard::SetSpawnBox(BoxCollider box, int direction)
 {
 	Enemy::SetSpawnBox(box, direction);
-	
+
 	SetBodyBox(22, -19, 36, -26);
 
 }

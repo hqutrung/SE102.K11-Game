@@ -43,8 +43,9 @@ void LevelComplele::Update(float dt)
 
 	if (isEndScene == true)
 	{
-			sceneM->LoadScene(ID_INTRO_SCENE);
-			return;
+		sceneM->isEndScene1 = false;
+		sceneM->LoadScene(ID_INTRO_SCENE);
+		return;
 	}
 }
 

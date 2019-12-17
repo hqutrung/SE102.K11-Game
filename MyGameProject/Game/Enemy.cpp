@@ -4,11 +4,11 @@ Enemy::Enemy() : Entity() {
 	SetType(EnemyType);
 	SetStatic(false);
 	isDied = false;
-	enemyData = new EnemyData();
-	enemyData->enemy = this;
 	auto textures = Textures::GetInstance();
 	textures->Add(TEX_ENEMY, "Resources/Enemys/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	currentStateName = EnemyState::Idle;
+	enemyData = new EnemyData();
+	enemyData->enemy = this;
+	//currentStateName = EnemyState::Idle;
 }
 
 Enemy::~Enemy()
@@ -180,5 +180,4 @@ void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 		else
 			SetState(EnemyState::Injured);
 	}
-
 }

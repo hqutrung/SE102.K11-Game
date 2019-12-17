@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -83,12 +83,18 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CallingConvention>StdCall</CallingConvention>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dxguid.lib;dinput8.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib
+;d3dx9.lib;
+dinput8.lib
+;dxguid.lib;
+dsound.lib;
+dxerr.lib
+;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,6 +157,8 @@
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="dsutil.cpp" />
+    <ClCompile Include="dxutil.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyData.cpp" />
@@ -174,6 +182,9 @@
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Jafar%27sPalace.cpp" />
+    <ClCompile Include="Jafar.cpp" />
+    <ClCompile Include="JafarAttackState.cpp" />
+    <ClCompile Include="JafarIdleState.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="LevelComplete.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -217,7 +228,9 @@
     <ClCompile Include="SkeletonWeapon.cpp" />
     <ClCompile Include="SkeletonWeaponExplosion.cpp" />
     <ClCompile Include="SmallItemExplosion.cpp" />
+    <ClCompile Include="SnakeAttackState.cpp" />
     <ClCompile Include="SnakePillar.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -253,6 +266,8 @@
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="dsutil.h" />
+    <ClInclude Include="dxutil.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyData.h" />
@@ -277,6 +292,9 @@
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Jafar%27sPalace.h" />
+    <ClInclude Include="Jafar.h" />
+    <ClInclude Include="JafarAttackState.h" />
+    <ClInclude Include="JafarIdleState.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="LevelComplete.h" />
     <ClInclude Include="ObjectPooling.h" />
@@ -319,7 +337,9 @@
     <ClInclude Include="SkeletonWeapon.h" />
     <ClInclude Include="SkeletonWeaponExplosion.h" />
     <ClInclude Include="SmallItemExplosion.h" />
+    <ClInclude Include="SnakeAttackState.h" />
     <ClInclude Include="SnakePillar.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="PlayerState.h" />

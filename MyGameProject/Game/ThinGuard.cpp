@@ -73,6 +73,7 @@ void ThinGuard::SetState(EnemyState::eState state)
 	case EnemyState::Injured:
 		currentStateName = EnemyState::Injured;
 		enemyData->enemyState = thinGuardInjuredState;
+		Sound::GetInstance()->PlayFX(GUARD_INJURED);
 		isInjured = true;
 		break;
 	default:
