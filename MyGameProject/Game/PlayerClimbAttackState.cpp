@@ -23,7 +23,7 @@ void PlayerClimbAttackState::Update(float dt)
 {
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 
-	
+
 	if (m_Animation->IsLastFrame(dt))
 	{
 		playerData->player->SetState(Climb);
@@ -35,7 +35,7 @@ void PlayerClimbAttackState::Update(float dt)
 	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 5))
 		playerData->player->isAttack = true;
 	else playerData->player->isAttack = false;
-	
+
 }
 
 void PlayerClimbAttackState::HandleInput()
@@ -49,7 +49,7 @@ void PlayerClimbAttackState::HandleInput()
 		return;
 	}
 
-	if (keyboard->GetKeyDown(UP_ARROW)|| keyboard->GetKey(DOWN_ARROW))
+	if (keyboard->GetKeyDown(UP_ARROW) || keyboard->GetKey(DOWN_ARROW))
 	{
 		player->SetState(Climb);
 		return;
@@ -81,4 +81,10 @@ void PlayerClimbAttackState::ResetState(int dummy)
 	player->SetColliderBottom(-40);
 	PlayerState::ResetState(dummy);
 
+}
+
+BoxCollider PlayerClimbAttackState::GetBody()
+{
+	auto pos = Player::GetInstance()->GetPosition();
+	return BoxCollider(pos.y + 37, pos.x - 15, pos.x + 15, pos.y - 24);
 }

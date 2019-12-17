@@ -15,14 +15,11 @@ class SceneManager
 	Scene* currentScene;
 	Scene* sultanDungeon;
 	Scene* jafarPalace;
-
-	float destSceneID;
 	int sceneLv = 1;
 
+	// Save PlayerData 
 
-	bool isTransitioning;
-	bool firstTime;
-	float timeTransition;
+	int hp, scores, lifes, gems, apples;
 
 
 public:
@@ -36,10 +33,13 @@ public:
 	void SetSceneLv(int lv) { sceneLv = lv; }
 	int GetSceneLv() { return sceneLv; }
 	void LoadScene(int sceneID);
-
-	//void UpdateTransition(double dt);
-	bool IsTransitioning();
 	int GetSceneID();
+
+	int GetLifes() { return lifes; }
+	int GetScores() { return scores; }
+	int GetApples() { return apples; }
+	int GetGems() { return gems; }
+	int GetHp() { return hp; }
 };
 
 #endif

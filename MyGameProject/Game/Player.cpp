@@ -89,6 +89,7 @@ Player::Player() : Entity()
 	lastposition = position;
 	width = 37;
 	height = 55;
+	gems = 15;
 }
 
 Player::~Player()
@@ -682,8 +683,35 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 		if (check == true) // check=true => xet va cham
 		{
-			if(impactorTag != PEDDLER)
-				impactor->OnDestroy();
+			switch (impactorTag)
+			{
+			case APPLE:
+				AddApples();
+				break;
+			case BLUEHEART:
+				AddHp();
+				isBonusHp = true;
+				break;
+			case GEM:
+				AddGems();
+				break;
+			case GENIETOKEN:
+				AddScores(250);
+				break;
+			case PEDDLER:
+				if (GetCurrentState()->GetStateName() == PlayerState::LookUp && GetCurrentState()->GetAnimation()->IsLastFrame(dt) && GetCurrentState()->GetAnimation()->countLoopFrame == 10)
+				{
+					if (gems >= 5)
+					{
+						lifes++;
+						gems -= 5;
+					}
+				}
+				return;
+			default:
+				break;
+			}
+			impactor->OnDestroy();
 		}
 		break;
 	}
@@ -755,4 +783,14 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 	ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple);
 	Sound::GetInstance()->PlayFX(ALADDIN_THROW_APPLE);
 	apples--;
+}
+
+void Player::ReloadData()
+{
+	auto sceneM = SceneManager::GetInstance();
+	SetHp(sceneM->GetHp());
+	SetLifes(sceneM->GetLifes());
+	SetScores(sceneM->GetScores());
+	SetApples(sceneM->GetApples());
+	SetGems(sceneM->GetGems());
 }

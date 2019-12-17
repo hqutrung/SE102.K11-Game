@@ -24,7 +24,8 @@ void PlayerLookUpState::Update(float dt)
 	playerData->player->SetVelocity(D3DXVECTOR2(0, 0));
 	if (m_Animation->IsLastFrame(dt))
 	{
-		m_Animation->SetCurrentFrame(m_Animation->GetCurrentFrameID() - 1);
+		m_Animation->countLoopFrame++;
+		return;
 	}
 	PlayerState::Update(dt);
 }

@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 ﻿  Jafar.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  Jafar'sPalace.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(42,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  SceneManager.cpp
+  Generating Code...
+E:\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(69,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(69,39): warning C4244: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(25): warning C4715: 'SceneManager::GetPlayScene': not all control paths return a value
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung

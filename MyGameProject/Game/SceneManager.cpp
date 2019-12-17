@@ -6,10 +6,10 @@ SceneManager* SceneManager::instance = NULL;
 SceneManager::SceneManager()
 {
 	currentScene = NULL;
-	timeTransition = 0;
-	firstTime = true;
 	sultanDungeon = new Scene1();
 	//jafarPalace = new JafarPalace();
+	hp = 0, scores = 0, lifes = 0, gems = 0, apples = 0;
+
 }
 
 SceneManager::~SceneManager()
@@ -38,12 +38,23 @@ void SceneManager::CreateScene(int sceneID)
 		delete currentScene;
 		currentScene = NULL;
 	}
+
+	// delete Scene1
 	if (isEndScene1 == true)
 	{
-		sceneLv = 2;
-		jafarPalace = new JafarPalace();
+		// save PlayerData
+		auto player = Player::GetInstance();
+		hp = player->GetHp();
+		scores = player->GetScores();
+		lifes = player->GetLifes();
+		apples = player->GetApples();
+		gems = player->GetGems();
+
+		// delete 
 		delete sultanDungeon;
 		sultanDungeon = NULL;
+		jafarPalace = new JafarPalace();
+		isEndScene1 = false;
 	}
 
 	switch (sceneID)
@@ -70,11 +81,11 @@ void SceneManager::CreateScene(int sceneID)
 		break;
 
 	}
+
+	
 }
 void SceneManager::LoadScene(int sceneID)
 {
-	destSceneID = sceneID;
-
 	CreateScene(sceneID);
 }
 
@@ -83,10 +94,6 @@ Scene* SceneManager::GetCurrentScene()
 	return currentScene;
 }
 
-bool SceneManager::IsTransitioning()
-{
-	return isTransitioning;
-}
 
 int SceneManager::GetSceneID()
 {

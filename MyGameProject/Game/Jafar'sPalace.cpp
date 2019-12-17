@@ -11,6 +11,7 @@ JafarPalace::~JafarPalace()
 
 void JafarPalace::LoadContent()
 {
+	DebugOut(L"created Scene2\n");
 	auto texs = Textures::GetInstance();
 	map = new GameMap(SCENE_JAFAR_PALACE ,(char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
 
@@ -25,9 +26,10 @@ void JafarPalace::LoadContent()
 	// Player
 	player = new Player();
 	player->SetPosition(710, 306);
+	player->ReloadData();
 	player->lastposition = player->GetPosition();
-
 	(new Unit(map->GetGrid(), player))->SetActive(true);
+
 
 	camera->SetPosition(player->GetPosition());
 	CheckCamera();
