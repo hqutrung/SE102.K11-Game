@@ -1,5 +1,6 @@
 #include "Jafar.h"
 #include "BigItemExplosion.h"
+#include "SceneManager.h"
 
 Jafar* Jafar::instance = NULL;
 
@@ -35,6 +36,13 @@ void Jafar::Update(float dt)
 	D3DXVECTOR2 dis = GetDisToPlayer();
 	SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 	Enemy::Update(dt);
+	
+	if (isDied)
+	{
+		SceneManager::GetInstance()->isEndScene2 = true;
+		SceneManager::GetInstance()->isCompleteScene2 = true;
+		return;
+	}
 }
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)

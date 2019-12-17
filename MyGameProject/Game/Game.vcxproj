@@ -155,6 +155,7 @@ dxerr.lib
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ChainedPillar.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="ContinueScene.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="dsutil.cpp" />
@@ -268,6 +269,7 @@ dxerr.lib
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ChainedPillar.h" />
     <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="ContinueScene.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="dsutil.h" />

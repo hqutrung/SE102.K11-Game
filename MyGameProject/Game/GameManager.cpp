@@ -10,8 +10,6 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 	Sound::GetInstance()->LoadSound(hWnd);
 
 	SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
-	//SceneManager::GetInstance()->LoadScene(JAFAR_PALACE);
-	//SceneManager::GetInstance()->LoadScene(SCENE_1);
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
 	isPause = false;
@@ -34,7 +32,6 @@ void GameManager::Update(float dt)
 		return;
 	KeyBoard::GetInstance()->KeySnapShot(dt);
 	auto sceneM = SceneManager::GetInstance();
-
 	sceneM->GetCurrentScene()->Update(dt);
 
 }
