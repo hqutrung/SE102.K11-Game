@@ -89,6 +89,7 @@ Player::Player() : Entity()
 	lastposition = position;
 	width = 37;
 	height = 55;
+	gems = 15;
 }
 
 Player::~Player()
@@ -694,6 +695,14 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				AddScores(250);
 				break;
 			case PEDDLER:
+				if (GetCurrentState()->GetStateName() == PlayerState::LookUp && GetCurrentState()->GetAnimation()->IsLastFrame(dt) && GetCurrentState()->GetAnimation()->countLoopFrame == 10)
+				{
+					if (gems >= 5)
+					{
+						lifes++;
+						gems -= 5;
+					}
+				}
 				return;
 			default:
 				break;
@@ -772,4 +781,14 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
 	}
 	apples--;
+}
+
+void Player::ReloadData()
+{
+	auto sceneM = SceneManager::GetInstance();
+	SetHp(sceneM->GetHp());
+	SetLifes(sceneM->GetLifes());
+	SetScores(sceneM->GetScores());
+	SetApples(sceneM->GetApples());
+	SetGems(sceneM->GetGems());
 }

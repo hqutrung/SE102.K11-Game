@@ -63,6 +63,14 @@ public:
 	void AddApples() { apples += 1; }
 	void AddGems() { gems += 1; }
 	void AddHp() { Hp += 1; }
+	void SetLifes(int x) { lifes = x; }
+	void SetScores(int x) { scores = x; }
+	void SetApples(int x) { apples = x; }
+	void SetGems(int x) { gems = x; }
+	void SetHp(int x) { Hp = x; }
+
+	// load data tu scene cu~
+	void ReloadData();
 
 
 	// immortal & injured
