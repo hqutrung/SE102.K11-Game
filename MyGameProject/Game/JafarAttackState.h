@@ -9,8 +9,10 @@ public:
 	JafarAttackState(EnemyData* data);
 	~JafarAttackState() {};
 	void Update(float dt) override;
+	void Render() override;
 	void ResetState() override;
 private:
 	void UseWeapon();
+	float delayTime;
 };
 

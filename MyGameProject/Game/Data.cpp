@@ -19,13 +19,14 @@ Data::Data()
 	//_gem // ,232
 	texs->Add(6003, "Resources/PlayerData/gem.png", D3DCOLOR_XRGB(255, 0, 255));
 	_Gem = new Sprites(texs->GetTexture(6003), BoxCollider());
-	posGem = D3DXVECTOR3(234, 200, 0);
+	posGem = D3DXVECTOR3(230, 200, 0);
 
 	auto player = Player::GetInstance();
 	scores = player->GetScores();
 	lifes = player->GetLifes();
 	apples = player->GetApples();
 	gems = player->GetGems();
+	oldScores = scores;
 }
 
 Data::~Data()
@@ -73,7 +74,6 @@ void Data::Render()
 			_Hp->NormalRender(posHp);
 	}
 	else _Hp->NormalRender(posHp);
-	graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
 
 	_Life->NormalDraw(posLife);
 	graphic->DrawString(std::to_string(lifes), posLife + D3DXVECTOR3(26, 24, 0), TEX_FONT1);
@@ -89,4 +89,14 @@ void Data::Render()
 	_Gem->NormalDraw(posGem);
 	graphic->DrawString(std::to_string(gems), posGem + D3DXVECTOR3(19, 16, 0), TEX_FONT1);
 
+	
+	if (oldScores < scores) {
+		oldScores += 10;
+		graphic->DrawString(std::to_string(oldScores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
+	}
+	else {
+		graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
+		oldScores = scores;
+	}
+	//graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
 }

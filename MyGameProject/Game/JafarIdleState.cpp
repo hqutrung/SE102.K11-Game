@@ -11,6 +11,12 @@ void JafarIdleState::Update(float dt)
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);
+	e_Animation->Update(dt);
+}
+
+void JafarIdleState::Render()
+{
+	e_Animation->Render(enemyData->enemy->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), enemyData->enemy->GetMoveDirection() == Entity::MoveDirection::RightToLeft);
 }
 
 void JafarIdleState::ResetState()

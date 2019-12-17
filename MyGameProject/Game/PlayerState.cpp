@@ -26,7 +26,7 @@ PlayerState::State PlayerState::GetStateName()
 
 void PlayerState::ResetState(int dummy)
 {
-	m_Animation->countLoopFrame = 0;
+	m_Animation->countLoopFrame = 1;
 	m_Animation->ResetAnimation();
 }
 

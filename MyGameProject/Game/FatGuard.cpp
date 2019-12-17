@@ -98,6 +98,7 @@ void FatGuard::SetState(EnemyState::eState state)
 
 void FatGuard::Spawn()
 {
+	currentStateName = EnemyState::Follow;
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
 

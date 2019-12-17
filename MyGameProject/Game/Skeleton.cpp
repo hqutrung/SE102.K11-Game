@@ -58,10 +58,8 @@ void Skeleton::Explosive()
 	Sound::GetInstance()->PlayFX(SKELETON_EXPLOSIVE);
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
-
-	if (ObjectPooling::GetInstance()->Instantiate(SKELETON_WEAPON_INDEX, pos)) {
-		//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
-	}
+	ObjectPooling::GetInstance()->MultiInstantiate(SKELETON_WEAPON_INDEX, pos);
+	//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
 
 }
 

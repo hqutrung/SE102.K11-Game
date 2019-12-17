@@ -148,6 +148,8 @@ LPDIRECTSOUNDBUFFER Sound::LoadWaveToSoundBuffer(char* wavFilename)
 
 void Sound::PlayFX(int id)
 {
+	if (DSBuffer[id]->GetCurrentPosition(NULL, NULL) != 0)
+		DSBuffer[id]->SetCurrentPosition(0);
 	DSBuffer[id]->Play(0, 0, 0);
 }
 

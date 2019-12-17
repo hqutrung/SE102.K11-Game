@@ -37,4 +37,5 @@ void GenieToken::OnDestroy()
 	SetActive(false);
 	Sound::GetInstance()->PlayFX(WOW);
 	Sound::GetInstance()->PlayFX(GENIE_EXPLOSIVE);
+	Player::GetInstance()->AddScores(100);
 }

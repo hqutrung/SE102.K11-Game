@@ -1,4 +1,5 @@
 #include "SkeletonWeapon.h"
+#include "Grid.h"
 
 SkeletonWeapon::SkeletonWeapon() : Weapon()
 {

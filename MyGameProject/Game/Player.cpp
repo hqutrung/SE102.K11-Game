@@ -28,8 +28,8 @@
 #include "PlayerTouchGroundState.h"
 #include "BlueVase.h"
 #include "Item.h"
+#include "Jafar.h"
 #include "SceneManager.h"
-
 
 
 Player* Player::instance = NULL;
@@ -535,6 +535,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				{
 					status = OnGround;
 					newVelocity.y *= collisionTime;
+
 					lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
 
 				}
@@ -549,6 +550,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 					SetState(PlayerState::Fall);
 					status = Falling;
 				}
+			}
+
+			// Jafar's Palace
+			if (side == Entity::SideCollision::Bottom && status == OnGround) {
+				if (round(playerBottom) == impactorRect.top
+					&& velocity.y <= 0
+					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
+					if (Jafar::GetInstance()->IsSnake() && GetBody().bottom > 100 && !Jafar::GetInstance()->isDied)
+						if (Jafar::GetInstance()->IsSnake())
+							Jafar::GetInstance()->FireAppear();
 			}
 		}
 
@@ -726,6 +737,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	}
 	case eWeapon:
 	{
+		if (impactorTag == JAFARWEAPON)
+			break;
 		auto stateName = GetCurrentState()->GetStateName();
 		if (stateName != PlayerState::IdleAttack
 			&& stateName != PlayerState::JumpAttack
@@ -763,8 +776,8 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 
-	ObjectPooling::GetInstance()->Instantiate(APPLE_WEAPON_INDEX, posApple);
-	Sound::GetInstance()->PlayFX(ALADDIN_THROW_APPLE);
+	if(ObjectPooling::GetInstance()->SingleInstantiate(APPLE_WEAPON_INDEX, posApple))
+		Sound::GetInstance()->PlayFX(ALADDIN_THROW_APPLE);
 	apples--;
 }
 

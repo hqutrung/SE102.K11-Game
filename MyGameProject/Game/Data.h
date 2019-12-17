@@ -15,6 +15,8 @@ class Data
 	D3DXVECTOR3 posGem;
 	int scores, lifes, gems, apples;
 
+	int oldScores;
+
 	int countFrame=0;
 	int x = 0;
 public:

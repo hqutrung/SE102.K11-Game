@@ -1,6 +1,8 @@
 #include "Jafar.h"
 #include "BigItemExplosion.h"
 
+Jafar* Jafar::instance = NULL;
+
 Jafar::Jafar() : Enemy()
 {
 	SetTag(JAFAR);
@@ -13,14 +15,25 @@ Jafar::Jafar() : Enemy()
 	Hp = 10;
 	isAttack = true;
 	isSnake = false;
+	instance = this;
 }
 
 Jafar::~Jafar()
 {
 }
 
+Jafar* Jafar::GetInstance()
+{
+	if (!instance)
+		instance = new Jafar();
+	return instance;
+}
+
 void Jafar::Update(float dt)
 {
+	auto player = Player::GetInstance();
+	D3DXVECTOR2 dis = GetDisToPlayer();
+	SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 	Enemy::Update(dt);
 }
 
@@ -34,9 +47,7 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 		}
 		Hp--;
 		if (Hp == 5) {
-			isSnake =  true;
-			OnDestroy();
-			SetState(EnemyState::Attack);
+			TurnOutSnake();
 		}
 		else if (Hp == 0) {
 			OnDestroy();
@@ -72,7 +83,7 @@ void Jafar::SetSpawnBox(BoxCollider box, int direction)
 
 void Jafar::Spawn()
 {
-	SetState(EnemyState::Idle);
+	SetState(EnemyState::Attack);
 	Enemy::Spawn();
 
 	enemyData->enemy->SetBodyBox(51, -18, 34, -25);
@@ -81,22 +92,36 @@ void Jafar::Spawn()
 
 void Jafar::OnDestroy()
 {
-	effect = new EffectChain(new EnemyExplosion(position));
+	auto pos = position + D3DXVECTOR3(0, 10, 0);
+	effect = new EffectChain(new JafarExplosion(pos));
 	Grid::GetInstance()->AddEffect(effect);
-	//SetActive(false);
+	SetActive(false);
 	//Player::GetInstance()->AddScores(GetPoint());
 	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
 }
 
 void Jafar::TurnOutSnake()
 {
-	auto pos = GetPosition();
-	if (!isSnake) {
-		Sound::GetInstance()->PlayFX(SKELETON_EXPLOSIVE);
-		ObjectPooling* pool = ObjectPooling::GetInstance();
+	auto pos = position + D3DXVECTOR3(0, 10, 0);
+	effect = new EffectChain(new JafarExplosion(pos));
+	Grid::GetInstance()->AddEffect(effect);
+	if (!isSnake)
+		isSnake = true;
+	SetState(EnemyState::Attack);
 
-		if (ObjectPooling::GetInstance()->Instantiate(SKELETON_WEAPON_INDEX, pos)) {
-			//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
-		}
+	auto posJafar = GetPosition();
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+	ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, (posJafar - D3DXVECTOR3(20, 15, 0)));
+	ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, (posJafar - D3DXVECTOR3(0, 15, 0)));
+	ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, (posJafar - D3DXVECTOR3(-20, 15, 0)));
+}
+
+void Jafar::FireAppear()
+{
+	auto pos = Player::GetInstance()->GetPosition();
+	pos.x += 15;
+	ObjectPooling* pool = ObjectPooling::GetInstance();
+	if (ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, pos - D3DXVECTOR3(20, 0, 0))) {
+		// Play Sound
 	}
 }

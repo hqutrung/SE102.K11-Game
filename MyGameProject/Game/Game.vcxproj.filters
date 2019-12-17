@@ -322,6 +322,18 @@
     <ClCompile Include="SnakeAttackState.cpp">
       <Filter>Header Files\Objects\Enemy\Jafar</Filter>
     </ClCompile>
+    <ClCompile Include="JafarWeapon.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeJafarWeapon.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Fire.cpp">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="JafarExplosion.cpp">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -644,6 +656,18 @@
     </ClInclude>
     <ClInclude Include="SnakeAttackState.h">
       <Filter>Header Files\Objects\Enemy\Jafar</Filter>
+    </ClInclude>
+    <ClInclude Include="JafarWeapon.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeJafarWeapon.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Fire.h">
+      <Filter>Header Files\Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="JafarExplosion.h">
+      <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

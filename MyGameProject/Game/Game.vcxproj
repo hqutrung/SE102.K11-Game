@@ -172,6 +172,7 @@ dxerr.lib
     <ClCompile Include="FatGuardIdleState.cpp" />
     <ClCompile Include="FatGuardInjuredState.cpp" />
     <ClCompile Include="FatGuardProvokeState.cpp" />
+    <ClCompile Include="Fire.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameTime.cpp" />
@@ -184,7 +185,9 @@ dxerr.lib
     <ClCompile Include="Jafar%27sPalace.cpp" />
     <ClCompile Include="Jafar.cpp" />
     <ClCompile Include="JafarAttackState.cpp" />
+    <ClCompile Include="JafarExplosion.cpp" />
     <ClCompile Include="JafarIdleState.cpp" />
+    <ClCompile Include="JafarWeapon.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="LevelComplete.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -229,6 +232,7 @@ dxerr.lib
     <ClCompile Include="SkeletonWeaponExplosion.cpp" />
     <ClCompile Include="SmallItemExplosion.cpp" />
     <ClCompile Include="SnakeAttackState.cpp" />
+    <ClCompile Include="SnakeJafarWeapon.cpp" />
     <ClCompile Include="SnakePillar.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Spike.cpp" />
@@ -281,6 +285,7 @@ dxerr.lib
     <ClInclude Include="FatGuardIdleState.h" />
     <ClInclude Include="FatGuardInjuredState.h" />
     <ClInclude Include="FatGuardProvokeState.h" />
+    <ClInclude Include="Fire.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameMap.h" />
@@ -294,7 +299,9 @@ dxerr.lib
     <ClInclude Include="Jafar%27sPalace.h" />
     <ClInclude Include="Jafar.h" />
     <ClInclude Include="JafarAttackState.h" />
+    <ClInclude Include="JafarExplosion.h" />
     <ClInclude Include="JafarIdleState.h" />
+    <ClInclude Include="JafarWeapon.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="LevelComplete.h" />
     <ClInclude Include="ObjectPooling.h" />
@@ -338,6 +345,7 @@ dxerr.lib
     <ClInclude Include="SkeletonWeaponExplosion.h" />
     <ClInclude Include="SmallItemExplosion.h" />
     <ClInclude Include="SnakeAttackState.h" />
+    <ClInclude Include="SnakeJafarWeapon.h" />
     <ClInclude Include="SnakePillar.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Spike.h" />

@@ -1,4 +1,5 @@
 #include "Weapon.h"
+#include "Player.h"
 
 Weapon::Weapon() : Entity()
 {
@@ -14,15 +15,20 @@ Weapon::~Weapon()
 
 void Weapon::Update(float dt)
 {
-	if (isActived) {
+	/*if (isActived) {
 		animation->Update(dt);
 		Entity::Update(dt);
-	}
+	}*/
+	animation->Update(dt);
+	Entity::Update(dt);
 }
 
 void Weapon::Render()
 {
-	animation->Render(position);
+	if (Player::GetInstance()->GetPosition().x > position.x)
+		animation->Render(position);
+	else
+		animation->Render(position, BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), true);
 }
 
 BoxCollider Weapon::GetRect()
@@ -48,7 +54,6 @@ void Weapon::SetActive(bool active)
 	if (isActived == active)
 		return;
 	if (active && !isDissapeared)
-		//IS A BUG, INSTANTIATE WITH POSITION INSTEAD, BRO
 		Spawn();
 	else
 		MakeInactive();
@@ -102,6 +107,6 @@ void Weapon::Spawn()
 	//animation->ResetAnimation();
 	isActived = true;
 	isDissapeared = false;
-
+	animation->ResetAnimation();
 	DebugOut(L"[SPAWN]   appleWeapon->isActived: %d\n", isActived);
 }

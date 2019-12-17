@@ -9,6 +9,7 @@ public:
 	JafarIdleState(EnemyData* data);
 	~JafarIdleState() {};
 	void Update(float dt) override;
+	void Render() override;
 	void ResetState() override;
 private:
 

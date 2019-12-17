@@ -1,7 +1,6 @@
 #pragma once
 #include "Weapon.h"
 #include "SkeletonWeaponExplosion.h"
-#include "Player.h"
 
 class SkeletonWeapon : public Weapon {
 	D3DXVECTOR2 accelery;

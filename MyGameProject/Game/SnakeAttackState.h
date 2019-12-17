@@ -9,9 +9,9 @@ public:
 	SnakeAttackState(EnemyData* data);
 	~SnakeAttackState() {};
 	void Update(float dt) override;
+	void Render() override;
 	void ResetState() override;
 private:
 	void PuffFire();
-	void FireAppear();
 };
 

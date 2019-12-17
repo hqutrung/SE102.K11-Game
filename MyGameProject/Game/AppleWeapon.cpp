@@ -1,4 +1,5 @@
 #include "AppleWeapon.h"
+#include "Player.h"
 
 AppleWeapon::AppleWeapon() : Weapon()
 {
