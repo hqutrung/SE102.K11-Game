@@ -34,14 +34,25 @@ void RevivingScene::Update(float dt)
 {
 
 	if (player->IsLastFrame(dt))
-	{
-		auto sceneM = SceneManager::GetInstance();
-		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
-		Sound::GetInstance()->PlayFX(COMING_OUT);
-		return;
-	}
+		isEndScene = true;
 	player->Update(dt);
 	monkey->Update(dt);
+
+
+	if (isEndScene)
+	{
+		auto sceneM = SceneManager::GetInstance();
+		auto player = Player::GetInstance();
+		if (player->isDied)
+		{
+			sceneM->LoadScene(ID_CONTINUE_SCENE);
+			return;
+		}
+		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
+		if (player->posRevival != sceneM->GetStartPos())
+			Sound::GetInstance()->PlayFX(COMING_OUT);
+		return;
+	}
 
 }
 

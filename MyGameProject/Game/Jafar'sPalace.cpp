@@ -1,4 +1,5 @@
 #include "Jafar'sPalace.h"
+#include "SceneManager.h"
 
 JafarPalace::JafarPalace()
 {
@@ -11,9 +12,9 @@ JafarPalace::~JafarPalace()
 
 void JafarPalace::LoadContent()
 {
-	DebugOut(L"created Scene2\n");
+
 	auto texs = Textures::GetInstance();
-	map = new GameMap(SCENE_JAFAR_PALACE ,(char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
+	map = new GameMap(SCENE_JAFAR_PALACE, (char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -26,7 +27,13 @@ void JafarPalace::LoadContent()
 	// Player
 	player = new Player();
 	player->SetPosition(710, 306);
-	player->ReloadData();
+
+	// load Data
+	if (SceneManager::GetInstance()->GetPreSceneID() != ID_CONTINUE_SCENE)
+	{
+		player->ReloadData();
+	}
+
 	player->lastposition = player->GetPosition();
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
@@ -49,11 +56,6 @@ void JafarPalace::Update(float dt)
 	ProcessInput();
 	CheckCollision(dt);
 
-	//chuyen scene
-	if (player->GetHp() <= 0)
-	{
-		isTransition = true;
-	}
 	//
 	camera->Update(dt);
 	map->GetGrid()->Update(dt);
@@ -68,11 +70,23 @@ void JafarPalace::Update(float dt)
 	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
-	//if (player->GetRect().top > map->GetHeight() + 10)
-	//	player->SetState(PlayerState::Fall);
-
-
 	data->Update(dt);
+
+
+	// chuyen scene Rviving
+	if (isTransition == true)
+	{
+		SceneManager::GetInstance()->LoadScene(ID_RIVIVING_SCENE);
+		return;
+	}
+
+	// chuyen Scene
+	if (SceneManager::GetInstance()->isEndScene2 == true)
+	{
+		SceneManager::GetInstance()->LoadScene(ID_COMPLETE_SCENE);
+		SceneManager::GetInstance()->SetSceneLv(2);
+		return;
+	}
 }
 
 void JafarPalace::Render()

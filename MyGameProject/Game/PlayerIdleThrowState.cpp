@@ -55,6 +55,11 @@ void PlayerIdleThrowState::HandleInput()
 	auto player = playerData->player->GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
 	
+	if (keyboard->GetKeyDown(JUMP_ARROW))
+	{
+		player->SetState(Jump);
+		return;
+	}
 	if (keyboard->GetKey(ATTACK_ARROW))
 	{
 		player->SetState(IdleAttack);

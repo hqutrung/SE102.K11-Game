@@ -1,5 +1,6 @@
 #include "Jafar.h"
 #include "BigItemExplosion.h"
+#include "SceneManager.h"
 
 Jafar::Jafar() : Enemy()
 {
@@ -22,6 +23,13 @@ Jafar::~Jafar()
 void Jafar::Update(float dt)
 {
 	Enemy::Update(dt);
+	
+	if (isDied)
+	{
+		SceneManager::GetInstance()->isEndScene2 = true;
+		SceneManager::GetInstance()->isCompleteScene2 = true;
+		return;
+	}
 }
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)

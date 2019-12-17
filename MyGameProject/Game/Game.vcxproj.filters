@@ -322,6 +322,9 @@
     <ClCompile Include="SnakeAttackState.cpp">
       <Filter>Header Files\Objects\Enemy\Jafar</Filter>
     </ClCompile>
+    <ClCompile Include="ContinueScene.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -644,6 +647,9 @@
     </ClInclude>
     <ClInclude Include="SnakeAttackState.h">
       <Filter>Header Files\Objects\Enemy\Jafar</Filter>
+    </ClInclude>
+    <ClInclude Include="ContinueScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

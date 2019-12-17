@@ -86,10 +86,11 @@ Player::Player() : Entity()
 
 	Hp = 9;
 	isInjured = false;
+	//startPos = position;
 	lastposition = position;
+	posRevival = position;
 	width = 37;
 	height = 55;
-	gems = 15;
 }
 
 Player::~Player()
@@ -149,31 +150,37 @@ Player::~Player()
 }
 void Player::Update(float dt)
 {
-
+	if (posRevival == D3DXVECTOR3(0,0,0))
+	{
+		posRevival=SceneManager::GetInstance()->GetStartPos();
+	}
 	//hoi sinh
 	if (Hp <= 0)
 	{
 		// chuyen scene Reviving
 		SceneManager::GetInstance()->GetPlayScene()->SetIsTransition(true);
 
-		lastposition = posRevival;
 		isReviving = true;
 		SetVelocity(D3DXVECTOR2(0, 0));
 		position = posRevival;
-		if (position != D3DXVECTOR3(100, 65, 0))
+		lastposition = posRevival;
+		if (posRevival != SceneManager::GetInstance()->GetStartPos())
 			SetState(PlayerState::Death);
 		else {
 			isImmortal = false;
 			isInjured = false;
-			SetState(PlayerState::Idle);
+			SetState(PlayerState::Fall);
 		}
 		lifes -= 1;
 		Hp = 9;
 	}
-	// death
-	if (lifes <= 0)
+	// died
+
+	if (lifes < 0)
 	{
-		//...
+		SceneManager::GetInstance()->ResetData();
+		isDied = true;
+		return;
 	}
 
 
@@ -204,9 +211,6 @@ void Player::Update(float dt)
 		x = 0;
 	}
 
-	DebugOut(L"Hp: %d\n", Hp);
-	/*DebugOut(L"Life: %d\n", life);
-	DebugOut(L"Score: %d\n", score);*/
 
 }
 
@@ -305,7 +309,6 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::Injured:
 		playerData->state = injuredState;
-		Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 		break;
 	case PlayerState::Death:
 		playerData->state = deathState;
@@ -598,6 +601,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		if (impactorTag == EXITPORT && isCol)
 		{
 			SceneManager::GetInstance()->isEndScene1 = true;
+			SceneManager::GetInstance()->isCompleteScene1 = true;
+			SceneManager::GetInstance()->SaveData();
 			return;
 		}
 		break;
@@ -641,7 +646,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			auto b = (BlueVase*)impactor;
 			if (b->GetAnimation()->GetCurrentFrameID() == 0) {
 				impactor->SetIsCollidable(true);
-				if(!isReviving)
+				if (!isReviving)
 					Sound::GetInstance()->PlayFX(CONTINUE_POINT);
 				posRevival = impactor->GetPosition();
 			}
@@ -658,6 +663,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				isInjured = true;
 				isImmortal = true;
 				Hp -= 1;
+				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 		}
 
@@ -716,6 +722,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				isInjured = true;
 				isImmortal = true;
 				Hp -= 1;
+				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 		}
 
@@ -738,6 +745,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				isInjured = true;
 				isImmortal = true;
 				Hp -= 1;
+				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 
 		}

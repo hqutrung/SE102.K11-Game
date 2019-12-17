@@ -81,10 +81,12 @@ public:
 	int x = 0;
 	bool isImmortal = false;
 
-	// new life
-	D3DXVECTOR3 posRevival = D3DXVECTOR3(100, 65, 0);
-	bool isReviving = false;
 
+	// reviving
+	D3DXVECTOR3 startPos;
+	D3DXVECTOR3 posRevival;
+	bool isReviving = false;
+	bool isDied = false;
 
 
 protected:
@@ -126,7 +128,7 @@ protected:
 private:
 	int Hp;
 	int lifes = 2;
-	int scores = 1340;
+	int scores = 200;
 	int apples = 10;
-	int gems = 0;
+	int gems = 5;
 };
