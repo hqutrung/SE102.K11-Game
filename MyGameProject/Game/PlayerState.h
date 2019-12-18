@@ -33,7 +33,8 @@ public:
 		Injured,
 		Death,
 		Push,
-		TouchGroud
+		TouchGroud,
+		Somersault
 
 	};
 	~PlayerState();

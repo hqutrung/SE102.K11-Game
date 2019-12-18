@@ -58,7 +58,6 @@ void FatGuard::SetState(EnemyState::eState state)
 	if (currentStateName == state)
 		return;
 	isInjured = false;
-	isAttack = false;
 	switch (state)
 	{
 	case EnemyState::Idle:
@@ -71,7 +70,6 @@ void FatGuard::SetState(EnemyState::eState state)
 	case EnemyState::Attack:
 		currentStateName = EnemyState::Attack;
 		enemyData->enemyState = fatguardAttackState;
-		isAttack = true;
 		break;
 	case EnemyState::Follow:
 		currentStateName = EnemyState::Follow;

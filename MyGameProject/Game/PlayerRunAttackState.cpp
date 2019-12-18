@@ -95,6 +95,10 @@ void PlayerRunAttackState::HandleInput()
 
 void PlayerRunAttackState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetTag() == JAFAR)
+	{
+		Player::GetInstance()->SetState(Somersault);
+	}
 }
 
 PlayerState::State PlayerRunAttackState::GetStateName()

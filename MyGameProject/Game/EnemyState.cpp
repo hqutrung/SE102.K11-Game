@@ -22,6 +22,7 @@ void EnemyState::Render()
 
 void EnemyState::ResetState()
 {
+	e_Animation->countLoopFrame = 1;
 	e_Animation->ResetAnimation();
 }
 

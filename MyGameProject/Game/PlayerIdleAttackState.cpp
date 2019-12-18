@@ -32,12 +32,13 @@ void PlayerIdleAttackState::Update(float dt)
 	{
 	case 0:
 	case 1:
-		m_Animation->SetDefaultTime(0.02f);
+		m_Animation->SetDefaultTime(0.03f);
 		break;
 	case 2:
+		Sound::GetInstance()->PlayFX(ALADDIN_IDLE_SPLASH);
 	case 3:
 	case 4:
-		m_Animation->SetDefaultTime(0.04f);
+		m_Animation->SetDefaultTime(0.05f);
 		break;
 	default:
 		m_Animation->SetDefaultTime(0.06f);
@@ -102,6 +103,10 @@ void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision 
 		m_Animation->SetCurrentFrame(6);
 		Player::GetInstance()->isAttack = false;
 		m_Animation->countLoopFrame++;
+	}
+	if (impactor->GetTag() == JAFAR)
+	{
+		Player::GetInstance()->SetState(Somersault);
 	}
 }
 

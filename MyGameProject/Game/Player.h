@@ -118,7 +118,8 @@ protected:
 		* injuredState,
 		* deathState,
 		* pushState,
-		* touchGroundState;
+		* touchGroundState,
+		* somersaultState;
 
 	;
 	PlayerState::State currentStateName;

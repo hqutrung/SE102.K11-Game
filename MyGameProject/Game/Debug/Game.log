@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Player.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
@@ -7,3 +8,8 @@ D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(759,10): warning 
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(760,39): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(413): warning C4715: 'Player::GetState': not all control paths return a value
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+=======
+﻿  PlayerSomersaultState.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+>>>>>>> Tung
