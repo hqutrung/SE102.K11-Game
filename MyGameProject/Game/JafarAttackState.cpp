@@ -3,8 +3,10 @@
 JafarAttackState::JafarAttackState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
-	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 2, 1, 8, 8, 2, 10, 0.04f, D3DCOLOR_XRGB(255, 0, 255));
-	delayTime = 0.15f;
+	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 2, 1, 8, 8, 2, 10, 0.08f, D3DCOLOR_XRGB(255, 0, 255));
+	attackTime = 0.3f;
+	delaytime = 0.12f;
+	isReloading = false;
 }
 
 void JafarAttackState::Update(float dt)
@@ -12,14 +14,32 @@ void JafarAttackState::Update(float dt)
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);
-	e_Animation->Update(dt);
-	delayTime -= dt;
-	if (delayTime <= 0) {
-		if (!ObjectPooling::GetInstance()->CheckQuantity(SNAKE_WEAPON_INDEX))
+
+	if (e_Animation->GetCurrentFrameID() == 4 || isReloading) {
+		if (attackTime <= 0) {
+			e_Animation->Update(dt);
+			if (e_Animation->GetCurrentFrameID() == 3) {
+				//e_Animation->SetCurrentFrame(4);
+				attackTime = 0.3f;
+				isReloading = false;
+			}
 			return;
-		UseWeapon();
-		delayTime = 0.15f;
+		}
+		else {
+			if (delaytime <= 0) {
+				if (!ObjectPooling::GetInstance()->CheckQuantity(JAFAR_WEAPON_INDEX))
+					return;
+				UseWeapon();
+				attackTime -= dt;
+				delaytime = 0.12f;
+				if (attackTime < 0)
+					isReloading = true;
+			}
+			delaytime -= dt;
+			return;
+		}
 	}
+	e_Animation->Update(dt);
 }
 
 void JafarAttackState::Render()
@@ -30,11 +50,6 @@ void JafarAttackState::Render()
 void JafarAttackState::ResetState()
 {
 	auto e = enemyData->enemy;
-	e->SetColliderLeft(-15);
-	e->SetColliderRight(24);
-	e->SetColliderTop(33);
-	e->SetColliderBottom(-26);
-	e->SetBodyBox(32, -15, 26, -26);
 }
 
 void JafarAttackState::UseWeapon()

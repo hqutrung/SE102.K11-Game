@@ -22,7 +22,7 @@ void AppleWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, floa
 	if (!isDissapeared) {
 		auto impactorTag = impactor->GetTag();
 		auto impactorType = impactor->GetType();
-		if (impactorType == Layer::EnemyType || impactorTag == GROUND || impactorTag == WALL) {
+		if (impactorType == Layer::EnemyType || impactorTag == GROUND || impactorTag == WALL || impactorTag == JAFARWEAPON) {
 			OnDestroy();
 		}
 	}

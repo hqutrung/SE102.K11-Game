@@ -37,10 +37,10 @@ void Fire::Instantiate(D3DXVECTOR3 position)
 	SetVx(0);
 	SetVy(0);
 
-	SetColliderLeft(-30);
-	SetColliderRight(35);
+	SetColliderLeft(-10);
+	SetColliderRight(10);
 	SetColliderTop(25);
-	SetColliderBottom(-25);
+	SetColliderBottom(-15);
 
 	Weapon::Instantiate(position);
 }

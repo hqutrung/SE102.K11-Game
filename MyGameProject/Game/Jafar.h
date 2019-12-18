@@ -21,6 +21,7 @@ public:
 	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60) override;
 	void SetState(EnemyState::eState state);
 	void SetSpawnBox(BoxCollider box, int direction) override;
+	BoxCollider GetCollider() { return collider; }
 	void Spawn();
 	void OnDestroy() override;
 	bool IsSnake() { return isSnake; }

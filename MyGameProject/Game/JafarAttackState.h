@@ -13,6 +13,7 @@ public:
 	void ResetState() override;
 private:
 	void UseWeapon();
-	float delayTime;
+	float delaytime, attackTime;
+	bool isReloading;
 };
 

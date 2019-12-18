@@ -737,6 +737,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			}
 		}
 
+		if (impactorTag == JAFAR)
+		{
+			bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
+			if (isCol) {
+				if (Jafar::GetInstance()->GetDisToPlayer().x > 0)
+					newVelocity.x = 800;
+				else
+					newVelocity.x = -800;
+			}
+		}
 
 		//score
 
@@ -745,23 +755,38 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	case eWeapon:
 	{
 		if (impactorTag == JAFARWEAPON)
-			break;
-		auto stateName = GetCurrentState()->GetStateName();
-		if (stateName != PlayerState::IdleAttack
-			&& stateName != PlayerState::JumpAttack
-			&& stateName != PlayerState::ClimbAttack
-			&& stateName != PlayerState::DuckAttack
-			&& stateName != PlayerState::RunAttack)
 		{
-			if (!isImmortal)
-			{
-				isInjured = true;
-				isImmortal = true;
-				Hp -= 1;
-				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
+			int a = abs(Jafar::GetInstance()->GetDisToPlayer().x);
+			auto veloc = D3DXVECTOR2((400 - a) * 3, 0); bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
+			if (isCol)
+				veloc.x = 0;
+			if (Jafar::GetInstance()->GetDisToPlayer().x < 0) {
+				newVelocity = velocity - veloc;
 			}
-
+			else {
+				newVelocity = velocity + veloc;
+			}
 		}
+		else
+		{
+			auto stateName = GetCurrentState()->GetStateName();
+			if (stateName != PlayerState::IdleAttack
+				&& stateName != PlayerState::JumpAttack
+				&& stateName != PlayerState::ClimbAttack
+				&& stateName != PlayerState::DuckAttack
+				&& stateName != PlayerState::RunAttack)
+			{
+				if (!isImmortal)
+				{
+					isInjured = true;
+					isImmortal = true;
+					Hp -= 1;
+					Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
+				}
+
+			}
+		}
+		break;
 	}
 	default:
 		break;

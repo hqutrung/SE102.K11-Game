@@ -10,7 +10,8 @@ void JafarIdleState::Update(float dt)
 {
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
-	enemy->SetVy(0);
+	enemy->SetVy(0); 
+	
 	e_Animation->Update(dt);
 }
 
@@ -21,10 +22,10 @@ void JafarIdleState::Render()
 
 void JafarIdleState::ResetState()
 {
-	auto e = enemyData->enemy;
+	auto e = enemyData->enemy;/*
 	e->SetColliderLeft(-15);
 	e->SetColliderRight(24);
 	e->SetColliderTop(33);
 	e->SetColliderBottom(-26);
-	e->SetBodyBox(32, -15, 26, -26);
+	e->SetBodyBox(32, -15, 26, -26);*/
 }

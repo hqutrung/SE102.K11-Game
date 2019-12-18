@@ -38,6 +38,7 @@ public:
 	PlayerState::State GetPrevStateName() { return prevStateName; }
 
 	BoxCollider GetRect();
+	BoxCollider GetCollider() { return collider; };
 	BoxCollider GetBody();
 	BoxCollider GetBigBound();
 	BoxCollider GetSlimBody();

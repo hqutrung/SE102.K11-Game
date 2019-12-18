@@ -47,6 +47,20 @@ void Jafar::Update(float dt)
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
+
+	Entity::SideCollision side1;
+
+	if (impactor->GetType() == PlayerType)
+	{
+		auto player = (Player*)impactor;
+		bool isCol = CollisionDetector::IsCollide(player->GetRect(), GetBody());
+
+		if (isCol)
+			SetState(EnemyState::Idle);
+		else
+			SetState(EnemyState::Attack);
+	}
+
 	if (impactor->GetType() == pWeapon)
 	{
 		{
@@ -83,10 +97,12 @@ void Jafar::SetState(EnemyState::eState state)
 void Jafar::SetSpawnBox(BoxCollider box, int direction)
 {
 	Enemy::SetSpawnBox(box, direction);
-	SetColliderTop(54);
+	/*SetColliderTop(54);
 	SetColliderBottom(-25);
 	SetColliderRight(34);
-	SetColliderLeft(-34);
+	SetColliderLeft(-34);*/
+	//SetBodyBox(30, -34, 34, -45);
+	//collider = bodyBox;
 }
 
 void Jafar::Spawn()
@@ -94,7 +110,7 @@ void Jafar::Spawn()
 	SetState(EnemyState::Attack);
 	Enemy::Spawn();
 
-	enemyData->enemy->SetBodyBox(51, -18, 34, -25);
+	enemyData->enemy->SetBodyBox(30, -6, 20, -35);
 	collider = bodyBox;
 }
 

@@ -2,6 +2,7 @@
 #include "Weapon.h"
 
 class JafarWeapon : public Weapon {
+	float time;
 public:
 	JafarWeapon();
 	void Update(float dt) override;

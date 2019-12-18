@@ -500,9 +500,13 @@ void Grid::RenderUnit(Unit* unit)
 				unit->entity->Render();
 			// Draw ObjectRect
 			if (isDrawRect) {
-				if (unit->entity->GetType() == pWeapon)
-					int x = 0;
 				BoxCollider boundbox = unit->entity->GetRect();
+				if (unit->entity->GetTag() == JAFAR)
+				{
+					Enemy* enemy = (Enemy*)unit->entity;
+					boundbox = enemy->GetBody();
+				}
+				
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);
 			}
