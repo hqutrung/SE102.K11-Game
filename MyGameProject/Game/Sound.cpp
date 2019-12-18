@@ -27,7 +27,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[SULTAN_DUNGEON] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SultanDungeon.wav");
 	DSBuffer[JAFAR_PALACE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarPalace.wav");
 	DSBuffer[INTRO] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Intro.wav");
-	//DSBuffer[REVIVING] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/slash.wav");
+	DSBuffer[REVIVING] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladinReviving.wav");
 	DSBuffer[LEVEL_COMPLETE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/LevelComplete.wav");
 	DSBuffer[STONE_RUMBLE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/StoneRumble.wav");
 	DSBuffer[GENIE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/GenieExplosive.wav");
@@ -45,7 +45,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[APPPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
 	DSBuffer[COME_ON] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/ComeOn.wav");
 	DSBuffer[ALADDIN_IDLE_SPLASH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/splash.wav");
-	//DSBuffer[ALADDIN_DUCK_SPLASH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/theme.wav");
+	DSBuffer[ALADDIN_DUCK_SPLASH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladinDuckAttack.wav");
 	DSBuffer[ALADDIN_THROW_APPLE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/ThrowApple.wav");
 	DSBuffer[ALADDIN_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladdinHurt.wav");
 	DSBuffer[ALADDIN_OOF] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladdinOof.wav");
@@ -53,6 +53,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[ALADDIN_HEAD_BOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/HeadBop.wav");
 	DSBuffer[SKELETON_COLIISION] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SkeletonCollision.wav");
 	DSBuffer[APPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
+	DSBuffer[MONKEY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Monkey.wav");
 
 	if (!DSBuffer)
 	{

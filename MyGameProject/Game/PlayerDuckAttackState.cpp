@@ -22,14 +22,14 @@ void PlayerDuckAttackState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
-	
+
 	if (m_Animation->IsLastFrame(dt))
 	{
 		player->SetState(Duck);
 		playerData->state->GetAnimation()->SetCurrentFrame(4);
 	}
-
-
+	if (m_Animation->GetCurrentFrameID() == 1)
+		Sound::GetInstance()->PlayFX(ALADDIN_DUCK_SPLASH);
 	PlayerState::Update(dt);
 
 	//isAttack

@@ -18,7 +18,7 @@ void RevivingScene::LoadContent()
 	auto texs = Textures::GetInstance();
 	texs->Add(5000, "Resources/PlayerState/death_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	player = new Animation();
-	player->AddFramesA(texs->GetTexture(5000), 1, 1, 3, 8, 10, 3, 10, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
+	player->AddFramesA(texs->GetTexture(5000), 1, 1, 3, 8, 10, 3, 10, 0.11f, D3DCOLOR_XRGB(255, 0, 255));
 
 	texs->Add(5001, "Resources/Monkey/monkey.png", D3DCOLOR_XRGB(255, 0, 255));
 	monkey = new Animation();
@@ -34,10 +34,18 @@ void RevivingScene::Update(float dt)
 {
 
 	if (player->IsLastFrame(dt))
-		isEndScene = true;
-	player->Update(dt);
+	{
+		if (player->countLoopFrame >= 70)
+			isEndScene = true;
+		else player->countLoopFrame++;
+	}
+	else player->Update(dt);
 	monkey->Update(dt);
-
+	
+	if (player->GetCurrentFrameID() == 15)
+	{
+		Sound::GetInstance()->PlayFX(REVIVING);
+	}
 
 	if (isEndScene)
 	{

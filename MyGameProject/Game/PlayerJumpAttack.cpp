@@ -32,6 +32,18 @@ void PlayerJumpAttackState::Update(float dt)
 		player->SetVy(-JUMP_SPEED);
 	}
 	// set time cua cac frame
+
+	//set default time
+	auto frameID = m_Animation->GetCurrentFrameID();
+	switch (frameID)
+	{
+	case 4:
+		Sound::GetInstance()->PlayFX(ALADDIN_IDLE_SPLASH);
+		break;
+	default:
+		break;
+	}
+
 	if (m_Animation->GetCurrentFrameID() == 6)
 		m_Animation->SetDefaultTime(0.15f);
 	else m_Animation->SetDefaultTime(0.05f);

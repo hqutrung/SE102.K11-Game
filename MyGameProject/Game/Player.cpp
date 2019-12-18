@@ -29,7 +29,7 @@
 #include "BlueVase.h"
 #include "Item.h"
 #include "SceneManager.h"
-
+#include"PlayerSomersaultState.h"
 
 
 Player* Player::instance = NULL;
@@ -74,6 +74,7 @@ Player::Player() : Entity()
 	deathState = new PlayerDeathState(playerData);
 	pushState = new PlayerPushState(playerData);
 	touchGroundState = new PlayerTouchGroundState(playerData);
+	somersaultState = new PlayerSomersaultState(playerData);
 
 	currentStateName = PlayerState::Idle;
 	prevStateName = PlayerState::Idle;
@@ -150,9 +151,9 @@ Player::~Player()
 }
 void Player::Update(float dt)
 {
-	if (posRevival == D3DXVECTOR3(0,0,0))
+	if (posRevival == D3DXVECTOR3(0, 0, 0))
 	{
-		posRevival=SceneManager::GetInstance()->GetStartPos();
+		posRevival = SceneManager::GetInstance()->GetStartPos();
 	}
 	//hoi sinh
 	if (Hp <= 0)
@@ -244,6 +245,7 @@ void Player::SetState(PlayerState::State state, int dummy)
 		break;
 	case PlayerState::IdleAttack:
 		playerData->state = idleAttackState;
+
 		break;
 	case PlayerState::RunAttack:
 		playerData->state = runAttackState;
@@ -319,6 +321,10 @@ void Player::SetState(PlayerState::State state, int dummy)
 	case PlayerState::TouchGroud:
 		status = OnGround;
 		playerData->state = touchGroundState;
+		break;
+	case PlayerState::Somersault:
+		playerData->state = somersaultState;
+		status = Jumping;
 		break;
 	}
 	currentStateName = GetCurrentState()->GetStateName();
@@ -409,6 +415,8 @@ PlayerState* Player::GetState(PlayerState::State state)
 		return jumpThrowState;
 	case PlayerState::Injured:
 		return injuredState;
+	case PlayerState::Somersault:
+		return somersaultState;
 	}
 }
 
@@ -534,6 +542,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			{
 				if (round(playerBottom) == impactorRect.top
 					&& velocity.y <= 0
+
 					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
 				{
 					status = OnGround;
@@ -715,7 +724,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			bool isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
 
 			//enemy trong trang thai Attack && va cham vs RectBody cua player
-			bool x = enemy->isAttack && isCol == true;
+			bool x = enemy->isAttack == true && isCol == true;
 
 			if (x)
 			{

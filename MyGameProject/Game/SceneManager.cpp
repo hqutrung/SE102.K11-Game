@@ -72,6 +72,7 @@ void SceneManager::CreateScene(int sceneID)
 		break;
 	case ID_RIVIVING_SCENE:
 		currentScene = new RevivingScene();
+		Sound::GetInstance()->PlayMusic(MONKEY);
 		break;
 	case SCENE_JAFAR_PALACE:
 		startPos = D3DXVECTOR3(710, 306, 0);

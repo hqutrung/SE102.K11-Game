@@ -6,7 +6,7 @@ PlayerLookUpAttackState::PlayerLookUpAttackState(PlayerData* data)
 	auto texs = Textures::GetInstance();
 	texs->Add(1020, "Resources/PlayerState/look_up_attack_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
-	m_Animation->AddFrames(texs->GetTexture(1020), 1, 12, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
+	m_Animation->AddFrames(texs->GetTexture(1020), 1, 12, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 
 }
 
@@ -40,8 +40,17 @@ void PlayerLookUpAttackState::Update(float dt)
 		m_Animation->countLoopFrame = 1;
 	}
 
-	
-
+	int id = m_Animation->GetCurrentFrameID();
+	switch (id)
+	{
+	case 2:
+	case 6:
+	//case 9:
+		Sound::GetInstance()->PlayFX(ALADDIN_IDLE_SPLASH);
+		break;
+	default:
+		break;
+	}
 	PlayerState::Update(dt);
 
 	//isAttack

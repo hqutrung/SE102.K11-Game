@@ -117,6 +117,7 @@ void PlayerIdleState::HandleInput()
 void PlayerIdleState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
 	auto player = Player::GetInstance();
+	
 	if (player->isInjured)
 	{
 		player->SetVx(0);

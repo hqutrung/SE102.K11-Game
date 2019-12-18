@@ -325,6 +325,9 @@
     <ClCompile Include="ContinueScene.cpp">
       <Filter>Header Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerSomersaultState.cpp">
+      <Filter>Header Files\Objects\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -650,6 +653,9 @@
     </ClInclude>
     <ClInclude Include="ContinueScene.h">
       <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSomersaultState.h">
+      <Filter>Header Files\Objects\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

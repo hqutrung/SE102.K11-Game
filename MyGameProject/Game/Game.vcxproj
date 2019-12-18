@@ -219,6 +219,7 @@ dxerr.lib
     <ClCompile Include="PlayerRunState.cpp" />
     <ClCompile Include="PlayerRunThrowState.cpp" />
     <ClCompile Include="PlayerSlideState.cpp" />
+    <ClCompile Include="PlayerSomersaultState.cpp" />
     <ClCompile Include="PlayerTouchGroundState.cpp" />
     <ClCompile Include="RevivingScene.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -329,6 +330,7 @@ dxerr.lib
     <ClInclude Include="PlayerRunState.h" />
     <ClInclude Include="PlayerRunThrowState.h" />
     <ClInclude Include="PlayerSlideState.h" />
+    <ClInclude Include="PlayerSomersaultState.h" />
     <ClInclude Include="PlayerTouchGroundState.h" />
     <ClInclude Include="RevivingScene.h" />
     <ClInclude Include="Scene.h" />
