@@ -627,8 +627,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 
 		if (impactorTag == EXITPORT && isCol)
 		{
-			SceneManager::GetInstance()->isEndScene1 = true;
-			SceneManager::GetInstance()->isCompleteScene1 = true;
+			SceneManager::GetInstance()->isEndSultanDungeon = true;
+			SceneManager::GetInstance()->isCompleteSultanDungeon = true;
 			SceneManager::GetInstance()->SaveData();
 			return;
 		}
@@ -721,14 +721,16 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				{
 					if (gems >= 5)
 					{
-						auto a = (Scene1*)SceneManager::GetInstance()->GetPlayScene();
+						auto a = (SultanDungeon*)SceneManager::GetInstance()->GetPlayScene();
 						a->drawWish = true;
 						lifes++;
 						gems -= 5;
+						Sound::GetInstance()->PlayFX(CASH);
 					}
 					else {
-						auto a = (Scene1*)SceneManager::GetInstance()->GetPlayScene();
+						auto a = (SultanDungeon*)SceneManager::GetInstance()->GetPlayScene();
 						a->drawWish1 = true;
+						Sound::GetInstance()->PlayFX(CASH1);
 					}
 				}
 			}
@@ -758,17 +760,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 		}
-
-		/*if (impactorTag == JAFAR)
-		{
-			bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
-			if (isCol) {
-				if (Jafar::GetInstance()->GetDisToPlayer().x > 0)
-					newVelocity.x = 800;
-				else
-					newVelocity.x = -800;
-			}
-		}*/
 
 		//score
 
@@ -840,13 +831,13 @@ void Player::ReloadData()
 
 void Player::Pulled()
 {
-	if (timePull <= 0.2f)
+	if (timePull <= 0.18f)
 	{
 		D3DXVECTOR2 newVelocity = velocity;
 		if (GetCurrentState()->GetStateName() != PlayerState::Somersault)
 		{
 			int a = abs(Jafar::GetInstance()->GetDisToPlayer().x);
-			auto veloc = D3DXVECTOR2((400 - a) * 0.4, 0);
+			auto veloc = D3DXVECTOR2((400 - a) * 0.4f, 0);
 			bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
 			if (isCol)
 				SetVx(0);

@@ -13,7 +13,7 @@ SultanDungeon::~SultanDungeon()
 void SultanDungeon::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(ID_SULTAN_DUNGEON_SCENE, (char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap(ID_SULTAN_DUNGEON, (char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -29,7 +29,7 @@ void SultanDungeon::LoadContent()
 	player->SetPosition(100, 100);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(2100, 1000);
+	player->SetPosition(2100, 1000);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -52,9 +52,9 @@ void SultanDungeon::LoadContent()
 	posWish1 = D3DXVECTOR3(SCREEN_WIDTH / 2 /*- _wish1->GetWidth() / 2*/, SCREEN_HEIGHT / 3, 0);
 }
 
+
 void SultanDungeon::Update(float dt)
 {
-
 	gameTime += dt;
 	CheckActive();
 	ProcessInput();
@@ -65,8 +65,6 @@ void SultanDungeon::Update(float dt)
 	// Camera follow player
 	D3DXVECTOR3 playerPos = player->GetPosition();
 	CheckCamera();
-
-
 	if (playerPos.x < 25)
 		player->SetPosition(25, playerPos.y);
 	else if (playerPos.x > map->GetWidth() - 25)
@@ -83,7 +81,7 @@ void SultanDungeon::Update(float dt)
 	}
 
 	// chuyen Scene
-	if (SceneManager::GetInstance()->isEndScene1 == true)
+	if (SceneManager::GetInstance()->isEndSultanDungeon == true)
 	{
 		SceneManager::GetInstance()->LoadScene(ID_COMPLETE_SCENE);
 		SceneManager::GetInstance()->SetSceneLv(2);
@@ -93,8 +91,7 @@ void SultanDungeon::Update(float dt)
 
 void SultanDungeon::Render()
 {
-
-	if (SceneManager::GetInstance()->isEndScene1 == true)
+	if (SceneManager::GetInstance()->isEndSultanDungeon == true)
 		return;
 	map->Draw();
 	map->GetGrid()->Render();
@@ -107,7 +104,7 @@ void SultanDungeon::Render()
 
 int SultanDungeon::GetSceneID()
 {
-	return ID_SULTAN_DUNGEON_SCENE;
+	return ID_SULTAN_DUNGEON;
 }
 
 void SultanDungeon::ProcessInput()
@@ -164,4 +161,3 @@ void SultanDungeon::DrawWish(float dt)
 		drawWish1 = false;
 	}
 }
-

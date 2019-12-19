@@ -80,8 +80,8 @@ void JafarWeapon::Instantiate(D3DXVECTOR3 position)
 
 	SetColliderLeft(-12);
 	SetColliderRight(12);
-	SetColliderTop(18);
-	SetColliderBottom(-20);
+	SetColliderTop(16);
+	SetColliderBottom(-18);
 
 	Weapon::Instantiate(position);
 	Sound::GetInstance()->PlayFX(JAFAR_TRACTOR);

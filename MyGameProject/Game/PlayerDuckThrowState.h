@@ -16,4 +16,5 @@ public:
 	//State GetState() override;
 	State GetStateName() override;
 	void ResetState(int dummy) override;
+	BoxCollider GetBody()override;
 };

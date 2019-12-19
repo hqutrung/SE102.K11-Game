@@ -2,7 +2,7 @@
 #define __SCENE_MANAGER__
 
 #include "Scene.h"
-#include "Scene1.h"
+#include "SultanDungeon.h"
 #include "RevivingScene.h"
 #include"IntroScene.h"
 #include "Jafar'sPalace.h"
@@ -25,10 +25,10 @@ class SceneManager
 
 public:
 	bool isEndScene2 = false;
-	bool isEndScene1 = false;
+	bool isEndSultanDungeon = false;
 
 	bool isCompleteScene2 = false;
-	bool isCompleteScene1 = false;
+	bool isCompleteSultanDungeon = false;
 
 	static SceneManager* GetInstance();
 	SceneManager();

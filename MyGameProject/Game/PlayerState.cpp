@@ -32,7 +32,13 @@ void PlayerState::ResetState(int dummy)
 
 BoxCollider PlayerState::GetBody()
 {
-	return playerData->player->GetBigBound();
+	auto player = Player::GetInstance();
+	BoxCollider box;
+	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+		box = BoxCollider(player->GetPosition().y + 22, player->GetPosition().x - 7, player->GetPosition().x + 12, player->GetPosition().y - 24);
+	else
+		box = BoxCollider(player->GetPosition().y + 22, player->GetPosition().x - 12, player->GetPosition().x + 7, player->GetPosition().y - 24);
+	return box;
 }
 
 void PlayerState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)

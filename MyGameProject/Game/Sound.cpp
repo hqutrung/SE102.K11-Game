@@ -25,7 +25,7 @@ void Sound::LoadSound(HWND hwnd)
 		//MessageBox(NULL, "Unable to init DirectSound", "ERROR", MB_OK);
 	}
 	DSBuffer[SULTAN_DUNGEON] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SultanDungeon.wav");
-	DSBuffer[JAFAR_PALACE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarPalace.wav");
+	DSBuffer[JAFAR_PALACE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarPalace2.wav");
 	DSBuffer[INTRO] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Intro.wav");
 	DSBuffer[REVIVING] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladinReviving.wav");
 	DSBuffer[LEVEL_COMPLETE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/LevelComplete.wav");
@@ -57,6 +57,8 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[JAFAR_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarInjured.wav");
 	DSBuffer[JAFAR_DESTROY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarDestroy.wav");
 	DSBuffer[PEDDLE_SHOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/PeddlerShop.wav");
+	DSBuffer[CASH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/cash.wav");
+	DSBuffer[CASH1] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/cash1.wav");
 
 	if (!DSBuffer)
 	{

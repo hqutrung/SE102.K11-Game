@@ -45,18 +45,18 @@ void SceneManager::CreateScene(int sceneID)
 		delete currentScene;
 		currentScene = NULL;
 	}
-	if (sultanDungeon == NULL && isCompleteScene1 == false)
-		sultanDungeon = new Scene1();
-	else if (jafarPalace == NULL && isCompleteScene2 == false && isCompleteScene1)
+	if (sultanDungeon == NULL && isCompleteSultanDungeon == false)
+		sultanDungeon = new SultanDungeon();
+	else if (jafarPalace == NULL && isCompleteScene2 == false && isCompleteSultanDungeon)
 		jafarPalace = new JafarPalace();
 
-	// delete Scene1
-	if (isEndScene1 == true)
+	// delete SultanDungeon
+	if (isEndSultanDungeon == true)
 	{
 		delete sultanDungeon;
 		sultanDungeon = NULL;
 		jafarPalace = new JafarPalace();
-		isEndScene1 = false;
+		isEndSultanDungeon = false;
 	}
 
 	switch (sceneID)
@@ -65,7 +65,7 @@ void SceneManager::CreateScene(int sceneID)
 		currentScene = new IntroScene();
 		Sound::GetInstance()->PlayMusic(INTRO);
 		break;
-	case SCENE_1:
+	case ID_SULTAN_DUNGEON:
 		startPos = D3DXVECTOR3(100, 100, 0);
 		currentScene = sultanDungeon;
 		Sound::GetInstance()->PlayMusic(SULTAN_DUNGEON);

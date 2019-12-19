@@ -38,13 +38,13 @@ void ContinueScene::ProcessInput()
 
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
-		if (!sceneM->isCompleteScene1)
+		if (!sceneM->isCompleteSultanDungeon)
 		{
-			sceneM->LoadScene(SCENE_1);
+			sceneM->LoadScene(ID_SULTAN_DUNGEON);
 			return;
 		}
 
-		if (!sceneM->isCompleteScene2 && sceneM->isCompleteScene1 == true)
+		if (!sceneM->isCompleteScene2 && sceneM->isCompleteSultanDungeon == true)
 		{
 			sceneM->LoadScene(SCENE_JAFAR_PALACE);
 			return;

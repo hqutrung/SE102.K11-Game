@@ -92,3 +92,14 @@ void PlayerDuckState::ResetState(int dummy)
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }
+
+BoxCollider PlayerDuckState::GetBody()
+{
+	auto player = Player::GetInstance();
+	BoxCollider box;
+	if (player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
+		box = BoxCollider(player->GetPosition().y , player->GetPosition().x - 7, player->GetPosition().x + 12, player->GetPosition().y - 24);
+	else
+		box = BoxCollider(player->GetPosition().y , player->GetPosition().x - 12, player->GetPosition().x + 7, player->GetPosition().y - 24);
+	return box;
+}

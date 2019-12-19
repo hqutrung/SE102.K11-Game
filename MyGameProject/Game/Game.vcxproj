@@ -226,7 +226,6 @@ dxerr.lib
     <ClCompile Include="PlayerTouchGroundState.cpp" />
     <ClCompile Include="RevivingScene.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SkeletonIdleState.cpp" />
@@ -241,6 +240,7 @@ dxerr.lib
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Stone.cpp" />
+    <ClCompile Include="SultanDungeon.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Textures.cpp" />
@@ -341,7 +341,6 @@ dxerr.lib
     <ClInclude Include="PlayerTouchGroundState.h" />
     <ClInclude Include="RevivingScene.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="Scene1.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="SkeletonIdleState.h" />
@@ -356,6 +355,7 @@ dxerr.lib
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Stone.h" />
+    <ClInclude Include="SultanDungeon.h" />
     <ClInclude Include="Support.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Textures.h" />

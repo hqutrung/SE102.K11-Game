@@ -34,6 +34,5 @@ public:
 	void CheckCollision(float dt = SPF);
 	GameMap* GetGameMap() override { return map; };
 	void DrawWish(float dt);
-	void RenderPlayerData();
 };
 
