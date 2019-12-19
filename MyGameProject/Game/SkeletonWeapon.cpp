@@ -53,8 +53,8 @@ void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)
 
 
 	int dau = rand() & 1 ? -1 : 1;
-	velocity.x = (float)(rand() % (240 - 120 + 1)) + 120 * dau;
-	velocity.y = (float)(rand() % (450 - 50 + 1)) + 50;
+	velocity.x = (float)(rand() % (280 - 140 + 1)) + 140 * dau;
+	velocity.y = (float)(rand() % (550 - 50 + 1)) + 100;
 
 	int botPos = (int)position.y - 35;
 	int topPos = (int)position.y + 20;

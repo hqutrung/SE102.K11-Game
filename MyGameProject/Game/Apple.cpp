@@ -23,3 +23,14 @@ void Apple::OnDestroy()
 	Sound::GetInstance()->PlayFX(APPLE_COLLECT);
 	Player::GetInstance()->AddApples();
 }
+
+void Apple::SetSpawnBox1(int top, int left, int bot, int right)
+{
+	auto box = BoxCollider(top, left, right, bot);
+	spawnBox = box;
+	position = D3DXVECTOR3(box.getCenter());
+	collider.top = box.top - position.y;
+	collider.left = box.left - position.x;
+	collider.bottom = box.bottom - position.y;
+	collider.right = box.right - position.x;
+}

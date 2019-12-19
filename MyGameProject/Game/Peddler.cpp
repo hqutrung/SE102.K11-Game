@@ -40,8 +40,10 @@ void Peddler::Update(float dt)
 			Item::Update(dt);
 	}
 	disToPlayer = D3DXVECTOR2(this->GetPosition() - Player::GetInstance()->GetPosition());
-
-
+	if (animation->GetCurrentFrameID() == 8)
+		Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
+	if(animation->GetCurrentFrameID() == 30)
+		Sound::GetInstance()->PlayFX(PEDDLE_SHOP);
 }
 
 void Peddler::Render()

@@ -12,6 +12,6 @@ public:
 	void Render() override;
 	void ResetState() override;
 private:
-
+	float delaytime;
 };
 

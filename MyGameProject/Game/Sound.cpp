@@ -49,7 +49,6 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[ALADDIN_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladdinHurt.wav");
 	DSBuffer[ALADDIN_OOF] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladdinOof.wav");
 	DSBuffer[ALADDIN_PUSH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AladdinPush.wav");
-	DSBuffer[ALADDIN_HEAD_BOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/HeadBop.wav");
 	DSBuffer[SKELETON_COLIISION] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SkeletonCollision.wav");
 	DSBuffer[APPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
 	DSBuffer[MONKEY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Monkey.wav");
@@ -57,6 +56,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor.wav");
 	DSBuffer[JAFAR_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarInjured.wav");
 	DSBuffer[JAFAR_DESTROY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarDestroy.wav");
+	DSBuffer[PEDDLE_SHOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/PeddlerShop.wav");
 
 	if (!DSBuffer)
 	{

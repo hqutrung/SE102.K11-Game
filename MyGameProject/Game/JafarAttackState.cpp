@@ -11,6 +11,11 @@ JafarAttackState::JafarAttackState(EnemyData* data) : EnemyState(data)
 
 void JafarAttackState::Update(float dt)
 {
+	/*auto player = Player::GetInstance();
+	auto enemy = enemyData->enemy;
+	bool isCol = CollisionDetector::IsCollide(player->GetRect(), enemy->GetBody());
+	if (isCol & !Jafar::GetInstance()->IsSnake())
+		enemy->SetState(EnemyState::Idle);*/
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);

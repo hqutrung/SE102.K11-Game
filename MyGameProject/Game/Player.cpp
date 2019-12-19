@@ -542,7 +542,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			{
 				if (round(playerBottom) == impactorRect.top
 					&& velocity.y <= 0
-
 					&& Support::IsContainedIn(position.x, impactorRect.left - 4, impactorRect.right + 4))
 				{
 					status = OnGround;

@@ -84,6 +84,7 @@ void JafarWeapon::Instantiate(D3DXVECTOR3 position)
 	SetColliderBottom(-27);
 
 	Weapon::Instantiate(position);
+	Sound::GetInstance()->PlayFX(JAFAR_TRACTOR);
 }
 
 void JafarWeapon::OnDestroy()

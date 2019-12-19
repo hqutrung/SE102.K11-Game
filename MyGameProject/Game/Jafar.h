@@ -27,4 +27,5 @@ public:
 	bool IsSnake() { return isSnake; }
 	void TurnOutSnake();
 	void FireAppear();
+	float disToAttack;
 };

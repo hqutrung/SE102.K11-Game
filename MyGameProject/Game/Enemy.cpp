@@ -139,12 +139,12 @@ void Enemy::Spawn()
 
 void Enemy::OnDestroy()
 {
+	Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
 	isDied = true;
 	effect = new EffectChain(new EnemyExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
 	Player::GetInstance()->AddScores(GetPoint());
-	Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
 	//return EarnedData(point);
 }
 

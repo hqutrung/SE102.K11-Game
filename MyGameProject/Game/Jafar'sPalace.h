@@ -16,11 +16,15 @@ class JafarPalace : public Scene
 	Player* player;
 
 	Data* data;
+	int isSpawnApple = false;
+	std::vector<Entity*> apples;
 
 public:
 	JafarPalace();
 	~JafarPalace();
 
+	bool IsSpawnApple();
+	void SpawnApples();
 	void LoadContent() override;
 	void Update(float dt) override;
 	void Render() override;

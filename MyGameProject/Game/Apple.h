@@ -8,4 +8,5 @@ public:
 	~Apple();
 	void Update(float dt) override;
 	void OnDestroy() override;
+	void SetSpawnBox1(int top, int left, int bot, int right);
 };

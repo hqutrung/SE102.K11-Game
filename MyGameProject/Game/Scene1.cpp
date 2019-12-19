@@ -29,7 +29,7 @@ void Scene1::LoadContent()
 	player->SetPosition(100, 100);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(2100, 1000);
+	player->SetPosition(2100, 1000);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -40,7 +40,7 @@ void Scene1::LoadContent()
 
 	data = new Data();
 
-	pool->AddSkeleton(20);
+	pool->AddSkeleton(25);
 	srand(time(NULL));
 }
 

@@ -1,5 +1,7 @@
 #include "Jafar'sPalace.h"
 #include "SceneManager.h"
+#include "Jafar.h"
+#include "Apple.h"
 
 JafarPalace::JafarPalace()
 {
@@ -51,8 +53,13 @@ void JafarPalace::LoadContent()
 	srand(time(NULL));
 }
 
+
+
 void JafarPalace::Update(float dt)
 {
+	if (IsSpawnApple())
+		SpawnApples();
+
 	gameTime += dt;
 	CheckActive();
 	ProcessInput();
@@ -129,6 +136,62 @@ void JafarPalace::CheckCamera()
 		camPos.y = worldHeight - halfHeight;
 
 	camera->SetPosition(camPos);
+}
+
+bool JafarPalace::IsSpawnApple()
+{
+	if (Player::GetInstance()->GetApples() > 0)
+		return false;
+	for (size_t i = 0; i < apples.size(); i++)
+		if (apples[i]->IsActived())
+			return false;
+	return true;
+}
+
+void JafarPalace::SpawnApples()
+{
+	apples.clear();
+	Unit* unit;
+	Apple* apple1, * apple2, * apple3, * apple4;
+	if (Jafar::GetInstance()->GetDisToPlayer().x < 0)
+	{
+		// 7 36 104 12 12 2 0 1
+		apple1 = new Apple();
+		apple1->SetSpawnBox1(172, 312, 160, 324);
+		unit = new Unit(Grid::GetInstance(), apple1);
+		apples.push_back(apple1);
+		apple2 = new Apple();
+		apple2->SetSpawnBox1(184, 300, 172, 312);
+		unit = new Unit(Grid::GetInstance(), apple2);
+		apples.push_back(apple2);
+		apple3 = new Apple();
+		apple3->SetSpawnBox1(184, 324, 172, 336);
+		unit = new Unit(Grid::GetInstance(), apple3);
+		apples.push_back(apple3);
+		apple4 = new Apple();
+		apple4->SetSpawnBox1(196, 312, 184, 324);
+		unit = new Unit(Grid::GetInstance(), apple4);
+		apples.push_back(apple4);
+	}
+	else
+	{
+		apple1 = new Apple();
+		apple1->SetSpawnBox1(172, 516, 160, 528);
+		unit = new Unit(Grid::GetInstance(), apple1);
+		apples.push_back(apple1);
+		apple2 = new Apple();
+		apple2->SetSpawnBox1(184, 504, 172, 516);
+		unit = new Unit(Grid::GetInstance(), apple2);
+		apples.push_back(apple2);
+		apple3 = new Apple();
+		apple3->SetSpawnBox1(184, 528, 172, 540);
+		unit = new Unit(Grid::GetInstance(), apple3);
+		apples.push_back(apple3);
+		apple4 = new Apple();
+		apple4->SetSpawnBox1(196, 516, 184, 528);
+		unit = new Unit(Grid::GetInstance(), apple4);
+		apples.push_back(apple4);
+	}
 }
 
 void JafarPalace::CheckActive()

@@ -4,10 +4,21 @@ JafarIdleState::JafarIdleState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
 	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 1, 1, 1, 10, 2, 10, 0.04f, D3DCOLOR_XRGB(255, 0, 255));
+	delaytime = 0.1f;
 }
 
 void JafarIdleState::Update(float dt)
 {
+	/*auto player = Player::GetInstance();
+	auto enemy = enemyData->enemy;
+	bool isCol = CollisionDetector::IsCollide(player->GetRect(), enemy->GetBody());
+	if (isCol & !Jafar::GetInstance()->IsSnake()) {
+		if(delaytime <=0)
+			enemy->SetState(EnemyState::Attack);
+		delaytime -= dt;
+	}
+	else
+		delaytime = 0.1f;*/
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0); 

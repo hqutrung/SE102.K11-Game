@@ -18,6 +18,7 @@ Jafar::Jafar() : Enemy()
 	isAttack = true;
 	isSnake = false;
 	instance = this;
+	disToAttack = 20;
 }
 
 Jafar::~Jafar()
@@ -38,7 +39,10 @@ void Jafar::Update(float dt)
 
 	Entity::SideCollision side1;
 	auto player = Player::GetInstance();
-	bool isCol = CollisionDetector::IsCollide(player->GetRect(), GetBody());
+	auto box = GetBody();
+	box.left -= disToAttack;
+	box.right += disToAttack;
+	bool isCol = CollisionDetector::IsCollide(player->GetRect(), box);
 
 	if (isCol & !isSnake)
 		SetState(EnemyState::Idle);
@@ -54,8 +58,8 @@ void Jafar::Update(float dt)
 			SceneManager::GetInstance()->isCompleteScene2 = true;
 			return;
 		}
+		delaytime -= dt;
 	}
-	delaytime -= dt;
 }
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
