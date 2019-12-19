@@ -14,11 +14,16 @@ class Scene1 : public Scene
 	Camera* camera;
 	Player* player;
 	Data* data;
+	Sprites* _wish;
+	D3DXVECTOR3 posWish;
+	Sprites* _wish1;
+	D3DXVECTOR3 posWish1;
 
 public:
 	Scene1();
 	~Scene1();
-
+	bool drawWish = false;
+	bool drawWish1 = false;
 	void LoadContent() override;
 	void Update(float dt) override;
 	void Render() override;
@@ -28,7 +33,7 @@ public:
 	void CheckActive();
 	void CheckCollision(float dt = SPF);
 	GameMap* GetGameMap() override { return map; };
-
+	void DrawWish(float dt);
 	void RenderPlayerData();
 };
 
