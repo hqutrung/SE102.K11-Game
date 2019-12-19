@@ -7,6 +7,8 @@ Effect::Effect(D3DXVECTOR3 pos)
 
 Effect::~Effect()
 {
+	delete animation;
+	animation = NULL;
 }
 
 bool Effect::Update(float dt)

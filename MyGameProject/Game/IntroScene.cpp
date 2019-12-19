@@ -8,6 +8,12 @@ IntroScene::IntroScene()
 
 IntroScene::~IntroScene()
 {
+	delete intro;
+	intro = NULL;
+	delete titleJafar;
+	titleJafar = NULL;
+	delete introJafar;
+	introJafar = NULL;
 }
 
 void IntroScene::LoadContent()

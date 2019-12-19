@@ -10,10 +10,6 @@ SnakePillar::SnakePillar() : Surface()
 	SetTag(SNAKEPILLAR);
 }
 
-SnakePillar::~SnakePillar()
-{
-}
-
 void SnakePillar::Update(float dt)
 {
 	auto cam = Camera::GetInstance();

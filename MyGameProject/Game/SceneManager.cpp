@@ -13,6 +13,8 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
+	delete currentScene;
+	currentScene = NULL;
 }
 
 Scene* SceneManager::GetPlayScene()

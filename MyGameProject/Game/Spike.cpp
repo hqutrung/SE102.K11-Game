@@ -7,10 +7,6 @@ Spike::Spike() : Obstacles() {
 	isCollidable = false;
 }
 
-Spike::~Spike()
-{
-}
-
 void Spike::Update(float dt)
 {
 	if (animation->GetCurrentFrameID() == 1 && isActived)

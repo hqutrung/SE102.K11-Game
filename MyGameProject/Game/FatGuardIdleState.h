@@ -5,9 +5,7 @@
 class FatGuardIdleState : public EnemyState
 {
 public:
-	FatGuardIdleState() {};
 	FatGuardIdleState(EnemyData* data);
-	~FatGuardIdleState() {};
 	void Update(float dt) override;
 	void ResetState() override;
 private:

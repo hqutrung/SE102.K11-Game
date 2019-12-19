@@ -8,6 +8,8 @@ Surface::Surface() : Entity()
 
 Surface::~Surface()
 {
+	delete sprite;
+	sprite = NULL;
 }
 
 void Surface::Render()

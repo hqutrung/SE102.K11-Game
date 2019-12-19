@@ -13,6 +13,8 @@ Obstacles::Obstacles() : Entity()
 
 Obstacles::~Obstacles()
 {
+	delete animation;
+	animation = NULL;
 }
 
 void Obstacles::Update(float dt)

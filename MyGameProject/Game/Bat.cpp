@@ -16,6 +16,13 @@ Bat::Bat() : Enemy()
 
 Bat::~Bat()
 {
+	delete batFollowPlayerState;
+	batFollowPlayerState = NULL;
+	delete batIdleState;
+	batIdleState = NULL;
+	delete batRotateState;
+	batRotateState = NULL;
+	Enemy::~Enemy();
 }
 
 void Bat::Update(float dt)

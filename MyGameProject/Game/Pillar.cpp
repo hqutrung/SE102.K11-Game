@@ -23,7 +23,3 @@ Pillar::Pillar(int id) : Surface() {
 	}
 	sprite = new Sprites(textures->GetTexture(TEX_PILLAR + id), BoxCollider());
 }
-
-Pillar::~Pillar()
-{
-}

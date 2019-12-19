@@ -13,7 +13,7 @@ Fire::Fire() : Weapon()
 void Fire::Update(float dt)
 {
 	Weapon::Update(dt);
-	bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetRect());
+	bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
 	if ((animation->IsLastFrame(dt) && !isCol) || Jafar::GetInstance()->isDied)
 		OnDestroy();
 }

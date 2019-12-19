@@ -13,6 +13,10 @@ Item::Item() : Entity()
 
 Item::~Item()
 {
+	delete animation;
+	animation = NULL;
+	delete effect;
+	effect = NULL;
 }
 
 void Item::Update(float dt)

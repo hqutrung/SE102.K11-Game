@@ -4,5 +4,4 @@
 class Pillar : public Surface {
 public:
 	Pillar(int id);
-	~Pillar();
 };

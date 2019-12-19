@@ -39,7 +39,7 @@ void SnakeJafarWeapon::Instantiate(D3DXVECTOR3 position)
 	if (playerPos.x < position.x)
 		SetVx(-velocity.x);
 
-	SetColliderLeft(-20);
+	SetColliderLeft(-18);
 	SetColliderRight(30);
 	SetColliderTop(4);
 	SetColliderBottom(-24);

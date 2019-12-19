@@ -31,6 +31,14 @@ Data::Data()
 
 Data::~Data()
 {
+	delete _Hp;
+	_Hp = NULL;
+	delete _Life;
+	_Life = NULL;
+	delete _Apple;
+	_Apple = NULL;
+	delete _Gem;
+	_Gem = NULL;
 }
 
 void Data::Update(float dt)

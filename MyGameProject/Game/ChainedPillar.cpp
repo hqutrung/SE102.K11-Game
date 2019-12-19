@@ -1,5 +1,6 @@
 #include "ChainedPillar.h"
 #include "Player.h"
+#include "SceneManager.h"
 
 ChainedPillar::ChainedPillar() : Surface() {
 	Textures* textures = Textures::GetInstance();
@@ -8,11 +9,6 @@ ChainedPillar::ChainedPillar() : Surface() {
 	SetTag(CHAINEDPILLAR);
 }
 
-ChainedPillar::~ChainedPillar()
-{
-}
-
-#include "SceneManager.h"
 void ChainedPillar::Update(float dt)
 {
 	auto cam = Camera::GetInstance();

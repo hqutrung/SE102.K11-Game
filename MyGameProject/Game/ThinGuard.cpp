@@ -14,6 +14,15 @@ ThinGuard::ThinGuard() : Enemy()
 
 ThinGuard::~ThinGuard()
 {
+	delete thinGuardAttackState;
+	thinGuardAttackState = NULL;
+	delete thinGuardFollowPlayerState;
+	thinGuardFollowPlayerState = NULL;
+	delete thinGuardIdlePlayerState;
+	thinGuardIdlePlayerState = NULL;
+	delete thinGuardInjuredState;
+	thinGuardInjuredState = NULL;
+	Enemy::~Enemy();
 }
 
 void ThinGuard::Update(float dt)

@@ -17,7 +17,9 @@ Peddler::Peddler() : Item()
 
 Peddler::~Peddler()
 {
-
+	delete peddler1;
+	peddler1 = NULL;
+	Item::~Item();
 }
 
 void Peddler::Update(float dt)

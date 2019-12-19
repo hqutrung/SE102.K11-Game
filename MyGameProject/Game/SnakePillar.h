@@ -5,6 +5,5 @@
 class SnakePillar : public Surface {
 public:
 	SnakePillar();
-	~SnakePillar();
 	void Update(float dt) override;
 };

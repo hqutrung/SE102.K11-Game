@@ -11,14 +11,12 @@ Weapon::Weapon() : Entity()
 
 Weapon::~Weapon()
 {
+	delete animation;
+	animation = NULL;
 }
 
 void Weapon::Update(float dt)
 {
-	/*if (isActived) {
-		animation->Update(dt);
-		Entity::Update(dt);
-	}*/
 	animation->Update(dt);
 	Entity::Update(dt);
 }

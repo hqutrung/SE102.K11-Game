@@ -10,10 +10,6 @@ BlueVase::BlueVase() : Obstacles() {
 	isCollidable = false;
 }
 
-BlueVase::~BlueVase()
-{
-}
-
 void BlueVase::Update(float dt)
 {
 	if (IsCollidable()) {

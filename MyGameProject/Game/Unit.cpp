@@ -24,6 +24,8 @@ Unit::Unit(Grid* grid, Entity* entity, int cellX, int cellY)
 
 Unit::~Unit()
 {
+	delete entity;
+	entity = NULL;
 }
 
 void Unit::Move(float x, float y)

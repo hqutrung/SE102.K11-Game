@@ -10,10 +10,6 @@ BlueHeart::BlueHeart() : Item()
 
 }
 
-BlueHeart::~BlueHeart()
-{
-}
-
 void BlueHeart::OnDestroy()
 {
 	Item::OnDestroy();

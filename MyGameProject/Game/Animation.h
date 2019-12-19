@@ -47,8 +47,8 @@ public:
 	bool IsLastFrame(float dt);
 	bool IsEndFrame(int frame, float dt);
 	double GetPercentTime();
-	void SetDefaultTime(float x) {
-		this->defaultTime = x;
+	void SetDefaultTime(float time) {
+		this->defaultTime = time;
 	};
 };
 typedef Animation* LPANIMATION;

@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-﻿  SkeletonIdleState.cpp
+﻿  Jafar'sPalace.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(63,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(90,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
-=======
-﻿  Scene1.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Scene1.cpp(44,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Scene1.cpp(73,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
->>>>>>> Tung

@@ -44,6 +44,15 @@ Grid::~Grid()
 				}
 				Cells[x][y] = NULL;
 			}
+	//delete effects double link list
+	EffectChain* chain = effects;
+	while (effects != NULL) {
+		chain = effects->pNext;
+		delete effects;
+		effects = chain;
+	}
+	effects = NULL;
+	//delete static object;
 	for (size_t i = 0; i < staticObjects.size(); i++) {
 		delete staticObjects[i];
 		staticObjects[i] = NULL;
@@ -290,7 +299,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	auto rectEnt1 = ent1->GetRect();
 	auto rectEnt2 = ent2->GetRect();
 
-	// tao vs enemy
+	// apple and enemy
 	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
 	{
 		auto e = (Enemy*)ent2;

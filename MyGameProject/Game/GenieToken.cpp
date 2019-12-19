@@ -10,17 +10,11 @@ GenieToken::GenieToken() : Item()
 
 }
 
-GenieToken::~GenieToken()
-{
-}
-
 void GenieToken::Update(float dt)
 {
 	startPosY = spawnBox.getCenter().y;
 	if (!Support::IsContainedIn(position.y, startPosY - GENIETOKEN_MAX_Y, startPosY + GENIETOKEN_MAX_Y))
 		SetVy(-GetVy());
-
-
 	//
 	if (animation->GetCurrentFrameID() == 0 || animation->GetCurrentFrameID() == 4)
 		animation->SetDefaultTime(1.2f);

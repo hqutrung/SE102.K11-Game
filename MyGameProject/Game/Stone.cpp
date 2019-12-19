@@ -8,10 +8,6 @@ Stone::Stone() : Obstacles() {
 	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 2, 1, 2, 8, 28, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
-Stone::~Stone()
-{
-}
-
 void Stone::Update(float dt)
 {
 	if (animation->GetCurrentFrameID() == 1 && isActived)

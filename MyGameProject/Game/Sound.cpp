@@ -53,7 +53,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[APPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
 	DSBuffer[MONKEY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Monkey.wav");
 	DSBuffer[ENEMY_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/EnemyExplosive.wav");
-	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor.wav");
+	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor1.wav");
 	DSBuffer[JAFAR_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarInjured.wav");
 	DSBuffer[JAFAR_DESTROY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarDestroy.wav");
 	DSBuffer[PEDDLE_SHOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/PeddlerShop.wav");
@@ -152,8 +152,11 @@ LPDIRECTSOUNDBUFFER Sound::LoadWaveToSoundBuffer(char* wavFilename)
 
 void Sound::PlayFX(int id)
 {
+	long volumn = (0.1) / 100 * (-DSBVOLUME_MIN) + DSBVOLUME_MIN;
 	if (DSBuffer[id]->GetCurrentPosition(NULL, NULL) != 0)
 		DSBuffer[id]->SetCurrentPosition(0);
+	if (id == JAFAR_TRACTOR)
+		DSBuffer[id]->SetVolume(volumn);
 	DSBuffer[id]->Play(0, 0, 0);
 }
 

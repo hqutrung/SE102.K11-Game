@@ -6,10 +6,6 @@ Ball::Ball() : Obstacles() {
 	animation->AddFramesA(textures->GetTexture(TEX_OBSTACLES), 1, 1, 1, 28, 28, 2, 28, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
-Ball::~Ball()
-{
-}
-
 void Ball::Update(float dt)
 {
 	if (delayTime <= 0)

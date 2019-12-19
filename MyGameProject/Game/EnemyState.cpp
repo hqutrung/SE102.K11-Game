@@ -8,6 +8,8 @@ EnemyState::EnemyState(EnemyData* data){
 
 EnemyState::~EnemyState()
 {
+	delete e_Animation;
+	e_Animation = NULL;
 }
 void EnemyState::Update(float dt)
 {

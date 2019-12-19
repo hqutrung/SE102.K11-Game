@@ -5,6 +5,5 @@
 class ChainedPillar : public Surface {
 public:
 	ChainedPillar();
-	~ChainedPillar();
 	void Update(float dt) override;
 };

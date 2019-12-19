@@ -5,6 +5,5 @@
 class BlueHeart : public Item {
 public:
 	BlueHeart();
-	~BlueHeart();
 	void OnDestroy() override;
 };

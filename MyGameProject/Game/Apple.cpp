@@ -8,11 +8,6 @@ Apple::Apple() : Item()
 	SetTag(APPLE);
 }
 
-Apple::~Apple()
-{
-	
-}
-
 void Apple::Update(float dt)
 {
 }

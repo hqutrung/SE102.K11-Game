@@ -18,12 +18,6 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 GameManager::~GameManager()
 {
-	//delete graphic;
-	//graphic = NULL;
-	//delete keyboard;
-	//keyboard = NULL;
-	//delete sceneManager;
-	//sceneManager = NULL;
 }
 
 void GameManager::Update(float dt)

@@ -8,12 +8,20 @@ Scene1::Scene1()
 
 Scene1::~Scene1()
 {
+	delete map;
+	map = NULL;
+	delete camera;
+	camera = NULL;
+	delete _wish;
+	_wish = NULL;
+	delete _wish1;
+	_wish1 = NULL;
 }
 
 void Scene1::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(SCENE_1, (char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap(SCENE_1, (char*)"Resources/Maps/1tileset.png", (char*)"Resources/Maps/1tilemap.txt", (char*)"Resources/Maps/1gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -29,7 +37,7 @@ void Scene1::LoadContent()
 	player->SetPosition(100, 100);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
-	//player->SetPosition(2100, 1000);
+	player->SetPosition(2100, 1000);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());

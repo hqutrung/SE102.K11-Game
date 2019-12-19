@@ -8,6 +8,8 @@ ContinueScene::ContinueScene()
 
 ContinueScene::~ContinueScene()
 {
+	delete backGround;
+	backGround = NULL;
 }
 
 void ContinueScene::LoadContent()

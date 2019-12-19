@@ -23,6 +23,13 @@ Jafar::Jafar() : Enemy()
 
 Jafar::~Jafar()
 {
+	delete jafarAttackState;
+	jafarAttackState = NULL;
+	delete jafarIdleState;
+	jafarIdleState = NULL;
+	delete snakeAttackState;
+	snakeAttackState = NULL;
+	Enemy::~Enemy();
 }
 
 Jafar* Jafar::GetInstance()
@@ -67,8 +74,6 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 
 	if (impactor->GetType() == pWeapon)
 	{
-		bool isCol = CollisionDetector::IsCollide(impactor->GetRect(), GetBody());
-		if (isCol) {
 			Sound::GetInstance()->PlayFX(JAFAR_INJURED);
 			Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
 			{
@@ -86,7 +91,6 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 				isDied = true;
 				delaytime = 0.5f;
 			}
-		}
 	}
 }
 

@@ -6,7 +6,6 @@
 class Ball : public Obstacles {
 public:
 	Ball();
-	~Ball();
 	void SetSpawnBox(BoxCollider box, int id) override;
 	void Update(float dt) override;
 };

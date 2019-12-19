@@ -10,13 +10,23 @@ JafarPalace::JafarPalace()
 
 JafarPalace::~JafarPalace()
 {
+	delete map;
+	map = NULL;
+	delete camera;
+	camera = NULL;
+	delete data;
+	data = NULL;
+	for (size_t i = 0; i < apples.size(); i++) {
+		delete apples[i];
+		apples[i] = NULL;
+	}
 }
 
 void JafarPalace::LoadContent()
 {
 
 	auto texs = Textures::GetInstance();
-	map = new GameMap(SCENE_JAFAR_PALACE, (char*)"Resources/tileset32.png", (char*)"Resources/tilemap32.txt", (char*)"Resources/gridBuiltMan2.txt", 32, 32);
+	map = new GameMap(SCENE_JAFAR_PALACE, (char*)"Resources/Maps/2tileset.png", (char*)"Resources/Maps/2tilemap.txt", (char*)"Resources/Maps/2gridBuilt.txt", 32, 32);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
@@ -153,44 +163,88 @@ void JafarPalace::SpawnApples()
 	apples.clear();
 	Unit* unit;
 	Apple* apple1, * apple2, * apple3, * apple4;
-	if (Jafar::GetInstance()->GetDisToPlayer().x < 0)
-	{
-		// 7 36 104 12 12 2 0 1
-		apple1 = new Apple();
-		apple1->SetSpawnBox1(172, 312, 160, 324);
-		unit = new Unit(Grid::GetInstance(), apple1);
-		apples.push_back(apple1);
-		apple2 = new Apple();
-		apple2->SetSpawnBox1(184, 300, 172, 312);
-		unit = new Unit(Grid::GetInstance(), apple2);
-		apples.push_back(apple2);
-		apple3 = new Apple();
-		apple3->SetSpawnBox1(184, 324, 172, 336);
-		unit = new Unit(Grid::GetInstance(), apple3);
-		apples.push_back(apple3);
-		apple4 = new Apple();
-		apple4->SetSpawnBox1(196, 312, 184, 324);
-		unit = new Unit(Grid::GetInstance(), apple4);
-		apples.push_back(apple4);
+	if (!Jafar::GetInstance()->IsSnake()) {
+		if (Jafar::GetInstance()->GetDisToPlayer().x < 0)
+		{
+			// 7 36 104 12 12 2 0 1
+			apple1 = new Apple();
+			apple1->SetSpawnBox1(172, 312, 160, 324);
+			unit = new Unit(Grid::GetInstance(), apple1);
+			apples.push_back(apple1);
+			apple2 = new Apple();
+			apple2->SetSpawnBox1(184, 300, 172, 312);
+			unit = new Unit(Grid::GetInstance(), apple2);
+			apples.push_back(apple2);
+			apple3 = new Apple();
+			apple3->SetSpawnBox1(184, 324, 172, 336);
+			unit = new Unit(Grid::GetInstance(), apple3);
+			apples.push_back(apple3);
+			apple4 = new Apple();
+			apple4->SetSpawnBox1(196, 312, 184, 324);
+			unit = new Unit(Grid::GetInstance(), apple4);
+			apples.push_back(apple4);
+		}
+		else
+		{
+			apple1 = new Apple();
+			apple1->SetSpawnBox1(172, 516, 160, 528);
+			unit = new Unit(Grid::GetInstance(), apple1);
+			apples.push_back(apple1);
+			apple2 = new Apple();
+			apple2->SetSpawnBox1(184, 504, 172, 516);
+			unit = new Unit(Grid::GetInstance(), apple2);
+			apples.push_back(apple2);
+			apple3 = new Apple();
+			apple3->SetSpawnBox1(184, 528, 172, 540);
+			unit = new Unit(Grid::GetInstance(), apple3);
+			apples.push_back(apple3);
+			apple4 = new Apple();
+			apple4->SetSpawnBox1(196, 516, 184, 528);
+			unit = new Unit(Grid::GetInstance(), apple4);
+			apples.push_back(apple4);
+		}
 	}
 	else
 	{
-		apple1 = new Apple();
-		apple1->SetSpawnBox1(172, 516, 160, 528);
-		unit = new Unit(Grid::GetInstance(), apple1);
-		apples.push_back(apple1);
-		apple2 = new Apple();
-		apple2->SetSpawnBox1(184, 504, 172, 516);
-		unit = new Unit(Grid::GetInstance(), apple2);
-		apples.push_back(apple2);
-		apple3 = new Apple();
-		apple3->SetSpawnBox1(184, 528, 172, 540);
-		unit = new Unit(Grid::GetInstance(), apple3);
-		apples.push_back(apple3);
-		apple4 = new Apple();
-		apple4->SetSpawnBox1(196, 516, 184, 528);
-		unit = new Unit(Grid::GetInstance(), apple4);
-		apples.push_back(apple4);
+		if (Jafar::GetInstance()->GetDisToPlayer().x > 0)
+		{
+			// 7 36 104 12 12 2 0 1
+			apple1 = new Apple();
+			apple1->SetSpawnBox1(172, 312, 160, 324);
+			unit = new Unit(Grid::GetInstance(), apple1);
+			apples.push_back(apple1);
+			apple2 = new Apple();
+			apple2->SetSpawnBox1(184, 300, 172, 312);
+			unit = new Unit(Grid::GetInstance(), apple2);
+			apples.push_back(apple2);
+			apple3 = new Apple();
+			apple3->SetSpawnBox1(184, 324, 172, 336);
+			unit = new Unit(Grid::GetInstance(), apple3);
+			apples.push_back(apple3);
+			apple4 = new Apple();
+			apple4->SetSpawnBox1(196, 312, 184, 324);
+			unit = new Unit(Grid::GetInstance(), apple4);
+			apples.push_back(apple4);
+		}
+		else
+		{
+			apple1 = new Apple();
+			apple1->SetSpawnBox1(172, 516, 160, 528);
+			unit = new Unit(Grid::GetInstance(), apple1);
+			apples.push_back(apple1);
+			apple2 = new Apple();
+			apple2->SetSpawnBox1(184, 504, 172, 516);
+			unit = new Unit(Grid::GetInstance(), apple2);
+			apples.push_back(apple2);
+			apple3 = new Apple();
+			apple3->SetSpawnBox1(184, 528, 172, 540);
+			unit = new Unit(Grid::GetInstance(), apple3);
+			apples.push_back(apple3);
+			apple4 = new Apple();
+			apple4->SetSpawnBox1(196, 516, 184, 528);
+			unit = new Unit(Grid::GetInstance(), apple4);
+			apples.push_back(apple4);
+		}
 	}
 }
 

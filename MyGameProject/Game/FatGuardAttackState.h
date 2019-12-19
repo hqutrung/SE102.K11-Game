@@ -5,9 +5,7 @@
 class FatGuardAttackState : public EnemyState
 {
 public:
-	FatGuardAttackState() {};
 	FatGuardAttackState(EnemyData* data);
-	~FatGuardAttackState() {};
 	void Update(float dt) override;
 	void ResetState() override;
 private:

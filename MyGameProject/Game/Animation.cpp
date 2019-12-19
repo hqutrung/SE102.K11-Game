@@ -9,6 +9,10 @@ Animation::Animation(float defaultTime)
 
 Animation::~Animation()
 {
+	for (size_t i = 0; i < frames.size(); i++) {
+		delete frames[i];
+		frames[i] = NULL;
+	}
 }
 
 void Animation::AddFrame(LPANIMATION_FRAME frame)

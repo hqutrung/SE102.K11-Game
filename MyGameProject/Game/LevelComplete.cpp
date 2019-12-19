@@ -8,6 +8,12 @@ LevelComplele::LevelComplele()
 
 LevelComplele::~LevelComplele()
 {
+	delete title;
+	title = NULL;
+	delete monkey;
+	monkey = NULL;
+	delete player;
+	player = NULL;
 }
 
 void LevelComplele::LoadContent()

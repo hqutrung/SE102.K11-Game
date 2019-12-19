@@ -15,6 +15,17 @@ FatGuard::FatGuard() : Enemy()
 
 FatGuard::~FatGuard()
 {
+	delete fatguardAttackState;
+	fatguardAttackState = NULL;
+	delete fatGuardFollowPlayerState;
+	fatGuardFollowPlayerState = NULL;
+	delete fatGuardIdleState;
+	fatGuardIdleState = NULL;
+	delete fatGuardInjuredState;
+	fatGuardInjuredState = NULL;
+	delete fatGuardProvokeState;
+	fatGuardProvokeState = NULL;
+	Enemy::~Enemy();
 }
 
 void FatGuard::Update(float dt)

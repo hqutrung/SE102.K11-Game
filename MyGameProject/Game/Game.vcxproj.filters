@@ -70,9 +70,6 @@
     <ClCompile Include="Item.cpp">
       <Filter>Header Files\Objects\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Apple.cpp">
-      <Filter>Header Files\Objects\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Header Files\FrameWork</Filter>
     </ClCompile>
@@ -250,9 +247,6 @@
     <ClCompile Include="EnemyExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
-    <ClCompile Include="BossExplosion.cpp">
-      <Filter>Header Files\Objects\Effect\Explosion</Filter>
-    </ClCompile>
     <ClCompile Include="SmallItemExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClCompile>
@@ -279,9 +273,6 @@
     </ClCompile>
     <ClCompile Include="SkeletonWeaponExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
-    </ClCompile>
-    <ClCompile Include="Data.cpp">
-      <Filter>Header Files\Objects\Surface</Filter>
     </ClCompile>
     <ClCompile Include="IntroScene.cpp">
       <Filter>Header Files\Scene</Filter>
@@ -339,6 +330,12 @@
     </ClCompile>
     <ClCompile Include="JafarExplosion.cpp">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Header Files\Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Header Files\Objects\General</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -591,9 +588,6 @@
     <ClInclude Include="EnemyExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClInclude>
-    <ClInclude Include="BossExplosion.h">
-      <Filter>Header Files\Objects\Effect\Explosion</Filter>
-    </ClInclude>
     <ClInclude Include="SmallItemExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
     </ClInclude>
@@ -617,9 +611,6 @@
     </ClInclude>
     <ClInclude Include="SkeletonWeapon.h">
       <Filter>Header Files\Objects\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="Data.h">
-      <Filter>Header Files\Objects\Surface</Filter>
     </ClInclude>
     <ClInclude Include="SkeletonWeaponExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
@@ -680,6 +671,9 @@
     </ClInclude>
     <ClInclude Include="JafarExplosion.h">
       <Filter>Header Files\Objects\Effect\Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Header Files\Objects\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

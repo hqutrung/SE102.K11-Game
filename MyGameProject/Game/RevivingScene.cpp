@@ -11,6 +11,10 @@ RevivingScene::RevivingScene()
 
 RevivingScene::~RevivingScene()
 {
+	delete monkey;
+	monkey = NULL;
+	delete player;
+	player = NULL;
 }
 
 void RevivingScene::LoadContent()

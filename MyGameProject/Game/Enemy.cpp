@@ -13,7 +13,10 @@ Enemy::Enemy() : Entity() {
 
 Enemy::~Enemy()
 {
-
+	delete enemyData;
+	enemyData = NULL;
+	delete effect;
+	effect = NULL;
 }
 
 void Enemy::Update(float dt)

@@ -8,10 +8,6 @@ ExitPort::ExitPort() : Surface() {
 	sprite = new Sprites(textures->GetTexture(TEX_EXITPORT), BoxCollider());
 }
 
-ExitPort::~ExitPort()
-{
-}
-
 void ExitPort::SetSpawnBox(BoxCollider box)
 {
 	Surface::SetSpawnBox(box);

@@ -71,7 +71,6 @@ Graphic::~Graphic()
 	if (d3d != NULL) {
 		d3d->Release();
 	}
-
 	if (spriteHandler != NULL) {
 		spriteHandler->Release();
 	}

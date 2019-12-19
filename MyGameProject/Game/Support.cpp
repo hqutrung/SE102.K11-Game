@@ -39,6 +39,7 @@ void Support::DrawRect(D3DXVECTOR3 pos, BoxCollider box)
 	Sprites* sprite = new Sprites(texture, box);
 	sprite->Draw(pos, box, D3DCOLOR_ARGB(130, 255, 255, 255));
 	delete sprite;
+	sprite = NULL;
 }
 
 float Support::LengthOfVector(D3DXVECTOR2 vector)

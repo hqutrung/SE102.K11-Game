@@ -12,6 +12,9 @@ Skeleton::Skeleton() : Enemy() {
 
 Skeleton::~Skeleton()
 {
+	delete skeletonIdleState;
+	skeletonIdleState = NULL;
+	Enemy::~Enemy();
 }
 
 void Skeleton::Update(float dt)
