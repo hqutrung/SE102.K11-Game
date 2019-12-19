@@ -4,7 +4,7 @@ SkeletonIdleState::SkeletonIdleState(EnemyData* data) : EnemyState(data)
 {
 	isExplosive = false;
 	e_Animation = new Animation();
-	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 7, 1, 8, 10, 10, 8, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
+	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 7, 1, 8, 10, 10, 8, 10, 0.08f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
 void SkeletonIdleState::Update(float dt)

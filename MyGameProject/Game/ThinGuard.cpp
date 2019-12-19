@@ -8,7 +8,7 @@ ThinGuard::ThinGuard() : Enemy()
 	thinGuardIdlePlayerState = new ThinGuardIdleState(enemyData);
 	thinGuardInjuredState = new ThinGuardInjuredState(enemyData);
 	point = 0;
-	Hp = 3;
+	Hp = 2;
 	
 }
 
