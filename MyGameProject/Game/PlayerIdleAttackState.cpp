@@ -40,6 +40,8 @@ void PlayerIdleAttackState::Update(float dt)
 	case 4:
 		m_Animation->SetDefaultTime(0.05f);
 		break;
+	case 5:
+		
 	default:
 		m_Animation->SetDefaultTime(0.06f);
 		break;

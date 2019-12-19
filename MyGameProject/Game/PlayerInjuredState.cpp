@@ -17,7 +17,8 @@ void PlayerInjuredState::Render()
 void PlayerInjuredState::Update(float dt)
 {
 	auto player = Player::GetInstance();
-
+	/*if (m_Animation->GetCurrentFrameID() ==1)
+		player->SetVx(0);*/
 	if (m_Animation->IsLastFrame(dt))
 		player->SetState(Idle);
 	PlayerState::Update(dt);

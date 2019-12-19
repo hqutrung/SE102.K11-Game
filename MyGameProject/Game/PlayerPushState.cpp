@@ -23,14 +23,14 @@ void PlayerPushState::Update(float dt)
 
 	auto player = Player::GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-
-	
+	if (m_Animation->GetCurrentFrameID() == 0);
+		Sound::GetInstance()->PlayFX(ALADDIN_PUSH);
 	if (m_Animation->IsLastFrame(dt) == true)
 	{
 		m_Animation->countLoopFrame++;
 		m_Animation->SetCurrentFrame(1);
 	}
-	
+
 	if ((keyboard->GetKey(RIGHT_ARROW) && player->GetMoveDirection() == Player::MoveDirection::LeftToRight)
 		|| (keyboard->GetKey(LEFT_ARROW) && player->GetMoveDirection() == Player::MoveDirection::RightToLeft))
 	{
@@ -48,6 +48,10 @@ void PlayerPushState::HandleInput()
 
 void PlayerPushState::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
 {
+	if (impactor->GetTag()== JAFARWEAPON)
+	{
+		Player::GetInstance()->SetState(Idle);
+	}
 }
 
 PlayerState::State PlayerPushState::GetStateName()

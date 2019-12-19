@@ -24,7 +24,7 @@ void PlayerSomersaultState::Update(float dt)
 	auto player = playerData->player->GetInstance();
 	if (player->status == Player::Status::Jumping)
 		player->SetVy(JUMP_SPEED);
-	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP - 5)
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP -5)
 	{
 		player->status = Player::Status::Falling;
 		player->SetVy(-JUMP_SPEED);
@@ -34,11 +34,11 @@ void PlayerSomersaultState::Update(float dt)
 	{
 		if (player->GetMoveDirection() == Entity::LeftToRight)
 		{
-			player->SetVx(-RUN_SPEED * 1.2f);
+			player->SetVx(-RUN_SPEED * 2);
 			player->SetMoveDirection(Player::LeftToRight);
 		}
 		else {
-			player->SetVx(RUN_SPEED * 1.2f);
+			player->SetVx(RUN_SPEED * 2);
 			player->SetMoveDirection(Player::RightToLeft);
 		}
 	}

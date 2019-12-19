@@ -36,19 +36,25 @@ void PlayerJumpCrossState::Update(float dt)
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 0:
-		m_Animation->SetDefaultTime(0.08);
+		m_Animation->SetDefaultTime(1.0f/30);
 		break;
 	case 1:
-		m_Animation->SetDefaultTime(0.15f);
+		m_Animation->SetDefaultTime(4.0f / 30);
 		break;
 	case 2:
-		m_Animation->SetDefaultTime(0.15f);
+		m_Animation->SetDefaultTime(3.0f / 30);
 		break;
 	case 3:
-		m_Animation->SetDefaultTime(0.15f);
+		m_Animation->SetDefaultTime(4.0f / 30);
+		break;
+	case 4:
+		m_Animation->SetDefaultTime(6.0f / 30);
+		break;
+	case 5:
+		m_Animation->SetDefaultTime(7.0f / 30);
 		break;
 	default:
-		m_Animation->SetDefaultTime(0.25f);
+		m_Animation->SetDefaultTime(7.0f / 30);
 		break;
 	}
 

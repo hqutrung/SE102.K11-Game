@@ -89,6 +89,10 @@ public:
 	bool isReviving = false;
 	bool isDied = false;
 
+	// keo
+	bool isPulled = false;
+	float timePull = 0;
+	void Pulled();
 
 protected:
 	static Player* instance;
