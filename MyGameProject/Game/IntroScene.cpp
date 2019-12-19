@@ -65,7 +65,7 @@ void IntroScene::Update(float dt)
 	{
 		if (sceneM->GetSceneLv() == 1)
 		{
-			sceneM->LoadScene(SCENE_1);
+			sceneM->LoadScene(ID_SULTAN_DUNGEON);
 			return;
 		}
 		else if (sceneM->GetSceneLv() == 2)

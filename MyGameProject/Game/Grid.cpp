@@ -299,7 +299,20 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	auto rectEnt1 = ent1->GetRect();
 	auto rectEnt2 = ent2->GetRect();
 
-	// apple and enemy
+	// eWeapon vs Player
+
+	if (ent1->GetType() == PlayerType && ent2->GetType() == eWeapon)
+	{
+		auto e = (Player*)ent1;
+		rectEnt1 = e->GetBody();
+	}
+	else if (ent2->GetType() == PlayerType && ent1->GetType() == eWeapon)
+	{
+		auto e = (Player*)ent2;
+		rectEnt2 = e->GetBody();
+	}
+
+	// tao vs enemy
 	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
 	{
 		auto e = (Enemy*)ent2;
@@ -311,8 +324,6 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		rectEnt1 = e1->GetBody();
 	}
 
-	if ((ent1->GetTag() == PLAYER && ent2->GetTag() == APPLE) || (ent2->GetTag() == PLAYER && ent1->GetTag() == APPLE))
-		int x = 0;
 	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), rectEnt2, ent2->GetVelocity(), side, dt);
 
 

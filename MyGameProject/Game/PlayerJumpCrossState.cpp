@@ -22,21 +22,21 @@ void PlayerJumpCrossState::Render()
 void PlayerJumpCrossState::Update(float dt)
 {
 	auto player = playerData->player->GetInstance();
-	if(player->status == Player::Status::Jumping)
-		player->SetVy(JUMP_SPEED*0.9f);
-	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP-3)
+	if (player->status == Player::Status::Jumping)
+		player->SetVy(JUMP_SPEED * 0.9f);
+	if (player->GetPosition().y >= player->lastposition.y + MAX_JUMP - 3)
 	{
 		player->status = Player::Status::Falling;
-		player->SetVy(-JUMP_SPEED*0.9f);
+		player->SetVy(-JUMP_SPEED * 0.9f);
 	}
 	// diem dung tam thoi
-	
+
 
 	// set time frame
 	switch (m_Animation->GetCurrentFrameID())
 	{
 	case 0:
-		m_Animation->SetDefaultTime(1.0f/30);
+		m_Animation->SetDefaultTime(1.0f / 30);
 		break;
 	case 1:
 		m_Animation->SetDefaultTime(4.0f / 30);
@@ -90,14 +90,14 @@ void PlayerJumpCrossState::HandleInput()
 	if (keyboard->GetKey(RIGHT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::LeftToRight);
-		player->SetVx(RUN_SPEED*1.2f);
+		player->SetVx(RUN_SPEED * 1.2f);
 		return;
 	}
 	// Nếu ấn left-arrow thì chạy qua trái
 	if (keyboard->GetKey(LEFT_ARROW))
 	{
 		player->SetMoveDirection(Entity::MoveDirection::RightToLeft);
-		player->SetVx(-RUN_SPEED *1.2f);
+		player->SetVx(-RUN_SPEED * 1.2f);
 		return;
 	}
 	player->SetVx(0);
@@ -127,4 +127,11 @@ void PlayerJumpCrossState::ResetState(int dummy)
 	player->SetColliderTop(25);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
+}
+
+BoxCollider PlayerJumpCrossState::GetBody()
+{
+	auto player = Player::GetInstance();
+	BoxCollider box = BoxCollider(player->GetPosition().y + 30, player->GetPosition().x - 10, player->GetPosition().x + 10, player->GetPosition().y - 12);
+	return box;
 }

@@ -102,6 +102,10 @@ void PlayerJumpAttackState::OnCollision(Entity* impactor, Entity::SideCollision 
 	{
 		player->SetState(TouchGroud);
 	}
+	if (impactor->GetTag() == JAFAR)
+	{
+		Player::GetInstance()->SetState(Somersault);
+	}
 }
 
 PlayerState::State PlayerJumpAttackState::GetStateName()
@@ -118,4 +122,9 @@ void PlayerJumpAttackState::ResetState(int dummy)
 	player->SetColliderTop(46);
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
+}
+
+BoxCollider PlayerJumpAttackState::GetBody()
+{
+	return Player::GetInstance()->GetState(JumpCross)->GetBody();
 }

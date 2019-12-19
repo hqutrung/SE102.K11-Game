@@ -114,3 +114,8 @@ void PlayerJumpThrowState::ResetState(int dummy)
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }
+
+BoxCollider PlayerJumpThrowState::GetBody()
+{
+	return Player::GetInstance()->GetState(JumpCross)->GetBody();
+}

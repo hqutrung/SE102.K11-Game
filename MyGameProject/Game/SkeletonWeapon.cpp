@@ -30,10 +30,6 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 			newVelocity.x *= collisionTime;
 		if (side == Bottom)
 			newVelocity.y *= collisionTime;
-		/*if (side == Bottom)
-			SetVy(-velocity.y);
-		if (side == Right || side == Left)
-			SetVx(-velocity.x);*/
 		if (collisionTime > 0) {
 			velocity = newVelocity;
 			isCollideWithWall = true;

@@ -74,23 +74,24 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 
 	if (impactor->GetType() == pWeapon)
 	{
-			Sound::GetInstance()->PlayFX(JAFAR_INJURED);
-			Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
-			{
-				effect = new EffectChain(new BigItemExplosion(position));
-				Grid::GetInstance()->AddEffect(effect);
-			}
-			Hp--;
-			if (Hp == 20) {
-				Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
-				TurnOutSnake();
-			}
-			else if (Hp == 0) {
-				Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
-				OnDestroy();
-				isDied = true;
-				delaytime = 0.5f;
-			}
+		Sound::GetInstance()->PlayFX(JAFAR_INJURED);
+		Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
+
+		effect = new EffectChain(new BigItemExplosion(position));
+		Grid::GetInstance()->AddEffect(effect);
+		Hp--;
+		if (Hp == 20) 
+		{
+			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
+			TurnOutSnake();
+		}
+		else if (Hp == 0) 
+		{
+			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
+			OnDestroy();
+			isDied = true;
+			delaytime = 0.5f;
+		}
 	}
 }
 
@@ -101,7 +102,7 @@ void Jafar::SetState(EnemyState::eState state)
 		currentStateName = EnemyState::Idle;
 	}
 	else if (state == EnemyState::Attack) {
-		if(!isSnake)
+		if (!isSnake)
 			enemyData->enemyState = jafarAttackState;
 		else
 			enemyData->enemyState = snakeAttackState;

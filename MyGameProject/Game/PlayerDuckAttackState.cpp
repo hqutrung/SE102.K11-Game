@@ -86,3 +86,8 @@ void PlayerDuckAttackState::ResetState(int dummy)
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }
+
+BoxCollider PlayerDuckAttackState::GetBody()
+{
+	return Player::GetInstance()->GetState(Duck)->GetBody();
+}

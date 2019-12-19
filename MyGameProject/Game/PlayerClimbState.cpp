@@ -129,3 +129,9 @@ void PlayerClimbState::ResetState(int dummy)
 	player->SetColliderBottom(-24);
 	PlayerState::ResetState(dummy);
 }
+
+BoxCollider PlayerClimbState::GetBody()
+{
+	auto pos = Player::GetInstance()->GetPosition();
+	return BoxCollider(pos.y + 37, pos.x - 6, pos.x + 6, pos.y - 24);
+}

@@ -104,6 +104,8 @@
 #define JAFAR_INJURED 32
 #define JAFAR_DESTROY 33
 #define PEDDLE_SHOP 34
+#define CASH 35
+#define CASH1 36 
 // SOUND
 
 // CAMERA
@@ -115,13 +117,12 @@
 
 
 // SCENE ID
-#define SCENE_1 1
+#define ID_SULTAN_DUNGEON 1
 #define ID_RIVIVING_SCENE 2
 #define ID_INTRO_SCENE 3
 #define ID_COMPLETE_SCENE 4
 #define SCENE_JAFAR_PALACE 5
 #define ID_CONTINUE_SCENE 6
-// SCENE ID
 
 
 // GRID
