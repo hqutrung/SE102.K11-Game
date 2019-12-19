@@ -151,6 +151,14 @@ Player::~Player()
 }
 void Player::Update(float dt)
 {
+	//keo
+	if (isPulled == true)
+	{
+		Pulled();
+	}
+
+	timePull += dt;
+	//
 	if (posRevival == D3DXVECTOR3(0, 0, 0))
 	{
 		posRevival = SceneManager::GetInstance()->GetStartPos();
@@ -765,16 +773,8 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 	{
 		if (impactorTag == JAFARWEAPON)
 		{
-			int a = abs(Jafar::GetInstance()->GetDisToPlayer().x);
-			auto veloc = D3DXVECTOR2((400 - a) * 3, 0); bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
-			if (isCol)
-				veloc.x = 0;
-			if (Jafar::GetInstance()->GetDisToPlayer().x < 0) {
-				newVelocity = velocity - veloc;
-			}
-			else {
-				newVelocity = velocity + veloc;
-			}
+			isPulled = true;
+			timePull = 0;
 		}
 		else
 		{
@@ -818,7 +818,7 @@ void Player::ThrowApple(D3DXVECTOR3 posApple)
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 
-	if(ObjectPooling::GetInstance()->SingleInstantiate(APPLE_WEAPON_INDEX, posApple))
+	if (ObjectPooling::GetInstance()->SingleInstantiate(APPLE_WEAPON_INDEX, posApple))
 		Sound::GetInstance()->PlayFX(ALADDIN_THROW_APPLE);
 	apples--;
 }
@@ -831,4 +831,28 @@ void Player::ReloadData()
 	SetScores(sceneM->GetScores());
 	SetApples(sceneM->GetApples());
 	SetGems(sceneM->GetGems());
+}
+
+void Player::Pulled()
+{
+	if (timePull <= 0.2f)
+	{
+		D3DXVECTOR2 newVelocity = velocity;
+		if (GetCurrentState()->GetStateName() != PlayerState::Somersault)
+		{
+			int a = abs(Jafar::GetInstance()->GetDisToPlayer().x);
+			auto veloc = D3DXVECTOR2((400 - a) * 0.4, 0);
+			bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
+			if (isCol)
+				SetVx(0);
+			if (Jafar::GetInstance()->GetDisToPlayer().x < 0) {
+				newVelocity = velocity - veloc;
+			}
+			else {
+				newVelocity = velocity + veloc;
+			}
+		}
+		velocity = newVelocity;
+	}
+	else isPulled = false;
 }

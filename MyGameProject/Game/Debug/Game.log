@@ -1,6 +1,15 @@
-﻿  Jafar.cpp
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar.cpp(39,24): warning C4101: 'side1': unreferenced local variable
-  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe
+﻿  Player.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(843,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  PlayerPushState.cpp
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(844,39): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
+E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+E:\SE102.K11-Game\MyGameProject\Game\PlayerPushState.cpp(26,44): warning C4390: ';': empty controlled statement found; is this the intent?
+E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(429): warning C4715: 'Player::GetState': not all control paths return a value
+  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe

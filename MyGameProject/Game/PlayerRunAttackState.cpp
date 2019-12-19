@@ -39,6 +39,7 @@ void PlayerRunAttackState::Update(float dt)
 	switch (frameID)
 	{
 	case 0:
+		Sound::GetInstance()->PlayFX(ALADDIN_IDLE_SPLASH);
 	case 1:
 	case 2:
 		m_Animation->SetDefaultTime(0.03f);
