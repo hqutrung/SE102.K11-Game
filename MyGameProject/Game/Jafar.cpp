@@ -14,7 +14,7 @@ Jafar::Jafar() : Enemy()
 	snakeAttackState = new SnakeAttackState(enemyData);
 	point = 0;
 	Hp = 30;
-	delaytime = 0;
+	delaytime = 0.5f;
 	isAttack = true;
 	isSnake = false;
 	instance = this;
@@ -39,8 +39,20 @@ Jafar* Jafar::GetInstance()
 	return instance;
 }
 
+void Jafar::Render()
+{
+	if (!isDied)
+		enemyData->enemyState->Render();
+}
+
 void Jafar::Update(float dt)
 {
+	if (isDied)
+	{
+		SceneManager::GetInstance()->isEndScene2 = true;
+		SceneManager::GetInstance()->isCompleteScene2 = true;
+		return;
+	}
 	D3DXVECTOR2 dis = GetDisToPlayer();
 	SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 
@@ -57,16 +69,6 @@ void Jafar::Update(float dt)
 		SetState(EnemyState::Attack);
 
 	Enemy::Update(dt);
-
-	if (isDied)
-	{
-		if (delaytime <= 0) {
-			SceneManager::GetInstance()->isEndScene2 = true;
-			SceneManager::GetInstance()->isCompleteScene2 = true;
-			return;
-		}
-		delaytime -= dt;
-	}
 }
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
@@ -89,8 +91,6 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 		{
 			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
 			OnDestroy();
-			isDied = true;
-			delaytime = 0.5f;
 		}
 	}
 }
@@ -130,10 +130,11 @@ void Jafar::Spawn()
 
 void Jafar::OnDestroy()
 {
+	isDied = true;
+	SetActive(false);
 	auto pos = position + D3DXVECTOR3(0, 10, 0);
 	effect = new EffectChain(new JafarExplosion(pos));
 	Grid::GetInstance()->AddEffect(effect);
-	SetActive(false);
 	//Player::GetInstance()->AddScores(GetPoint());
 	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
 }

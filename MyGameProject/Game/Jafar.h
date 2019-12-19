@@ -17,6 +17,7 @@ public:
 	Jafar();
 	~Jafar();
 	static Jafar* GetInstance();
+	void Render() override;
 	void Update(float dt) override;
 	void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60) override;
 	void SetState(EnemyState::eState state);

@@ -92,6 +92,7 @@ Player::Player() : Entity()
 	posRevival = position;
 	width = 37;
 	height = 55;
+	apples = 70;
 }
 
 Player::~Player()

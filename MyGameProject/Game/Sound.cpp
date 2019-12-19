@@ -53,7 +53,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[APPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
 	DSBuffer[MONKEY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Monkey.wav");
 	DSBuffer[ENEMY_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/EnemyExplosive.wav");
-	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor1.wav");
+	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor.wav");
 	DSBuffer[JAFAR_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarInjured.wav");
 	DSBuffer[JAFAR_DESTROY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarDestroy.wav");
 	DSBuffer[PEDDLE_SHOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/PeddlerShop.wav");

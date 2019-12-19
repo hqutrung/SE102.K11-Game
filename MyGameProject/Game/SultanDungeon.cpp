@@ -8,12 +8,20 @@ SultanDungeon::SultanDungeon()
 
 SultanDungeon::~SultanDungeon()
 {
+	delete map;
+	map = NULL;
+	delete camera;
+	camera = NULL;
+	delete _wish;
+	_wish = NULL;
+	delete _wish1;
+	_wish1 = NULL;
 }
 
 void SultanDungeon::LoadContent()
 {
 	auto texs = Textures::GetInstance();
-	map = new GameMap(ID_SULTAN_DUNGEON, (char*)"Resources/tileset16.png", (char*)"Resources/tilemap16.txt", (char*)"Resources/gridBuilt.txt", 16, 16);
+	map = new GameMap(ID_SULTAN_DUNGEON, (char*)"Resources/Maps/1tileset.png", (char*)"Resources/Maps/1tilemap.txt", (char*)"Resources/Maps/1gridBuilt.txt", 16, 16);
 
 	int width = Graphic::GetInstance()->GetBackBufferWidth();
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
