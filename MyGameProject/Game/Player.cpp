@@ -722,8 +722,14 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				{
 					if (gems >= 5)
 					{
+						auto a = (Scene1*)SceneManager::GetInstance()->GetPlayScene();
+						a->drawWish = true;
 						lifes++;
 						gems -= 5;
+					}
+					else {
+						auto a = (Scene1*)SceneManager::GetInstance()->GetPlayScene();
+						a->drawWish1 = true;
 					}
 				}
 			}

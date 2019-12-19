@@ -29,7 +29,7 @@ void Scene1::LoadContent()
 	player->SetPosition(100, 100);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
-	player->SetPosition(2100, 1000);
+	//player->SetPosition(2100, 1000);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
@@ -42,6 +42,14 @@ void Scene1::LoadContent()
 
 	pool->AddSkeleton(20);
 	srand(time(NULL));
+
+	texs->Add(111111, "Resources/Scene/deal.png", D3DCOLOR_XRGB(255, 0, 255));
+	_wish = new Sprites(texs->GetTexture(111111), BoxCollider());
+	posWish = D3DXVECTOR3(SCREEN_WIDTH / 2  /*-_wish->GetWidth() / 2*/, SCREEN_HEIGHT / 3, 0);
+
+	texs->Add(111112, "Resources/Scene/moreGems.png", D3DCOLOR_XRGB(255, 0, 255));
+	_wish1 = new Sprites(texs->GetTexture(111112), BoxCollider());
+	posWish1 = D3DXVECTOR3(SCREEN_WIDTH / 2 /*- _wish1->GetWidth() / 2*/, SCREEN_HEIGHT / 3, 0);
 }
 
 void Scene1::Update(float dt)
@@ -66,7 +74,7 @@ void Scene1::Update(float dt)
 
 	// suface Data
 	data->Update(dt);
-
+	DrawWish(dt);
 	// chuyen scene Rviving
 	if (isTransition == true)
 	{
@@ -85,11 +93,16 @@ void Scene1::Update(float dt)
 
 void Scene1::Render()
 {
+
 	if (SceneManager::GetInstance()->isEndScene1 == true)
 		return;
 	map->Draw();
 	map->GetGrid()->Render();
 	data->Render();
+	if (drawWish == true)
+		_wish->NormalDraw(posWish);
+	if (drawWish1 == true)
+		_wish1->NormalDraw(posWish1);
 }
 
 int Scene1::GetSceneID()
@@ -132,5 +145,23 @@ void Scene1::CheckActive()
 void Scene1::CheckCollision(float dt)
 {
 	map->GetGrid()->HandMelee(dt);
+}
+
+void Scene1::DrawWish(float dt)
+{
+	if (drawWish)
+		posWish = D3DXVECTOR3(posWish.x - RUN_SPEED * dt, posWish.y, 0);
+	if (drawWish1)
+		posWish1 = D3DXVECTOR3(posWish1.x - RUN_SPEED * dt, posWish1.y, 0);
+	if (posWish.x + _wish->GetWidth() < 0)
+	{
+		posWish = D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3, 0);
+		drawWish = false;
+	}
+	if (posWish1.x + _wish1->GetWidth() < 0)
+	{
+		posWish1 = D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3, 0);
+		drawWish1 = false;
+	}
 }
 
