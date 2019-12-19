@@ -501,12 +501,6 @@ void Grid::RenderUnit(Unit* unit)
 			// Draw ObjectRect
 			if (isDrawRect) {
 				BoxCollider boundbox = unit->entity->GetRect();
-				if (unit->entity->GetTag() == JAFAR)
-				{
-					Enemy* enemy = (Enemy*)unit->entity;
-					boundbox = enemy->GetBody();
-				}
-				
 				D3DXVECTOR3 position = (D3DXVECTOR3)boundbox.getCenter();
 				Support::DrawRect(position, boundbox);
 			}

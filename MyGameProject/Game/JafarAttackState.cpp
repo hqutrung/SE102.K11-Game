@@ -3,7 +3,7 @@
 JafarAttackState::JafarAttackState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
-	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 2, 1, 8, 8, 2, 10, 0.08f, D3DCOLOR_XRGB(255, 0, 255));
+	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 2, 1, 8, 8, 2, 10, 0.11f, D3DCOLOR_XRGB(255, 0, 255));
 	attackTime = 0.3f;
 	delaytime = 0.12f;
 	isReloading = false;
@@ -11,11 +11,6 @@ JafarAttackState::JafarAttackState(EnemyData* data) : EnemyState(data)
 
 void JafarAttackState::Update(float dt)
 {
-	/*auto player = Player::GetInstance();
-	auto enemy = enemyData->enemy;
-	bool isCol = CollisionDetector::IsCollide(player->GetRect(), enemy->GetBody());
-	if (isCol & !Jafar::GetInstance()->IsSnake())
-		enemy->SetState(EnemyState::Idle);*/
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0);
@@ -54,7 +49,6 @@ void JafarAttackState::Render()
 
 void JafarAttackState::ResetState()
 {
-	auto e = enemyData->enemy;
 }
 
 void JafarAttackState::UseWeapon()

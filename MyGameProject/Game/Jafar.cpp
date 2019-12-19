@@ -67,22 +67,25 @@ void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 
 	if (impactor->GetType() == pWeapon)
 	{
-		Sound::GetInstance()->PlayFX(JAFAR_INJURED);
-		Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
-		{
-			effect = new EffectChain(new BigItemExplosion(position));
-			Grid::GetInstance()->AddEffect(effect);
-		}
-		Hp--;
-		if (Hp == 20) {
-			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
-			TurnOutSnake();
-		}
-		else if (Hp == 0) {
-			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
-			OnDestroy();
-			isDied = true;
-			delaytime = 0.5f;
+		bool isCol = CollisionDetector::IsCollide(impactor->GetRect(), GetBody());
+		if (isCol) {
+			Sound::GetInstance()->PlayFX(JAFAR_INJURED);
+			Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
+			{
+				effect = new EffectChain(new BigItemExplosion(position));
+				Grid::GetInstance()->AddEffect(effect);
+			}
+			Hp--;
+			if (Hp == 20) {
+				Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
+				TurnOutSnake();
+			}
+			else if (Hp == 0) {
+				Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
+				OnDestroy();
+				isDied = true;
+				delaytime = 0.5f;
+			}
 		}
 	}
 }
@@ -106,12 +109,11 @@ void Jafar::SetState(EnemyState::eState state)
 void Jafar::SetSpawnBox(BoxCollider box, int direction)
 {
 	Enemy::SetSpawnBox(box, direction);
-	/*SetColliderTop(54);
-	SetColliderBottom(-25);
-	SetColliderRight(34);
-	SetColliderLeft(-34);*/
-	//SetBodyBox(30, -34, 34, -45);
-	//collider = bodyBox;
+	SetColliderTop(30);
+	SetColliderBottom(-35);
+	SetColliderRight(40);
+	SetColliderLeft(-40);
+	SetBodyBox(30, -10, 24, -35);
 }
 
 void Jafar::Spawn()
@@ -119,8 +121,6 @@ void Jafar::Spawn()
 	SetState(EnemyState::Attack);
 	Enemy::Spawn();
 
-	enemyData->enemy->SetBodyBox(30, -6, 20, -35);
-	collider = bodyBox;
 }
 
 void Jafar::OnDestroy()

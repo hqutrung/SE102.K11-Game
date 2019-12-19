@@ -47,7 +47,7 @@ void JafarPalace::LoadContent()
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	pool->AddApple();
-	pool->AddSnakeWeapon(2);
+	pool->AddSnakeWeapon(3);
 	pool->AddFire(5);
 	pool->AddJafarWeapon(50);
 	srand(time(NULL));

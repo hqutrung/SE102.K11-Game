@@ -29,12 +29,12 @@ void SnakeAttackState::Render()
 
 void SnakeAttackState::ResetState()
 {
-	auto e = enemyData->enemy;
+	/*auto e = enemyData->enemy;
 	e->SetColliderLeft(-15);
 	e->SetColliderRight(24);
 	e->SetColliderTop(33);
 	e->SetColliderBottom(-26);
-	e->SetBodyBox(32, -15, 26, -26);
+	e->SetBodyBox(32, -15, 26, -26);*/
 }
 
 void SnakeAttackState::PuffFire()

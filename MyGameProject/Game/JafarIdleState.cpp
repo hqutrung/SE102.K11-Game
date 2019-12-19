@@ -9,16 +9,6 @@ JafarIdleState::JafarIdleState(EnemyData* data) : EnemyState(data)
 
 void JafarIdleState::Update(float dt)
 {
-	/*auto player = Player::GetInstance();
-	auto enemy = enemyData->enemy;
-	bool isCol = CollisionDetector::IsCollide(player->GetRect(), enemy->GetBody());
-	if (isCol & !Jafar::GetInstance()->IsSnake()) {
-		if(delaytime <=0)
-			enemy->SetState(EnemyState::Attack);
-		delaytime -= dt;
-	}
-	else
-		delaytime = 0.1f;*/
 	auto enemy = enemyData->enemy;
 	enemy->SetVx(0);
 	enemy->SetVy(0); 
@@ -33,10 +23,4 @@ void JafarIdleState::Render()
 
 void JafarIdleState::ResetState()
 {
-	auto e = enemyData->enemy;/*
-	e->SetColliderLeft(-15);
-	e->SetColliderRight(24);
-	e->SetColliderTop(33);
-	e->SetColliderBottom(-26);
-	e->SetBodyBox(32, -15, 26, -26);*/
 }
