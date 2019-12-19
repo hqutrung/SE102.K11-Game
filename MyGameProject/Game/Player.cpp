@@ -746,7 +746,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 			}
 		}
 
-		if (impactorTag == JAFAR)
+		/*if (impactorTag == JAFAR)
 		{
 			bool isCol = CollisionDetector::IsCollide(GetRect(), Jafar::GetInstance()->GetBody());
 			if (isCol) {
@@ -755,7 +755,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				else
 					newVelocity.x = -800;
 			}
-		}
+		}*/
 
 		//score
 

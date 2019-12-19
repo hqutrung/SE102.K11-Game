@@ -39,7 +39,6 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[SKELETON_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SkeletonExplosive.wav");
 	DSBuffer[SPIKES] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Spikes.wav");
 	DSBuffer[GUARD_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/GuardInjured.wav");
-	DSBuffer[JAFAR_SNAKE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarSnake.wav");
 	DSBuffer[SPLASH_WALL] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SplashWall.wav");
 	DSBuffer[WOW] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Wow.wav");
 	DSBuffer[APPPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
@@ -54,6 +53,10 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[SKELETON_COLIISION] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SkeletonCollision.wav");
 	DSBuffer[APPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");
 	DSBuffer[MONKEY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Monkey.wav");
+	DSBuffer[ENEMY_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/EnemyExplosive.wav");
+	DSBuffer[JAFAR_TRACTOR] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarTractor.wav");
+	DSBuffer[JAFAR_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarInjured.wav");
+	DSBuffer[JAFAR_DESTROY] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/JafarDestroy.wav");
 
 	if (!DSBuffer)
 	{

@@ -144,7 +144,7 @@ void Enemy::OnDestroy()
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
 	Player::GetInstance()->AddScores(GetPoint());
-	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
+	Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
 	//return EarnedData(point);
 }
 

@@ -13,7 +13,8 @@ Jafar::Jafar() : Enemy()
 	jafarAttackState = new JafarAttackState(enemyData);
 	snakeAttackState = new SnakeAttackState(enemyData);
 	point = 0;
-	Hp = 10;
+	Hp = 30;
+	delaytime = 0;
 	isAttack = true;
 	isSnake = false;
 	instance = this;
@@ -32,48 +33,52 @@ Jafar* Jafar::GetInstance()
 
 void Jafar::Update(float dt)
 {
-	auto player = Player::GetInstance();
 	D3DXVECTOR2 dis = GetDisToPlayer();
 	SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
+
+	Entity::SideCollision side1;
+	auto player = Player::GetInstance();
+	bool isCol = CollisionDetector::IsCollide(player->GetRect(), GetBody());
+
+	if (isCol & !isSnake)
+		SetState(EnemyState::Idle);
+	else
+		SetState(EnemyState::Attack);
+
 	Enemy::Update(dt);
-	
+
 	if (isDied)
 	{
-		SceneManager::GetInstance()->isEndScene2 = true;
-		SceneManager::GetInstance()->isCompleteScene2 = true;
-		return;
+		if (delaytime <= 0) {
+			SceneManager::GetInstance()->isEndScene2 = true;
+			SceneManager::GetInstance()->isCompleteScene2 = true;
+			return;
+		}
 	}
+	delaytime -= dt;
 }
 
 void Jafar::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
 {
 
-	Entity::SideCollision side1;
-
-	if (impactor->GetType() == PlayerType)
-	{
-		auto player = (Player*)impactor;
-		bool isCol = CollisionDetector::IsCollide(player->GetRect(), GetBody());
-
-		if (isCol)
-			SetState(EnemyState::Idle);
-		else
-			SetState(EnemyState::Attack);
-	}
-
 	if (impactor->GetType() == pWeapon)
 	{
+		Sound::GetInstance()->PlayFX(JAFAR_INJURED);
+		Sound::GetInstance()->PlayFX(ENEMY_EXPLOSIVE);
 		{
 			effect = new EffectChain(new BigItemExplosion(position));
 			Grid::GetInstance()->AddEffect(effect);
 		}
 		Hp--;
-		if (Hp == 5) {
+		if (Hp == 20) {
+			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
 			TurnOutSnake();
 		}
 		else if (Hp == 0) {
+			Sound::GetInstance()->PlayFX(JAFAR_DESTROY);
 			OnDestroy();
 			isDied = true;
+			delaytime = 0.5f;
 		}
 	}
 }
