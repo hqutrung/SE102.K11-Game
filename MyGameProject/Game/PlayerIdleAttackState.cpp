@@ -1,4 +1,5 @@
 #include "PlayerIdleAttackState.h"
+#include "Jafar.h"
 
 PlayerIdleAttackState::PlayerIdleAttackState(PlayerData* data)
 {
@@ -98,7 +99,9 @@ void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision 
 	}
 	if (impactor->GetTag() == JAFAR)
 	{
-		Player::GetInstance()->SetState(Somersault);
+		auto e = (Jafar*)impactor;
+		if (CollisionDetector::IsCollide(Player::GetInstance()->GetRect(), e->GetBody()))
+			Player::GetInstance()->SetState(Somersault);
 	}
 }
 
