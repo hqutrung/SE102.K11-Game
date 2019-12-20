@@ -747,8 +747,12 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		// Injured
 		if (!isImmortal)
 		{
+			bool isCol = false;
 			//ktra rectAttack cua enemy va Body cua Player co va cham?
-			bool isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
+			if (enemy->GetTag() == JAFAR)
+				isCol = CollisionDetector::IsCollide(this->GetBigBound(), impactorRect);
+			else
+				isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
 
 			//enemy trong trang thai Attack && va cham vs RectBody cua player
 			bool x = enemy->isAttack == true && isCol == true;

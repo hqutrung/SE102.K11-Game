@@ -47,6 +47,7 @@ void Jafar::Render()
 
 void Jafar::Update(float dt)
 {
+	isAttack = true;
 	if (isDied)
 	{
 		SceneManager::GetInstance()->isEndScene2 = true;

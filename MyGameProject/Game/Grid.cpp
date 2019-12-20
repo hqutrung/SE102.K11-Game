@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "ExitPort.h"
 #include"Enemy.h"
+#include "Jafar.h"
 
 Grid* Grid::instance = NULL;
 
@@ -323,6 +324,19 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		auto e1 = (Enemy*)ent1;
 		rectEnt1 = e1->GetBody();
 	}
+
+	// player vs Jafar
+	/*if (ent1->GetType() == PlayerType && ent2->GetTag()==JAFAR)
+	{
+		auto e = (Jafar*)ent2;
+		rectEnt2 = e->GetBody();
+	}
+	else if (ent2->GetType() == PlayerType && ent1->GetTag() == JAFAR)
+	{
+		auto e = (Jafar*)ent1;
+		rectEnt1 = e->GetBody();
+	}*/
+
 
 	colTime = CollisionDetector::SweptAABB(rectEnt1, ent1->GetVelocity(), rectEnt2, ent2->GetVelocity(), side, dt);
 
