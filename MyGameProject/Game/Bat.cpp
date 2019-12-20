@@ -8,10 +8,10 @@ Bat::Bat() : Enemy()
 	batFollowPlayerState = new BatFollowPlayerState(enemyData);
 	batIdleState = new BatIdleState(enemyData);
 	batRotateState = new BatRotateState(enemyData);
-	point = 200;
 	isCollidable = true;
-	Hp = 1;
 	isAttack = true;
+	point = 200;
+	Hp = 1;
 }
 
 Bat::~Bat()
@@ -30,17 +30,7 @@ void Bat::Update(float dt)
 	auto enemy = enemyData->enemy;
 	D3DXVECTOR2 dis = enemy->GetDisToPlayer();
 	D3DXVECTOR2 accelerate = D3DXVECTOR2(0, 0);
-	//SetMoveDirection(Camera::GetInstance()->GetPosition().x < position.x ? Entity::RightToLeft : Entity::LeftToRight);
 	Enemy::Update(dt);
-
-	//AddVelocity(accelerate);
-
-	//Enemy::Update(dt);
-}
-
-void Bat::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
-{
-	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void Bat::SetState(EnemyState::eState state)

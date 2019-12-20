@@ -7,7 +7,6 @@ class PlayerSomersaultState : public PlayerState
 public:
 	PlayerSomersaultState() {};
 	PlayerSomersaultState(PlayerData* data);
-	~PlayerSomersaultState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

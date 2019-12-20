@@ -10,10 +10,6 @@ PlayerLookUpState::PlayerLookUpState(PlayerData* data)
 
 }
 
-PlayerLookUpState::~PlayerLookUpState()
-{
-}
-
 void PlayerLookUpState::Render()
 {
 	PlayerState::Render();

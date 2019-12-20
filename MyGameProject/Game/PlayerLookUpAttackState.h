@@ -9,7 +9,6 @@ class PlayerLookUpAttackState : public PlayerState
 public:
 	PlayerLookUpAttackState() {};
 	PlayerLookUpAttackState(PlayerData* data);
-	~PlayerLookUpAttackState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

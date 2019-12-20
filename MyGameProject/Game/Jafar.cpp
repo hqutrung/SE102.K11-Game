@@ -12,12 +12,12 @@ Jafar::Jafar() : Enemy()
 	jafarIdleState = new JafarIdleState(enemyData);
 	jafarAttackState = new JafarAttackState(enemyData);
 	snakeAttackState = new SnakeAttackState(enemyData);
-	point = 0;
-	Hp = 30;
-	delaytime = 0.5f;
 	isAttack = true;
 	isSnake = false;
 	instance = this;
+	point = 0;
+	Hp = 30;
+	delaytime = 0.5f;
 	disToAttack = 20;
 }
 
@@ -135,8 +135,6 @@ void Jafar::OnDestroy()
 	auto pos = position + D3DXVECTOR3(0, 10, 0);
 	effect = new EffectChain(new JafarExplosion(pos));
 	Grid::GetInstance()->AddEffect(effect);
-	//Player::GetInstance()->AddScores(GetPoint());
-	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
 }
 
 void Jafar::TurnOutSnake()
@@ -160,7 +158,6 @@ void Jafar::FireAppear()
 	auto pos = Player::GetInstance()->GetPosition();
 	pos.x += 15;
 	ObjectPooling* pool = ObjectPooling::GetInstance();
-	if (ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, pos - D3DXVECTOR3(20, 0, 0))) {
-		// Play Sound
-	}
+	if (ObjectPooling::GetInstance()->SingleInstantiate(FIRE_INDEX, pos - D3DXVECTOR3(20, 0, 0))) 
+		Sound::GetInstance()->PlayFX(FIRE_SOUND);
 }

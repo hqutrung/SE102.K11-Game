@@ -224,8 +224,6 @@ void Grid::HandleInActiveUnit(Unit* unit)
 	while (other != NULL) {
 		unit = other;
 		unit->active = false;
-		//if (unit->entity->GetTag() != Tag::PLAYER)
-			//maybe unit value of this unit pointer delete
 		unit->entity->SetActive(false);
 		other = unit->pNext;
 	}
@@ -301,7 +299,7 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 
 	// eWeapon vs Player
 
-	if (ent1->GetType() == PlayerType && ent2->GetType() == eWeapon)
+	/*if (ent1->GetType() == PlayerType && ent2->GetType() == eWeapon)
 	{
 		auto e = (Player*)ent1;
 		rectEnt1 = e->GetBody();
@@ -310,9 +308,9 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 	{
 		auto e = (Player*)ent2;
 		rectEnt2 = e->GetBody();
-	}
+	}*/
 
-	// tao vs enemy
+	// apple and enemy
 	if (ent1->GetType() == pWeapon && ent2->GetType() == EnemyType)
 	{
 		auto e = (Enemy*)ent2;
@@ -357,7 +355,6 @@ void Grid::HandleCollision(Entity* ent1, Entity* ent2, float dt)
 		}
 		ent2->OnCollision(ent1, side, colTime, dt);
 	}
-
 }
 
 void Grid::HandleCellWithStatic(Unit* unit, float dt)
@@ -417,8 +414,6 @@ void Grid::Update(float dt)
 	{
 		if (staticObjects[i]->GetTag() == CHAINEDPILLAR)
 			int x = 0;
-		/*if ((staticObjects[i]->GetType() == ItemType && staticObjects[i]->IsActived()) || (staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR)
-			staticObjects[i]->Update(dt);*/
 		if ((staticObjects[i]->GetType() == ObstaclesType) || staticObjects[i]->GetTag() == CHAINEDPILLAR || staticObjects[i]->GetTag() == SNAKEPILLAR)
 			staticObjects[i]->Update(dt);
 	}
@@ -460,7 +455,6 @@ void Grid::Render()
 	// Draw items + obstacles
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		/*if ((staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {*/
 		if ((staticObjects[i]->GetTag() == SNAKEPILLAR))
 			continue;
 		if ((staticObjects[i]->GetType() == ObstaclesType) && staticObjects[i]->IsActived()) {
@@ -491,8 +485,6 @@ void Grid::Render()
 	// Draw surface
 	for (size_t i = 0; i < staticObjects.size(); i++)
 	{
-		/*if (staticObjects[i]->GetType() == ItemType || staticObjects[i]->GetType() == ObstaclesType)
-			continue;*/
 		if (staticObjects[i]->GetType() == ObstaclesType || staticObjects[i]->GetTag() == SNAKEPILLAR)
 			continue;
 		if ((staticObjects[i]->GetType() == Surface) && staticObjects[i]->IsActived() || (staticObjects[i]->GetTag() == CHAINEDPILLAR)) {
@@ -514,8 +506,6 @@ void Grid::RenderUnit(Unit* unit)
 		LPDIRECT3DTEXTURE9 texture = Textures::GetInstance()->GetTexture(2911);
 		if (unit->entity->IsActived())
 		{
-			//Camera* cam = Camera::GetInstance();
-			//if(cam->IsCollide(unit->entity->GetRect()))
 			if (unit->entity->GetType() != PlayerType)
 				unit->entity->Render();
 			// Draw ObjectRect

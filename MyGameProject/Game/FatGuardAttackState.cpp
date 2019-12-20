@@ -1,14 +1,12 @@
 #include "FatGuardAttackState.h"
 #include "Enemy.h"
+#include<random>
 
 FatGuardAttackState::FatGuardAttackState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
 	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_ENEMY), 1, 2, 2, 1, 10, 8, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
-
 }
-
-#include<random>
 
 void FatGuardAttackState::Update(float dt)
 {
@@ -29,7 +27,6 @@ void FatGuardAttackState::Update(float dt)
 		}
 		e_Animation->countLoopFrame++;
 	}
-
 
 	if (e_Animation->GetCurrentFrameID() >= 5)
 	{
@@ -68,7 +65,6 @@ void FatGuardAttackState::Update(float dt)
 	}
 	if (e_Animation->IsLastFrame(dt))
 		e_Animation->countLoopFrame++;
-	
 }
 
 

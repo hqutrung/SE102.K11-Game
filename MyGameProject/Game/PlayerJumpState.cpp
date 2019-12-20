@@ -10,10 +10,6 @@ PlayerJumpState::PlayerJumpState(PlayerData* data)
 
 }
 
-PlayerJumpState::~PlayerJumpState()
-{
-}
-
 void PlayerJumpState::Render()
 {
 	PlayerState::Render();

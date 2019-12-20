@@ -18,17 +18,6 @@ void Fire::Update(float dt)
 		OnDestroy();
 }
 
-void Fire::OnCollision(Entity* impactor, Entity::SideCollision side, float collisionTime, float dt)
-{
-	/*if (!isDissapeared) {
-		auto impactorTag = impactor->GetTag();
-		auto impactorType = impactor->GetType();
-		if (impactorTag == PLAYER && animation->IsLastFrame(dt)) {
-			OnDestroy();
-		}
-	}*/
-}
-
 void Fire::Instantiate(D3DXVECTOR3 position)
 {
 	auto playerState = Player::GetInstance()->GetCurrentState()->GetStateName();

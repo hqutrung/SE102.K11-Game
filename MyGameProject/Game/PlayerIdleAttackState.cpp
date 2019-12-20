@@ -10,10 +10,6 @@ PlayerIdleAttackState::PlayerIdleAttackState(PlayerData* data)
 
 }
 
-PlayerIdleAttackState::~PlayerIdleAttackState()
-{
-}
-
 void PlayerIdleAttackState::Render()
 {
 	PlayerState::Render();
@@ -24,7 +20,6 @@ void PlayerIdleAttackState::Update(float dt)
 
 	auto player = Player::GetInstance();
 	player->SetVelocity(D3DXVECTOR2(0, 0));
-
 
 	//set default time
 	auto frameID = m_Animation->GetCurrentFrameID();
@@ -57,11 +52,7 @@ void PlayerIdleAttackState::Update(float dt)
 		playerData->player->SetState(Idle);
 	}
 
-
-
 	PlayerState::Update(dt);
-
-
 	// isAttack
 	if (Support::IsContainedIn(m_Animation->GetCurrentFrameID(), 2, 4))
 	{
@@ -100,6 +91,7 @@ void PlayerIdleAttackState::OnCollision(Entity* impactor, Entity::SideCollision 
 {
 	if (impactor->GetTag() == WALL && m_Animation->countLoopFrame == 1 && m_Animation->IsEndFrame(2, dt))
 	{
+		Sound::GetInstance()->PlayFX(SPLASH_WALL);
 		m_Animation->SetCurrentFrame(6);
 		Player::GetInstance()->isAttack = false;
 		m_Animation->countLoopFrame++;

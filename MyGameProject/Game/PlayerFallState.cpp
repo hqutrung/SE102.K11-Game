@@ -9,10 +9,6 @@ PlayerFallState::PlayerFallState(PlayerData* data)
 	m_Animation->AddFramesA(texs->GetTexture(1022), 1, 1, 1, 5, 5, 3, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
-PlayerFallState::~PlayerFallState()
-{
-}
-
 void PlayerFallState::Render()
 {
 	PlayerState::Render();

@@ -11,10 +11,6 @@ PlayerJumpAttackState::PlayerJumpAttackState(PlayerData* data)
 
 }
 
-PlayerJumpAttackState::~PlayerJumpAttackState()
-{
-}
-
 void PlayerJumpAttackState::Render()
 {
 	PlayerState::Render();
@@ -57,8 +53,6 @@ void PlayerJumpAttackState::Update(float dt)
 	if (m_Animation->IsLastFrame(dt) && player->status != Player::Status::OnGround)
 		player->SetState(Fall);
 
-
-	
 	PlayerState::Update(dt);
 
 	//isAttack
@@ -78,8 +72,6 @@ void PlayerJumpAttackState::HandleInput()
 		player->SetState(JumpThrow);
 		return;
 	}
-
-
 	if (keyboard->GetKey(RIGHT_ARROW) || keyboard->GetKeyDown(RIGHT_ARROW))
 	{
 		player->SetVx(RUN_SPEED / 1.1f);

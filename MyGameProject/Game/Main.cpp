@@ -97,8 +97,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		dt += GameTime::GetInstance()->GetCounter();
 
-		//OutputDebugString();
-
 		if (dt >= SPF) {
 
 			gameManager.ProcessInput();

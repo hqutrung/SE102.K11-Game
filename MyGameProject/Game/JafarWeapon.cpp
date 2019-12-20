@@ -28,7 +28,6 @@ void JafarWeapon::Update(float dt)
 		target.x += player->GetCollider().left;
 		target1.x -=100;
 	}
-	//if (player->GetStatus() == Player::Jumping || player->GetStatus() == Player::Falling) {
 	if(player->GetBody().bottom > 100){
 		target.y += player->GetCollider().top;
 
@@ -84,7 +83,6 @@ void JafarWeapon::Instantiate(D3DXVECTOR3 position)
 	SetColliderBottom(-18);
 
 	Weapon::Instantiate(position);
-	Sound::GetInstance()->PlayFX(JAFAR_TRACTOR);
 }
 
 void JafarWeapon::OnDestroy()

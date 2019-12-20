@@ -10,10 +10,6 @@ PlayerRunThrowState::PlayerRunThrowState(PlayerData* data)
 
 }
 
-PlayerRunThrowState::~PlayerRunThrowState()
-{
-}
-
 void PlayerRunThrowState::Render()
 {
 	PlayerState::Render();

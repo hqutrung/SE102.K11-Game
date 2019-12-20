@@ -8,7 +8,6 @@ class PlayerIdleState : public PlayerState
 public:
 	PlayerIdleState() {};
 	PlayerIdleState(PlayerData* data);
-	~PlayerIdleState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

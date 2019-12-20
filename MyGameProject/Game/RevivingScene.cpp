@@ -28,10 +28,8 @@ void RevivingScene::LoadContent()
 	monkey = new Animation();
 	monkey->AddFrames(texs->GetTexture(5001), 1, 6, 0.07f, D3DCOLOR_XRGB(255, 0, 255));
 
-
 	posPlayer = D3DXVECTOR3(SCREEN_WIDTH / 2 - player->GetWidthCurrentFrame() / 2, SCREEN_HEIGHT / 2 - player->GetWidthCurrentFrame() / 2, 0);
 	posMonkey = D3DXVECTOR3(posPlayer.x + 60, posPlayer.y + 40, 0);
-
 }
 
 void RevivingScene::Update(float dt)
@@ -65,12 +63,10 @@ void RevivingScene::Update(float dt)
 			Sound::GetInstance()->PlayFX(COMING_OUT);
 		return;
 	}
-
 }
 
 void RevivingScene::Render()
 {
-
 	player->NormalRender(posPlayer);
 	monkey->NormalRender(posMonkey);
 }

@@ -39,6 +39,7 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[SKELETON_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SkeletonExplosive.wav");
 	DSBuffer[SPIKES] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Spikes.wav");
 	DSBuffer[GUARD_INJURED] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/GuardInjured.wav");
+	DSBuffer[FIRE_SOUND] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Fire.wav");
 	DSBuffer[SPLASH_WALL] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/SplashWall.wav");
 	DSBuffer[WOW] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/Wow.wav");
 	DSBuffer[APPPLE_EXPLOSIVE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/AppleExplosive.wav");

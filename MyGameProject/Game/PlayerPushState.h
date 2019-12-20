@@ -8,7 +8,6 @@ class PlayerPushState : public PlayerState
 public:
 	PlayerPushState() {};
 	PlayerPushState(PlayerData* data);
-	~PlayerPushState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

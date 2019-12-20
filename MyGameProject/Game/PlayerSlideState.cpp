@@ -13,10 +13,6 @@ PlayerSlideState::PlayerSlideState(PlayerData* data)
 	m_Animation->AddFrames(texs->GetTexture(1012), 1, 12, 0.06f, D3DCOLOR_XRGB(255, 255, 255));
 }
 
-PlayerSlideState::~PlayerSlideState()
-{
-}
-
 void PlayerSlideState::Render()
 {
 	PlayerState::Render();

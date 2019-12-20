@@ -84,8 +84,7 @@ void Item::OnDestroy()
 	effect = new EffectChain(new SmallItemExplosion(position));
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
-	//gnhpSound::GetInstance()->PlayFX(SOUND_DAMAGE);
-	//return EarnedData(point);
+	Player::GetInstance()->AddScores(points);
 }
 
 

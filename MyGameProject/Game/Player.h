@@ -132,9 +132,5 @@ protected:
 	float collisionTime;
 	SideCollision side;
 private:
-	int Hp;
-	int lifes = 2;
-	int scores = 200;
-	int apples = 10;
-	int gems = 5;
+	int Hp, lifes, scores, apples, gems;
 };

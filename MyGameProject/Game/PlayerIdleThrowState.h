@@ -9,9 +9,7 @@ class PlayerIdleThrowState : public PlayerIdleState
 {
 
 public:
-
 	PlayerIdleThrowState(PlayerData* data);
-	~PlayerIdleThrowState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

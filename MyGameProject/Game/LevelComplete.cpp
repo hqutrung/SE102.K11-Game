@@ -67,13 +67,6 @@ void LevelComplele::Render()
 
 void LevelComplele::ProcessInput()
 {
-	//bug
-	/*auto sceneM = SceneManager::GetInstance();
-	KeyBoard* keyboard = KeyBoard::GetInstance();
-	if (keyboard->GetKey(PRESS_KEY) && sceneM->GetSceneLv() == 2)
-	{
-		isEndScene = true;
-	}*/
 }
 
 int LevelComplele::GetSceneID()

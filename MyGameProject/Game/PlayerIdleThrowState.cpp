@@ -10,10 +10,6 @@ PlayerIdleThrowState::PlayerIdleThrowState(PlayerData* data)
 
 }
 
-PlayerIdleThrowState::~PlayerIdleThrowState()
-{
-}
-
 void PlayerIdleThrowState::Render()
 {
 	PlayerState::Render();

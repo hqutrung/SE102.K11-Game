@@ -10,11 +10,6 @@ PlayerClimbState::PlayerClimbState(PlayerData* data)
 
 }
 
-PlayerClimbState::~PlayerClimbState()
-{
-
-}
-
 void PlayerClimbState::Render()
 {
 	m_Animation->Render(playerData->player->GetPosition(), BoxCollider(), D3DCOLOR_XRGB(255, 255, 255), playerData->player->GetMoveDirection() == Entity::MoveDirection::RightToLeft);

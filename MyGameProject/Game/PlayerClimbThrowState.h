@@ -9,7 +9,6 @@ class PlayerClimbThrowState : public PlayerIdleState
 public:
 
 	PlayerClimbThrowState(PlayerData* data);
-	~PlayerClimbThrowState() {};
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

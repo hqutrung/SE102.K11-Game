@@ -48,7 +48,6 @@ BoxCollider Weapon::GetRect()
 
 void Weapon::SetActive(bool active)
 {
-	DebugOut(L"[SETACTIVE]   appleWeapon->isActived: %d\n", active);
 	if (isActived == active)
 		return;
 	if (active && !isDissapeared)
@@ -89,10 +88,6 @@ void Weapon::Instantiate(D3DXVECTOR3 position)
 
 void Weapon::OnDestroy()
 {
-	/*EffectChain* effect = new EffectChain(new Explosion(position));
-	Grid::GetInstance()->AddEffect(effect);
-	SetActive(false);
-	return EarnedData(point);*/
 }
 
 void Weapon::MakeInactive()
@@ -102,9 +97,7 @@ void Weapon::MakeInactive()
 
 void Weapon::Spawn()
 {
-	//animation->ResetAnimation();
 	isActived = true;
 	isDissapeared = false;
 	animation->ResetAnimation();
-	DebugOut(L"[SPAWN]   appleWeapon->isActived: %d\n", isActived);
 }

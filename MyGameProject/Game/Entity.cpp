@@ -13,7 +13,6 @@ Entity::Entity()
  
 Entity::~Entity()
 {
-
 }
 
 BoxCollider Entity::GetRect()

@@ -266,7 +266,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			Apple* apple = new Apple();
 			apple->SetSpawnBox(box);
 			unit = new Unit(grid, apple, cellX, cellY);
-			//grid->AddStaticObject(apple);
 			break;
 		}
 		case BLUEHEART:
@@ -274,7 +273,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			BlueHeart* blueheart = new BlueHeart();
 			blueheart->SetSpawnBox(box);
 			unit = new Unit(grid, blueheart, cellX, cellY);
-			//grid->AddStaticObject(blueheart);
 			break;
 		}
 		case GEM:
@@ -282,7 +280,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			Gem* gem = new Gem();
 			gem->SetSpawnBox(box);
 			unit = new Unit(grid, gem, cellX, cellY);
-			//grid->AddStaticObject(gem);
 			break;
 		}
 		case GENIETOKEN:
@@ -290,7 +287,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 			GenieToken* genieToken = new GenieToken();
 			genieToken->SetSpawnBox(box);
 			unit = new Unit(grid, genieToken, cellX, cellY);
-			//grid->AddStaticObject(genieToken);
 			break;
 		}
 		case BLUEVASE:
@@ -379,8 +375,6 @@ void GameMap::SetGridBuilt(char* gridBuiltPath)
 void GameMap::Draw() {
 
 	for (size_t i = 0; i < 1; i++) {
-
-		//chieu dai va chieu rong cua tile
 		int tileWidth = tileset->GetTileWidth();
 		int tileHeight = tileset->GetTileHeight();
 

@@ -14,8 +14,6 @@ class Data
 	Sprites* _Gem;
 	D3DXVECTOR3 posGem;
 	int scores, lifes, gems, apples;
-
-
 	int oldScores;
 
 	int countFrame=0;

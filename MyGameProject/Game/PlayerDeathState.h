@@ -7,7 +7,6 @@ class PlayerDeathState : public PlayerState
 public:
 	PlayerDeathState() {};
 	PlayerDeathState(PlayerData* data);
-	~PlayerDeathState() {};
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

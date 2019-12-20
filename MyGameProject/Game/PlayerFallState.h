@@ -8,7 +8,6 @@ class PlayerFallState : public PlayerState
 public:
 	PlayerFallState() {};
 	PlayerFallState(PlayerData* data);
-	~PlayerFallState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -29,7 +29,6 @@ public:
 	BoxCollider GetRect();
 
 	void Update(float dt);
-	//void FollowPlayer(Entity*);
 	bool IsHalfContaint(BoxCollider r);
 	bool IsCollide(BoxCollider r);
 	bool IsContaint(BoxCollider r);

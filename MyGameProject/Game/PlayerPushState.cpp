@@ -8,9 +8,6 @@ PlayerPushState::PlayerPushState(PlayerData* data)
 	m_Animation = new Animation();
 	m_Animation->AddFrames(Textures::GetInstance()->GetTexture(1278), 1, 9, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
 }
-PlayerPushState::~PlayerPushState()
-{
-}
 
 void PlayerPushState::Render()
 {

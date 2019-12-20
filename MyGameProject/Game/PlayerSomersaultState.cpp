@@ -10,10 +10,6 @@ PlayerSomersaultState::PlayerSomersaultState(PlayerData* data)
 	heavy = true;
 }
 
-PlayerSomersaultState::~PlayerSomersaultState()
-{
-}
-
 void PlayerSomersaultState::Render()
 {
 	PlayerState::Render();

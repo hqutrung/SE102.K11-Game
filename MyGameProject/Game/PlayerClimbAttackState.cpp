@@ -10,10 +10,6 @@ PlayerClimbAttackState::PlayerClimbAttackState(PlayerData* data)
 
 }
 
-PlayerClimbAttackState::~PlayerClimbAttackState()
-{
-}
-
 void PlayerClimbAttackState::Render()
 {
 	PlayerState::Render();

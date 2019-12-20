@@ -27,37 +27,33 @@ void SultanDungeon::LoadContent()
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
 
 	camera = new Camera(width, height);
-	//camera = new Camera(318, 230);
-
 	map->SetCamera(camera);
 
 	// Player
-
 	player = new Player();
 	player->SetPosition(100, 100);
+	player->SetPosition(2100, 1000);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
-	player->SetPosition(2100, 1000);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());
 	CheckCamera();
+	data = new Data();
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	pool->AddApple();
-
-	data = new Data();
-
 	pool->AddSkeleton(25);
+
 	srand(time(NULL));
 
 	texs->Add(111111, "Resources/Scene/deal.png", D3DCOLOR_XRGB(255, 0, 255));
 	_wish = new Sprites(texs->GetTexture(111111), BoxCollider());
-	posWish = D3DXVECTOR3(SCREEN_WIDTH / 2  /*-_wish->GetWidth() / 2*/, SCREEN_HEIGHT / 3, 0);
+	posWish = D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3, 0);
 
 	texs->Add(111112, "Resources/Scene/moreGems.png", D3DCOLOR_XRGB(255, 0, 255));
 	_wish1 = new Sprites(texs->GetTexture(111112), BoxCollider());
-	posWish1 = D3DXVECTOR3(SCREEN_WIDTH / 2 /*- _wish1->GetWidth() / 2*/, SCREEN_HEIGHT / 3, 0);
+	posWish1 = D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3, 0);
 }
 
 
@@ -67,20 +63,19 @@ void SultanDungeon::Update(float dt)
 	CheckActive();
 	ProcessInput();
 	CheckCollision(dt);
-	camera->Update(dt);
+	camera->Update(dt);		// Camera follow player
 	map->GetGrid()->Update(dt);
-
-	// Camera follow player
-	D3DXVECTOR3 playerPos = player->GetPosition();
 	CheckCamera();
+	data->Update(dt);
+	DrawWish(dt);
+
+	D3DXVECTOR3 playerPos = player->GetPosition();
 	if (playerPos.x < 25)
 		player->SetPosition(25, playerPos.y);
 	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
 
 	// suface Data
-	data->Update(dt);
-	DrawWish(dt);
 	// chuyen scene Rviving
 	if (isTransition == true)
 	{

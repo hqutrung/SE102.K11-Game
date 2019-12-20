@@ -15,8 +15,6 @@ class LevelComplele : public Scene
 	D3DXVECTOR3 posTitle;
 	D3DXVECTOR3 posPlayer;
 	D3DXVECTOR3 posMonkey;
-
-
 public:
 	LevelComplele();
 	~LevelComplele();

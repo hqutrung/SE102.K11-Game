@@ -57,9 +57,6 @@ void BatFollowPlayerState::Update(float dt)
 	case 11:
 		target = enemy->GetSpawnPosition() + D3DXVECTOR3(-32 * direction, -74, 0);
 		break;
-		//case 10:
-		//	target = GetSpawnPosition() + D3DXVECTOR3(-14, -65, 0);
-		//	break;
 	case 12:
 		target = enemy->GetSpawnPosition();
 		break;

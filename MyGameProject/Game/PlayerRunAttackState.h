@@ -6,7 +6,6 @@ class PlayerRunAttackState : public PlayerState
 {
 public:
 	PlayerRunAttackState(PlayerData* data);
-	~PlayerRunAttackState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -10,10 +10,6 @@ PlayerRunState::PlayerRunState(PlayerData* data)
 	m_Animation->AddFrames(texs->GetTexture(1001), 1, 14, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
-PlayerRunState::~PlayerRunState()
-{
-}
-
 void PlayerRunState::Render()
 {
 

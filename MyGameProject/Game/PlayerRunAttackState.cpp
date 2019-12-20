@@ -10,10 +10,6 @@ PlayerRunAttackState::PlayerRunAttackState(PlayerData* data)
 
 }
 
-PlayerRunAttackState::~PlayerRunAttackState()
-{
-}
-
 void PlayerRunAttackState::Render()
 {
 	PlayerState::Render();

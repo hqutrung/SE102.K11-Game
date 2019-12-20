@@ -11,5 +11,6 @@ public:
 	~Peddler();
 	void Update(float dt) override;
 	void Render()override;
+	void OnDestroy() override {};
 	D3DXVECTOR2 GetDisToPlayer() { return disToPlayer; }
 };

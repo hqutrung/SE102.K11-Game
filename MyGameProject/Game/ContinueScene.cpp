@@ -18,19 +18,16 @@ void ContinueScene::LoadContent()
 	auto texs = Textures::GetInstance();
 	texs->Add(8600, "Resources/Scene/continueScene.png", D3DCOLOR_XRGB(255, 0, 255));
 	backGround = new Sprites(texs->GetTexture(8600), BoxCollider());
-
 }
 
 void ContinueScene::Update(float dt)
 {
 	ProcessInput();
-
 }
 
 void ContinueScene::Render()
 {
 	backGround->NormalDraw(posBackGround);
-
 }
 
 void ContinueScene::ProcessInput()

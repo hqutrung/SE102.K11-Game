@@ -119,7 +119,6 @@ public:
 	virtual void SetColliderRight(int right);
 
 	virtual void OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt = 1.0f / 60);
-	//virtual EarnedData OnDestroy();
 
 	virtual void OnDestroy();
 	virtual void OnSetPosition(D3DXVECTOR3 position);	// Set vi tri cua Entity, dung cho ke thua

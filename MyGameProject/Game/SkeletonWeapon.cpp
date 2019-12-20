@@ -1,5 +1,6 @@
 #include "SkeletonWeapon.h"
 #include "Grid.h"
+#include "Player.h"
 
 SkeletonWeapon::SkeletonWeapon() : Weapon()
 {
@@ -36,12 +37,21 @@ void SkeletonWeapon::OnCollision(Entity* impactor, Entity::SideCollision side, f
 			Sound::GetInstance()->PlayFX(SKELETON_COLIISION);
 		}
 	}
-
+	auto stateName = Player::GetInstance()->GetCurrentState()->GetStateName();
+	
 	if (impactorType == PlayerType)
 	{
-		this->OnDestroy();
+		if (stateName != PlayerState::IdleAttack && stateName != PlayerState::JumpAttack
+			&& stateName != PlayerState::ClimbAttack && stateName != PlayerState::DuckAttack
+			&& stateName != PlayerState::RunAttack)
+		{
+			bool isCol = CollisionDetector::IsCollide(this->GetRect(), Player::GetInstance()->GetBody());
+			if (isCol)
+				OnDestroy();
+		}
+		else
+			OnDestroy();
 	}
-
 }
 void SkeletonWeapon::Instantiate(D3DXVECTOR3 position)
 {

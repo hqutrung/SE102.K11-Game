@@ -86,49 +86,19 @@ Player::Player() : Entity()
 	status = Falling;
 
 	Hp = 9;
+	lifes = 2;
+	scores = 13500;
+	apples = 10;
+	gems = 5;
 	isInjured = false;
-	//startPos = position;
 	lastposition = position;
 	posRevival = position;
 	width = 37;
 	height = 55;
-	apples = 70;
 }
 
 Player::~Player()
 {
-	delete idleState;
-	idleState = NULL;
-	delete runState;
-	runState = NULL;
-	delete idleAttackState;
-	idleAttackState = NULL;
-	delete runAttackState;
-	runAttackState = NULL;
-	delete duckState;
-	duckState = NULL;
-	delete duckAttackState;
-	duckAttackState = NULL;
-	delete lookUpState;
-	lookUpState = NULL;
-	delete lookUpAttackState;
-	lookUpAttackState = NULL;
-	delete jumpState;
-	jumpState = NULL;
-	delete fallState;
-	fallState = NULL;
-	delete jumpCrossState;
-	jumpCrossState = NULL;
-	delete jumpAttackState;
-	jumpAttackState = NULL;
-	delete idleThrowState;
-	idleThrowState = NULL;
-	delete duckThrowState;
-	duckThrowState = NULL;
-	delete runThrowState;
-	runThrowState = NULL;
-	delete	jumpThrowState;
-	jumpThrowState = NULL;
 	delete climbState;
 	climbState = NULL;
 	delete climbAttackState;
@@ -136,19 +106,54 @@ Player::~Player()
 	delete climbThrowState;
 	climbThrowState = NULL;
 	delete climbJumpState;
-	climbThrowState = NULL;
-	delete injuredState;
-	climbThrowState = NULL;
+	climbJumpState = NULL;
 	delete deathState;
 	deathState = NULL;
+	delete duckState;
+	duckState = NULL;
+	delete duckAttackState;
+	duckAttackState = NULL;
+	delete duckThrowState;
+	duckThrowState = NULL;
+	delete fallState;
+	fallState = NULL;
+	delete idleState;
+	idleState = NULL;
+	delete idleAttackState;
+	idleAttackState = NULL;
+	delete idleThrowState;
+	idleThrowState = NULL;
+	delete injuredState;
+	injuredState = NULL;
+	delete jumpState;
+	jumpState = NULL;
+	delete jumpCrossState;
+	jumpCrossState = NULL;
+	delete jumpAttackState;
+	jumpAttackState = NULL;
+	delete	jumpThrowState;
+	jumpThrowState = NULL;
+	delete lookUpState;
+	lookUpState = NULL;
+	delete lookUpAttackState;
+	lookUpAttackState = NULL;
 	delete pushState;
 	pushState = NULL;
+	delete runState;
+	runState = NULL;
+	delete runAttackState;
+	runAttackState = NULL;
+	delete runThrowState;
+	runThrowState = NULL;
+	delete slideState;
+	slideState = NULL;
+	delete somersaultState;
+	somersaultState = NULL;
 	delete touchGroundState;
 	touchGroundState = NULL;
 
 	delete playerData;
 	instance = NULL;
-
 }
 void Player::Update(float dt)
 {
@@ -198,9 +203,6 @@ void Player::Update(float dt)
 	if (playerData->state)
 		playerData->state->Update(dt);
 
-
-
-
 	// immortal
 	if (isImmortal)
 		timeImmortal += dt;
@@ -209,7 +211,6 @@ void Player::Update(float dt)
 		timeImmortal = 0;
 		isImmortal = false;
 	}
-
 
 	countFrame++;
 	if (countFrame % 4 == 0)
@@ -220,8 +221,6 @@ void Player::Update(float dt)
 		countFrame = 0;
 		x = 0;
 	}
-
-
 }
 
 void Player::Render()
@@ -489,13 +488,7 @@ float Player::GetHeight()
 
 void Player::SetActive(bool active)
 {
-	/*if (active == false) {
-		playerData->state = injuredState;
-		DataManager::SetPlayerDead();
-	}
-	else {*/
 	Entity::SetActive(true);
-	//}
 }
 
 void Player::SetStatus(enum Status status)
@@ -555,9 +548,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				{
 					status = OnGround;
 					newVelocity.y *= collisionTime;
-
 					lastposition = D3DXVECTOR3(position.x, position.y + newVelocity.y * dt, 0);
-
 				}
 			}
 
@@ -694,7 +685,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 		}
-
 		break;
 	}
 	case ItemType:
@@ -749,11 +739,10 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		{
 			//ktra rectAttack cua enemy va Body cua Player co va cham?
 			bool isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
-
 			//enemy trong trang thai Attack && va cham vs RectBody cua player
-			bool x = enemy->isAttack == true && isCol == true;
+			bool check = enemy->isAttack == true && isCol == true;
 
-			if (x)
+			if (check)
 			{
 				isInjured = true;
 				isImmortal = true;
@@ -761,9 +750,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
 			}
 		}
-
-		//score
-
 		break;
 	}
 	case eWeapon:
@@ -775,21 +761,21 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 		}
 		else
 		{
-			auto stateName = GetCurrentState()->GetStateName();
-			if (stateName != PlayerState::IdleAttack
-				&& stateName != PlayerState::JumpAttack
-				&& stateName != PlayerState::ClimbAttack
-				&& stateName != PlayerState::DuckAttack
-				&& stateName != PlayerState::RunAttack)
-			{
-				if (!isImmortal)
+			bool isCol = CollisionDetector::IsCollide(this->GetBody(), impactorRect);
+			if (isCol) {
+				auto stateName = GetCurrentState()->GetStateName();
+				if (stateName != PlayerState::IdleAttack && stateName != PlayerState::JumpAttack
+					&& stateName != PlayerState::ClimbAttack && stateName != PlayerState::DuckAttack
+					&& stateName != PlayerState::RunAttack)
 				{
-					isInjured = true;
-					isImmortal = true;
-					Hp -= 1;
-					Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
+					if (!isImmortal)
+					{
+						isInjured = true;
+						isImmortal = true;
+						Hp -= 1;
+						Sound::GetInstance()->PlayFX(ALADDIN_INJURED);
+					}
 				}
-
 			}
 		}
 		break;
@@ -805,7 +791,6 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 void Player::InjuredByOther(Entity* impactor)
 {
 	SetState(PlayerState::Injured);
-	//DataManager::MinusHealth(impactor->GetTag());
 }
 
 void Player::ThrowApple(D3DXVECTOR3 posApple)

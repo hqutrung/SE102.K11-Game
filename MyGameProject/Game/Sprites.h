@@ -54,18 +54,3 @@ public:
 	void NormalDraw(D3DXVECTOR3 position);
 };
 typedef Sprites* LPSPRITE;
-
-
-//// list sprites ////
-
-//
-//class ListSprites {
-//	static ListSprites* instance;
-//
-//	std::unordered_map<int, LPSPRITE> lSprites;
-//
-//public:
-//	void Add(int id, BoxCollider rect, LPDIRECT3DTEXTURE9 tex);
-//	LPSPRITE Get(int id);
-//	static ListSprites* GetInstance();
-//};

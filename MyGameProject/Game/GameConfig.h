@@ -9,6 +9,7 @@
 // #define SCREEN_WIDTH 832
 // #define SCREEN_HEIGHT 449
 
+
 // Game FPS
 #define FPS 60
 #define SPF 1.0f/FPS
@@ -86,6 +87,7 @@
 #define SKELETON_EXPLOSIVE 12
 #define SPIKES 13
 #define GUARD_INJURED 14
+#define FIRE_SOUND 15
 #define SPLASH_WALL 16
 #define WOW 17
 #define APPPLE_EXPLOSIVE 18

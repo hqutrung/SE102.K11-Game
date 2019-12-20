@@ -90,7 +90,6 @@ void Graphic::DrawString(const std::string& text, D3DXVECTOR3 pos, int font)
 		auto position = pos;
 		position.x += i++ * width;
 		auto sprite = new Sprites(textures->GetTexture(font), box);
-		//sprite->Draw(position, box, D3DCOLOR_XRGB(255, 255, 255));
 		sprite->NormalDraw(position);
 	}
 }

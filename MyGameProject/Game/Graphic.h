@@ -41,8 +41,4 @@ public:
 
 	int GetBackBufferWidth() { return SCREEN_WIDTH; }
 	int GetBackBufferHeight() { return SCREEN_HEIGHT; }
-
-	// Draw String
-
-
 };

@@ -1,6 +1,7 @@
-﻿  Jafar.cpp
+﻿  SultanDungeon.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar.cpp(59,24): warning C4101: 'side1': unreferenced local variable
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(48,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(76,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

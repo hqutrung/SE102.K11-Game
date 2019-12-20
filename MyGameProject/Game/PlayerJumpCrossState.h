@@ -7,7 +7,6 @@ class PlayerJumpCrossState : public PlayerState
 public:
 	PlayerJumpCrossState() {};
 	PlayerJumpCrossState(PlayerData* data);
-	~PlayerJumpCrossState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -8,11 +8,6 @@ PlayerIdleState::PlayerIdleState(PlayerData* data)
 
 	m_Animation = new Animation();
 	m_Animation->AddFramesA(texs->GetTexture(1000), 1, 1, 5, 7, 10, 5, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
-
-}
-
-PlayerIdleState::~PlayerIdleState()
-{
 }
 
 void PlayerIdleState::Render()

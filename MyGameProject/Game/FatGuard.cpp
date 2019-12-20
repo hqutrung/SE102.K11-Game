@@ -8,9 +8,9 @@ FatGuard::FatGuard() : Enemy()
 	fatGuardProvokeState = new FatGuardProvokeState(enemyData);
 	fatGuardIdleState = new FatGuardIdleState(enemyData);
 	fatGuardInjuredState = new FatGuardInjuredState(enemyData);
+	isAttack = false;
 	point = 0;
 	Hp = 2;
-	isAttack = false;
 }
 
 FatGuard::~FatGuard()
@@ -33,8 +33,6 @@ void FatGuard::Update(float dt)
 	auto player = Player::GetInstance();
 	D3DXVECTOR2 dis = GetDisToPlayer();
 
-	//Enemy::Update(dt);
-	// SetState
 	if (!isInjured) {
 		if (dis.y < 10)
 		{
@@ -49,7 +47,7 @@ void FatGuard::Update(float dt)
 			}
 			else {
 				SetState(EnemyState::Provoke);
-			}//...MoveDirection
+			}
 			SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 		}
 		else {
@@ -57,11 +55,6 @@ void FatGuard::Update(float dt)
 		}
 	}
 	Enemy::Update(dt);
-}
-
-void FatGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
-{
-	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void FatGuard::SetState(EnemyState::eState state)
@@ -118,6 +111,5 @@ void FatGuard::SetSpawnBox(BoxCollider box, int direction)
 	Enemy::SetSpawnBox(box, direction);
 
 	SetBodyBox(22, -19, 36, -26);
-
 }
 

@@ -3,6 +3,8 @@
 
 PlayerState::~PlayerState()
 {
+	delete m_Animation;
+	m_Animation = NULL;
 }
 
 void PlayerState::Update(float dt)

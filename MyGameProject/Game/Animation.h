@@ -12,8 +12,6 @@ public:
 typedef AnimationFrame* LPANIMATION_FRAME;
 
 class Animation {
-	//DWORD lastFrameTime;
-	
 	float defaultTime;
 	int currentFrame;
 	int totalFrame;

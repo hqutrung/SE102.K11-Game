@@ -79,12 +79,7 @@ void Camera::Update(float dt)
 		if (index == 0)
 			position.x = player->GetPosition().x;
 		if (index < 0)
-		{
-			/*if (keyboard->GetKeyUp(LEFT_ARROW))
-				position.x = player->GetPosition().x;
-			else*/
-				position.x -= (VELOCITY_CAMERA_X);
-		}
+			position.x -= (VELOCITY_CAMERA_X);
 	}
 	else
 	{
@@ -92,12 +87,7 @@ void Camera::Update(float dt)
 		if (index == 0)
 			position.x = player->GetPosition().x;
 		if (index > 0)
-		{
-			/*if (keyboard->GetKeyUp(RIGHT_ARROW))
-				position.x = player->GetPosition().x;
-			else*/
-				position.x += (VELOCITY_CAMERA_X);
-		}
+			position.x += (VELOCITY_CAMERA_X);
 	}
 	
 	position.x = Support::Clamp(position.x, player->GetPosition().x - (INDEX_CAMERA_WIDTH), player->GetPosition().x + (INDEX_CAMERA_WIDTH));
@@ -167,15 +157,11 @@ void Camera::Update(float dt)
 	}
 	}
 
-	/*if (oldPos.y <= (float)(GetHeight()) / 2 || oldPos.y >= (float)(SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - GetHeight()) / 2)
-		velocity.y = 0;
-	else*/
 	if (position.y < 120)
 		position.y = 120;
 	if (SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - position.y < 120)
 		position.y = SceneManager::GetInstance()->GetCurrentScene()->GetGameMap()->GetHeight() - 120;
 	velocity.y = (position.y - oldPos.y) / dt;
-	DebugOut(L"Cam velocity: vx = %f, vy = %f\n", velocity.x, velocity.y);
 }
 
 bool Camera::IsCollide(BoxCollider r)

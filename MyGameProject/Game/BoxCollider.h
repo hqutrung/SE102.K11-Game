@@ -31,12 +31,7 @@ public:
 	float GetWidth() { return right - left; }
 
 	float GetHeight() { return top - bottom; }
-	/*void Multiply(float x) {
-		top *= x;
-		left *= x;
-		bottom *= x;
-		right *= x;
-	};*/
+
 	void Plus(D3DXVECTOR2 vel) {
 		top += vel.y;
 		left += vel.x;

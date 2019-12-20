@@ -10,7 +10,6 @@ public:
 	float maxTop = 1000;
 	PlayerClimbState () {};
 	PlayerClimbState(PlayerData* data);
-	~PlayerClimbState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -32,27 +32,21 @@ void JafarPalace::LoadContent()
 	int height = Graphic::GetInstance()->GetBackBufferHeight();
 
 	camera = new Camera(width, height);
-	//camera = new Camera(318, 230);
-
 	map->SetCamera(camera);
 
 	// Player
 	player = new Player();
 	player->SetPosition(710, 306);
+	player->lastposition = player->GetPosition();
+	(new Unit(map->GetGrid(), player))->SetActive(true);
+	camera->SetPosition(player->GetPosition());
+	CheckCamera();
 
 	// load Data
 	if (SceneManager::GetInstance()->GetPreSceneID() != ID_CONTINUE_SCENE)
 	{
 		player->ReloadData();
 	}
-
-	player->lastposition = player->GetPosition();
-	(new Unit(map->GetGrid(), player))->SetActive(true);
-
-
-	camera->SetPosition(player->GetPosition());
-	CheckCamera();
-
 	data = new Data();
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
@@ -63,34 +57,27 @@ void JafarPalace::LoadContent()
 	srand(time(NULL));
 }
 
-
-
 void JafarPalace::Update(float dt)
 {
+	gameTime += dt;
 	if (IsSpawnApple())
 		SpawnApples();
 
-	gameTime += dt;
 	CheckActive();
 	ProcessInput();
 	CheckCollision(dt);
 
-	//
-	camera->Update(dt);
+	camera->Update(dt);	// Camera follow player
 	map->GetGrid()->Update(dt);
-
-	// Camera follow player
-	D3DXVECTOR3 playerPos = player->GetPosition();
+	data->Update(dt);
 	CheckCamera();
 
-	// 
+	
+	D3DXVECTOR3 playerPos = player->GetPosition();
 	if (playerPos.x < 25)
 		player->SetPosition(25, playerPos.y);
 	else if (playerPos.x > map->GetWidth() - 25)
 		player->SetPosition(map->GetWidth() - 25, playerPos.y);
-
-	data->Update(dt);
-
 
 	// chuyen scene Rviving
 	if (isTransition == true)
@@ -110,7 +97,6 @@ void JafarPalace::Update(float dt)
 
 void JafarPalace::Render()
 {
-
 	map->GetGrid()->RenderBackGround();
 	map->Draw();
 	map->GetGrid()->Render();

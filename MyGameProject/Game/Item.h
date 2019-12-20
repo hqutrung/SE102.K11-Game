@@ -12,6 +12,7 @@ protected:
 	BoxCollider spawnBox;
 	Animation* animation;
 	EffectChain* effect;
+	int points;
 
 public:
 	Item();

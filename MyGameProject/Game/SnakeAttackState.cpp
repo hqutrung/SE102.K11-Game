@@ -4,7 +4,6 @@ SnakeAttackState::SnakeAttackState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
 	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 9, 2, 9, 10, 2, 10, 0.1f, D3DCOLOR_XRGB(255, 0, 255));
-
 }
 
 void SnakeAttackState::Update(float dt)
@@ -29,12 +28,12 @@ void SnakeAttackState::Render()
 
 void SnakeAttackState::ResetState()
 {
-	/*auto e = enemyData->enemy;
+	auto e = enemyData->enemy;
 	e->SetColliderLeft(-15);
-	e->SetColliderRight(24);
-	e->SetColliderTop(33);
+	e->SetColliderRight(26);
+	e->SetColliderTop(32);
 	e->SetColliderBottom(-26);
-	e->SetBodyBox(32, -15, 26, -26);*/
+	e->SetBodyBox(32, -15, 26, -26);
 }
 
 void SnakeAttackState::PuffFire()

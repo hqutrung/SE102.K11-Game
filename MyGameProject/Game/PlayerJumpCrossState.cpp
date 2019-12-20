@@ -10,10 +10,6 @@ PlayerJumpCrossState::PlayerJumpCrossState(PlayerData* data)
 
 }
 
-PlayerJumpCrossState::~PlayerJumpCrossState()
-{
-}
-
 void PlayerJumpCrossState::Render()
 {
 	PlayerState::Render();

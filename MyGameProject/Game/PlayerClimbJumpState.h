@@ -7,7 +7,6 @@ class PlayerClimbJumpState : public PlayerState
 public:
 	PlayerClimbJumpState() {};
 	PlayerClimbJumpState(PlayerData* data);
-	~PlayerClimbJumpState() {};
 
 	void Render() override;
 	void Update(float dt) override;

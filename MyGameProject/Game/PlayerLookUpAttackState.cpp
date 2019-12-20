@@ -10,10 +10,6 @@ PlayerLookUpAttackState::PlayerLookUpAttackState(PlayerData* data)
 
 }
 
-PlayerLookUpAttackState::~PlayerLookUpAttackState()
-{
-}
-
 void PlayerLookUpAttackState::Render()
 {
 	PlayerState::Render();

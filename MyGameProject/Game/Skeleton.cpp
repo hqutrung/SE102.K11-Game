@@ -4,10 +4,10 @@ Skeleton::Skeleton() : Enemy() {
 	SetTag(SKELETON);
 
 	skeletonIdleState = new SkeletonIdleState(enemyData);
-	point = 0;
 	SetIsCollidable(false);
-	Hp = 1;
 	isAttack = false;
+	point = 0;
+	Hp = 1;
 }
 
 Skeleton::~Skeleton()
@@ -15,16 +15,6 @@ Skeleton::~Skeleton()
 	delete skeletonIdleState;
 	skeletonIdleState = NULL;
 	Enemy::~Enemy();
-}
-
-void Skeleton::Update(float dt)
-{
-	Enemy::Update(dt);
-}
-
-void Skeleton::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
-{
-	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void Skeleton::SetState(EnemyState::eState state)
@@ -62,7 +52,5 @@ void Skeleton::Explosive()
 
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	ObjectPooling::GetInstance()->MultiInstantiate(SKELETON_WEAPON_INDEX, pos);
-	//gnhpSound::GetInstance()->PlayFX(SOUND_THROWSHURIKEN);
-
 }
 

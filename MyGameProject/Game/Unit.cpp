@@ -19,7 +19,6 @@ Unit::Unit(Grid* grid, Entity* entity, int cellX, int cellY)
 	pPrev = NULL;
 	pNext = NULL;
 	grid->AddUnit(this, cellX, cellY);
-	//active = false;
 }
 
 Unit::~Unit()

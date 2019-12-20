@@ -7,7 +7,7 @@ GenieToken::GenieToken() : Item()
 	textures->Add(TEX_GENIETOKEN, "Resources/Items/genietoken.png", D3DCOLOR_XRGB(255, 0, 255));
 	animation->AddFrames(textures->GetTexture(TEX_GENIETOKEN), 1, 4, 0.2f, D3DCOLOR_XRGB(255, 0, 255));
 	velocity.y = GENIETOKEN_SPEED;
-
+	points = 250;
 }
 
 void GenieToken::Update(float dt)
@@ -31,5 +31,5 @@ void GenieToken::OnDestroy()
 	SetActive(false);
 	Sound::GetInstance()->PlayFX(WOW);
 	Sound::GetInstance()->PlayFX(GENIE_EXPLOSIVE);
-	Player::GetInstance()->AddScores(100);
+	Player::GetInstance()->AddScores(points);
 }

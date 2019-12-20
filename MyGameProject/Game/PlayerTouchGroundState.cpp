@@ -11,10 +11,6 @@ PlayerTouchGroundState::PlayerTouchGroundState(PlayerData* data)
 	m_Animation->AddFramesA(texs->GetTexture(1451), 1, 6, 3, 4, 10, 3, 10, 0.06f, D3DCOLOR_XRGB(255, 0, 255));
 }
 
-PlayerTouchGroundState::~PlayerTouchGroundState()
-{
-}
-
 void PlayerTouchGroundState::Update(float dt)
 {
 	auto player = Player::GetInstance();

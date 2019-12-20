@@ -10,7 +10,6 @@ class PlayerIdleAttackState : public PlayerIdleState
 public:
 	
 	PlayerIdleAttackState(PlayerData* data);
-	~PlayerIdleAttackState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -6,7 +6,6 @@ class PlayerJumpThrowState : public PlayerState
 public:
 	PlayerJumpThrowState() {};
 	PlayerJumpThrowState(PlayerData* data);
-	~PlayerJumpThrowState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

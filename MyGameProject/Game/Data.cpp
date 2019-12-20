@@ -100,11 +100,10 @@ void Data::Render()
 	
 	if (oldScores < scores) {
 		oldScores += 10;
-		graphic->DrawString(std::to_string(oldScores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
+		graphic->DrawString(std::to_string(oldScores), D3DXVECTOR3(200, 34, 0), TEX_FONT2);
 	}
 	else {
-		graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
+		graphic->DrawString(std::to_string(scores), D3DXVECTOR3(200, 34, 0), TEX_FONT2);
 		oldScores = scores;
 	}
-	//graphic->DrawString(std::to_string(scores), D3DXVECTOR3(220, 34, 0), TEX_FONT2);
 }

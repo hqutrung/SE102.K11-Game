@@ -59,8 +59,6 @@ void IntroScene::Update(float dt)
 		isEndScene = true;
 	}
 
-
-
 	if (isEndScene == true)
 	{
 		if (sceneM->GetSceneLv() == 1)
@@ -74,7 +72,6 @@ void IntroScene::Update(float dt)
 			return;
 		}
 	}
-
 }
 
 void IntroScene::Render()

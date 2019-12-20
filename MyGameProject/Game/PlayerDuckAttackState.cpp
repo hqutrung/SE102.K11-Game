@@ -9,9 +9,6 @@ PlayerDuckAttackState::PlayerDuckAttackState(PlayerData* data)
 	m_Animation->AddFrames(texs->GetTexture(1011), 1, 7, 0.07f, D3DCOLOR_XRGB(255, 255, 255));
 
 }
-PlayerDuckAttackState::~PlayerDuckAttackState()
-{
-}
 
 void PlayerDuckAttackState::Render()
 {

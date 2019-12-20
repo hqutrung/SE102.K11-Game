@@ -4,9 +4,9 @@ JafarAttackState::JafarAttackState(EnemyData* data) : EnemyState(data)
 {
 	e_Animation = new Animation();
 	e_Animation->AddFramesA(Textures::GetInstance()->GetTexture(TEX_JAFAR), 1, 2, 1, 8, 8, 2, 10, 0.11f, D3DCOLOR_XRGB(255, 0, 255));
+	isReloading = false;
 	attackTime = 0.3f;
 	delaytime = 0.12f;
-	isReloading = false;
 }
 
 void JafarAttackState::Update(float dt)
@@ -19,7 +19,6 @@ void JafarAttackState::Update(float dt)
 		if (attackTime <= 0) {
 			e_Animation->Update(dt);
 			if (e_Animation->GetCurrentFrameID() == 3) {
-				//e_Animation->SetCurrentFrame(4);
 				attackTime = 0.3f;
 				isReloading = false;
 			}
@@ -57,6 +56,6 @@ void JafarAttackState::UseWeapon()
 	//pos.y -= 15;
 	ObjectPooling* pool = ObjectPooling::GetInstance();
 	if (ObjectPooling::GetInstance()->SingleInstantiate(JAFAR_WEAPON_INDEX, pos)) {
-		// Play Sound
+		Sound::GetInstance()->PlayFX(JAFAR_TRACTOR);
 	}
 }

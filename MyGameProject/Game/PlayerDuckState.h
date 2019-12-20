@@ -8,7 +8,6 @@ class PlayerDuckState : public PlayerState
 public:
 	PlayerDuckState() {};
 	PlayerDuckState(PlayerData* data);
-	~PlayerDuckState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

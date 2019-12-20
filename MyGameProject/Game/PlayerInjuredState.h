@@ -8,7 +8,6 @@ class PlayerInjuredState : public PlayerState
 public:
 	PlayerInjuredState() {};
 	PlayerInjuredState(PlayerData* data);
-	~PlayerInjuredState() {};
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -9,7 +9,6 @@ class PlayerDuckAttackState : public PlayerState
 public:
 	PlayerDuckAttackState() {};
 	PlayerDuckAttackState(PlayerData* data);
-	~PlayerDuckAttackState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

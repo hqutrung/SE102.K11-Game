@@ -8,7 +8,6 @@ class PlayerClimbAttackState : public PlayerIdleState
 {
 public:
 	PlayerClimbAttackState(PlayerData* data);
-	~PlayerClimbAttackState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

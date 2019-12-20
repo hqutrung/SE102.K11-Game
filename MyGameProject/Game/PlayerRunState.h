@@ -8,7 +8,6 @@ class PlayerRunState : public PlayerState
 public:
 	PlayerRunState() {};
 	PlayerRunState(PlayerData* data);
-	~PlayerRunState();
 	void Render() override;
 	void Update(float dt) override;
 	void HandleInput() override;

@@ -11,10 +11,6 @@ PlayerJumpThrowState::PlayerJumpThrowState(PlayerData* data)
 
 }
 
-PlayerJumpThrowState::~PlayerJumpThrowState()
-{
-}
-
 void PlayerJumpThrowState::Render()
 {
 	PlayerState::Render();

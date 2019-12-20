@@ -11,10 +11,6 @@ PlayerDuckState::PlayerDuckState(PlayerData* data)
 
 }
 
-PlayerDuckState::~PlayerDuckState()
-{
-}
-
 void PlayerDuckState::Render()
 {
 	PlayerState::Render();

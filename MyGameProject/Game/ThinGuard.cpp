@@ -30,8 +30,6 @@ void ThinGuard::Update(float dt)
 	auto player = Player::GetInstance();
 	D3DXVECTOR2 dis = GetDisToPlayer();
 
-	//Enemy::Update(dt);
-	// SetState
 	if (!isInjured) {
 		if (abs(dis.y) < 200)
 		{
@@ -46,18 +44,12 @@ void ThinGuard::Update(float dt)
 					SetState(EnemyState::Idle);
 				else
 					SetState(EnemyState::Attack);
-				//SetState(abs(dis.x) > 100 ? EnemyState::Follow : EnemyState::Idle);
 			}
 
 			SetMoveDirection(dis.x < 0 ? Entity::MoveDirection::LeftToRight : Entity::MoveDirection::RightToLeft);
 		}
 	}
 	Enemy::Update(dt);
-}
-
-void ThinGuard::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
-{
-	Enemy::OnCollision(impactor, side, collisionTime, dt);
 }
 
 void ThinGuard::SetState(EnemyState::eState state)
@@ -95,14 +87,11 @@ void ThinGuard::Spawn()
 {
 	SetState(EnemyState::Idle);
 	Enemy::Spawn();
-
 	SetBodyBox(22, -19, 36, -26);
-
 }
 
 void ThinGuard::SetSpawnBox(BoxCollider box, int direction)
 {
 	Enemy::SetSpawnBox(box, direction);
-
 	SetBodyBox(32, -15, 26, -26);
 }

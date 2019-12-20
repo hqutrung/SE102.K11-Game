@@ -16,7 +16,7 @@ protected:
 	D3DXVECTOR2 disToPlayer;
 	BoxCollider bodyBox;
 	//
-	int Hp=1;
+	int Hp;
 
 	// Colission
 	float collisionTime;

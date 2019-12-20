@@ -8,7 +8,6 @@ Enemy::Enemy() : Entity() {
 	textures->Add(TEX_ENEMY, "Resources/Enemys/Enemy.png", D3DCOLOR_XRGB(255, 0, 255));
 	enemyData = new EnemyData();
 	enemyData->enemy = this;
-	//currentStateName = EnemyState::Idle;
 }
 
 Enemy::~Enemy()
@@ -148,7 +147,6 @@ void Enemy::OnDestroy()
 	Grid::GetInstance()->AddEffect(effect);
 	SetActive(false);
 	Player::GetInstance()->AddScores(GetPoint());
-	//return EarnedData(point);
 }
 
 void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTime, float dt)
@@ -176,8 +174,7 @@ void Enemy::OnCollision(Entity* impactor, SideCollision side, float collisionTim
 
 	if (impactor->GetType() == pWeapon)
 	{
-		//if (GetCurrentStateName() != EnemyState::Injured)
-			Hp--;
+		Hp--;
 		if (Hp == 0)
 			OnDestroy();
 		else

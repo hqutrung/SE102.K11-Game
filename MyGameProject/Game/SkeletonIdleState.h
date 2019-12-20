@@ -5,7 +5,6 @@
 class SkeletonIdleState : public EnemyState
 {
 public:
-	SkeletonIdleState() {};
 	SkeletonIdleState(EnemyData* data);
 	~SkeletonIdleState() {};
 	void Update(float dt) override;

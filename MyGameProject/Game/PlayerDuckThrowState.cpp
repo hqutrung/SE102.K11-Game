@@ -7,11 +7,6 @@ PlayerDuckThrowState::PlayerDuckThrowState(PlayerData* data)
 	texs->Add(1051, "Resources/PlayerState/duck_throw_after.png", D3DCOLOR_XRGB(255, 0, 255));
 	m_Animation = new Animation();
 	m_Animation->AddFrames(texs->GetTexture(1051), 1, 6, 0.065f, D3DCOLOR_XRGB(255, 255, 255));
-
-}
-
-PlayerDuckThrowState::~PlayerDuckThrowState()
-{
 }
 
 void PlayerDuckThrowState::Render()
