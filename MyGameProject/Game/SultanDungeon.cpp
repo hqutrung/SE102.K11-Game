@@ -32,7 +32,7 @@ void SultanDungeon::LoadContent()
 	// Player
 	player = new Player();
 	player->SetPosition(100, 100);
-	player->SetPosition(2100, 1000);
+	//player->SetPosition(2100, 1000);
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
 	(new Unit(map->GetGrid(), player))->SetActive(true);
