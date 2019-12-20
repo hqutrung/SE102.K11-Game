@@ -13,7 +13,7 @@ void SkeletonIdleState::Update(float dt)
 	auto disToPlayer = skeleton->GetDisToPlayer();
 	if (!enemyData->enemy->isDied) {
 		if(e_Animation->GetCurrentFrameID() == 19)
-			e_Animation->SetDefaultTime(0.5f);
+			e_Animation->SetDefaultTime(0.4f);
 		if (e_Animation->IsLastFrame(dt))
 		{
 			flag = true;
