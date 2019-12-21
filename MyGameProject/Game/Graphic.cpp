@@ -134,4 +134,10 @@ void Graphic::SetBackBuffer(LPDIRECT3DSURFACE9 backBuffer)
 	this->backBuffer = backBuffer;
 }
 
+void Graphic::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture)
+{
+	auto position = D3DXVECTOR3(x, y, 0);
+	spriteHandler->Draw(texture, NULL, NULL, &position, D3DCOLOR_ARGB(255, 255, 255, 255));
+}
+
 

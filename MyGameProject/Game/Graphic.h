@@ -41,4 +41,6 @@ public:
 
 	int GetBackBufferWidth() { return SCREEN_WIDTH; }
 	int GetBackBufferHeight() { return SCREEN_HEIGHT; }
+
+	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture);
 };
