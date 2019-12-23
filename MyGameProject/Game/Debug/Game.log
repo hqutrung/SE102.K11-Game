@@ -1,7 +1,6 @@
-﻿  SultanDungeon.cpp
+﻿  FatGuardAttackState.cpp
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
 D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(48,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(76,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\FatGuardAttackState.cpp(64,35): warning C4305: 'argument': truncation from 'double' to 'float'
   Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

@@ -47,13 +47,14 @@ void FatGuardAttackState::Update(float dt)
 	case 0:
 		//delay time
 		if (e_Animation->countLoopFrame == 1)
-			e_Animation->SetDefaultTime(0.2f);
+			e_Animation->SetDefaultTime(0.1f);
 		break;
 	case 1:
 	case 2:
-	case 3:
-		e_Animation->SetDefaultTime(0.1);
+		e_Animation->SetDefaultTime(0.1f);
 		break;
+
+	case 3:
 	case 4:
 	case 8:
 	case 9:
@@ -76,5 +77,5 @@ void FatGuardAttackState::ResetState()
 	e->SetColliderTop(26);
 	e->SetColliderBottom(-26);
 	e_Animation->ResetAnimation();
-	enemyData->enemy->SetBodyBox(19, -19, 47, -26);
+	enemyData->enemy->SetBodyBox(19, -19, 40, -26);
 }

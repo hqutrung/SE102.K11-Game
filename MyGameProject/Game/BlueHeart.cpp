@@ -13,6 +13,7 @@ void BlueHeart::OnDestroy()
 {
 	Item::OnDestroy();
 	Sound::GetInstance()->PlayFX(HEART_COLLECT);
-	Player::GetInstance()->AddHp();
+	if (Player::GetInstance()->GetHp() < 9)
+		Player::GetInstance()->AddHp();
 	Player::GetInstance()->isBonusHp = true;
 }

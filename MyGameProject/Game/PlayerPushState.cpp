@@ -20,8 +20,7 @@ void PlayerPushState::Update(float dt)
 
 	auto player = Player::GetInstance();
 	auto keyboard = KeyBoard::GetInstance();
-	if (m_Animation->GetCurrentFrameID() == 0);
-		Sound::GetInstance()->PlayFX(ALADDIN_PUSH);
+
 	if (m_Animation->IsLastFrame(dt) == true)
 	{
 		m_Animation->countLoopFrame++;

@@ -95,6 +95,7 @@ Player::Player() : Entity()
 	posRevival = position;
 	width = 37;
 	height = 55;
+	//apples = 100;
 }
 
 Player::~Player()
@@ -591,6 +592,7 @@ void Player::OnCollision(Entity* impactor, Entity::SideCollision side, float col
 				{
 					lastposition = D3DXVECTOR3(newPosX, position.y, 0);
 					SetState(PlayerState::Push);
+					Sound::GetInstance()->PlayFX(ALADDIN_PUSH);
 				}
 			}
 		}
