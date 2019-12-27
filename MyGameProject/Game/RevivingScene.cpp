@@ -58,9 +58,9 @@ void RevivingScene::Update(float dt)
 			sceneM->LoadScene(ID_CONTINUE_SCENE);
 			return;
 		}
-		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
 		if (player->posRevival != sceneM->GetStartPos())
 			Sound::GetInstance()->PlayFX(COMING_OUT);
+		sceneM->LoadScene(sceneM->GetPlayScene()->GetSceneID());
 		return;
 	}
 }

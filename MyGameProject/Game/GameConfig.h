@@ -108,6 +108,13 @@
 #define PEDDLE_SHOP 34
 #define CASH 35
 #define CASH1 36 
+#define MENU 37
+#define MENUCHANGE 38
+#define MENUSELECT 39
+#define LAGO 40
+#define GUN 41
+#define INTRO1 42
+#define CONTINUE 43
 // SOUND
 
 // CAMERA
@@ -125,6 +132,7 @@
 #define ID_COMPLETE_SCENE 4
 #define SCENE_JAFAR_PALACE 5
 #define ID_CONTINUE_SCENE 6
+#define ID_MENU_SCENE 7
 
 
 // GRID

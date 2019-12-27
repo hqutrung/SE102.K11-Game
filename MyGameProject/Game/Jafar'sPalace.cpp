@@ -16,10 +16,7 @@ JafarPalace::~JafarPalace()
 	camera = NULL;
 	delete data;
 	data = NULL;
-	for (size_t i = 0; i < apples.size(); i++) {
-		delete apples[i];
-		apples[i] = NULL;
-	}
+	
 }
 
 void JafarPalace::LoadContent()

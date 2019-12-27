@@ -322,6 +322,9 @@
     <ClCompile Include="Data.cpp">
       <Filter>Header Files\Objects\General</Filter>
     </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Header Files\Objects\Player\Player</Filter>
     </ClCompile>
@@ -662,6 +665,9 @@
     </ClInclude>
     <ClInclude Include="Data.h">
       <Filter>Header Files\Objects\General</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="PlayerState.h">
       <Filter>Header Files\Objects\Player\Player</Filter>

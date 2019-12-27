@@ -50,7 +50,7 @@ void ContinueScene::ProcessInput()
 		}
 	}
 	else if (keyboard->GetKey(LEFT_ARROW))
-		exit(0);
+		sceneM->LoadScene(ID_MENU_SCENE);
 }
 
 int ContinueScene::GetSceneID()
