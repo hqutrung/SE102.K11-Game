@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include"LevelComplete.h"
 #include"ContinueScene.h"
+#include"MenuScene.h"
 
 SceneManager* SceneManager::instance = NULL;
 
@@ -65,12 +66,12 @@ void SceneManager::CreateScene(int sceneID)
 	{
 	case ID_INTRO_SCENE:
 		currentScene = new IntroScene();
-		Sound::GetInstance()->PlayMusic(INTRO);
+		Sound::GetInstance()->PlayMusic(INTRO1);
 		break;
 	case ID_SULTAN_DUNGEON:
+		Sound::GetInstance()->PlayMusic(SULTAN_DUNGEON);
 		startPos = D3DXVECTOR3(100, 100, 0);
 		currentScene = sultanDungeon;
-		Sound::GetInstance()->PlayMusic(SULTAN_DUNGEON);
 		break;
 	case ID_RIVIVING_SCENE:
 		currentScene = new RevivingScene();
@@ -88,7 +89,13 @@ void SceneManager::CreateScene(int sceneID)
 	case ID_CONTINUE_SCENE:
 		ResetData();
 		DeletePlayScene();
+		Sound::GetInstance()->PlayMusic(CONTINUE);
 		currentScene = new ContinueScene();
+		break;
+	case ID_MENU_SCENE:
+		ResetData();
+		DeletePlayScene();
+		currentScene = new MenuScene();
 		break;
 
 	}

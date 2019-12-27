@@ -9,7 +9,7 @@ GameManager::GameManager(HWND hWnd, HINSTANCE hInstance)
 
 	Sound::GetInstance()->LoadSound(hWnd);
 
-	SceneManager::GetInstance()->LoadScene(ID_INTRO_SCENE);
+	SceneManager::GetInstance()->LoadScene(ID_MENU_SCENE);
 	this->hWnd = hWnd;
 	this->hInstance = hInstance;
 	isPause = false;

@@ -337,6 +337,9 @@
     <ClCompile Include="Data.cpp">
       <Filter>Header Files\Objects\General</Filter>
     </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -674,6 +677,9 @@
     </ClInclude>
     <ClInclude Include="Data.h">
       <Filter>Header Files\Objects\General</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -38,6 +38,7 @@ void SultanDungeon::LoadContent()
 	//player->ReloadData();
 	player->lastposition = player->GetPosition();
 	player->SetPosition(2100, 1000);
+	player->SetApples(10);
 	(new Unit(map->GetGrid(), player))->SetActive(true);
 
 	camera->SetPosition(player->GetPosition());

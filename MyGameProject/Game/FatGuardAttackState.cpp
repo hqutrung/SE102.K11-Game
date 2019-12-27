@@ -50,13 +50,13 @@ void FatGuardAttackState::Update(float dt)
 	case 0:
 		//delay time
 		if (e_Animation->countLoopFrame == 1)
-			e_Animation->SetDefaultTime(0.2f);
+			e_Animation->SetDefaultTime(0.08f);
 		break;
 	case 1:
 	case 2:
-	case 3:
-		e_Animation->SetDefaultTime(0.1);
+		e_Animation->SetDefaultTime(0.08);
 		break;
+	case 3:
 	case 4:
 	case 8:
 	case 9:

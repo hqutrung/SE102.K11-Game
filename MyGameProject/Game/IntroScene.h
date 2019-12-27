@@ -9,6 +9,8 @@
 #include "Player.h"
 class IntroScene : public Scene
 {
+	bool isA=true;
+	Animation* a;
 	Animation* intro;
 	Animation* introJafar;
 

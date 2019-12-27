@@ -59,6 +59,13 @@ void Sound::LoadSound(HWND hwnd)
 	DSBuffer[PEDDLE_SHOP] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/PeddlerShop.wav");
 	DSBuffer[CASH] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/cash.wav");
 	DSBuffer[CASH1] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/cash1.wav");
+	DSBuffer[MENU] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/menu.wav");
+	DSBuffer[MENUCHANGE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/MenuChange.wav");
+	DSBuffer[MENUSELECT] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/menuselect.wav");
+	DSBuffer[LAGO] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/lago.wav");
+	DSBuffer[GUN] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/gun.wav");
+	DSBuffer[INTRO1] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/intro1.wav");
+	DSBuffer[CONTINUE] = LoadWaveToSoundBuffer((char*)"Resources/Sounds/continueScene.wav");
 
 	if (!DSBuffer)
 	{
