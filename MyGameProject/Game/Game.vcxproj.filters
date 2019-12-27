@@ -163,9 +163,6 @@
     <ClCompile Include="FatGuard.cpp">
       <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClCompile>
-    <ClCompile Include="FatGuardAttackState.cpp">
-      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerPushState.cpp">
       <Filter>Header Files\Objects\Player\State</Filter>
     </ClCompile>
@@ -336,6 +333,9 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Header Files\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="FatGuardAttackState.cpp">
+      <Filter>Header Files\Objects\Enemy\FatGuard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
