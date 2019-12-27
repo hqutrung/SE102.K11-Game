@@ -1,527 +1,534 @@
 ﻿  Animation.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Apple.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Apple.cpp(24,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Apple.cpp(24,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Apple.cpp(24,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Apple.cpp(25,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Apple.cpp(25,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Apple.cpp(25,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Apple.cpp(25,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   AppleWeapon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Apple.cpp(24,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\AppleWeapon.cpp(37,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   AppleWeaponExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\AppleWeapon.cpp(37,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Ball.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Bat.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   BatFollowPlayerState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(28,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(31,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(34,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(37,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(40,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(43,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(46,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(49,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(52,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(55,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(28,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(31,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(34,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(37,55): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(40,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(43,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(46,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(49,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(52,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(55,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(58,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
   BatIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\BatFollowPlayerState.cpp(58,56): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   BatRotateState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   BigItemExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   BlueHeart.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   BlueVase.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Camera.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Camera.cpp(14,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Camera.cpp(15,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Camera.cpp(38,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Camera.cpp(43,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(14,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(15,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(38,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(43,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Camera.cpp(163,90): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   ChainedPillar.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Camera.cpp(176,90): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   CollisionDetector.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(68,43): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(70,35): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(159,23): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(68,43): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(70,35): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(159,23): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(160,24): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
   ContinueScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\CollisionDetector.cpp(160,24): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Data.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Debug.cpp
+  dsutil.cpp
+  dxutil.cpp
+  Generating Code...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\dsutil.cpp(691): warning C4715: 'CSound::GetFreeBuffer': not all control paths return a value
+  Compiling...
   Effect.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Enemy.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(42,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(43,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(44,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(45,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(42,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(43,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(44,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(154,24): warning C4101: 'side1': unreferenced local variable
+  EnemyData.cpp
   EnemyExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Enemy.cpp(156,24): warning C4101: 'side1': unreferenced local variable
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  Generating Code...
-  Compiling...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   EnemyState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Entity.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(175,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(184,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(207,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(212,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(217,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(174,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(183,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(206,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(211,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(216,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Entity.cpp(221,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   ExitPort.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Entity.cpp(222,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   FatGuard.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   FatGuardAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\FatGuardAttackState.cpp(57,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   FatGuardFollowPlayerState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\FatGuardAttackState.cpp(66,35): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\FatGuardFollowPlayerState.cpp(6,130): warning C4305: 'argument': truncation from 'double' to 'float'
   FatGuardIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\FatGuardFollowPlayerState.cpp(6,130): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   FatGuardInjuredState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   FatGuardProvokeState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Fire.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   GameManager.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameManager.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   GameMap.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameManager.cpp(16,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(126,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(127,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(171,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(171,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(203,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(203,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(211,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(212,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(213,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(214,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(394,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(396,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(402,85): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(126,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(127,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(171,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(171,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(203,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(203,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(211,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(212,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(213,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(214,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(388,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(390,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(396,85): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(396,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  GameTime.cpp
   Gem.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameMap.cpp(402,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   GenieToken.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Graphic.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  Generating Code...
+  Compiling...
   Grid.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(159,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(160,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(161,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(162,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(576,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(604,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(605,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(606,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(159,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(160,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(161,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(162,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(566,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(594,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(595,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(596,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Grid.cpp(597,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   IntroScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Grid.cpp(607,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Item.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Jafar'sPalace.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(60,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(54,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(77,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Jafar.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Jafar'sPalace.cpp(87,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Generating Code...
-  Compiling...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Jafar.cpp(60,24): warning C4101: 'side1': unreferenced local variable
   JafarAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Jafar.cpp(60,24): warning C4101: 'side1': unreferenced local variable
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   JafarExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   JafarIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   JafarWeapon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\JafarWeapon.cpp(40,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\JafarWeapon.cpp(39,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\JafarWeapon.cpp(40,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  KeyBoard.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   LevelComplete.cpp
-E:\SE102.K11-Game\MyGameProject\Game\JafarWeapon.cpp(41,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(34,126): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(34,72): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(34,126): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(34,72): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(35,54): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
   Main.cpp
-E:\SE102.K11-Game\MyGameProject\Game\LevelComplete.cpp(35,54): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\Main.cpp(49,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(49,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Main.cpp(110,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
   MenuScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Main.cpp(112,14): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   ObjectPooling.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Obstacles.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  PLayerLookUpState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(58,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Peddler.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(62,44): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Pillar.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Player.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(832,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   PlayerClimbAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(844,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbAttackState.cpp(31,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PlayerClimbJumpState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbAttackState.cpp(35,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Player.cpp(430): warning C4715: 'Player::GetState': not all control paths return a value
+  Compiling...
   PlayerClimbState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(86,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(81,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(86,30): warning C4305: 'argument': truncation from 'double' to 'float'
   PlayerClimbThrowState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerClimbState.cpp(91,30): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerData.cpp
   PlayerDeathState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerDuckAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckAttackState.cpp(33,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PlayerDuckState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerDuckAttackState.cpp(36,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(61,43): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(65,44): warning C4305: 'argument': truncation from 'double' to 'float'
-  Compiling...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(57,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerDuckState.cpp(61,44): warning C4305: 'argument': truncation from 'double' to 'float'
   PlayerDuckThrowState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Player.cpp(430): warning C4715: 'Player::GetState': not all control paths return a value
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerFallState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerIdleAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerIdleAttackState.cpp(58,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PlayerIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerIdleAttackState.cpp(67,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerIdleThrowState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerInjuredState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerJumpAttack.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpAttack.cpp(59,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PlayerJumpCrossState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerJumpAttack.cpp(65,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerJumpState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerJumpState.cpp(25,18): warning C4553: '==': result of expression not used; did you intend '='?
   PlayerJumpThrowState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerJumpState.cpp(29,18): warning C4553: '==': result of expression not used; did you intend '='?
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerLookUpAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\PlayerLookUpAttackState.cpp(57,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerLookUpAttackState.cpp(53,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerLookUpAttackState.cpp(53,125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  PLayerLookUpState.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(54,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PLayerLookUpState.cpp(58,44): warning C4305: 'argument': truncation from 'double' to 'float'
   PlayerPushState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerLookUpAttackState.cpp(57,125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerRunAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerPushState.cpp(26,44): warning C4390: ';': empty controlled statement found; is this the intent?
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(9,85): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(57,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
   PlayerRunState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\PlayerRunAttackState.cpp(61,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerRunThrowState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerSlideState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerSomersaultState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  PlayerState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   PlayerTouchGroundState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   RevivingScene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\RevivingScene.cpp(32,99): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-  Generating Code...
-  Compiling...
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\RevivingScene.cpp(31,99): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\RevivingScene.cpp(31,43): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
   Scene.cpp
-E:\SE102.K11-Game\MyGameProject\Game\RevivingScene.cpp(32,43): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   SceneManager.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Skeleton.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SkeletonIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SkeletonWeapon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SkeletonWeaponExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   SmallItemExplosion.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   SnakeAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SnakeJafarWeapon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   SnakePillar.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Sound.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sound.cpp(165,14): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
   Spike.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sound.cpp(164,14): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Sprites.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(54,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(64,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(74,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(37,10): warning C4101: 'result': unreferenced local variable
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(161,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(162,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Stone.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(175,4): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  SultanDungeon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(53,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Support.cpp
-E:\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(80,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(59,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(61,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Surface.cpp
-E:\SE102.K11-Game\MyGameProject\Game\Support.cpp(62,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  Textures.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  ThinGuard.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-  ThinGuardAttackState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(8,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(9,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(18,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(54,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(64,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(72,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(74,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(37,10): warning C4101: 'result': unreferenced local variable
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(161,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(162,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sprites.cpp(175,4): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  PlayerState.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\ThinGuardAttackState.cpp(7,128): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\Sound.cpp(88): warning C4715: 'Sound::InitDirectSound': not all control paths return a value
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Sound.cpp(89): warning C4715: 'Sound::InitDirectSound': not all control paths return a value
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(27): warning C4715: 'SceneManager::GetPlayScene': not all control paths return a value
   Compiling...
+  Stone.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  SultanDungeon.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(48,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\SultanDungeon.cpp(76,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Support.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(6,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(7,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(8,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(9,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(59,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(61,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\Support.cpp(62,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Surface.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  Textures.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  ThinGuard.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  ThinGuardAttackState.cpp
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\ThinGuardAttackState.cpp(7,128): warning C4305: 'argument': truncation from 'double' to 'float'
   ThinGuardFollowPlayer.cpp
-E:\SE102.K11-Game\MyGameProject\Game\SceneManager.cpp(27): warning C4715: 'SceneManager::GetPlayScene': not all control paths return a value
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\ThinGuardFollowPlayer.cpp(6,130): warning C4305: 'argument': truncation from 'double' to 'float'
   ThinGuardIdleState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\ThinGuardFollowPlayer.cpp(6,130): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   ThinGuardInjuredState.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Unit.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
   Weapon.cpp
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(54,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(55,1): warning C4005: 'TEX_APPLE_WEAPON': macro redefinition
+D:\Documents\Game\SE102.K11-Game\MyGameProject\Game\GameConfig.h(53): message : see previous definition of 'TEX_APPLE_WEAPON'
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Generating Code...
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : see previous definition of 'TEX_APPLE_WEAPON'
-E:\SE102.K11-Game\MyGameProject\Game\GameConfig.h(52): message : C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Game.vcxproj -> E:\SE102.K11-Game\MyGameProject\Debug\Game.exe
+  Game.vcxproj -> D:\Documents\Game\SE102.K11-Game\MyGameProject\Debug\Game.exe

@@ -51,7 +51,7 @@ void FatGuardAttackState::Update(float dt)
 		break;
 	case 1:
 	case 2:
-		e_Animation->SetDefaultTime(0.08);
+		e_Animation->SetDefaultTime(0.08f);
 		break;
 	case 3:
 	case 4:
@@ -60,7 +60,7 @@ void FatGuardAttackState::Update(float dt)
 		enemyData->enemy->isAttack = true;
 		break;
 	default:
-		e_Animation->SetDefaultTime(0.08);
+		e_Animation->SetDefaultTime(0.08f);
 		break;
 	}
 	if (e_Animation->IsLastFrame(dt))
